@@ -1084,7 +1084,8 @@ h1.title {
   font-family: 'Red Hat Display', sans-serif;
   margin-bottom: 20px;
   color: #000;
-  font-weight: 500;
+  font-weight: 400;
+  line-height: 55px;
 }
 
 .abt-text {
