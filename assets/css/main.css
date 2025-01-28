@@ -1085,7 +1085,7 @@ h1.title {
   margin-bottom: 20px;
   color: #000;
   font-weight: 400;
-  line-height: 15px;
+  /*line-height: 15px;*/
 }
 
 .abt-text {
