@@ -1,445 +1,605 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mote Kreatif - Creative Digital Agency</title>
-    <link rel="stylesheet" href="assets/css/plugin.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/aa.svg">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="MOTE — Masyarakat Modal Tekun. Ekosistem kreatif & digital dari Garut." />
+  <title>MOTE — Mote Kreatif</title>
 
-    <meta name="facebook-domain-verification" content="kk3yhk4p9djkosft73uongckwzl2es" />
-    
-</head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <meta name="facebook-domain-verification" content="kk3yhk4p9djkosft73uongckwzl2es" />
+
+</head>   
 <body>
+  
 
-    <!-- Start Preload -->
-    <div class="preloader"></div>
-    <div class="block-1"></div>
-    <div class="block-2"></div>
-    <div class="logo-load">
-    <img src="assets/img/logoblack1.svg" alt="">
-    </div>
-    <div class="logo-load spinning"></div>
-    <div class="over-all"></div>
-    <!-- End Preload -->
+  <!-- Header -->
+  <header class="header" data-elevate>
+    <div class="container header__inner">
+      <a class="brand" href="#home" aria-label="MOTE Home">
+        <img class="brand__mark" src="assets/img/logogramsquare.webp" alt="MOTE knot logo">
+        <img class="brand__name" src="assets/img/textlogosquare.webp" alt="MOTE wordmark">
+      </a>
 
-    <!-- Start Header -->
-    <header>
+      <nav class="nav" aria-label="Primary">
+        <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav__toggleIcon" aria-hidden="true"></span>
+          <span class="sr-only">Buka menu</span>
+        </button>
 
-        <nav>
-            <!-- Logo -->
-            <div class="logo hover-target">
-                <a class="load-spiral" href="index.html"><img src="assets/img/logoblack1.svg" alt="logo"></a>
-            </div>
-            <!-- Menu bar -->
-            <!-- <div class="toggle-btn magnetic hover-target">
-                <div class="burger-menu">
-                    <span class="one"></span>
-                    <span class="two"></span>
-                    <span class="tre"></span>
-                </div>
-            </div> -->
-            <!-- Social -->
-            <div class="scr socials">
-                <div class="list-social">
-                    <ul>
-                        <li class="hover-target"><a href="https://api.whatsapp.com/send?phone=6289662158784&text=Hallo%20Mote,%20Saya%20mau%20ngobrol%20tantang%20Aktivasi%20Digital%20Marketing." target="_blank">Contact Us.</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Copyright -->
-            <div class="scr copyright-top">
-                <p>Mote &copy; 2025</p>
-            </div>
-
-            <div class="bg-nav"></div>
-
-            <!-- menu -->
-          <!--  <div class="manu-container">
-                <div class="menu">
-                    <div class="data">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="links text-center text-lg-left">
-                                        <ul>
-                                            <li>
-                                                <p>01</p><a class="menu-link hover-target load-spiral"
-                                                    href="index.html">Home</a>
-                                            </li>
-                                            <li>
-                                                <p>02</p><a class="menu-link hover-target load-spiral"
-                                                    href="work.html">Work</a>
-                                            </li>
-                                            <li>
-                                                <p>03</p><a class="menu-link hover-target load-spiral"
-                                                    href="about.html">About</a>
-                                            </li>
-                                            <li>
-                                                <p>04</p><a class="menu-link hover-target load-spiral"
-                                                    href="blog.html">Blog</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-
-                                </div>
-
-                                <div class="col-md-4 offset-md-2 centered text-right">
-                                    <div class="address-menu">
-
-                                        <h3>Mote Kreatif</h3>
-                                        <h4>West Java, Indonesia</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div> -->
-        </nav>
-
-
-    </header>
-    <!-- End Header -->
-
-
-    <!-- Start Content -->
-    <div id="spiral">
-
-        <!-- Header -->
-        <div class="scrolls">
-            <img draggable="false" src="assets/img/sroll.svg" alt="scroll">
+        <div class="nav__menu" id="navMenu">
+          <a class="nav__link" href="#about">About</a>
+          <a class="nav__link" href="#service">Service</a>
+          <a class="nav__link" href="#ecosystem">Ecosystem</a>
+          <a class="nav__link" href="#insight">Insight</a>
+          <a class="nav__link" href="#programs">Programs</a>
+          <a class="nav__link" href="#contact">Contact</a>
+          <a class="btn btn--dark nav__cta" href="#contact">Contact Us</a>
         </div>
-        <div class="main-head">
-            <div class="heading-text">
-                <div class="heading-text-front">
-                    <h1>Kami percaya bisnis bisa
-                        tumbuh lewat kombinasi
-                        kreativitas dan
-                        performa yang padu.</h1>
-                </div>
-                <div class="heading-text-back">
-                    <h1>Kami percaya bisnis bisa
-                        tumbuh lewat kombinasi
-                        kreativitas dan
-                        performa yang padu.</h1>
-                </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO Hero) -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true">
+        <svg class="ribbon ribbon--a" viewBox="0 0 1200 300" preserveAspectRatio="none">
+          <path d="M-20,240 C120,80 260,120 420,240 C580,360 720,300 900,180 C1040,90 1140,40 1240,60"
+                fill="none" stroke="var(--ribbonA)" stroke-width="56" stroke-linecap="round" />
+        </svg>
+        <svg class="ribbon ribbon--b" viewBox="0 0 1200 320" preserveAspectRatio="none">
+          <path d="M-30,80 C180,220 320,220 520,80 C720,-60 860,0 980,120 C1100,240 1220,260 1300,210"
+                fill="none" stroke="var(--ribbonB)" stroke-width="46" stroke-linecap="round" />
+        </svg>
+        <svg class="ribbon ribbon--c" viewBox="0 0 1200 320" preserveAspectRatio="none">
+          <path d="M-40,160 C140,20 260,20 420,140 C600,280 740,280 900,160 C1040,70 1160,30 1320,80"
+                fill="none" stroke="var(--ribbonC)" stroke-width="38" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__copy" data-reveal>
+          <p class="eyebrow">Hi There!</p>
+          <h1 class="hero__title">
+            <span class="hero__titleBig">Ready to transform</span>
+            <span class="hero__titleSub">your digital presence?</span>
+          </h1>
+
+          <br>
+
+          <p class="hero__lead">
+            MOTE adalah ekosistem kreatif & digital (dengan Mote Kreatif sebagai benang merah)
+            untuk membantu brand, individu, dan komunitas bertumbuh—dengan ketekunan sebagai modal utama.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn btn--dark" href="#contact">Mulai Kolaborasi</a>
+            <a class="btn btn--ghost" href="#service">Lihat Service</a>
+          </div>
+
+          <div class="hero__stats" aria-label="Highlights">
+            <div class="stat">
+              <div class="stat__num">2024</div>
+              <div class="stat__label">mulai bergerak</div>
             </div>
+            <div class="stat">
+              <div class="stat__num">70+</div>
+              <div class="stat__label">kolaborator & jaringan</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">5+</div>
+              <div class="stat__label">kategori ekosistem</div>
+            </div>
+          </div>
         </div>
 
-        <!-- About -->
-        <section class="about">
-            <div class="container">
-                <div class="row centered">
-                    <div class="col-lg-7">
-                        <div class="img-about luxy-el" data-horizontal="1" data-speed-x="1">
-                            <img class="img-fluid" src="assets/img/a1.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="abt-text">
-                            <h5>Didirikan pada tahun 2024, Kami
-                                merupakan sebuah Creative Digital
-                                Agency yang berfokus pada
-                                pertumbuhan bisnis klien kami dari
-                                dimulai dari aktivasi digital, sebagai
-                                katalis menuju brand growth.
-                            </h5><br>
-                            <p>Misi Moté adalah menyediakan solusi creative marketing yang mengintegrasikan kreativitas dan performa sebagai fondasi utama dalam mengembangkan pertumbuhan brand.
-
-                                <br><br>Kami siap membantu brand memenangkan persaingan pasar dengan fokus pada pertumbuhan bisnis yang efektif.
-                            </p>
-                            <!-- <a class="hover-target load-spiral" href="about.html">Explore more</a> -->
-                        </div>
-
-                    </div>
-                </div>
+        <div class="hero__card" data-reveal>
+          <div class="card card--glass">
+            <div class="card__head">
+              <span class="pill pill--dark">Core belief</span>
             </div>
-        </section>
-
-        <!-- Service -->
-        <section class="service" style="background-color: #951B81;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="main-title text-center">
-                            <h2 style="color: #E3E1C9;">Jadi, Apasih yang <span>Mote</span> Tawarkan?</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="service-item">
-                            <div class="service-text">
-                                <h2>1. Digital Marketing Strategy Analysis</h2>
-                                <div class="service-line"></div>
-                                <p>Menyediakan strategi pemasaran dengan kampanye
-                                    strategis, memimpin tim kreatif dan digital, juga
-                                    memastikan komunikasi yang mendukung
-                                    tumbuhnya branding & performa marketing.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="service-item">
-                            <div class="service-text">
-                                <h2>2. Creative Content Production</h2>
-                                <div class="service-line"></div>
-                                <p>Menghasilkan konten yang engage dan relevan
-                                    melalui perencanaan matang, copy persuasif, dan
-                                    konten visual kuat untuk memperkuat branding
-                                    lewat aktivasi digital brandmu.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="service-item">
-                            <div class="service-text">
-                                <h2>3. Analytic & Strategic Media Performance</h2>
-                                <div class="service-line"></div>
-                                <p>Mengelola dan memberikanmu insight performa
-                                    kampanye di media sosial dan iklan digital,
-                                    termasuk Meta, Google, dan kolaborasi KOL, serta
-                                    menyediakan laporan untuk evaluasi dan optimasi.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <h2 class="card__title">Ketekunan adalah modal utama.</h2>
+            <p class="card__text">
+              Strategi boleh berubah, tools boleh berganti.
+              Tapi konsistensi belajar, keberanian eksplorasi, dan disiplin eksekusi: itu yang bikin brand lebih dikenal.
+            </p>
+            <div class="card__meta">
+              <span class="metaTag">Push boundaries</span>
+              <span class="metaTag">Agile</span>
+              <span class="metaTag">Humanistic</span>
+              <span class="metaTag">Playful</span>
             </div>
-        </section>
-        <section class="service" style="background-color: #F5A801;">
-            <div class="container">
-                <div class="row centered mt-10">
-                    <div class="col-lg-7">
-                        <div class="about-text">
-                            <h3>Layanan kami di desain untuk membantu
-                                brand tampil dengan narasi yang engage dan
-                                menjangkau lebih banyak audiens serta
-                                <b>memicu kemampuan bisnis tumbuh</b> dari sisi
-                                awareness, engagement dan traﬃc digital.
-                            </h3>
-                        </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                    </div>
-                    <div class="col-lg-5">
-                        <img class="img-fluid" src="assets/img/aa.svg" alt="">
-                    </div>
-                </div>
-
-                <div class="row centered">
-                    <div class="col-lg-6 mt-10">
-                        <div class="service-box">
-                            <div class="service-text">
-                                <h4>Creative Marketing Services</h4>
-                            </div>
-                            <div class="circle-container">
-                                <div class="circle">Creative Campaign Direction</div>
-                                <div class="circle">Creative Content Creation</div>
-                                <div class="circle">Graphic Design Services</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mt-10">
-                        <div class="service-box" style="background-color: #951B81;">
-                            <div class="service-text">
-                                <h4>Performance Marketing Services</h4>
-                            </div>
-                            <div class="circle-container">
-                                <div class="circle">Marketing Event Suggestion</div>
-                                <div class="circle">KOL <br>Activation</div>
-                                <div class="circle">Ads <br>Activation</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
-       
-
-        <!-- CTA -->
-        <section class="folio-content" style="background-color: #E3E1C9; ">
-            <div class="container">
-                <div class="row" style="padding-bottom: 30px;">
-                    <div class="col-md-5">
-                        <div class="main-title">
-                            <h2>Our Client</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div>
-                            <p style="color: #000000;">Keberhasilan klien kami tidak hanya mencerminkan pencapaian kami sendiri tetapi juga menandakan pertumbuhan bisnis kami, itulah sebabnya kami berkomitmen untuk menemukan cara untuk mencapai tonggak sejarah bersama.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid-container">
-                    <div class="grid-item">
-                        <a href="" target="_blank">
-                            <img src="assets/img/restorasa.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" target="_blank">
-                            <img src="assets/img/balong.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" target="_blank">
-                            <img src="assets/img/barbedek.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" target="_blank">
-                            <img src="assets/img/popondok.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" target="_blank">
-                            <img src="assets/img/kangroti.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" target="_blank">
-                            <img src="assets/img/popotoan.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" target="_blank">
-                            <img src="assets/img/ben.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" target="_blank">
-                            <img src="assets/img/wacana.svg" alt="">
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="" target="_blank">
-                            <img src="assets/img/tehsantea.svg" alt="">
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        <section class="service" style="background-color: #F5A801;">
-            <div class="container">
-                <div class="row centered mt-10">
-                    <div class="col-lg-7">
-                        <div class="service-text">
-                            <h5>Di Moté Kreatif, kami menghargai
-                                kreativitas, kerja sama tim, inisiatif
-                                dalam inovasi. <b>Kami berusaha
-                                menciptakan lingkungan kerja yang
-                                mendukung pertumbuhan dan
-                                pengembangan pribadi serta
-                                profesional</b> yang mendukung
-                                keberlangsungan dan
-                                perkembangan bersama.
-                            </h5>
-                        </div>
-
-                    </div>
-                    <div class="col-lg-5">
-                        <!--<div class="about-text">
-                            <p>Our Brand Value :</p>
-                            <h5>Creativity Strategic
-                                Objective Minded Problem Solver
-                                Responsible Initiative</h5>
-                        </div>-->
-                    </div>
-                </div>
-
-                <div class="row centered mt-30">
-                    <div class="col-lg-7">
-                        <a href="https://api.whatsapp.com/send?phone=6289662158784&text=Hallo%20Mote,%20Saya%20mau%20ngobrol%20tantang%20Aktivasi%20Digital%20Marketing." target="_blank">
-                            <div class="service-box" style="background-color: #951B81;">
-                                <div class="service-text">
-                                    <h5 style="color: #E3E1C9;">Konsultasi Gratis Disini!</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-5">
-                    <!--    <div class="service-box" style="background-color: #951B81;">
-                            <div class="service-text">
-                                <h4>Performance Marketing Services</h4>
-                            </div>
-                            
-                        </div>-->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-      
-
-        <!-- Footer -->
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 text-center text-md-left mt-30">
-                        <!-- <div class="mail hover-target">
-                            <a href="#">hello@spiral.design</a>
-                        </div> -->
-                    </div>
-                    <div class="col-md-4 text-center mt-30">
-                        <div class="logo-foot">
-                            <img src="assets/img/logoblack1.svg" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-4 text-center text-md-right mt-30">
-                        <div class="sosmed">
-                            <ul>
-                                <li><a href="https://www.instagram.com/motekreatif/" target="_blank">Instagram.</a></li>
-                                <li><a href="https://www.linkedin.com/company/mote-kreatif/"  target="_blank">Linkedin.</a></li>
-                                <li><a href="https://api.whatsapp.com/send?phone=6289662158784&text=Hallo%20Mote,%20Saya%20mau%20ngobrol%20tantang%20Aktivasi%20Digital%20Marketing." target="_blank">Whatsapp.</a></li>
-                            </ul>
-                        </div>
-                        <div class="copyright">
-                            <p>Mote &copy;2025. All Rights Reserved</p>
-                            <p>Made with ♥</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- QUICK PROOF “8+ years / 500+ clients”) -->
+    <section class="section section--cream" aria-label="Quick proof">
+      <div class="container proof" data-reveal>
+        <div class="proof__left">
+          <p class="eyebrow">Proof of work</p>
+          <h2 class="h2">Measurable growth,<br>human-first.</h2>
+          <p class="muted">
+            Kami fokus ke strategi yang bisa dieksekusi dan bisa diukur.
+            Dari branding sampai performance—tetap grounded pada <b>real business outcome</b>.
+          </p>
         </div>
 
+        <div class="proof__right">
+          <div class="proofCard">
+            <div class="proofCard__num">100+</div>
+            <div class="proofCard__label">project & kolaborasi</div>
+          </div>
+          <div class="proofCard">
+            <div class="proofCard__num">4</div>
+            <div class="proofCard__label">pilar layanan inti</div>
+          </div>
+          <div class="proofCard">
+            <div class="proofCard__num">1</div>
+            <div class="proofCard__label">benang merah: Mote Kreatif</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT About Us) -->
+    <section class="section section--cream" id="about">
+      <div class="container grid grid--2">
+        <div data-reveal>
+          <p class="eyebrow">About Us</p>
+          <h2 class="h2">Since 2024, we build from local to global.</h2>
+
+          <p class="lead">
+            MOTE lahir dari perjumpaan antara kepekaan sosial dan peluang ekonomi di kota berkembang yang penuh potensi.
+          </p>
+
+          <p class="muted">
+            MOTE hadir sebagai penghubung:
+            <br>strategi, kreativitas, dan eksekusi digital—tanpa kehilangan akar lokalnya.
+          </p>
+
+          <div class="callout">
+            <div class="callout__icon" aria-hidden="true">↗</div>
+            <div>
+              <strong>Lebih dari sekadar jasa</strong>
+              <p class="muted">Kami membangun ekosistem: ruang, literasi, komunitas, media, dan produk.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" data-reveal>
+          <div class="panel__inner">
+            <p class="eyebrow">Spirit</p>
+            <h3 class="h3">Gerakan transformasi sosial & ekonomi.</h3>
+            <p class="muted">
+              Kami percaya perubahan besar dimulai dari ruang interaksi yang inklusif,
+              layanan inovatif yang berdampak, literasi yang berkembang, dan ekonomi lokal yang memberdayakan masyarakat dan generasi muda.
+            </p>
+
+            <div class="miniGrid">
+              <div class="mini">
+                <div class="mini__title">Visi</div>
+                <div class="mini__text">Menumbuhkan masyarakat mandiri, kreatif, dan berdampak.</div>
+              </div>
+              <div class="mini">
+                <div class="mini__title">Misi</div>
+                <div class="mini__text">Menghubungkan potensi lokal ke peluang global lewat strategi kreatif & digital.</div>
+              </div>
+            </div>
+
+            <a class="textLink" href="#ecosystem">Lihat Brand Architecture →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR SERVICE Our Service) -->
+    <section class="section section--deep" id="service">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow eyebrow--light">Our Service</p>
+          <h2 class="h2 h2--light">Your trusted partner for growth.</h2>
+          <p class="muted muted--light">
+            Kami bantu dari strategi sampai eksekusi—dengan style MOTE: playful, human, tapi tetap tajam & terukur.
+          </p>
+        </div>
+
+        <div class="serviceGrid">
+          <article class="serviceCard" data-reveal>
+            <div class="serviceCard__top">
+              <span class="pill pill--dark">Core</span>
+              <span class="serviceCard__mini muted muted--light">Digital marketing + growth system</span>
+            </div>
+            <h3 class="serviceCard__title">Digital Marketing Consultant</h3>
+            <p class="serviceCard__text">
+              Audit, strategi funnel, channel planning, ads direction, dan sistem konten yang bisa dieksekusi tim.
+            </p>
+            <ul class="serviceList">
+              <li>Marketing & Funnel Strategy</li>
+              <li>Campaign & Ads Direction</li>
+              <li>Content System + KPI</li>
+              <li>Landing page / Website guidance</li>
+            </ul>
+            <a class="btn btn--ghostLight" href="#contact">Learn More</a>
+          </article>
+
+          <article class="serviceCard" data-reveal>
+            <div class="serviceCard__top">
+              <span class="pill pill--dark">Creative</span>
+              <span class="serviceCard__mini muted muted--light">Branding + performance creative</span>
+            </div>
+            <h3 class="serviceCard__title">Creative Performance</h3>
+            <p class="serviceCard__text">
+              Ide yang menjual: konsep konten, visual direction, short video, KOL, live shopping, sampai asset ads.
+            </p>
+            <ul class="serviceList">
+              <li>Creative Direction</li>
+              <li>Short Video System</li>
+              <li>KOL / Community Activation</li>
+              <li>Live & Commerce Content</li>
+            </ul>
+            <a class="btn btn--ghostLight" href="#contact">Learn More</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ECOSYSTEM content block after services — adapted to MOTE) -->
+    <section class="section section--lime" id="ecosystem">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">Brand Architecture</p>
+          <h2 class="h2">One identity, many units.</h2>
+          <p class="muted">
+            Model: <strong>Branded House</strong> — MOTE sebagai payung, dengan unit-unit spesifik yang tetap membawa benang merah value & culture.
+          </p>
+        </div>
+
+        <div class="architecture" data-reveal>
+          <div class="architecture__core">
+            <div class="coreBadge">
+              <div class="coreBadge__top">MOTE</div>
+              <div class="coreBadge__sub">Value & culture driver</div>
+            </div>
+            <p class="muted">
+              Peran: kompas arah, strategic umbrella, dan penggerak budaya.
+              Fungsi: menguatkan ekosistem lintas sektor (ekonomi, edukasi, komunitas, kreativitas).
+            </p>
+          </div>
+
+          <div class="architecture__grid">
+            <div class="chip">
+              <div class="chip__title">Layanan</div>
+              <div class="chip__text">Strategi & eksekusi untuk pertumbuhan.</div>
+            </div>
+            <div class="chip">
+              <div class="chip__title">Ruang</div>
+              <div class="chip__text">Wadah pertemuan & perwujudan gagasan.</div>
+            </div>
+            <div class="chip">
+              <div class="chip__title">Literasi</div>
+              <div class="chip__text">Belajar progresif untuk semua level.</div>
+            </div>
+            <div class="chip">
+              <div class="chip__title">Retail</div>
+              <div class="chip__text">Ide hadir dalam produk sehari-hari.</div>
+            </div>
+            <div class="chip">
+              <div class="chip__title">Media</div>
+              <div class="chip__text">Kanal cerita, ide, dan energi gerakan.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="units">
+          <h3 class="h3" data-reveal>Meet the units</h3>
+          <div class="units__grid">
+            <article class="unit" data-reveal>
+              <div class="unit__pill">Layanan</div>
+              <h4 class="unit__title">Mote Kreatif</h4>
+              <p class="unit__text">Unit bisnis utama: strategi kreatif & digital untuk Brand/UMKM yang ingin bertumbuh bersama.</p>
+            </article>
+
+            <article class="unit" data-reveal>
+              <div class="unit__pill">Ruang</div>
+              <h4 class="unit__title">House of Posibility</h4>
+              <p class="unit__text">A collaborative house, an office, creatives-creators living room.</p>
+            </article>
+
+            <article class="unit" data-reveal>
+              <div class="unit__pill">Literasi</div>
+              <h4 class="unit__title">Educational Product</h4>
+              <p class="unit__text">Toolkit & modul digital: branding, bisnis, marketing, creative skills.</p>
+            </article>
+
+            <article class="unit" data-reveal>
+              <div class="unit__pill">Media</div>
+              <h4 class="unit__title">Mote Media</h4>
+              <p class="unit__text">Editorial & audio-visual: narasi, inspirasi, dan dokumentasi gerakan.</p>
+            </article>
+
+            <article class="unit" data-reveal>
+              <div class="unit__pill">Komunitas</div>
+              <h4 class="unit__title">Komunitas Kreatif</h4>
+              <p class="unit__text">Wadah belajar & tumbuh bareng—dari pemula sampai pro.</p>
+            </article>
+
+            <article class="unit" data-reveal>
+              <div class="unit__pill">Retail</div>
+              <h4 class="unit__title">Mote Goods</h4>
+              <p class="unit__text">Merch & produk: ide MOTE hadir dalam keseharian.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUSTED BY “Trusted by 500+ brands”) -->
+    <section class="section section--cream" id="trusted">
+      <div class="container" data-reveal>
+        <div class="section__head">
+          <p class="eyebrow">Trusted by</p>
+          <h2 class="h2">Brands & communities that grow with us.</h2>
+        </div>
+
+        <div class="marquee" aria-label="Client logos marquee">
+          <div class="marquee__track" id="marqueeTrack">
+            <div class="logoPill"><img src="assets/img/partner/balong.svg" alt="Balong"></div>
+            <div class="logoPill"><img src="assets/img/partner/restorasa.svg" alt="Restorasa"></div>
+            <div class="logoPill"><img src="assets/img/partner/pleasurenoise.webp" alt="Pleasure Noise"></div>
+            <div class="logoPill"><img src="assets/img/partner/wacana.svg" alt="Wacana"></div>
+            <div class="logoPill"><img src="assets/img/partner/kangroti.svg" alt="Kang Roti"></div>
+            <div class="logoPill"><img src="assets/img/partner/ekraf.webp" alt="Kang Roti"></div>
+            <div class="logoPill"><img src="assets/img/partner/popondok.svg" alt="Popondok"></div>
+            <div class="logoPill"><img src="assets/img/partner/popotoan.svg" alt="Popotoan"></div>
+            <div class="logoPill"><img src="assets/img/partner/silangsimpul.webp" alt="Kang Roti"></div>
+            <div class="logoPill"><img src="assets/img/partner/tehsantea.svg" alt="Teh Santea"></div>
+            <div class="logoPill"><img src="assets/img/partner/ben.svg" alt="BEN"></div>
+            <div class="logoPill"><img src="assets/img/partner/kkk.webp" alt="Kang Roti"></div>
+            <div class="logoPill"><img src="assets/img/partner/barbedek.svg" alt="Barbedek"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PARTNERS Partners powering our strategy) -->
+    <section class="section section--cream" id="partners">
+      <div class="container" data-reveal>
+        <div class="section__head">
+          <p class="eyebrow">Partners</p>
+          <h2 class="h2">Platforms powering our strategy.</h2>
+          <p class="muted">Integrasi Project Management sampai Channel yang sesuai dengan market</p>
+        </div>
+
+
+        <div class="partnerGrid">
+          <div class="partnerCard">
+            <img src="assets/img/instagram.webp" alt="Meta logo" loading="lazy" decoding="async">
+          </div>
+          <div class="partnerCard">
+            <img src="assets/img/tiktok.webp" alt="Google logo" loading="lazy" decoding="async">
+          </div>
+          <div class="partnerCard">
+            <img src="assets/img/shopee.webp" alt="TikTok logo" loading="lazy" decoding="async">
+          </div>
+          <div class="partnerCard">
+            <img src="assets/img/google.webp"Shopee logo" loading="lazy" decoding="async">
+          </div>
+          <div class="partnerCard">
+            <img src="assets/img/meta.webp" alt="Tokopedia logo" loading="lazy" decoding="async">
+          </div>
+          <div class="partnerCard">
+            <img src="assets/img/notion.webp" alt="YouTube logo" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKSPACE Where the magic happens) -->
+    <section class="workspace">
+  <div class="container">
+    <p class="eyebrow">Workspace</p>
+    <h2 class="section-title">Where the magic happens.</h2>
+
+    <div class="workspace-grid">
+      <!-- LEFT BIG IMAGE -->
+      <div class="workspace-main">
+        <img src="assets/img/img3.webp" alt="Community discussion" loading="lazy">
+      </div>
+
+      <!-- RIGHT STACK -->
+      <div class="workspace-side">
+        <div class="workspace-item">
+          <img src="assets/img/img2.webp" alt="Audience session" loading="lazy">
+        </div>
+        <div class="workspace-item">
+          <img src="assets/img/img1.webp" alt="Speaker presentation" loading="lazy">
+        </div>
+      </div>
     </div>
-    <!-- End Content -->
+  </div>
+</section>
 
-    <!-- Toggle menu -->
-    <div class="menus">
-        <a class="hover-target" href="index.html">Home</a>
-        <a class="hover-target" href="index-2.html">Home Slider</a>
-        <a class="hover-target" href="index-3.html">Home Image</a>
-        <a class="hover-target" href="work.html">Work</a>
-        <a class="hover-target" href="about.html">About</a>
-        <a class="hover-target" href="work-detail.html">Work Detail</a>
-        <a class="hover-target" href="work-detail-2.html">Work Detail 2</a>
-        <a class="hover-target" href="blog.html">Blog</a>
-        <a class="hover-target" href="blog-detail.html">Blog Detail</a>
-        <a class="hover-target" href="error.html">Error 404 Page</a>
+
+    <!-- TEAM Meet the minds) -->
+    <section class="section section--deep" id="team">
+      <div class="container team" data-reveal>
+        <div>
+          <p class="eyebrow eyebrow--light">Team</p>
+          <h2 class="h2 h2--light">Meet the minds of MOTE.</h2>
+          <p class="muted muted--light">
+            Kami tim lintas skill: strategi, kreatif, konten, community, dan eksekusi digital.
+            <br>Kalau kamu punya misi yang sama, ayo kolaborasi.
+          </p>
+        </div>
+        <div class="team__cta">
+          <a class="btn btn--light" href="#contact">Meet the People</a>
+          <a class="btn btn--ghostLight" href="#ecosystem">See Ecosystem</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIGHT What’s on our mind) -->
+    <!--  <section class="section section--cream" id="insight">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">Insight</p>
+          <h2 class="h2">What’s on our mind</h2>
+          <p class="muted">Teaser artikel/case study (placeholder). Nanti bisa kamu sambungkan ke CMS/blog.</p>
+        </div>
+
+        <div class="insightGrid">
+          <article class="insightCard" data-reveal>
+            <div class="insightThumb">THUMB</div>
+            <h3 class="insightTitle">Kreativitas & Human Touch di Era AI</h3>
+            <p class="muted">Kenapa brand yang “punya rasa” masih akan menang di tengah konten massal.</p>
+            <a class="textLink" href="#contact">Read more →</a>
+          </article>
+
+          <article class="insightCard" data-reveal>
+            <div class="insightThumb">THUMB</div>
+            <h3 class="insightTitle">Strategi Upper Funnel yang Relevan</h3>
+            <p class="muted">Bagaimana bikin awareness yang nggak cuma ramai, tapi nyambung ke penjualan.</p>
+            <a class="textLink" href="#contact">Read more →</a>
+          </article>
+
+          <article class="insightCard" data-reveal>
+            <div class="insightThumb">THUMB</div>
+            <h3 class="insightTitle">Build → Measure → Scale → Conquer</h3>
+            <p class="muted">Framework pertumbuhan yang bisa dipakai UMKM sampai brand yang mau scale.</p>
+            <a class="textLink" href="#contact">Read more →</a>
+          </article>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- PROGRAMS Our Programs) -->
+    <section class="section section--lime" id="programs">
+      <div class="container">
+        <div class="section__head" data-reveal>
+          <p class="eyebrow">Our Programs</p>
+          <h2 class="h2">Join programs that power you.</h2>
+          <p class="muted">Event / masterclass / komunitas — formatnya bisa kamu sesuaikan.</p>
+        </div>
+
+        <div class="programGrid">
+          <article class="programCard" data-reveal>
+            <div class="programTop">Integrate by MOTE</div>
+            <p class="muted">Annual meetup: strategi, kolaborasi, dan ide-ide yang ngebentuk masa depan.</p>
+            <a class="btn btn--ghost" href="#contact">Learn More</a>
+          </article>
+
+          <article class="programCard" data-reveal>
+            <div class="programTop">MOTE Academy</div>
+            <p class="muted">Training & assessment untuk tim: konten, ads, branding, dan growth system.</p>
+            <a class="btn btn--ghost" href="#contact">Learn More</a>
+          </article>
+
+          <article class="programCard" data-reveal>
+            <div class="programTop">Bimbel Kreatif</div>
+            <p class="muted">Kelas actionable: dari ide → sistem → eksekusi. Cocok buat pemula sampai pro.</p>
+            <a class="btn btn--ghost" href="#contact">Learn More</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT Let’s make something great together) -->
+    <section class="section section--cream" id="contact">
+      <div class="container grid grid--2">
+        <div data-reveal>
+          <h2 class="h2">Let’s make something great together.</h2>
+          <p class="muted">Isi form dibawah ini, Nanti langsung direct conversation bareng Tim MOTE!</p>
+
+          <form class="form" id="contactForm">
+            <div class="form__row">
+              <label class="form__label">Nama</label>
+              <input class="form__input" name="name" placeholder="Nama kamu" required />
+            </div>
+            <div class="form__row">
+              <label class="form__label">No. WhatsApp</label>
+              <input class="form__input" name="contact" placeholder="No. Whatsapp kamu" required />
+            </div>
+            <div class="form__row">
+              <label class="form__label">Kebutuhan</label>
+              <select class="form__input" name="need" required>
+                <option value="" disabled selected>Pilih kebutuhan</option>
+                <option>Digital Marketing & Ads</option>
+                <option>Branding & Creative</option>
+                <option>Website / Landing Page</option>
+                <option>Community / Event / Workshop</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="form__row">
+              <label class="form__label">Pesan</label>
+              <textarea class="form__input form__textarea" name="message" placeholder="Ceritakan singkat konteks & target kamu" required></textarea>
+            </div>
+
+            <button class="btn btn--dark" type="submit">Kirim</button>
+            <p class="form__hint muted" id="formHint" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <aside class="contactCard" data-reveal>
+          <div class="contactCard__inner">
+            <p class="eyebrow">Mote House</p>
+            <p class="contactCard__line"><strong>Alamat:</strong><br>
+              Jl. Raya Cipanas No.13, Cimanganten,<br>
+              Kec. Tarogong Kaler, Kabupaten Garut,<br>
+              Jawa Barat 44151
+            </p>
+
+            <p class="contactCard__line"><strong>Email:</strong><br>
+              <a href="mailto:motekreatif@gmail.com">motekreatif@gmail.com</a>
+            </p>
+
+            <p class="contactCard__line"><strong>Instagram:</strong><br>
+              <a href="https://www.instagram.com/motekreatif" target="_blank" rel="noreferrer">@motekreatif</a>
+            </p>
+
+            <p class="contactCard__line"><strong>Website:</strong><br>
+              <a href="#" target="_blank" rel="noreferrer">www.motekreatif.com</a>
+            </p>
+
+            <div class="contactCard__actions">
+              <a class="btn btn--ghost" href="#home">Back to top</a>
+              <a class="btn btn--dark" href="mailto:motekreatif@gmail.com">Email Us</a>
+            </div>
+
+            <div class="contactCard__footer muted">
+              © <span id="year"></span> MOTE. All rights reserved.
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <span class="footer__brand">MOTE</span>
+        <span class="footer__muted">Ketekunan • Kreativitas • Literasi • Kapasitas</span>
+      </div>
+      <div class="footer__right">
+        <a class="footer__link" href="#about">About</a>
+        <a class="footer__link" href="#service">Service</a>
+        <a class="footer__link" href="#ecosystem">Ecosystem</a>
+        <a class="footer__link" href="#contact">Contact</a>
+      </div>
     </div>
-    <!--  <div class="menu__toggler hover-target magnetic"><span></span></div> -->
+  </footer>
 
-    <!-- Cursor -->
-    <!--  <div class="cursor1" id="cursor1"></div>
-    <div class="cursor" id="cursor"></div> -->
-
-    <script src="assets/js/plugin.js"></script>
-    <script src="assets/js/main.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
-
 </html>
