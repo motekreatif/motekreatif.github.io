@@ -91,51 +91,68 @@
 }
 )();
 
-
 /* ===================================
-   FORM → GOOGLE SHEET → WHATSAPP (FINAL)
+   FORM → WHATSAPP (OPEN FIRST) + SHEET (FIRE & FORGET)
    =================================== */
 
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
-  contactForm.addEventListener("submit", async (e) => {
+  contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const formData = new FormData(contactForm);
 
     const payload = {
-      name: formData.get("name"),
-      contact: formData.get("contact"),
-      need: formData.get("need"),
-      message: formData.get("message")
+      name: (formData.get("name") || "").toString().trim(),
+      contact: (formData.get("contact") || "").toString().trim(),
+      need: (formData.get("need") || "").toString().trim(),
+      message: (formData.get("message") || "").toString().trim(),
     };
 
-    // 1. Kirim ke Google Sheet (FORM ENCODED)
-    await fetch("https://script.google.com/macros/s/AKfycbxgGjYjQxVDmXGCLwlsSckL-AOPpYBbP3BNQrn5ztIKtlstEMr3e93eDFoXNkNOnywM/exec", {
-      method: "POST",
-      body: new URLSearchParams(payload)
-    });
+    // (Opsional) UX
+    const hint = document.getElementById("formHint");
+    const btn = contactForm.querySelector('button[type="submit"]');
+    if (btn) btn.disabled = true;
 
-    // 2. Format pesan WhatsApp
-    const whatsappText = `
-Halo MOTE!
-Saya *${payload.name}*
-Kontak: ${payload.contact}
-Kebutuhan:
-${payload.need}
-
-Pesan:
-${payload.message}
-`;
-
+    // 1) SIAPKAN URL WHATSAPP DULU
     const phoneNumber = "6289662158784";
+
+    const whatsappText =
+    `Halo MOTE!
+    Saya *${payload.name}*
+    Kontak: ${payload.contact}
+
+    Kebutuhan:
+    ${payload.need}
+
+    Pesan:
+    ${payload.message}`;
+
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappText)}`;
 
-    // 3. Reset form (SETELAH KIRIM)
-    contactForm.reset();
+    // 2) BUKA WHATSAPP DULU (BIAR TIDAK KENA POPUP BLOCKER & TIDAK TERGANTUNG FETCH)
+    const w = window.open(whatsappURL, "_blank", "noopener,noreferrer");
 
-    // 4. Redirect ke WhatsApp
-    window.open(whatsappURL, "_blank");
+    // Fallback kalau popup diblok / device memaksa same-tab
+    if (!w) window.location.href = whatsappURL;
+
+    // 3) KIRIM KE GOOGLE SHEET “FIRE & FORGET” (JANGAN AWAIT)
+    //    Catatan: no-cors = kita gak baca response, tapi request tetap terkirim.
+    const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbxgGjYjQxVDmXGCLwlsSckL-AOPpYBbP3BNQrn5ztIKtlstEMr3e93eDFoXNkNOnywM/exec";
+
+    fetch(SHEET_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      body: new URLSearchParams(payload),
+      keepalive: true,
+    }).catch(() => {
+      // sengaja di-silent: jangan ganggu flow WhatsApp
+    });
+
+    // 4) RESET + UI
+    contactForm.reset();
+    if (hint) hint.textContent = "Mengalihkan ke WhatsApp…";
+    if (btn) btn.disabled = false;
   });
 }
