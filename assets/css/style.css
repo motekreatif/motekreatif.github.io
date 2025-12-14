@@ -528,7 +528,6 @@ button,input,select,textarea{ font:inherit; }
   border: 1px solid rgba(17,59,42,.12);
   border-radius: var(--radius-lg);
   padding: 14px;
-  height: 100%;
 }
 .articleCallout{
   padding: 14px;
@@ -997,6 +996,31 @@ button,input,select,textarea{ font:inherit; }
   margin-bottom: 12px;
 }
 .insightTitle{ margin: 0 0 8px; font-weight: 900; }
+
+/* Thumbnail wrapper */
+.blogCard__thumb{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* bisa 4/3 atau 3/2 */
+  border-radius: 18px;
+  overflow: hidden;
+  background: #e6ebe7; /* fallback kalau img belum load */
+}
+
+/* Image behavior */
+.blogCard__thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* ⬅️ INI KUNCINYA */
+  object-position: center;
+  display: block;
+}
+@media (max-width: 600px){
+  .blogCard__thumb{
+    aspect-ratio: 4 / 3;
+  }
+}
+
 
 /* Programs */
 .programGrid{

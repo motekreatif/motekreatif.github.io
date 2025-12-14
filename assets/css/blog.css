@@ -1,0 +1,152 @@
+/* =========================================================
+   BLOG ONLY (scoped by .page-blog)
+   - No changes to existing style.css
+   - Fix mobile responsiveness + overflow + TOC UX
+   ========================================================= */
+
+.page-blog{
+  /* sedikit tweak spacing khusus blog */
+  --blog-pad: clamp(14px, 4vw, 24px);
+}
+
+/* pastikan tidak ada horizontal scroll dari elemen grid/table */
+.page-blog,
+.page-blog main{
+  overflow-x: clip;
+}
+
+/* container blog lebih “penuh” di mobile */
+.page-blog .container{
+  width: min(920px, calc(100% - (var(--blog-pad) * 2)));
+}
+
+/* --- Typography & readable width --- */
+.page-blog .articleIntro__title,
+.page-blog .article__heading{
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.page-blog .articleBlock{
+  /* kalau ada card yang terasa “sempit”, ini bantu grid shrink */
+  min-width: 0;
+}
+
+.page-blog .articleBlock p,
+.page-blog .articleBlock li{
+  line-height: 1.3;
+}
+
+/* --- Fix alpha rgba yang typo di style.css (08/12/06) agar valid --- */
+.page-blog .articleHeroList li{
+  background: rgba(17,59,42,.08);
+  border-color: rgba(17,59,42,.12);
+}
+.page-blog .articleAside__meta{
+  background: rgba(17,59,42,.06);
+  border-color: rgba(17,59,42,.12);
+}
+
+/* --- Grid safety: prevent overflow on small screens --- */
+.page-blog .articleIntro,
+.page-blog .articleLayout,
+.page-blog .articleGrid,
+.page-blog .grid,
+.page-blog .grid--2{
+  min-width: 0;
+}
+.page-blog .articleIntro > *,
+.page-blog .articleLayout > *,
+.page-blog .articleGrid > *,
+.page-blog .grid > *,
+.page-blog .grid--2 > *{
+  min-width: 0;
+}
+
+/* --- Table handling: always scroll instead of breaking layout --- */
+.page-blog .tableWrap{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-xl);
+}
+.page-blog .articleTable{
+  min-width: 640px; /* biar terbaca dan scroll horizontal di HP */
+}
+.page-blog .articleTable th,
+.page-blog .articleTable td{
+  white-space: nowrap;
+}
+
+/* --- TOC (aside) mobile behavior (dibantu blog.js) --- */
+.page-blog .articleAside__card.is-collapsible{
+  padding: 0;
+  overflow: hidden;
+}
+.page-blog .tocToggle{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 900;
+}
+.page-blog .tocToggle__hint{
+  font-size: 12px;
+  opacity: .72;
+  font-weight: 800;
+}
+.page-blog .tocChevron{
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid rgba(17,59,42,.55);
+  border-bottom: 2px solid rgba(17,59,42,.55);
+  transform: rotate(45deg);
+  transition: transform .18s ease;
+}
+.page-blog .articleAside__card.is-open .tocChevron{
+  transform: rotate(225deg);
+}
+
+.page-blog .tocBody{
+  border-top: 1px solid rgba(0,0,0,.06);
+  padding: 12px 4px 12px 20px;
+}
+
+/* active link highlight (set by blog.js) */
+.page-blog .articleToc a{
+  display: math;
+  padding: 6px 8px;
+  border-radius: 10px;
+}
+.page-blog .articleToc a.is-active{
+  background: rgba(17,59,42,.08);
+  border: 1px solid rgba(17,59,42,.14);
+}
+
+/* --- Extra mobile tightening --- */
+@media (max-width: 980px){
+  .page-blog .articleAside{
+    position: relative; /* pastikan sticky tidak “aneh” di HP */
+    top: auto;
+  }
+
+  .page-blog .articleIntro__title{
+    font-size: clamp(26px, 6.2vw, 38px);
+    line-height: 1.06;
+  }
+}
+
+@media (max-width: 520px){
+  .page-blog .articleBlock{
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .page-blog .articleToc{
+    padding-left: 16px;
+  }
+}
