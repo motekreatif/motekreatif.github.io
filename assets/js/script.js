@@ -87,6 +87,79 @@
   });
 })();
 
+  /* ================================
+   Partner slider
+   ================================ */
+  (function () {
+    const slider = document.querySelector("[data-partner-slider]");
+    const track = slider?.querySelector("[data-partner-track]");
+    const prev = slider?.querySelector("[data-partner-prev]");
+    const next = slider?.querySelector("[data-partner-next]");
+    if (!slider || !track) return;
+
+    const slides = Array.from(track.children);
+    if (!slides.length) return;
+
+    // Duplicate slides once so the loop stays full while recycling
+    slides.forEach((slide) => {
+      track.appendChild(slide.cloneNode(true));
+    });
+
+    const speed = 60; // px per second
+    let gap = 0;
+    let offset = 0;
+    let lastTs = null;
+
+    const getGap = () => {
+      const style = window.getComputedStyle(track);
+      return parseFloat(style.columnGap || style.gap || "0") || 0;
+    };
+
+    const measure = () => {
+      gap = getGap();
+      offset = 0;
+      track.style.transform = "translateX(0)";
+    };
+
+    const loop = (ts) => {
+      if (lastTs === null) lastTs = ts;
+      const delta = (ts - lastTs) / 1000;
+      lastTs = ts;
+
+      offset += speed * delta;
+
+      let first = track.firstElementChild;
+      while (first) {
+        const step = first.getBoundingClientRect().width + gap;
+        if (offset < step) break;
+        offset -= step;
+        track.appendChild(first);
+        first = track.firstElementChild;
+      }
+
+      track.style.transform = `translateX(-${offset}px)`;
+      window.requestAnimationFrame(loop);
+    };
+
+    const shift = (dir) => {
+      measure();
+      if (dir > 0) {
+        const first = track.firstElementChild;
+        if (first) track.appendChild(first);
+      } else {
+        const last = track.lastElementChild;
+        if (last) track.insertBefore(last, track.firstElementChild);
+      }
+    };
+
+    next?.addEventListener("click", () => shift(1));
+    prev?.addEventListener("click", () => shift(-1));
+    window.addEventListener("resize", measure);
+
+    measure();
+    window.requestAnimationFrame(loop);
+  })();
+
 
 }
 )();
