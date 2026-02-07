@@ -23,7 +23,7 @@
     navMenu.classList.toggle("is-open", open);
     navToggle.setAttribute("aria-expanded", String(open));
   }
-
+  
   if (navToggle && navMenu) {
     navToggle.addEventListener("click", () => {
       const open = !navMenu.classList.contains("is-open");
