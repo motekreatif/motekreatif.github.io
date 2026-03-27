@@ -15,12 +15,29 @@
   </head>
   <body>
 
-    <header>
-      <a href="index.html" class="logos" aria-label="Kembali ke halaman utama Mote Kreatif">
-        <img style="height: 80px; width: auto;" src="assets/img/logogramsquare.webp" alt="Logo Mote Kreatif" class="logo" />
-      </a>
-      <div class="logotext">
-        <h1>Terms of Service</h1>
+    <header class="header" data-elevate>
+      <div class="container header__inner">
+        <a class="brand" href="index.html#home" aria-label="MOTE Home">
+          <img class="brand__mark" src="assets/img/logogramsquare.webp" alt="MOTE knot logo">
+          <img class="brand__name" src="assets/img/textlogosquare.webp" alt="MOTE wordmark">
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+            <span class="nav__toggleIcon" aria-hidden="true"></span>
+            <span class="sr-only">Buka menu</span>
+          </button>
+
+          <div class="nav__menu" id="navMenu">
+            <a class="nav__link" href="index.html#about">About</a>
+            <a class="nav__link" href="index.html#service">Service</a>
+            <a class="nav__link" href="index.html#ecosystem">Ecosystem</a>
+            <a class="nav__link" href="index.html#insight">Insight</a>
+            <a class="nav__link" href="index.html#programs">Programs</a>
+            <a class="btn btn--login nav__cta" href="https://mote-portal.85c4o8.easypanel.host/" target="_blank" rel="noopener noreferrer">Login</a>
+            <a class="btn btn--dark nav__cta" href="index.html#contact">Contact Us</a>
+          </div>
+        </nav>
       </div>
     </header>
 
@@ -161,5 +178,7 @@
         <a href="index.html" class="linktext">← Kembali ke Beranda</a>
       </section>
     </main>
+
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
