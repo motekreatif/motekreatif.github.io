@@ -354,7 +354,7 @@ button,input,select,textarea{ font:inherit; }
 .stat{
   padding: 14px;
   border-radius: 16px;
-  background: rgba(255,255,255,.40);
+  background: var(--cream);
   border: 1px solid rgba(0,0,0,.06);
   box-shadow: 0 10px 26px rgba(0,0,0,.07);
 }
@@ -367,7 +367,7 @@ button,input,select,textarea{ font:inherit; }
   padding: 20px;
 }
 .card--glass{
-  background: rgba(255,255,255,.62);
+  background: var(--cream);
   border: 1px solid rgba(0,0,0,.08);
   box-shadow: var(--shadow);
 }
@@ -1708,4 +1708,240 @@ button,input,select,textarea{ font:inherit; }
 body:not(.page-blog):not(.page-academy):not(.page-books):not(.page-brandq):not(#offering-hero) header {
   background: rgba(244,210,58,.78);
   backdrop-filter: blur(14px);
+}
+
+/* =========================================================
+   TDMO PAGE
+   ========================================================= */
+
+/* Problem before/after grid */
+.tdmo-problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 24px;
+}
+.tdmo-problem-col { display: flex; flex-direction: column; gap: 10px; }
+.tdmo-problem-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,.06);
+}
+.tdmo-problem-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+.tdmo-problem-icon--bad  { background: rgba(220,38,38,.12); color: #dc2626; }
+.tdmo-problem-icon--good { background: rgba(17,59,42,.12); color: var(--ink); }
+.tdmo-problem-item h4 { font-size: 14px; font-weight: 900; margin: 0 0 4px; }
+.tdmo-problem-item p  { font-size: 13px; opacity: .82; line-height: 1.55; margin: 0; }
+
+/* Pillar cards (dark section) */
+.tdmo-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+.tdmo-pillar {
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.16);
+  padding: 20px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
+  transition: border-color .2s ease, transform .2s ease;
+}
+.tdmo-pillar:hover { border-color: var(--lime); transform: translateY(-2px); }
+.tdmo-pillar__num {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--lime);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+}
+.tdmo-pillar__title { font-weight: 900; font-size: 16px; color: #fff; margin: 0 0 8px; }
+.tdmo-pillar__text  { font-size: 13px; color: rgba(255,255,255,.8); line-height: 1.6; margin: 0; }
+
+/* Workflow numbered steps */
+.tdmo-workflow { margin-top: 24px; }
+.tdmo-step {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(17,59,42,.10);
+}
+.tdmo-step:last-child { border-bottom: none; }
+.tdmo-step__num {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--ink);
+  opacity: .18;
+  line-height: 1;
+  padding-top: 2px;
+}
+.tdmo-step__title { font-size: 18px; font-weight: 900; margin: 0 0 6px; }
+.tdmo-step__text  { font-size: 14px; opacity: .82; line-height: 1.7; margin: 0; }
+.tdmo-step__tag {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(17,59,42,.10);
+  border: 1px solid rgba(17,59,42,.14);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .05em;
+}
+
+/* Parallel-tracks visual */
+.tdmo-tracks {
+  margin-top: 24px;
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(0,0,0,.08);
+  padding: 22px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.08);
+}
+.tdmo-track-row {
+  display: grid;
+  grid-template-columns: 110px repeat(6,1fr);
+  gap: 5px;
+  margin-bottom: 6px;
+  align-items: end;
+}
+.tdmo-track-label {
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--ink);
+  opacity: .65;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  line-height: 1.3;
+}
+.tdmo-track-bar {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  color: #fff;
+  min-height: 44px;
+}
+.tdmo-track-bar--green  { background: var(--ink); }
+.tdmo-track-bar--orange { background: rgba(255,126,0,.85); }
+.tdmo-month-labels {
+  display: grid;
+  grid-template-columns: 110px repeat(6,1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+.tdmo-month-label {
+  font-size: 12px;
+  color: var(--ink);
+  opacity: .6;
+  text-align: center;
+  font-weight: 700;
+}
+.tdmo-tracks__note {
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* Result / proof cards */
+.tdmo-result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+.tdmo-result-card {
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(0,0,0,.08);
+  border-left: 4px solid var(--ink);
+  padding: 20px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.08);
+}
+.tdmo-result-brand {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .55;
+  margin-bottom: 12px;
+}
+.tdmo-result-stat {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.tdmo-result-desc { font-size: 13px; opacity: .82; }
+
+/* Why MOTE cards (dark section) */
+.tdmo-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 24px;
+}
+.tdmo-why-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--radius-xl);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(10px);
+}
+.tdmo-why-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.tdmo-why-title { font-weight: 900; font-size: 15px; color: #fff; margin: 0 0 4px; }
+.tdmo-why-text  { font-size: 13px; color: rgba(255,255,255,.78); line-height: 1.6; margin: 0; }
+
+/* Responsive TDMO */
+@media (max-width: 980px) {
+  .tdmo-problem-grid   { grid-template-columns: 1fr; }
+  .tdmo-pillars        { grid-template-columns: 1fr; }
+  .tdmo-result-grid    { grid-template-columns: 1fr; }
+  .tdmo-why-grid       { grid-template-columns: 1fr; }
+  .tdmo-track-row,
+  .tdmo-month-labels   { grid-template-columns: 80px repeat(6,1fr); }
+}
+@media (max-width: 560px) {
+  .tdmo-track-label { font-size: 8px; }
+  .tdmo-track-bar   { font-size: 9px; min-height: 30px; }
 }
