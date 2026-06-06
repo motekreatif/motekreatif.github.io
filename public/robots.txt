@@ -1,0 +1,58 @@
+# Mote Kreatif — motekreatif.com
+# Semua crawler diizinkan, termasuk AI engines (GEO).
+
+User-agent: *
+Allow: /
+
+# === AI / LLM crawlers — eksplisit diizinkan ===
+
+# OpenAI (ChatGPT training & browsing)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# Google AI (Gemini / AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Microsoft Bing / Copilot
+User-agent: Bingbot
+Allow: /
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (dataset training banyak LLM)
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://motekreatif.com/sitemap.xml
+
+# Ringkasan entity untuk AI: https://motekreatif.com/llms.txt
