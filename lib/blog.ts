@@ -10,6 +10,25 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "strategi-tiktok-shop-umkm",
+    title:
+      "Strategi TikTok Shop untuk UMKM 2026: Dari Setup Toko sampai Live Commerce",
+    description:
+      "Panduan lengkap jualan di TikTok Shop untuk UMKM: setup toko, konten yang menjual, TikTok Shop Ads, affiliate, dan live commerce — disusun dari pengalaman mengelola marketplace brand lokal.",
+    category: "Panduan · Marketplace Ads",
+    datePublished: "2026-06-06",
+  },
+  {
+    slug: "digital-marketing-hotel-resort",
+    title:
+      "Digital Marketing untuk Hotel & Resort: Panduan Lengkap dari Kasus Nyata",
+    description:
+      "Strategi digital marketing hotel yang terbukti: positioning, Google Hotel Ads + local SEO, konten yang menjual kamar, dan KPI per funnel — dari kasus nyata occupancy 43% → 61% dan omset +77% di low season.",
+    category: "Panduan · Hospitality",
+    datePublished: "2026-06-06",
+    relatedCaseStudy: "rancabango-hotel",
+  },
+  {
     slug: "biaya-jasa-digital-marketing-indonesia",
     title:
       "Berapa Biaya Jasa Digital Marketing di Indonesia? Panduan Lengkap 2026",

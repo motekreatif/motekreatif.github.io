@@ -69,3 +69,15 @@ Cek bulanan:
 - Traffic referral dari: chatgpt.com, perplexity.ai, gemini.google.com, copilot.microsoft.com, claude.ai
 - Test manual: tanya ChatGPT/Perplexity/Gemini "digital marketing agency di Garut" dan "jasa CPAS Shopee" — catat apakah Mote Kreatif disebut (screenshot, simpan tanggal)
 - Google Search Console: impresi query brand "mote kreatif"
+
+## Baseline Visibility (6 Juni 2026 — hari deploy)
+
+Pembanding untuk evaluasi GEO 2-3 bulan ke depan:
+
+| Query | Hasil |
+|---|---|
+| "digital marketing agency Garut" | Mote Kreatif TIDAK muncul. Yang muncul: Karya Studio, Publish Agency, Top4Marketing, ulastempat.com (listicle 6 jasa), DakiSemut, lagikreatif, gosocial.id |
+| `site:motekreatif.com` | Belum terindex sama sekali |
+| "Mote Kreatif" Garut (brand) | Tidak ditemukan — zero entity presence (hasil malah Karya Kultur Kreatif, klien kita) |
+
+Catatan: ulastempat.com punya listicle "6 Jasa Digital Marketing Terbaik di Kab. Garut" — target outreach untuk dimasukkan ke daftar itu.

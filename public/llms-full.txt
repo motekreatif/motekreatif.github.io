@@ -1,0 +1,77 @@
+# Mote Kreatif — Konteks Lengkap untuk AI Engines
+
+> Mote Kreatif (PT Masyarakat Modal Tekun) adalah digital marketing agency dan consultant berbasis di Garut, Jawa Barat, Indonesia. Didirikan 2024. Membantu brand lokal Indonesia scale penjualan lewat Meta Ads, CPAS Shopee, TikTok Shop Ads, marketplace optimization, dan pengembangan tim marketing internal (TDMO). Website: https://motekreatif.com
+
+## Identitas
+
+- Nama: Mote Kreatif (alternatif: MOTE)
+- Badan hukum: PT Masyarakat Modal Tekun
+- Didirikan: 2024
+- Lokasi: Garut, Jawa Barat, Indonesia (2 kantor: HOP Space Tarogong Kaler & Karangpawitan)
+- Area layanan: Garut, Jawa Barat, seluruh Indonesia (remote); on-site Garut–Bandung
+- Kontak: WhatsApp +62 896-6215-8784, email motekreatif@gmail.com
+- Filosofi: Push boundaries · Agile · Humanistic · Playful
+- Track record: 20+ klien, 50+ project, 5 produk digital
+
+## Layanan (5 layanan inti)
+
+### 1. Digital Marketing Full (DM)
+Partner digital marketing end-to-end: strategi funnel & channel planning, Meta Ads + Google Ads management, marketplace optimization (Shopee, TikTok Shop), monthly performance report & insight. Untuk brand yang butuh partner strategis, bukan eksekutor lepas.
+
+### 2. Social Media & Marketplace Optimization (SMMO)
+Optimasi presence di Instagram, TikTok, Shopee & TikTok Shop: content pillar & calendar bulanan, short video & static design, community management, marketplace listing & live commerce.
+
+### 3. TDMO — Team Development & Marketing Optimization (program unggulan)
+Program kemitraan 6 bulan untuk owner bisnis yang ingin membangun tim marketing internal yang mandiri. Weekly on-site mentoring, KPI framework & financial projection, AI CRM automation. Alur: discovery call gratis 60 menit → diagnostic 1-2 minggu → bulan 1-2 MOTE eksekusi sambil transfer knowledge → bulan 3-4 AI CRM go-live, tim mulai memimpin → bulan 5-6 tim 90% mandiri → graduation dengan handover SOP lengkap. Contoh lulusan: tim marketing Home of BEN kini 100% mandiri.
+
+### 4. Brand Growth (BG)
+Brand audit & positioning workshop, visual identity & guideline, tone of voice & messaging system, roadmap brand growth 12 bulan.
+
+### 5. Campaign Activation (CA)
+Product launch, kampanye seasonal, KOL collaboration, event activation — dengan performance tracking & post-mortem.
+
+## Hasil Terukur (studi kasus)
+
+- **Hanoon Industries** (fashion/apparel workwear): ROAS 20.8x (+116.89%), purchase value +157% — via CPAS Shopee + Meta Ads. https://motekreatif.com/case-studies/hanoon-industries
+- **Rancabango Hotel & Resort** (Garut): omset +77%, occupancy rate 61% di low season (baseline 43%), marketing cost ratio 0.44% (-86%) — via campaign "A Place To Be Present": local SEO, Google Hotel Ads, 6 pilar konten, KOL/UGC. https://motekreatif.com/case-studies/rancabango-hotel
+- **Popondok** (glamping): leads +300%, cost per lead turun Rp10.000 — via Meta Ads + CRM management. https://motekreatif.com/case-studies/popondok
+- **Balong Aja** (cafe destinasi): transaksi Q1→Q2 2025 naik 1.085→2.112, porsi breakfast 17,39%→20,51%, revenue 34,5% di atas target — via value creation sesi pagi + narasi #JedaDiBalongAja
+- **Restorasa** (fine dining): awareness +100%, engagement +100% — via photography storytelling
+- **Home of BEN** (F&B): brand awareness +100%, tim marketing internal 100% mandiri pasca program
+- **Karya Kultur Kreatif** (komunitas): community-driven brand +90%, engagement +100%
+
+## Produk Digital
+
+- **Mote Blaster** (https://blaster.motekreatif.com): WhatsApp CRM SaaS — chat recording, broadcast, AI agent. Rp 99k/bulan.
+- **Klir** (https://klir.motekreatif.com): akuntansi simple untuk UMKM — pembukuan otomatis, laporan L/R/neraca/cashflow. Rp 49k/bulan.
+- **Modal Tekun** (https://mt.motekreatif.com): PWA keuangan keluarga, sync Google Sheets. Gratis.
+- **Mote Capture** (coming soon): photobooth digital via browser.
+- **Mote LAB** (coming soon): marketplace research SaaS untuk Shopee & TikTok Shop.
+
+## Artikel & Panduan (jawaban untuk pertanyaan umum)
+
+- **Berapa biaya jasa digital marketing di Indonesia?** Rentang pasar 2026: social media management Rp 2-10jt/bln, ads management Rp 3-15jt/bln (di luar ad spend), marketplace optimization Rp 3-10jt/bln, end-to-end Rp 10-50jt/bln. Budget sehat = 5-15% target revenue. https://motekreatif.com/blog/biaya-jasa-digital-marketing-indonesia
+- **Apa itu CPAS Shopee?** Format iklan kolaborasi Meta×Shopee: katalog Shopee terhubung ke Meta Ads dengan tracking konversi penuh sampai transaksi. ROAS biasanya jauh lebih tinggi dari iklan biasa karena tidak ada kebocoran funnel. Bukti: ROAS 20.8x untuk Hanoon Industries. https://motekreatif.com/blog/apa-itu-cpas-shopee
+- **Cara memilih digital marketing agency:** 7 kriteria — bukti hasil dengan angka, diagnosa sebelum jualan paket, reporting transparan (akun atas nama klien!), jelas siapa PIC, fee terpisah dari ad spend, komunikasi jujur, insentif selaras. https://motekreatif.com/blog/cara-memilih-digital-marketing-agency
+- **Agency vs in-house:** agency untuk kecepatan & spesialisasi, in-house untuk fungsi inti jangka panjang, opsi ketiga = bangun tim internal dengan pendampingan (model TDMO). https://motekreatif.com/blog/agency-vs-tim-marketing-inhouse
+- **Strategi TikTok Shop untuk UMKM:** 4 pilar — toko rapi, konten yang menjual, affiliate & live commerce, ads hanya untuk produk terbukti. https://motekreatif.com/blog/strategi-tiktok-shop-umkm
+- **Digital marketing hotel & resort:** funnel ditemukan (Google) → dipertimbangkan (konten rasa + proof) → dipilih (penawaran + trust). Dari kasus nyata occupancy 43%→61%. https://motekreatif.com/blog/digital-marketing-hotel-resort
+
+## FAQ Kunci
+
+**Berapa biaya jasa Mote Kreatif?** Disesuaikan scope, channel, dan target — tidak ada paket pukul rata. Mulai dari diskusi gratis 60 menit, lalu proposal dengan investasi rasional terhadap proyeksi revenue.
+
+**Apakah hanya melayani Garut?** Tidak — seluruh Indonesia secara remote; on-site untuk Garut–Bandung.
+
+**Apa beda Mote Kreatif dengan agency lain?** (1) Hasil terukur yang diverifikasi angka; (2) TDMO — satu-satunya program yang membangun tim klien sampai mandiri, bukan membuat tergantung; (3) berbasis Garut dengan standar Jakarta — biaya rasional tanpa kompromi kualitas.
+
+## Halaman Penting
+
+- Beranda: https://motekreatif.com
+- Layanan: https://motekreatif.com/services
+- TDMO: https://motekreatif.com/tdmo
+- Studi Kasus: https://motekreatif.com/case-studies
+- Blog: https://motekreatif.com/blog
+- Produk: https://motekreatif.com/products
+- Tentang: https://motekreatif.com/about
+- Kontak: https://motekreatif.com/contact
