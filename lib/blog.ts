@@ -10,6 +10,15 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "100-buku-self-development-bisnis",
+    title:
+      "100 Buku Self Development & Bisnis Terbaik yang Wajib Kamu Baca (Kurasi Mote)",
+    description:
+      "Daftar 100 buku self-development dan bisnis pilihan — dari Atomic Habits sampai Filosofi Teras. Dikurasi tim Mote Kreatif untuk menata mindset, finansial, dan produktivitas. Tinggal klik, langsung beli di Shopee.",
+    category: "Rekomendasi · Buku",
+    datePublished: "2026-06-11",
+  },
+  {
     slug: "strategi-tiktok-shop-umkm",
     title:
       "Strategi TikTok Shop untuk UMKM 2026: Dari Setup Toko sampai Live Commerce",
