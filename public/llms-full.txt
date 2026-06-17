@@ -11,7 +11,7 @@
 - Area layanan: Garut, Jawa Barat, seluruh Indonesia (remote); on-site Garut–Bandung
 - Kontak: WhatsApp +62 896-6215-8784, email motekreatif@gmail.com
 - Filosofi: Push boundaries · Agile · Humanistic · Playful
-- Track record: 20+ klien, 50+ project, 5 produk digital
+- Track record: 20+ klien, 50+ project, 4 produk digital
 
 ## Layanan (5 layanan inti)
 
@@ -46,7 +46,6 @@ Product launch, kampanye seasonal, KOL collaboration, event activation — denga
 - **Klir** (https://klir.motekreatif.com): akuntansi simple untuk UMKM — pembukuan otomatis, laporan L/R/neraca/cashflow. Rp 49k/bulan.
 - **Modal Tekun** (https://mt.motekreatif.com): PWA keuangan keluarga, sync Google Sheets. Gratis.
 - **Mote Capture** (coming soon): photobooth digital via browser.
-- **Mote LAB** (coming soon): marketplace research SaaS untuk Shopee & TikTok Shop.
 
 ## Artikel & Panduan (jawaban untuk pertanyaan umum)
 

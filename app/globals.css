@@ -76,9 +76,9 @@
     color: var(--color-text-primary);
   }
 
-  h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+  h1 { font-size: clamp(2.25rem, 5.5vw, 4rem); }
   h2 { font-size: clamp(1.625rem, 4vw, 2.75rem); }
-  h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); }
+  h3 { font-size: clamp(1.25rem, 3vw, 1.75rem); line-height: 1.2; }
 
   p {
     line-height: 1.65;
@@ -214,7 +214,7 @@
     background: var(--color-bg-card);
     border-radius: 20px;
     border: 1px solid rgba(6, 36, 59, 0.06);
-    box-shadow: 0 0 0 1px rgba(189, 242, 74, 0.15),
+    box-shadow: 0 1px 2px rgba(6, 36, 59, 0.05),
       0 14px 30px -24px rgba(6, 36, 59, 0.18);
     transition: border-color 0.25s ease, box-shadow 0.25s ease,
       transform 0.25s ease;
@@ -245,13 +245,13 @@
   .highlight-text {
     background: #BDF24A;
     color: #06243B;
-    padding: 0px 8px;
-    border-radius: 24px;
+    padding: 0.04em 0.28em;
+    border-radius: 0.18em;
     display: inline;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     font-style: normal;
-    line-height: 1.6;
+    line-height: 1.45;
   }
 
   .text-balance {
@@ -260,6 +260,11 @@
 
   .section-padding {
     padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  /* Ritme: section sekunder lebih padat agar halaman tidak monoton */
+  .section-padding-tight {
+    padding-block: clamp(3rem, 6vw, 5rem);
   }
 
   /* Grain texture overlay — apply to sections for organic feel */

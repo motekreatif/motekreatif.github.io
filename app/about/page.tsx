@@ -39,7 +39,7 @@ export default function AboutPage() {
               {SITE.name} hadir dari perjumpaan antara kepekaan sosial dan peluang ekonomi di kota berkembang yang penuh potensi. Kami percaya brand lokal layak dapat strategi sekelas brand global—dengan tone yang humanis dan eksekusi yang rasional.
             </p>
             <p className="text-[#3D4F60] leading-relaxed">
-              Hari ini kami melayani 20+ klien, menjalankan 50+ project, dan ngebangun 5 produk digital yang dipakai sehari-hari. Tapi yang kami banggakan bukan angkanya—tapi tim klien yang mandiri di akhir program kami.
+              Hari ini kami melayani 20+ klien, menjalankan 50+ project, dan ngebangun 4 produk digital yang dipakai sehari-hari. Tapi yang kami banggakan bukan angkanya—tapi tim klien yang mandiri di akhir program kami.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-2">
               <div className="card-soft p-5">

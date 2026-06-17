@@ -61,12 +61,11 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -98,10 +97,7 @@ export function CustomerJourney() {
                   className="relative card-soft p-6 flex flex-col gap-4 group"
                 >
                   <div className="flex items-center justify-between">
-                    <span
-                      className="text-xs font-bold uppercase tracking-widest"
-                      style={{ color: stage.accent }}
-                    >
+                    <span className="text-xs font-bold uppercase tracking-widest text-[#06243B]/70">
                       Stage 0{i + 1}
                     </span>
                     <span
@@ -126,19 +122,12 @@ export function CustomerJourney() {
                   </ul>
 
                   {i < stages.length - 1 && (
-                    <motion.span
+                    <span
                       aria-hidden
                       className="hidden lg:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 h-7 w-7 rounded-full bg-[#BDF24A] text-[#06243B] items-center justify-center shadow-md"
-                      animate={{ x: [0, 3, 0] }}
-                      transition={{
-                        duration: 1.8,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.2,
-                      }}
                     >
                       <ArrowRight className="h-3.5 w-3.5" />
-                    </motion.span>
+                    </span>
                   )}
                 </motion.div>
               );

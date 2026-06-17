@@ -12,12 +12,11 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -79,7 +78,7 @@ export function ServicesObjective() {
                   href={cardHref}
                   className="inline-flex items-center gap-2 text-[#06243B] font-semibold text-sm mt-auto hover:gap-3 transition-all"
                 >
-                  Pelajari Lebih Lanjut
+                  Lihat cara kerjanya
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </motion.div>

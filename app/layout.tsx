@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
 import { GoogleAnalytics } from "@/components/shared/GoogleAnalytics";
 import { MetaPixelPageView } from "@/components/shared/MetaPixelPageView";
 import { SITE } from "@/lib/constants";
@@ -95,6 +96,7 @@ export default function RootLayout({
         <Header />
         <main className="pt-16 md:pt-20 min-h-[60vh]">{children}</main>
         <Footer />
+        <FloatingWhatsApp />
 
         <noscript>
           {/* eslint-disable-next-line @next/next/no-img-element */}

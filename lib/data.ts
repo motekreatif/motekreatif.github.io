@@ -11,7 +11,6 @@ import {
   Wallet,
   Calculator,
   Camera,
-  LineChart,
   type LucideIcon,
 } from "lucide-react";
 
@@ -215,21 +214,6 @@ export const PRODUCTS: Product[] = [
     url: "https://capture.motekreatif.com",
     icon: Camera,
   },
-  {
-    name: "Mote LAB",
-    tagline: "Marketplace research SaaS untuk Shopee & TikTok Shop.",
-    description:
-      "Riset produk, tracking harga kompetitor, dan deteksi trend di marketplace Indonesia—biar keputusan produk kamu berbasis data, bukan tebakan.",
-    features: [
-      "Tracking harga & stock kompetitor",
-      "Analisis trend produk",
-      "Keyword & kategori discovery",
-      "Daily snapshot historis",
-    ],
-    status: "Coming Soon",
-    url: "https://lab.motekreatif.com",
-    icon: LineChart,
-  },
 ];
 
 export type CaseStudy = {
@@ -394,7 +378,7 @@ export const STATS = [
   { value: 20, suffix: "+", label: "Klien Dilayani" },
   { value: 50, suffix: "+", label: "Project Selesai" },
   { value: 3, suffix: "+", label: "Tahun Pengalaman" },
-  { value: 5, suffix: "", label: "Produk Digital" },
+  { value: 4, suffix: "", label: "Produk Digital" },
 ];
 
 export const PARTNER_LOGOS = [

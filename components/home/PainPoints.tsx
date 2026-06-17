@@ -50,18 +50,17 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 28, scale: 0.97 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
 export function PainPoints() {
   return (
-    <section className="relative bg-[#F7F4EE] section-padding overflow-hidden">
+    <section className="relative bg-[#F7F4EE] section-padding-tight overflow-hidden">
       <div className="container-mote relative">
         <SectionHeading
           eyebrow="Yang sering kami dengar"

@@ -8,8 +8,8 @@ import { RibbonDecoration } from "@/components/shared/RibbonDecoration";
 const reasons: { icon: LucideIcon; title: string; text: string }[] = [
   {
     icon: Layers,
-    title: "Bukan cuma Ads",
-    text: "Kami ngerti marketplace. Shopee, TikTok Shop, CPAS—bukan cuma pasang iklan Meta lalu selesai.",
+    title: "Paham Marketplace",
+    text: "Kami ngerti Shopee, TikTok Shop, dan CPAS—bukan cuma pasang iklan Meta lalu selesai.",
   },
   {
     icon: BarChart3,
@@ -29,12 +29,11 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 

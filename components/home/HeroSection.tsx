@@ -10,6 +10,8 @@ import {
   Store,
   TrendingUp,
 } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+import { CONTACT } from "@/lib/constants";
 import { RibbonDecoration } from "@/components/shared/RibbonDecoration";
 
 const stagger = {
@@ -29,7 +31,11 @@ const item = {
   },
 };
 
-const proofPoints = ["ROAS +20x", "Revenue +157%", "MER 0.44%"];
+const proofPoints = [
+  { value: "20x", label: "ROAS tertinggi" },
+  { value: "+157%", label: "Revenue growth" },
+  { value: "0.44%", label: "MER efisien" },
+];
 
 export function HeroSection() {
   const ref = useRef<HTMLElement | null>(null);
@@ -44,7 +50,7 @@ export function HeroSection() {
   return (
     <section
       ref={ref}
-      className="relative isolate overflow-hidden text-[#06243B] grain-overlay min-h-screen"
+      className="relative isolate overflow-hidden text-[#06243B] grain-overlay min-h-[90svh]"
       style={{
         background:
           "linear-gradient(135deg, #F4D23A 0%, #F7DF75 50%, #F4D23A 100%)",
@@ -137,53 +143,72 @@ export function HeroSection() {
 
           <motion.h1
             variants={item}
-            className="font-extrabold leading-[1.05] tracking-tight text-[#06243B] text-balance"
+            className="font-extrabold tracking-tight text-[#06243B] text-balance"
           >
-            Brand kamu punya produk bagus, tapi penjualan{" "}
-            <span className="highlight-text">belum maksimal?</span>
+            Bikin iklan &amp; toko online kamu{" "}
+            <span className="highlight-text">balik modal</span> — bukan cuma
+            rame dilihat.
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="text-base sm:text-lg lg:text-xl text-[#06243B]/75 max-w-2xl leading-relaxed"
+            className="text-base sm:text-lg lg:text-xl text-[#06243B]/75 max-w-2xl leading-snug"
           >
-            Kami bantu scale penjualan lewat Konten yang berfokus ke Outcome,
-            KOL dengan Persona yang tepat Ads yang efisien + Marketplace dengan
-            pendekatan data-driven. — fokus ke angka yang penting:{" "}
-            <b>revenue dan ROAS</b>.
+            Khusus brand F&amp;B, hotel, dan seller Shopee/TikTok Shop yang
+            serius mau scale. Satu tim urus iklan, konten, sampai marketplace —
+            semua diukur dari penjualan, bukan sekadar angka view.
           </motion.p>
 
           <motion.div
             variants={item}
-            className="flex flex-wrap items-center gap-x-5 gap-y-2 text-[#06243B] font-bold text-sm sm:text-base"
+            className="flex flex-col gap-2 mt-1"
           >
-            {proofPoints.map((p, i) => (
-              <span key={p} className="inline-flex items-center gap-2">
-                {p}
-                {i < proofPoints.length - 1 && (
-                  <span aria-hidden className="text-[#06243B]/30">
-                    ·
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              {proofPoints.map((p) => (
+                <div key={p.label} className="flex flex-col">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-[#06243B] leading-none">
+                    {p.value}
                   </span>
-                )}
-              </span>
-            ))}
+                  <span className="text-xs sm:text-sm font-semibold text-[#06243B]/70 uppercase tracking-wide mt-1">
+                    {p.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <Link
+              href="#case-studies"
+              className="text-xs sm:text-sm font-semibold text-[#06243B]/70 hover:text-[#FF7E00] transition-colors inline-flex items-center gap-1 w-fit"
+            >
+              ↳ Hasil nyata dari campaign klien Mote — lihat buktinya
+            </Link>
           </motion.div>
 
           <motion.div
             variants={item}
-            className="flex flex-wrap items-center gap-4 mt-2"
+            className="flex flex-col gap-3 mt-2"
           >
-            <Link href="/contact" className="btn btn-dark group">
-              Mulai Diskusi
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link
-              href="#case-studies"
-              className="inline-flex items-center gap-2 font-semibold text-[#06243B] hover:text-[#FF7E00] transition-colors"
-            >
-              Lihat Hasil Kerja
-              <ArrowDown className="h-4 w-4" />
-            </Link>
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href={CONTACT.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-dark group"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Konsultasi Gratis via WhatsApp
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <Link
+                href="#case-studies"
+                className="inline-flex items-center gap-2 font-semibold text-[#06243B] hover:text-[#FF7E00] transition-colors"
+              >
+                Lihat Bukti: ROAS 20x &amp; +77% Omset
+                <ArrowDown className="h-4 w-4" />
+              </Link>
+            </div>
+            <p className="text-sm text-[#06243B]/70">
+              Gratis &amp; tanpa komitmen — kalau nggak cocok, kami jujur bilang.
+            </p>
           </motion.div>
         </motion.div>
 
@@ -275,11 +300,7 @@ function Arrow({ delay = 0 }: { delay?: number }) {
       className="self-center flex flex-col items-center"
       aria-hidden
     >
-      <motion.span
-        className="w-px h-3 bg-[#06243B]"
-        animate={{ opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-      />
+      <span className="w-px h-3 bg-[#06243B]/70" />
       <span className="w-2 h-2 rotate-45 -mt-1 border-r-2 border-b-2 border-[#06243B]" />
     </motion.div>
   );
