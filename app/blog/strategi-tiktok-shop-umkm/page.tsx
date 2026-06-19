@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildMeta } from "@/lib/metadata";
 import { ArticleLayout } from "@/components/blog/ArticleLayout";
 import { JsonLd } from "@/components/shared/JsonLd";
@@ -150,6 +151,15 @@ export default function Page() {
           <li>Ikut perang harga sampai margin habis — di TikTok, cerita menang melawan diskon</li>
           <li>Tidak balas komentar &amp; chat — sinyal engagement turun, distribusi ikut turun</li>
         </ul>
+        <p>
+          Satu hal yang sering terlewat: pembeli pertama jauh lebih murah
+          dipertahankan daripada dicari ulang. Setelah transaksi, kabari mereka
+          soal restock, promo, atau produk baru lewat{" "}
+          <Link href="/blog/wa-blast-panduan-lengkap">
+            panduan WA blast untuk follow-up pelanggan
+          </Link>{" "}
+          agar repeat order tetap jalan tanpa bergantung pada algoritma.
+        </p>
 
         <h2>FAQ</h2>
         {FAQ.map((f) => (

@@ -10,6 +10,51 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "wa-blast-panduan-lengkap",
+    title:
+      "WA Blast: Panduan Lengkap 2026 — Cara Kirim WhatsApp Massal yang Aman, Gratis, Tanpa Diblokir",
+    description:
+      "Panduan lengkap WA blast untuk bisnis 2026: cara kerja, aturan anti-blokir, pilih tool gratis vs berbayar, blast dari Google Sheets, sampai beda WA blast vs WhatsApp API. Semua yang perlu kamu tahu sebelum kirim pesan massal.",
+    category: "Panduan · WhatsApp Blast",
+    datePublished: "2026-06-19",
+  },
+  {
+    slug: "cara-blast-wa-tanpa-diblokir",
+    title:
+      "Cara Blast WA Tanpa Diblokir: 8 Aturan Main yang Sering Diabaikan (2026)",
+    description:
+      "Kenapa nomor WhatsApp kena banned saat blast, dan 8 aturan praktis biar pesan massal kamu aman: jeda antar pesan, warming up nomor, isi pesan, batas harian. Plus kenapa 'aplikasi anti-blokir' bukan jaminan.",
+    category: "Panduan · WhatsApp Blast",
+    datePublished: "2026-06-19",
+  },
+  {
+    slug: "wa-blast-google-sheets",
+    title:
+      "Cara WA Blast Langsung dari Google Sheets (Tanpa Copy-Paste Manual)",
+    description:
+      "Tutorial WA blast pakai Google Sheets: siapkan kolom kontak, import ke tool blast, pakai variabel personalisasi seperti nama, sampai catat balasan chat otomatis balik ke Sheets. Cocok kalau data pelanggan kamu sudah di spreadsheet.",
+    category: "Panduan · WhatsApp Blast",
+    datePublished: "2026-06-19",
+  },
+  {
+    slug: "wa-blast-vs-whatsapp-api",
+    title:
+      "WA Blast vs WhatsApp Business API: Mana yang Cocok untuk Bisnis Kamu?",
+    description:
+      "Perbandingan jujur WA blast (aplikasi) vs WhatsApp Business API resmi: biaya, kecepatan setup, risiko blokir, batas pesan, dan template approval. Plus rekomendasi pilih yang mana sesuai skala bisnis kamu.",
+    category: "Panduan · WhatsApp Blast",
+    datePublished: "2026-06-19",
+  },
+  {
+    slug: "aplikasi-wa-blast-gratis",
+    title:
+      "5 Aplikasi WA Blast Gratis Terbaik 2026 (dan Cara Pilih yang Aman)",
+    description:
+      "Daftar aplikasi WA blast gratis 2026 plus kriteria memilih yang aman dari blokir: fitur jeda otomatis, batas pesan harian, import kontak, dan kejujuran soal 'gratis' yang sebenarnya berbayar.",
+    category: "Panduan · WhatsApp Blast",
+    datePublished: "2026-06-19",
+  },
+  {
     slug: "100-buku-self-development-bisnis",
     title:
       "100 Buku Self Development & Bisnis Terbaik yang Wajib Kamu Baca (Kurasi Mote)",
