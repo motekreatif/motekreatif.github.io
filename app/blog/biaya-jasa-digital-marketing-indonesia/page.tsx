@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildMeta } from "@/lib/metadata";
 import { ArticleLayout } from "@/components/blog/ArticleLayout";
 import { JsonLd } from "@/components/shared/JsonLd";
@@ -138,6 +139,15 @@ export default function Page() {
           Hotel mencapai marketing cost ratio 0.44% terhadap omset — artinya
           setiap Rp 1 biaya marketing menghasilkan ratusan rupiah revenue.
           Itulah angka yang seharusnya kamu kejar, bukan fee termurah.
+        </p>
+        <p>
+          Untuk UMKM yang ingin menekan biaya akuisisi, channel berbiaya rendah
+          seperti pesan langsung ke pelanggan lama sering memberi ROI lebih
+          tinggi daripada menambah budget iklan. Sebelum mengirim, pahami dulu{" "}
+          <Link href="/blog/wa-blast-panduan-lengkap">
+            cara kirim WhatsApp massal yang aman
+          </Link>{" "}
+          supaya nomor tidak terkena blokir.
         </p>
 
         <h2>Red Flag Soal Harga</h2>
