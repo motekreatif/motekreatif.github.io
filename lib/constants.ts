@@ -28,8 +28,8 @@ export const SAME_AS = [
 
 export const CONTACT = {
   email: "motekreatif@gmail.com",
-  whatsapp: "+62 896-6215-8784",
-  whatsappLink: "https://wa.me/6289662158784",
+  whatsapp: "+62 851-9655-8646",
+  whatsappLink: "https://wa.me/6285196558646",
   instagram: "@motekreatif",
   instagramLink: "https://instagram.com/motekreatif",
   offices: [

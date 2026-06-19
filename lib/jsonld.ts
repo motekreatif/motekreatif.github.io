@@ -25,7 +25,7 @@ export function buildEntityGraph() {
     slogan: SITE.slogan,
     foundingDate: SITE.foundingDate,
     email: CONTACT.email,
-    telephone: "+62-896-6215-8784",
+    telephone: "+62-851-9655-8646",
     logo: {
       "@type": "ImageObject",
       "@id": LOGO_ID,
@@ -73,7 +73,7 @@ export function buildEntityGraph() {
     ],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+62-896-6215-8784",
+      telephone: "+62-851-9655-8646",
       email: CONTACT.email,
       contactType: "sales",
       availableLanguage: ["Indonesian", "English"],

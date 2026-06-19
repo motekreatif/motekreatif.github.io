@@ -11,7 +11,7 @@ Pakai data ini **persis sama** di semua platform. Inkonsistensi = sinyal entity 
 - **Kategori:** Digital Marketing Agency / Marketing Consultant
 - **Alamat utama:** Jl. Raya Cipanas No.13, Cimanganten, Kec. Tarogong Kaler, Kabupaten Garut, Jawa Barat 44151
 - **Alamat kedua:** Jl. Ahmad Yani Timur No.74, Lebakjaya, Kec. Karangpawitan, Kabupaten Garut, Jawa Barat 44182
-- **Telepon:** +62 896-6215-8784
+- **Telepon:** +62 851-9655-8646
 - **Email:** motekreatif@gmail.com
 - **Website:** https://motekreatif.com
 - **Deskripsi kanonik (copy-paste):** Mote Kreatif adalah digital marketing agency dan consultant berbasis di Garut, Jawa Barat, Indonesia, yang membantu brand lokal scale penjualan lewat Meta Ads, CPAS Shopee, TikTok Shop Ads, marketplace optimization, dan pengembangan tim marketing internal (TDMO).

@@ -104,7 +104,7 @@ Target: 5–10 review dalam bulan pertama. Review yang menyebut layanan spesifik
 >
 > Terima kasih,
 > [Nama] — Mote Kreatif
-> motekreatif.com | +62 896-6215-8784
+> motekreatif.com | +62 851-9655-8646
 
 ---
 

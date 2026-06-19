@@ -189,7 +189,7 @@ if (contactForm) {
     if (btn) btn.disabled = true;
 
     // 1) SIAPKAN URL WHATSAPP DULU
-    const phoneNumber = "6289662158784";
+    const phoneNumber = "6285196558646";
 
     const whatsappText =
     `Halo MOTE!
