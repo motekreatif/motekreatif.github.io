@@ -4,6 +4,11 @@
 User-agent: *
 Allow: /
 
+# Content Signals (contentsignals.org / draft-romm-aipref-contentsignals).
+# Strategi GEO Mote: boleh dilatih, boleh diindeks search, boleh dipakai
+# input AI Overview/grounding. Selaras dgn izin crawler AI di bawah.
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
+
 # === AI / LLM crawlers — eksplisit diizinkan ===
 
 # OpenAI (ChatGPT training & browsing)

@@ -15,6 +15,18 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // RFC 8288 Link headers — agent discovery. Arahkan AI/agent ke
+        // ringkasan entity markdown (llms.txt) + versi lengkap + sitemap.
+        source: "/:path*",
+        headers: [
+          {
+            key: "Link",
+            value:
+              '</llms.txt>; rel="alternate"; type="text/markdown"; title="LLM-friendly site summary", </llms-full.txt>; rel="describedby"; type="text/markdown"; title="Full site context for AI", </sitemap.xml>; rel="sitemap"; type="application/xml"',
+          },
+        ],
+      },
+      {
         // Aset statis (logo, foto, partner) jarang berubah — cache agresif
         source: "/img/:path*",
         headers: [
