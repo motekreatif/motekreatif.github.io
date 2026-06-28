@@ -1,0 +1,10 @@
+# RFC 8288 Link headers — agent discovery (AI/LLM crawler)
+/*
+  Link: </llms.txt>; rel="alternate"; type="text/markdown"; title="LLM-friendly site summary", </llms-full.txt>; rel="describedby"; type="text/markdown"; title="Full site context for AI", </sitemap.xml>; rel="sitemap"; type="application/xml"
+
+# Aset statis jarang berubah — cache agresif
+/img/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/blog/blogimg/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400

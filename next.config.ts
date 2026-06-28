@@ -1,72 +1,15 @@
 import type { NextConfig } from "next";
-import path from "node:path";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // Standalone: Docker image kecil + cold start cepat di EasyPanel
-  output: "standalone",
-  outputFileTracingRoot: path.join(__dirname),
-  compress: true,
+  // Static export → Cloudflare Pages (out/). Tanpa server: next/image
+  // optimizer mati, jadi serve original (Cloudflare CDN/Polish yang handle).
+  output: "export",
   images: {
-    formats: ["image/avif", "image/webp"],
-    // Cache hasil optimasi gambar 30 hari
-    minimumCacheTTL: 2592000,
+    unoptimized: true,
   },
-  async headers() {
-    return [
-      {
-        // RFC 8288 Link headers — agent discovery. Arahkan AI/agent ke
-        // ringkasan entity markdown (llms.txt) + versi lengkap + sitemap.
-        source: "/:path*",
-        headers: [
-          {
-            key: "Link",
-            value:
-              '</llms.txt>; rel="alternate"; type="text/markdown"; title="LLM-friendly site summary", </llms-full.txt>; rel="describedby"; type="text/markdown"; title="Full site context for AI", </sitemap.xml>; rel="sitemap"; type="application/xml"',
-          },
-        ],
-      },
-      {
-        // Aset statis (logo, foto, partner) jarang berubah — cache agresif
-        source: "/img/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=2592000, stale-while-revalidate=86400",
-          },
-        ],
-      },
-      {
-        source: "/blog/blogimg/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=2592000, stale-while-revalidate=86400",
-          },
-        ],
-      },
-    ];
-  },
-  async redirects() {
-    // URL blog lama (site statis) → artikel baru, jaga backlink & index lama
-    return [
-      {
-        source: "/blog/rancabangohotel.html",
-        destination: "/blog/rancabango-hotel-strategi-low-season",
-        permanent: true,
-      },
-      {
-        source: "/blog/studikasusbalongaja.html",
-        destination: "/blog/balong-aja-menangkap-market-wisata-lewat-bercerita",
-        permanent: true,
-      },
-      {
-        source: "/blog/studirestorasa.html",
-        destination: "/blog/photography-storytelling-konten-fnb",
-        permanent: true,
-      },
-    ];
-  },
+  // headers() & redirects() tidak jalan di static export — dipindah ke
+  // public/_headers dan public/_redirects (native Cloudflare Pages).
 };
 
 export default nextConfig;

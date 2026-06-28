@@ -3,6 +3,9 @@ import { SITE } from "@/lib/constants";
 import { CASE_STUDIES } from "@/lib/data";
 import { BLOG_POSTS } from "@/lib/blog";
 
+// Wajib untuk output: export — sitemap di-generate sekali saat build.
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { path: "/", priority: 1 },
