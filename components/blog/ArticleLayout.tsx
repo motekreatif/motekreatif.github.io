@@ -4,7 +4,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { JsonLd } from "@/components/shared/JsonLd";
 import { CTASection } from "@/components/home/CTASection";
 import { SITE } from "@/lib/constants";
-import { BLOG_POSTS, type BlogPost } from "@/lib/blog";
+import { type BlogPost } from "@/lib/blog";
+import { ALL_POSTS } from "@/lib/blog-content";
 
 type ArticleLayoutProps = {
   post: BlogPost;
@@ -18,12 +19,12 @@ type ArticleLayoutProps = {
 export function ArticleLayout({ post, children }: ArticleLayoutProps) {
   // Internal linking antar artikel — sinyal topical authority untuk AI engines.
   // Prioritaskan artikel kategori serumpun, lengkapi dengan yang lain.
-  const sameCategory = BLOG_POSTS.filter(
+  const sameCategory = ALL_POSTS.filter(
     (p) =>
       p.slug !== post.slug &&
       p.category.split("·")[0].trim() === post.category.split("·")[0].trim()
   );
-  const others = BLOG_POSTS.filter(
+  const others = ALL_POSTS.filter(
     (p) => p.slug !== post.slug && !sameCategory.includes(p)
   );
   const related = [...sameCategory, ...others].slice(0, 3);

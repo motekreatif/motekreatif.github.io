@@ -5,7 +5,7 @@ import { buildMeta } from "@/lib/metadata";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { PageHero } from "@/components/shared/PageHero";
 import { CTASection } from "@/components/home/CTASection";
-import { BLOG_POSTS } from "@/lib/blog";
+import { ALL_POSTS } from "@/lib/blog-content";
 
 export const metadata = buildMeta({
   title: "Blog — Insight & Studi Kasus Digital Marketing",
@@ -26,7 +26,7 @@ export default function BlogPage() {
 
       <section className="bg-[#F7F4EE] py-20 sm:py-24">
         <div className="container-mote grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {BLOG_POSTS.map((post, i) => (
+          {ALL_POSTS.map((post, i) => (
             <AnimatedSection key={post.slug} delay={i * 0.08}>
               <Link
                 href={`/blog/${post.slug}`}

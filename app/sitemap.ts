@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/constants";
 import { CASE_STUDIES } from "@/lib/data";
-import { BLOG_POSTS } from "@/lib/blog";
+import { ALL_POSTS } from "@/lib/blog-content";
 
 // Wajib untuk output: export — sitemap di-generate sekali saat build.
 export const dynamic = "force-static";
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
     { path: "/blog", priority: 0.8 },
-    ...BLOG_POSTS.map((post) => ({
+    ...ALL_POSTS.map((post) => ({
       path: `/blog/${post.slug}`,
       priority: 0.6,
     })),
