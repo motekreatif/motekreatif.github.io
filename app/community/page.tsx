@@ -8,13 +8,13 @@ import { RibbonDecoration } from "@/components/shared/RibbonDecoration";
 export const metadata = buildMeta({
   title: "Community — Masyarakat MOTE · Komunitas Anak Muda Kreatif Garut",
   description:
-    "Masyarakat MOTE: komunitas anak muda kreatif yang percaya maju itu ditempuh, bukan ditunggu. Kelas gratis, ritual Kamis Tekun, dan teman seperjalanan — mulai dari Garut.",
+    "Masyarakat MOTE: komunitas anak muda kreatif yang percaya maju itu ditempuh, bukan ditunggu. Kelas gratis, Kelas MOTE Offline rutin, dan teman seperjalanan — mulai dari Garut.",
   path: "/community",
 });
 
 const WA_GROUP = "https://chat.whatsapp.com/IySuVRGrDrN87b0J44ruqA?mode=gi_t";
 
-const heroMeta = ["Kelas gratis & terbuka", "Kumpul tiap Kamis", "Online + offline di Garut"];
+const heroMeta = ["Kelas gratis & terbuka", "Kelas MOTE Offline rutin", "Online + offline di Garut"];
 
 const volumes = [
   {
@@ -64,7 +64,7 @@ const gets = [
 ];
 
 const joinSteps = [
-  { no: "1", c: "#2C8CE6", name: "Masuk WA Community", desc: "Pintu paling ringan. Kenalan, nyimak dulu juga boleh, terus ikut Kamis Tekun pertamamu.", note: "Gratis · cukup niat" },
+  { no: "1", c: "#2C8CE6", name: "Masuk WA Community", desc: "Pintu paling ringan. Kenalan, nyimak dulu juga boleh, terus ikut Kelas MOTE Offline pertamamu.", note: "Gratis · cukup niat" },
   { no: "2", c: "#FF7E00", name: "Naik ke Discord", desc: "Buat yang makin serius: kanal per topik, arsip materi, kolaborasi, dan Tekun Streak yang kecatat.", note: "Kalau udah kerasa klik" },
   { no: "3", c: "#0F5A34", name: "Ketemu darat di Garut", desc: "Kelas offline & kumpul komunitas — kayak Kelas MOTE Vol. 2 di THE HOP Space. Ikatan paling kuat lahir di sini.", note: "Garut sebagai rumah" },
 ];
@@ -215,8 +215,8 @@ export default function CommunityPage() {
           <SectionHeading light eyebrow="Cara kami jalan" title="Bukan grup pasif. Ada ritmenya." description="Komunitas hidup dari kebiasaan, bukan pengumuman. Dua ritual ini yang bikin “tekun” kerasa nyata tiap minggu — bukan cuma slogan." />
           <div className="grid md:grid-cols-2 gap-5 mt-8">
             {[
-              { hbg: "#0F5A34", icon: "🗓️", t: "Kamis Tekun", s: "kumpul mingguan, tiap Kamis", body: [<>Satu hari sakral tiap minggu: kumpul, sharing, dan saling lihat progres. Kenapa Kamis? Karena Kelas MOTE sendiri lahir dari kebiasaan kelas internal tim tiap Kamis — harinya kami pertahankan.</>, <>Kadang bahas skill, kadang bahas jalan karir, kadang cuma saling nge-review karya. Yang penting: <b className="text-[#06243B]">ketemu, dan jalan lagi.</b></>] },
-              { hbg: "#FF7E00", icon: "🔥", t: "Tekun Streak", s: "rayain konsistensi, bukan bakat", body: [<>Tiap minggu kamu commit <b className="text-[#06243B]">satu langkah kecil</b> — bikin satu karya, belajar satu skill, praktek satu kali — lalu lapor tiap Kamis. Streak = berapa minggu kamu jalan tanpa putus.</>, <>Yang disorot bukan karya paling bagus, tapi <b className="text-[#06243B]">yang paling konsisten</b>. Putus streak? Nggak dihukum. Mulai lagi dari minggu satu — yang penting balik jalan.</>] },
+              { hbg: "#0F5A34", icon: "🗓️", t: "Kelas MOTE Offline", s: "kelas & kumpul offline, rutin", body: [<>Kumpul offline rutin: belajar bareng, sharing, dan saling lihat progres. Nerusin kebiasaan kelas internal tim yang tiap Kamis — sekarang dibuka jadi kelas offline buat semua warga.</>, <>Kadang bahas skill, kadang bahas jalan karir, kadang cuma saling nge-review karya. Yang penting: <b className="text-[#06243B]">ketemu, dan jalan lagi.</b></>] },
+              { hbg: "#FF7E00", icon: "🔥", t: "Tekun Streak", s: "rayain konsistensi, bukan bakat", body: [<>Tiap minggu kamu commit <b className="text-[#06243B]">satu langkah kecil</b> — bikin satu karya, belajar satu skill, praktek satu kali — lalu lapor tiap pekan. Streak = berapa minggu kamu jalan tanpa putus.</>, <>Yang disorot bukan karya paling bagus, tapi <b className="text-[#06243B]">yang paling konsisten</b>. Putus streak? Nggak dihukum. Mulai lagi dari minggu satu — yang penting balik jalan.</>] },
             ].map((r, i) => (
               <AnimatedSection key={r.t} delay={i * 0.1}>
                 <div className="rounded-[20px] overflow-hidden bg-white h-full">
@@ -279,7 +279,7 @@ export default function CommunityPage() {
         </div>
         <div className="container-mote relative z-10">
           <AnimatedSection className="max-w-3xl mx-auto text-center flex flex-col gap-6 items-center">
-            <span className="eyebrow bg-[#06243B] text-[#BDF24A]">Kamis Tekun nungguin</span>
+            <span className="eyebrow bg-[#06243B] text-[#BDF24A]">Kelas MOTE Offline nungguin</span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#06243B] text-balance">Suara “gitu-gitu aja” itu nggak harus menang.</h2>
             <p className="text-base sm:text-lg text-[#06243B]/85 max-w-xl">Kamu nggak butuh bakat besar buat mulai. Cuma butuh satu langkah kecil minggu ini — dan tempat yang bikin kamu jalan terus.</p>
             <div className="flex flex-wrap gap-3 justify-center mt-2">
