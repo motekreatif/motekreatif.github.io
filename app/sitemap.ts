@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/tdmo", priority: 0.9 },
     { path: "/products", priority: 0.8 },
     { path: "/case-studies", priority: 0.8 },
+    { path: "/community", priority: 0.8 },
     { path: "/about", priority: 0.7 },
     { path: "/contact", priority: 0.7 },
     ...CASE_STUDIES.map((cs) => ({

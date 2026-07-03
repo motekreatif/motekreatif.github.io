@@ -73,6 +73,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Products", href: "/products", hasDropdown: true },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Blog", href: "/blog" },
+  { label: "Community", href: "/community" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
