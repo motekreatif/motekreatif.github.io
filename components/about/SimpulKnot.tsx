@@ -6,12 +6,10 @@ const LIME = "#BDF24A";
 const ORANGE = "#FF7E00";
 const WHITE = "#FFFFFF";
 
-// x-region tiap bagian pita (viewBox 500) — left loop / ikatan tengah / right loop+ekor
-const REGIONS = [
-  { x: 6, w: 230 },   // loop kiri -> lime
-  { x: 236, w: 28 },  // bar vertikal tengah -> orange (bar solid x237-263)
-  { x: 264, w: 230 }, // loop kanan + ekor -> putih
-];
+// Split lime/putih pakai diagonal "\" (x-y=1) biar tiap strand yang nyilang jadi satu warna
+// (batas vertikal motong strand -> jagged). Orange = bar vertikal tengah (x236-264).
+const LIME_POLY = "0,100 101,100 401,400 0,400";   // sisi kiri-bawah diagonal
+const WHITE_POLY = "101,100 500,100 500,400 401,400"; // sisi kanan-atas diagonal
 
 const ITEMS = [
   {
@@ -41,6 +39,7 @@ export function SimpulKnot() {
   const [active, setActive] = useState<number | null>(null);
   const on = (i: number) => setActive(i);
   const off = () => setActive(null);
+  const op = (i: number) => (active === null ? 0.92 : active === i ? 1 : 0.14);
 
   return (
     <>
@@ -56,16 +55,14 @@ export function SimpulKnot() {
             </mask>
           </defs>
           <g mask="url(#simpul-mask)" style={{ pointerEvents: "none" }}>
-            {REGIONS.map((r, i) => (
-              <rect key={i} x={r.x} y="110" width={r.w} height="280" fill={ITEMS[i].color}
-                style={{ opacity: active === null ? 0.92 : active === i ? 1 : 0.14, transition: "opacity .25s" }} />
-            ))}
+            <polygon points={LIME_POLY} fill={LIME} style={{ opacity: op(0), transition: "opacity .25s" }} />
+            <polygon points={WHITE_POLY} fill={WHITE} style={{ opacity: op(2), transition: "opacity .25s" }} />
+            <rect x="236" y="100" width="28" height="300" fill={ORANGE} style={{ opacity: op(1), transition: "opacity .25s" }} />
           </g>
           {/* hotzone transparan buat hover gampang */}
-          {REGIONS.map((r, i) => (
-            <rect key={"h" + i} x={r.x} y="110" width={r.w} height="280" fill="transparent"
-              style={{ cursor: "pointer", pointerEvents: "all" }} onMouseEnter={() => on(i)} onMouseLeave={off} onClick={() => on(i)} />
-          ))}
+          <polygon points={LIME_POLY} fill="transparent" style={{ cursor: "pointer", pointerEvents: "all" }} onMouseEnter={() => on(0)} onMouseLeave={off} onClick={() => on(0)} />
+          <polygon points={WHITE_POLY} fill="transparent" style={{ cursor: "pointer", pointerEvents: "all" }} onMouseEnter={() => on(2)} onMouseLeave={off} onClick={() => on(2)} />
+          <rect x="236" y="100" width="28" height="300" fill="transparent" style={{ cursor: "pointer", pointerEvents: "all" }} onMouseEnter={() => on(1)} onMouseLeave={off} onClick={() => on(1)} />
         </svg>
 
         <div className="flex-1 min-w-[280px]">
