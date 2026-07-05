@@ -5,7 +5,7 @@ type BuildMetaInput = {
   title: string;
   description: string;
   path?: string;
-  /** Relatif ke domain (mis. "/img/meta.webp") atau URL absolut. Default share card brand. */
+  /** Relatif ke domain (mis. "/img/textlogosquare.webp") atau URL absolut. Default share card brand. */
   image?: string;
 };
 
@@ -13,7 +13,7 @@ export function buildMeta({
   title,
   description,
   path = "/",
-  image = "/img/meta.webp",
+  image = "/img/textlogosquare.webp",
 }: BuildMetaInput): Metadata {
   const url = `${SITE.url}${path}`;
   const imageUrl = image.startsWith("http") ? image : `${SITE.url}${image}`;
