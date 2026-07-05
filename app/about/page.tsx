@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { PageHero } from "@/components/shared/PageHero";
 import { RibbonDecoration } from "@/components/shared/RibbonDecoration";
 import { CTASection } from "@/components/home/CTASection";
+import { SimpulKnot } from "@/components/about/SimpulKnot";
 import { CONTACT } from "@/lib/constants";
 
 export const metadata = buildMeta({
@@ -93,35 +94,7 @@ export default function AboutPage() {
       {/* SIMPUL */}
       <section className="bg-[#06243B] text-white py-20 sm:py-24 relative overflow-hidden grain-overlay">
         <div className="container-mote relative z-10">
-          <span className="eyebrow eyebrow-light">Dari mantik ke saluran</span>
-          <div className="flex flex-wrap gap-10 items-center justify-center mt-6">
-            <AnimatedSection className="shrink-0">
-              <svg width="200" height="200" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-                <path d="M60 70 C20 70 20 130 60 130 C110 130 90 55 140 70 C180 82 175 132 135 130 C95 128 100 68 60 70 Z" stroke="#BDF24A" strokeWidth="13" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M60 70 C20 70 20 130 60 130 C110 130 90 55 140 70" stroke="#FF7E00" strokeWidth="13" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
-                <circle cx="100" cy="100" r="7" fill="#fff" />
-              </svg>
-            </AnimatedSection>
-            <AnimatedSection delay={0.1} className="flex-1 min-w-[280px]">
-              <h2 className="text-white">Mantik doang gak cukup. Energi yang nyala tapi gak diarahin cuma jadi kebakaran.</h2>
-              <p className="text-lg text-white/80 leading-relaxed mt-5 max-w-[60ch]">Jadi kami gak berhenti di mantik — kami kasih saluran. Dan bentuk saluran itu sebuah <b className="text-white">simpul</b>. Bukan hiasan; itu cara kami mikir. Simpul itu tiga hal sekaligus, dan tiga-tiganya persis kerjaan kami.</p>
-            </AnimatedSection>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-4 mt-8">
-            {[
-              { b: "Mempertemukan", s: "Nyatuin utas-utas yang tadinya jalan sendiri-sendiri." },
-              { b: "Mengikat kuat", s: "Sekali keiket, gak gampang lepas. Bukan kolaborasi musiman." },
-              { b: "Punya nilai seni", s: "Rapi, sengaja, indah. Bukan kusut — tapi karya." },
-            ].map((a, i) => (
-              <AnimatedSection key={a.b} delay={i * 0.08}>
-                <div className="bg-white/[0.06] border border-white/12 rounded-2xl p-5 h-full">
-                  <b className="text-[#BDF24A] text-[1.05rem]">{a.b}</b>
-                  <span className="block mt-1.5 text-sm text-white/72 leading-relaxed">{a.s}</span>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-          <p className="text-lg text-white/85 leading-relaxed mt-10 max-w-[64ch]">Karena buat kami, pertumbuhan kota itu soal <b className="text-white">ngiket tiga utas</b> yang selama ini kececer sendiri-sendiri.</p>
+          <SimpulKnot />
         </div>
       </section>
 
