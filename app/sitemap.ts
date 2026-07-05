@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/products", priority: 0.8 },
     { path: "/case-studies", priority: 0.8 },
     { path: "/community", priority: 0.8 },
+    { path: "/community/kreatif", priority: 0.7 },
+    { path: "/community/bisnis", priority: 0.7 },
     { path: "/about", priority: 0.7 },
     { path: "/contact", priority: 0.7 },
     ...CASE_STUDIES.map((cs) => ({
