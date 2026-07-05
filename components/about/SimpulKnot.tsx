@@ -8,9 +8,9 @@ const WHITE = "#FFFFFF";
 
 // x-region tiap bagian pita (viewBox 500) — left loop / ikatan tengah / right loop+ekor
 const REGIONS = [
-  { x: 6, w: 222 },
-  { x: 228, w: 58 },
-  { x: 286, w: 208 },
+  { x: 6, w: 230 },   // loop kiri -> lime
+  { x: 236, w: 28 },  // bar vertikal tengah -> orange (bar solid x237-263)
+  { x: 264, w: 230 }, // loop kanan + ekor -> putih
 ];
 
 const ITEMS = [
