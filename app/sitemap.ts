@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/services", priority: 0.9 },
     { path: "/tdmo", priority: 0.9 },
     { path: "/products", priority: 0.8 },
+    { path: "/products/clipper", priority: 0.9 },
     { path: "/case-studies", priority: 0.8 },
     { path: "/community", priority: 0.8 },
     { path: "/community/kreatif", priority: 0.7 },

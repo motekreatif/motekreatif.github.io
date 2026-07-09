@@ -11,6 +11,7 @@ import {
   Wallet,
   Calculator,
   Camera,
+  Scissors,
   type LucideIcon,
 } from "lucide-react";
 
@@ -167,6 +168,22 @@ export const PRODUCTS: Product[] = [
     url: "https://blaster.motekreatif.com",
     icon: MessageCircle,
     price: "Rp 99k/bulan",
+  },
+  {
+    name: "Clipper",
+    tagline: "Bikin klip pendek dari video YouTube, jalan di komputer sendiri.",
+    description:
+      "Paste link YouTube, AI pilih momen terbaik, jadi klip vertikal ber-caption. 100% lokal & privat, render tanpa batas, bayar sekali punya selamanya.",
+    features: [
+      "AI pilih momen + caption otomatis",
+      "Reframe wajah & hook otomatis",
+      "100% lokal, video tetap privat",
+      "Bayar sekali, tanpa langganan",
+    ],
+    status: "Live",
+    url: "/products/clipper",
+    icon: Scissors,
+    price: "Rp 90.467 sekali",
   },
   {
     name: "Modal Tekun",
