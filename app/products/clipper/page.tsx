@@ -162,43 +162,24 @@ export default function ClipperPage() {
       <section className="bg-white py-20 sm:py-24">
         <div className="container-mote grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <AnimatedSection className="order-1 lg:order-1 flex justify-center">
-            <div className="relative w-[240px] sm:w-[288px] shrink-0 rounded-[2rem] border-[6px] border-[#06243B] bg-[#06243B] shadow-[0_40px_90px_-40px_rgba(6,36,59,0.55)]">
+            <div className="w-[240px] sm:w-[280px] shrink-0 overflow-hidden rounded-[1.75rem] border border-black/10 bg-[#06243B]">
               <video
                 src="/video/clipper-sample.mp4"
                 poster="/video/clipper-sample-poster.jpg"
-                className="block w-full aspect-[9/16] rounded-[1.5rem] object-cover"
-                autoPlay
-                muted
-                loop
+                className="block w-full aspect-[9/16] object-cover"
                 playsInline
                 controls
                 preload="metadata"
               />
             </div>
           </AnimatedSection>
-          <AnimatedSection className="order-2 lg:order-2 flex flex-col gap-5">
+          <AnimatedSection className="order-2 lg:order-2 flex flex-col gap-4">
             <span className="eyebrow">Contoh hasil</span>
-            <h2 className="text-[#06243B]">Beginilah klip yang keluar.</h2>
+            <h2 className="text-[#06243B]">Contoh klip yang dihasilkan.</h2>
             <p className="text-[#3D4F60] leading-relaxed text-lg">
-              Ini output asli Clipper — vertikal 9:16, caption menyala otomatis, wajah selalu
-              ke-frame, dan hook ditaruh di detik-detik awal. Langsung siap posting ke TikTok,
+              Output asli Clipper — vertikal 9:16, caption otomatis, siap posting ke TikTok,
               Reels, atau Shorts.
             </p>
-            <ul className="flex flex-col gap-2.5 mt-1">
-              {[
-                "Caption otomatis, sinkron per kata",
-                "Reframe wajah ke 9:16 otomatis",
-                "Hook di 3 detik awal biar nge-stop scroll",
-                "Siap posting, tanpa edit tambahan",
-              ].map((b) => (
-                <li key={b} className="flex items-center gap-3 text-[#06243B] font-medium">
-                  <span className="h-5 w-5 rounded-full bg-[#BDF24A] text-[#06243B] flex items-center justify-center shrink-0">
-                    <Check className="h-3 w-3" strokeWidth={3.5} />
-                  </span>
-                  {b}
-                </li>
-              ))}
-            </ul>
           </AnimatedSection>
         </div>
       </section>
@@ -251,7 +232,7 @@ export default function ClipperPage() {
         <div className="container-mote flex flex-col gap-12">
           <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
             <span className="eyebrow">Yang kamu dapat</span>
-            <h2 className="text-[#06243B]">Semua buat produksi klip, sekali beli.</h2>
+            <h2 className="text-[#06243B] max-sm:text-[1.375rem]">Semua buat produksi klip, sekali beli.</h2>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {FEATURES.map((f) => {
@@ -278,7 +259,7 @@ export default function ClipperPage() {
         <div className="container-mote grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <AnimatedSection className="flex flex-col gap-5">
             <span className="eyebrow">Beli sekali, punya selamanya</span>
-            <h2 className="text-[#06243B]">
+            <h2 className="text-[#06243B] max-sm:text-[1.375rem]">
               Satu kali <span className="highlight-text">{PRICE}</span>. Tanpa langganan.
             </h2>
             <p className="text-[#3D4F60] leading-relaxed text-lg">
