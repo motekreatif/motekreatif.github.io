@@ -11,6 +11,7 @@ import {
   KeyRound,
   Palette,
   ChevronRight,
+  ChevronDown,
 } from "lucide-react";
 import { buildMeta } from "@/lib/metadata";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
@@ -157,6 +158,51 @@ export default function ClipperPage() {
         </div>
       </section>
 
+      {/* Sample output — real clip */}
+      <section className="bg-white py-20 sm:py-24">
+        <div className="container-mote grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <AnimatedSection className="order-1 lg:order-1 flex justify-center">
+            <div className="relative w-[240px] sm:w-[288px] shrink-0 rounded-[2rem] border-[6px] border-[#06243B] bg-[#06243B] shadow-[0_40px_90px_-40px_rgba(6,36,59,0.55)]">
+              <video
+                src="/video/clipper-sample.mp4"
+                poster="/video/clipper-sample-poster.jpg"
+                className="block w-full aspect-[9/16] rounded-[1.5rem] object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+              />
+            </div>
+          </AnimatedSection>
+          <AnimatedSection className="order-2 lg:order-2 flex flex-col gap-5">
+            <span className="eyebrow">Contoh hasil</span>
+            <h2 className="text-[#06243B]">Beginilah klip yang keluar.</h2>
+            <p className="text-[#3D4F60] leading-relaxed text-lg">
+              Ini output asli Clipper — vertikal 9:16, caption menyala otomatis, wajah selalu
+              ke-frame, dan hook ditaruh di detik-detik awal. Langsung siap posting ke TikTok,
+              Reels, atau Shorts.
+            </p>
+            <ul className="flex flex-col gap-2.5 mt-1">
+              {[
+                "Caption otomatis, sinkron per kata",
+                "Reframe wajah ke 9:16 otomatis",
+                "Hook di 3 detik awal biar nge-stop scroll",
+                "Siap posting, tanpa edit tambahan",
+              ].map((b) => (
+                <li key={b} className="flex items-center gap-3 text-[#06243B] font-medium">
+                  <span className="h-5 w-5 rounded-full bg-[#BDF24A] text-[#06243B] flex items-center justify-center shrink-0">
+                    <Check className="h-3 w-3" strokeWidth={3.5} />
+                  </span>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* Comparison */}
       <section className="bg-white py-20 sm:py-24">
         <div className="container-mote flex flex-col gap-12">
@@ -275,11 +321,16 @@ export default function ClipperPage() {
             <span className="eyebrow">FAQ</span>
             <h2 className="text-[#06243B]">Pertanyaan yang sering muncul.</h2>
           </AnimatedSection>
-          <div className="flex flex-col gap-4">
-            {FAQS.map((f) => (
-              <AnimatedSection key={f.q} className="rounded-2xl border border-black/8 p-6 bg-white">
-                <h3 className="text-base font-extrabold text-[#06243B] mb-2">{f.q}</h3>
-                <p className="text-[#3D4F60] leading-relaxed">{f.a}</p>
+          <div className="flex flex-col gap-3">
+            {FAQS.map((f, i) => (
+              <AnimatedSection key={f.q} delay={i * 0.04}>
+                <details className="group rounded-2xl border border-black/8 bg-white overflow-hidden">
+                  <summary className="flex items-center justify-between gap-4 cursor-pointer list-none p-5 sm:p-6 [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-base font-extrabold text-[#06243B]">{f.q}</h3>
+                    <ChevronDown className="h-5 w-5 shrink-0 text-[#06243B]/50 transition-transform group-open:rotate-180" />
+                  </summary>
+                  <p className="px-5 sm:px-6 pb-5 sm:pb-6 text-[#3D4F60] leading-relaxed">{f.a}</p>
+                </details>
               </AnimatedSection>
             ))}
           </div>

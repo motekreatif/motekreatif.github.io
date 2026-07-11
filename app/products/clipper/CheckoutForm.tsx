@@ -65,8 +65,10 @@ export function CheckoutForm() {
         </div>
       )}
 
-      <div className="flex items-baseline gap-2">
-        <span className="text-3xl sm:text-4xl font-extrabold text-[#06243B]">{PRICE_LABEL}</span>
+      <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-2">
+        <span className="text-3xl sm:text-4xl font-extrabold text-[#06243B] whitespace-nowrap">
+          {PRICE_LABEL}
+        </span>
         <span className="text-sm font-semibold text-[#3D4F60]">sekali bayar · punya selamanya</span>
       </div>
 

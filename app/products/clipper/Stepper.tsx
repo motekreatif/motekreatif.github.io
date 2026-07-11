@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Clipboard, Sparkles, Wand2, Download, Play, Check } from "lucide-react";
+import { Download, Play, Check } from "lucide-react";
 
 const NAVY = "#06243B";
 
@@ -165,8 +165,6 @@ const STEPS: Step[] = [
   },
 ];
 
-const ICONS = [Clipboard, Sparkles, Wand2, Download];
-
 export function Stepper() {
   const [active, setActive] = useState(0);
   const step = STEPS[active];
@@ -197,29 +195,42 @@ export function Stepper() {
         </div>
       </div>
 
-      {/* Tab bar */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-xl border border-black/10 bg-black/5">
-        {STEPS.map((s, i) => {
-          const Icon = ICONS[i];
-          const on = i === active;
-          return (
-            <button
-              key={s.key}
-              type="button"
-              onClick={() => setActive(i)}
-              aria-pressed={on}
-              className={`flex items-center justify-center gap-2 px-3 py-3.5 text-[12px] sm:text-[13px] font-semibold transition-colors ${
-                on
-                  ? "bg-white text-[#06243B]"
-                  : "bg-[#F7F8FA] text-[#06243B]/50 hover:text-[#06243B]/80"
-              }`}
-              style={on ? { boxShadow: `inset 0 -2px 0 0 ${NAVY}` } : undefined}
-            >
-              <Icon className="h-4 w-4 shrink-0" strokeWidth={2.2} />
-              <span className="truncate">{s.tab}</span>
-            </button>
-          );
-        })}
+      {/* Tab bar — numbered, clickable steps */}
+      <div className="flex flex-col gap-2.5">
+        <p className="text-center text-[12px] sm:text-[13px] text-[#06243B]/50">
+          Klik tiap langkah untuk lihat detailnya
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px overflow-hidden rounded-xl border border-black/10 bg-black/5">
+          {STEPS.map((s, i) => {
+            const on = i === active;
+            return (
+              <button
+                key={s.key}
+                type="button"
+                onClick={() => setActive(i)}
+                aria-pressed={on}
+                aria-label={`Langkah ${i + 1}: ${s.tab}`}
+                className={`group flex cursor-pointer items-center justify-center gap-2 px-2.5 py-3.5 text-[12px] sm:text-[13px] font-semibold transition-colors ${
+                  on
+                    ? "bg-white text-[#06243B]"
+                    : "bg-[#F7F8FA] text-[#06243B]/55 hover:bg-white/70 hover:text-[#06243B]/90"
+                }`}
+                style={on ? { boxShadow: `inset 0 -2.5px 0 0 ${NAVY}` } : undefined}
+              >
+                <span
+                  className={`grid h-5 w-5 shrink-0 place-items-center rounded-full text-[11px] font-bold transition-colors ${
+                    on
+                      ? "bg-[#06243B] text-[#BDF24A]"
+                      : "bg-[#06243B]/10 text-[#06243B]/50 group-hover:bg-[#06243B]/20"
+                  }`}
+                >
+                  {i + 1}
+                </span>
+                <span className="truncate">{s.tab}</span>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
