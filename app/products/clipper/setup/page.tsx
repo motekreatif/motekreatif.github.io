@@ -56,7 +56,12 @@ const STEPS = [
         <li>
           <b className="text-[#06243B]">macOS:</b>{" "}
           <code className="px-1.5 py-0.5 rounded bg-[#06243B]/5 font-mono text-[13px]">install.command</code>{" "}
-          — pertama kali: klik-kanan → <b>Open</b> buat lewatin peringatan keamanan.
+          — pertama kali macOS mungkin blokir (“Apple could not verify…”). Itu{" "}
+          <b>normal</b> buat file download; cara ngelewatinnya (<b>Open Anyway</b>) ada di{" "}
+          <a href="#troubleshooting" className="text-[#06243B] underline underline-offset-2">
+            Troubleshooting
+          </a>{" "}
+          di bawah.
         </li>
         <li>
           <b className="text-[#06243B]">Windows:</b>{" "}
@@ -98,8 +103,8 @@ const KEYS = [
 
 const FAQ = [
   {
-    q: "Dobel-klik install tapi gak ada yang terjadi / muncul peringatan?",
-    a: "Di macOS, pertama kali klik-kanan file install.command → pilih Open → Open lagi. Ini normal buat file yang di-download. Di Windows, kalau muncul “Windows protected your PC”, klik More info → Run anyway.",
+    q: "macOS blokir dengan “Apple could not verify” / file gak bisa dibuka?",
+    a: "Ini normal buat aplikasi yang di-download (belum kami notarisasi ke Apple — aman, ini script lokal kamu). Cara ngelewatinnya di macOS: (1) dobel-klik install.command, peringatan muncul → klik Done / Batal. (2) Buka menu Apple  → System Settings → Privacy & Security. (3) Scroll ke bawah; di sebelah tulisan “install.command was blocked” klik tombol Open Anyway. (4) Konfirmasi pakai Touch ID / password, lalu dobel-klik install.command lagi → Open. Di macOS versi lama, klik-kanan install.command → Open → Open juga bisa. Di Windows, kalau muncul “Windows protected your PC”, klik More info → Run anyway.",
   },
   {
     q: "“Docker isn't running”?",
@@ -293,7 +298,7 @@ export default function ClipperSetupPage() {
       </section>
 
       {/* Troubleshooting */}
-      <section className="bg-white py-16 sm:py-24">
+      <section id="troubleshooting" className="bg-white py-16 sm:py-24 scroll-mt-24">
         <div className="container-mote flex flex-col gap-10">
           <AnimatedSection className="max-w-2xl flex flex-col gap-3">
             <span className="eyebrow">Troubleshooting</span>
