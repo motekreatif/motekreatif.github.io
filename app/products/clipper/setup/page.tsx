@@ -1,8 +1,11 @@
 import {
+  AlignLeft,
   ArrowRight,
   Download,
   KeyRound,
+  MonitorPlay,
   Palette,
+  RefreshCw,
   Sparkles,
   Server,
   MousePointerClick,
@@ -11,6 +14,8 @@ import {
   Power,
   Play,
   Square,
+  Terminal,
+  Zap,
 } from "lucide-react";
 import { buildMeta } from "@/lib/metadata";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
@@ -20,11 +25,32 @@ import { CONTACT } from "@/lib/constants";
 const DOWNLOAD_URL = "/downloads/clipper.zip";
 
 export const metadata = buildMeta({
-  title: "Panduan Setup Clipper by Mote — Install, Aktivasi & Buka Lagi",
+  title: "Panduan Setup Clipper by Mote — Install, Update & Buka Lagi",
   description:
-    "Cara memasang Clipper by Mote di komputer kamu: install Docker, jalankan aplikasi, aktivasi lisensi, isi API key gratis, dan cara buka lagi setelah laptop dimatikan. Lengkap dengan troubleshooting.",
+    "Cara memasang Clipper by Mote di komputer kamu: install Docker, jalankan aplikasi, aktivasi lisensi, isi API key gratis, pilih style klip, cara update ke versi terbaru, dan cara buka lagi setelah laptop dimatikan. Lengkap dengan troubleshooting.",
   path: "/products/clipper/setup",
 });
+
+const STYLES = [
+  {
+    icon: Zap,
+    name: "Punchy clips",
+    spec: "20–45 detik · caption karaoke · judul hook",
+    d: "Pendek dan nampol — AI cari momen paling menohok. Buat apa aja yang mau kamu lempar ke TikTok atau Reels.",
+  },
+  {
+    icon: AlignLeft,
+    name: "Full story",
+    spec: "60–90 detik · caption kalem",
+    d: "Lebih panjang, satu pemikiran utuh dari awal sampai kesimpulan. Cocok buat podcast, wawancara, dan obrolan panjang.",
+  },
+  {
+    icon: MonitorPlay,
+    name: "Screen & slides",
+    spec: "45–90 detik · layar utuh, gak kepotong",
+    d: "Frame penuh dengan judul di bar atas — slide dan rekaman layar tetap kebaca. Buat tutorial dan presentasi.",
+  },
+];
 
 const STEPS = [
   {
@@ -126,6 +152,14 @@ const FAQ = [
     q: "Klip jadinya di mana?",
     a: "Di folder “clips” tepat di sebelah file install tadi — buka langsung dari Finder / Explorer, gak perlu download.",
   },
+  {
+    q: "Kok di dashboard saya gak ada kartu style?",
+    a: "Kartu style hadir di update terbaru. Ikuti bagian “Update ke versi terbaru” di atas (intinya: docker compose pull, lalu start). Pengaturan dan klip kamu gak hilang.",
+  },
+  {
+    q: "Saat update muncul “input/output error” / pull gagal?",
+    a: "Biasanya disk Docker penuh. Pastikan disk kosong minimal 10 GB, restart Docker Desktop, lalu jalankan docker compose pull lagi. Klip dan pengaturan kamu tetap aman.",
+  },
 ];
 
 export default function ClipperSetupPage() {
@@ -206,6 +240,44 @@ export default function ClipperSetupPage() {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Style cards */}
+      <section className="bg-white pb-16 sm:pb-20">
+        <div className="container-mote flex flex-col gap-10">
+          <AnimatedSection className="max-w-2xl flex flex-col gap-3">
+            <span className="eyebrow">Cara pakai</span>
+            <h2 className="text-[#06243B]">Tempel link, pilih style, Generate.</h2>
+            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
+              Di dashboard kamu tinggal tempel link YouTube, pilih salah satu{" "}
+              <b className="text-[#06243B]">kartu style</b>, lalu klik Generate. Style menentukan dua hal
+              sekaligus: momen mana yang dipilih AI <i>dan</i> tampilan klipnya.
+            </p>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {STYLES.map((s) => (
+              <AnimatedSection
+                key={s.name}
+                className="rounded-2xl border border-black/8 bg-[#F7F8FA] p-7 flex flex-col gap-3"
+              >
+                <div className="h-11 w-11 rounded-xl bg-[#BDF24A] flex items-center justify-center text-[#06243B]">
+                  <s.icon className="h-5 w-5" strokeWidth={2.2} />
+                </div>
+                <h3 className="text-base font-extrabold text-[#06243B]">{s.name}</h3>
+                <p className="text-[13px] font-medium text-[#06243B]/60">{s.spec}</p>
+                <p className="text-[15px] text-[#3D4F60] leading-relaxed">{s.d}</p>
+              </AnimatedSection>
+            ))}
+          </div>
+          <AnimatedSection className="flex items-start gap-3 rounded-xl border border-black/8 bg-[#F7F8FA] px-5 py-4">
+            <Palette className="h-5 w-5 text-[#06243B]/40 shrink-0 mt-0.5" />
+            <p className="text-[15px] text-[#3D4F60]">
+              Mau atur sendiri font, warna karaoke, durasi, sampai prompt AI-nya? Semua ada di menu{" "}
+              <b className="text-[#06243B]">Settings</b> — hasil aturanmu muncul sebagai kartu{" "}
+              <b className="text-[#06243B]">“My settings”</b> di dashboard.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -294,6 +366,62 @@ export default function ClipperSetupPage() {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Update for existing buyers */}
+      <section id="update" className="bg-[#F7F8FA] py-16 sm:py-24 border-y border-black/5 scroll-mt-24">
+        <div className="container-mote flex flex-col gap-10">
+          <AnimatedSection className="max-w-2xl flex flex-col gap-3">
+            <span className="eyebrow">Sudah punya Clipper?</span>
+            <h2 className="text-[#06243B]">Update ke versi terbaru — 2 menit.</h2>
+            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
+              Fitur baru (seperti kartu style dan perbaikan hasil render) datang lewat update. Lisensi,
+              pengaturan, dan klip kamu <b className="text-[#06243B]">aman semua</b> — update cuma
+              ngambil versi aplikasi terbaru.
+            </p>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                icon: Power,
+                t: "1. Nyalain Docker Desktop",
+                d: "Seperti biasa: buka Docker Desktop, tunggu statusnya “running”. Pastikan disk kosong minimal 10 GB.",
+              },
+              {
+                icon: Terminal,
+                t: "2. Tarik versi terbaru",
+                d: "macOS: buka Terminal, ketik “cd ”, seret folder clipper kamu ke jendela Terminal, Enter. Windows: buka folder clipper, klik address bar, ketik “cmd”, Enter. Lalu di keduanya jalankan: docker compose pull",
+              },
+              {
+                icon: Play,
+                t: "3. Dobel-klik start",
+                d: "start.command (macOS) / start.bat (Windows), lalu buka localhost:3060. Selesai — kartu style langsung muncul di dashboard.",
+              },
+            ].map((s) => (
+              <AnimatedSection
+                key={s.t}
+                className="rounded-2xl border border-black/8 bg-white p-7 flex flex-col gap-3"
+              >
+                <div className="h-11 w-11 rounded-xl bg-[#BDF24A]/20 flex items-center justify-center text-[#06243B]">
+                  <s.icon className="h-5 w-5" strokeWidth={2.2} />
+                </div>
+                <h3 className="text-base font-extrabold text-[#06243B]">{s.t}</h3>
+                <p className="text-[15px] text-[#3D4F60] leading-relaxed">{s.d}</p>
+              </AnimatedSection>
+            ))}
+          </div>
+          <AnimatedSection className="flex items-start gap-3 rounded-xl border border-black/8 bg-white px-5 py-4">
+            <RefreshCw className="h-5 w-5 text-[#06243B]/40 shrink-0 mt-0.5" />
+            <p className="text-[15px] text-[#3D4F60]">
+              <b className="text-[#06243B]">Kenapa gak cukup dobel-klik start aja?</b> Tombol start
+              menjalankan versi yang sudah ada di komputer kamu — perintah{" "}
+              <code className="px-1.5 py-0.5 rounded bg-[#06243B]/5 font-mono text-[13px]">
+                docker compose pull
+              </code>{" "}
+              itulah yang mengambil versi barunya. Cukup dilakukan saat ada update.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
