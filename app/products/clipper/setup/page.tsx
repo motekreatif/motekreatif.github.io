@@ -160,6 +160,10 @@ const FAQ = [
     q: "Saat update muncul “input/output error” / pull gagal?",
     a: "Biasanya disk Docker penuh. Pastikan disk kosong minimal 10 GB, restart Docker Desktop, lalu jalankan docker compose pull lagi. Klip dan pengaturan kamu tetap aman.",
   },
+  {
+    q: "Pas Generate muncul “AI gratis kena limit / kuota habis”?",
+    a: "Itu batas layanan GRATIS Google Gemini, bukan aplikasi yang rusak. Cara biar lancar: tempel 2-3 API key Gemini dari akun Google berbeda di Settings (jatah harian jadi berlipat, gratis), pakai video lebih pendek kalau lagi ramai, coba lagi besok (kuota reset harian), atau aktifkan billing Google yang murah untuk pemakaian berat. Panduan lengkap di bagian “Kalau muncul AI gratis kena limit” di atas.",
+  },
 ];
 
 export default function ClipperSetupPage() {
@@ -366,6 +370,63 @@ export default function ClipperSetupPage() {
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Smooth generation / free-tier limits */}
+      <section id="lancar" className="bg-white py-16 sm:py-24 scroll-mt-24">
+        <div className="container-mote flex flex-col gap-10">
+          <AnimatedSection className="max-w-2xl flex flex-col gap-3">
+            <span className="eyebrow">Biar lancar</span>
+            <h2 className="text-[#06243B]">
+              Kalau muncul “AI gratis kena limit”.
+            </h2>
+            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
+              Itu <b className="text-[#06243B]">bukan aplikasi yang rusak</b> —
+              itu batas layanan <b className="text-[#06243B]">gratis</b> dari
+              Google Gemini. Key gratis punya jatah pemakaian harian, dan video
+              panjang cepat menghabiskannya. Aplikasi otomatis mencoba beberapa
+              model &amp; key dulu; kalau tetap mentok, ini caranya biar lancar.
+            </p>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              {
+                icon: KeyRound,
+                t: "Tempel 2-3 API key Gemini",
+                d: "Cara paling ampuh & tetap GRATIS: bikin key dari 2-3 akun Google berbeda, tempel semua di Settings → Gemini API Key (pisah spasi atau koma). Jatah harian jadi berlipat, aplikasi otomatis gantian pas satu key habis.",
+              },
+              {
+                icon: RefreshCw,
+                t: "Coba lagi / besok, atau video pendek",
+                d: "Kuota gratis reset tiap hari — tunggu beberapa menit atau ulangi besok. Kalau Gemini lagi ramai, pakai video di bawah ~20 menit dulu.",
+              },
+              {
+                icon: Zap,
+                t: "Nyalain billing Google (opsional)",
+                d: "Buat yang volume berat: aktifkan pay-as-you-go di Google AI Studio. Murah — sekitar Rp100/video, jadi 100 video ≈ Rp5.000-15.000. Uangnya ke Google langsung (bukan ke Mote), dan kamu bisa pasang batas budget sendiri.",
+              },
+            ].map((s) => (
+              <AnimatedSection
+                key={s.t}
+                className="rounded-2xl border border-black/8 bg-white p-7 flex flex-col gap-3"
+              >
+                <div className="h-11 w-11 rounded-xl bg-[#BDF24A]/20 flex items-center justify-center text-[#06243B]">
+                  <s.icon className="h-5 w-5" strokeWidth={2.2} />
+                </div>
+                <h3 className="text-base font-extrabold text-[#06243B]">{s.t}</h3>
+                <p className="text-[15px] text-[#3D4F60] leading-relaxed">{s.d}</p>
+              </AnimatedSection>
+            ))}
+          </div>
+          <AnimatedSection className="flex items-start gap-3 rounded-xl border border-black/8 bg-[#F7F8FA] px-5 py-4">
+            <Sparkles className="h-5 w-5 text-[#06243B]/40 shrink-0 mt-0.5" />
+            <p className="text-[15px] text-[#3D4F60]">
+              <b className="text-[#06243B]">Gratis tetap cukup</b> buat pemakaian
+              normal &amp; video pendek. Billing cuma pilihan kalau kamu bikin
+              banyak klip setiap hari — bukan keharusan.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
