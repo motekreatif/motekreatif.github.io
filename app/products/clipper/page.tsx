@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Check,
@@ -55,7 +56,13 @@ const CLIPPER_PROS = [
   "Tetap jalan selamanya, gak bisa dimatikan",
 ];
 
-const FAQS = [
+type Faq = {
+  q: string;
+  a: string;
+  more?: { href: string; label: string };
+};
+
+const FAQS: Faq[] = [
   {
     q: "Bedanya sama Opus Clip apa?",
     a: "Opus Clip langganan bulanan dan video kamu diproses di server mereka. Clipper bayar sekali, jalan di komputer kamu sendiri, dan render-nya tanpa batas. Kamu pegang penuh.",
@@ -74,9 +81,20 @@ const FAQS = [
   },
   {
     q: "Ada refund?",
-    a: "Produk digital dengan lisensi, jadi refund terbatas. Ragu apakah cocok? Chat dulu via WhatsApp sebelum beli — kami jujur bilang cocok atau tidak.",
+    a: "Kunci lisensi dikirim otomatis begitu pembayaran terverifikasi, jadi pembelian bersifat non-refundable setelah kunci diterbitkan. Pengecualiannya: kunci tidak sampai dalam 1×24 jam dan kami gagal menerbitkan ulang, atau aplikasi tidak bisa jalan di komputer kamu yang sudah memenuhi syarat sistem setelah didampingi tim kami. Ragu cocok atau tidak? Chat dulu via WhatsApp sebelum beli — kami jujur bilang cocok atau tidak.",
+    more: { href: "/refund-policy", label: "Baca Kebijakan Refund selengkapnya" },
   },
 ];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
 
 export default function ClipperPage() {
   return (
@@ -296,7 +314,11 @@ export default function ClipperPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#F7F8FA] py-20 sm:py-24 border-t border-black/5">
+      <section id="faq" className="bg-[#F7F8FA] py-20 sm:py-24 border-t border-black/5 scroll-mt-24">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
         <div className="container-mote max-w-3xl flex flex-col gap-10">
           <AnimatedSection className="flex flex-col gap-3">
             <span className="eyebrow">FAQ</span>
@@ -310,7 +332,18 @@ export default function ClipperPage() {
                     <h3 className="text-base font-extrabold text-[#06243B]">{f.q}</h3>
                     <ChevronDown className="h-5 w-5 shrink-0 text-[#06243B]/50 transition-transform group-open:rotate-180" />
                   </summary>
-                  <p className="px-5 sm:px-6 pb-5 sm:pb-6 text-[#3D4F60] leading-relaxed">{f.a}</p>
+                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 flex flex-col items-start gap-3">
+                    <p className="text-[#3D4F60] leading-relaxed">{f.a}</p>
+                    {f.more && (
+                      <Link
+                        href={f.more.href}
+                        className="inline-flex items-center gap-1.5 text-sm font-bold text-[#06243B] underline underline-offset-4 decoration-[#BDF24A] decoration-2 hover:decoration-[#06243B] transition-colors"
+                      >
+                        {f.more.label}
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    )}
+                  </div>
                 </details>
               </AnimatedSection>
             ))}

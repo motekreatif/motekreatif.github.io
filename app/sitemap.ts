@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/community/bisnis", priority: 0.7 },
     { path: "/about", priority: 0.7 },
     { path: "/contact", priority: 0.7 },
+    { path: "/terms", priority: 0.4 },
+    { path: "/refund-policy", priority: 0.4 },
     ...CASE_STUDIES.map((cs) => ({
       path: `/case-studies/${cs.slug}`,
       priority: 0.7,

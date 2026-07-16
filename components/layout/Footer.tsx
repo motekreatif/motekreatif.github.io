@@ -1,13 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Instagram, Mail, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import { CONTACT, NAV_LINKS, SITE } from "@/lib/constants";
 import { PRODUCTS } from "@/lib/data";
 import { RibbonDecoration } from "@/components/shared/RibbonDecoration";
 
 export function Footer() {
+  // pb-24 keeps the last row clear of the fixed WhatsApp FAB (48px tall, bottom-5).
   return (
-    <footer className="relative bg-[#021526] text-white pt-20 pb-10 mt-0 overflow-hidden">
+    <footer className="relative bg-[#021526] text-white pt-20 pb-24 mt-0 overflow-hidden">
       {/* Subtle ribbon at top */}
       <div
         className="absolute inset-x-0 top-0 h-[180px] z-0 hidden sm:block pointer-events-none"
@@ -153,11 +154,33 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container-mote relative z-10 mt-14 pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-xs text-white/60">
-        <p>
-          © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.
-        </p>
-        <p>Made with ketekunan.</p>
+      <div className="container-mote relative z-10 mt-14 pt-6 border-t border-white/10 flex flex-col gap-5 text-xs text-white/60">
+        <Link
+          href="/products/clipper#beli"
+          className="self-start inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 hover:border-[#BDF24A]/50 hover:bg-white/10 transition-colors"
+        >
+          <ShieldCheck className="h-4 w-4 text-[#BDF24A] shrink-0" />
+          <span className="text-white/80">
+            Pembayaran produk digital aman via{" "}
+            <strong className="font-bold text-white">iPaymu</strong>
+          </span>
+        </Link>
+
+        <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {SITE.legalName}. All rights reserved.
+            <span className="hidden sm:inline"> · Made with ketekunan.</span>
+          </p>
+          <div className="flex items-center gap-3">
+            <Link href="/terms" className="hover:text-white/90 hover:underline transition-colors">
+              Syarat &amp; Ketentuan
+            </Link>
+            <span className="text-white/25">·</span>
+            <Link href="/refund-policy" className="hover:text-white/90 hover:underline transition-colors">
+              Kebijakan Refund
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
