@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Download, Play, Check } from "lucide-react";
 
 const NAVY = "#06243B";
@@ -76,24 +77,28 @@ function ScreenAnalyze() {
   );
 }
 
+/**
+ * The 9:16 tile here is a REAL frame rendered by the app (same asset the
+ * product's own style picker shows), not a CSS mock-up. The rest of this file
+ * still draws its screens from divs, which is fine for a link box or a file
+ * list; it is not fine for the one step whose whole promise is "look how the
+ * output turns out".
+ */
 function ScreenRender() {
   return (
     <div className="flex items-center justify-center gap-4">
-      <div className="relative aspect-[9/16] w-32 overflow-hidden rounded-xl border border-black/10 bg-gradient-to-b from-[#06243B]/85 to-[#06243B]/55">
-        <div className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 grid place-items-center rounded-full bg-white/15 backdrop-blur">
-          <Play className="h-4 w-4 text-white" fill="currentColor" />
-        </div>
-        <div className="absolute inset-x-2 bottom-3 flex flex-col items-center gap-1">
-          <span className="rounded bg-[#BDF24A] px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-[#06243B]">
-            fokus itu
-          </span>
-          <span className="rounded bg-[#BDF24A] px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-[#06243B]">
-            skill, bukan bakat
-          </span>
-        </div>
+      <div className="relative aspect-[9/16] w-32 shrink-0 overflow-hidden rounded-xl border border-black/10 bg-[#06243B]">
+        <Image
+          src="/img/clipper/styles/bundle-viral.webp"
+          alt="Klip vertikal hasil render Clipper dengan caption karaoke"
+          fill
+          sizes="128px"
+          className="object-cover"
+          unoptimized
+        />
       </div>
       <ul className="flex flex-col gap-2 text-[12px] text-[#06243B]/75">
-        {["Caption otomatis", "Reframe wajah 9:16", "Hook di 3 detik awal"].map((f) => (
+        {["8 gaya caption", "3 cara ngepasin frame", "Kartu hook di awal klip"].map((f) => (
           <li key={f} className="flex items-center gap-2">
             <span className="grid h-4 w-4 place-items-center rounded-full bg-[#BDF24A]">
               <Check className="h-2.5 w-2.5 text-[#06243B]" strokeWidth={3.5} />
@@ -149,10 +154,10 @@ const STEPS: Step[] = [
   },
   {
     key: "render",
-    tab: "Render caption",
+    tab: "Pilih gaya",
     eyebrow: "Langkah 03 / 04",
-    title: "Render caption + reframe",
-    body: "Tiap klip di-render jadi vertikal 9:16: caption menyala otomatis, wajah selalu ke-frame, dan hook ditaruh di detik-detik awal.",
+    title: "Pilih gaya, lalu render",
+    body: "Klik satu dari empat paket gaya, atau ganti sendiri caption dan framing-nya. Tiap klip di-render jadi vertikal 9:16 dengan caption otomatis dan kartu hook di detik-detik awal.",
     screen: <ScreenRender />,
   },
   {
