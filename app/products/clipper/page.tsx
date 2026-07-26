@@ -298,8 +298,11 @@ export default function ClipperPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {STYLE_BUNDLES.map((s) => (
               <AnimatedSection key={s.id} className="flex h-full flex-col gap-3">
+                {/* shrink-0 is load-bearing: this is a flex column whose other
+                    child grows, and without it the 9:16 box gets compressed to
+                    whatever height is left over. */}
                 <div
-                  className="relative w-full overflow-hidden rounded-xl border border-black/8 bg-[#06243B]"
+                  className="relative w-full shrink-0 overflow-hidden rounded-xl border border-black/8 bg-[#06243B]"
                   style={{ aspectRatio: "9 / 16" }}
                 >
                   <Image
@@ -311,11 +314,11 @@ export default function ClipperPage() {
                     unoptimized
                   />
                 </div>
-                {/* h-full + mt-auto so the render-time line lands on one
+                {/* flex-1 + mt-auto so the render-time line lands on one
                     baseline across all four columns despite unequal copy.
                     Only from sm up: in the 2-column mobile grid the same trick
                     opens a dead gap under the shorter card instead. */}
-                <div className="flex h-full flex-col gap-1">
+                <div className="flex flex-1 flex-col gap-1">
                   <h3 className="text-[15px] font-extrabold text-[#06243B]">{s.label}</h3>
                   <p className="text-[13px] leading-relaxed text-[#3D4F60]">{s.body}</p>
                   <p className="pt-1 text-[12px] leading-relaxed text-[#3D4F60]/60 sm:mt-auto">
