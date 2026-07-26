@@ -10,6 +10,7 @@ import {
   Server,
   MousePointerClick,
   FolderOpen,
+  Gauge,
   HelpCircle,
   Power,
   Play,
@@ -21,6 +22,7 @@ import { buildMeta } from "@/lib/metadata";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { PageHero } from "@/components/shared/PageHero";
 import { CONTACT } from "@/lib/constants";
+import { PaymentNotice } from "./PaymentNotice";
 
 const DOWNLOAD_URL = "/downloads/clipper.zip";
 
@@ -49,6 +51,12 @@ const STYLES = [
     name: "Screen & slides",
     spec: "45–90 detik · layar utuh, gak kepotong",
     d: "Frame penuh dengan judul di bar atas — slide dan rekaman layar tetap kebaca. Buat tutorial dan presentasi.",
+  },
+  {
+    icon: Gauge,
+    name: "Fast & punchy",
+    spec: "20–45 detik · caption karaoke · bar diblur",
+    d: "Hasil caption sama kayak Punchy clips, tapi tanpa deteksi wajah jadi render-nya jauh lebih cepat dan gambarnya gak kepotong. Pilihan buat laptop yang gak terlalu kuat.",
   },
 ];
 
@@ -187,6 +195,9 @@ export default function ClipperSetupPage() {
         }
       />
 
+      {/* Only renders when iPaymu sent the buyer back here with ?status=success */}
+      <PaymentNotice />
+
       {/* Download card */}
       <section className="bg-white pt-12 sm:pt-16 pb-6">
         <div className="container-mote">
@@ -259,7 +270,7 @@ export default function ClipperSetupPage() {
               sekaligus: momen mana yang dipilih AI <i>dan</i> tampilan klipnya.
             </p>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {STYLES.map((s) => (
               <AnimatedSection
                 key={s.name}
@@ -274,6 +285,14 @@ export default function ClipperSetupPage() {
               </AnimatedSection>
             ))}
           </div>
+          <AnimatedSection className="flex items-start gap-3 rounded-xl border border-black/8 bg-[#F7F8FA] px-5 py-4">
+            <Sparkles className="h-5 w-5 text-[#06243B]/40 shrink-0 mt-0.5" />
+            <p className="text-[15px] text-[#3D4F60]">
+              Di bawah kartu style ada panel <b className="text-[#06243B]">Change style</b>: 8 gaya
+              caption dan 3 cara ngepasin frame. Yang kamu pilih di situ cuma berlaku buat klip yang
+              lagi dibikin, setelan default kamu gak ikut berubah.
+            </p>
+          </AnimatedSection>
           <AnimatedSection className="flex items-start gap-3 rounded-xl border border-black/8 bg-[#F7F8FA] px-5 py-4">
             <Palette className="h-5 w-5 text-[#06243B]/40 shrink-0 mt-0.5" />
             <p className="text-[15px] text-[#3D4F60]">
