@@ -21,3 +21,8 @@ yarn-error.log*
 # misc
 .vercel
 .playwright-mcp/
+
+# graphify knowledge graph — a ~1MB local dev artifact the post-commit hook
+# rebuilds on every commit. Tooling, not site content, and Cloudflare Pages
+# would ship it to the public origin if it were tracked.
+/graphify-out/
