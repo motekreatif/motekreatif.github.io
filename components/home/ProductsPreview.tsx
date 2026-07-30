@@ -61,15 +61,19 @@ export function ProductsPreview() {
             const Icon = product.icon;
             const iconBg = PRODUCT_ICON_GRADIENTS[i % PRODUCT_ICON_GRADIENTS.length];
             const iconColor = PRODUCT_ICON_COLORS[i % PRODUCT_ICON_COLORS.length];
+            const isLink = Boolean(product.url);
+            const Card = isLink ? motion.a : motion.div;
             return (
-              <motion.a
+              <Card
                 key={product.name}
-                href={product.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(isLink
+                  ? { href: product.url, target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 variants={cardVariants}
-                whileHover={{ y: -6 }}
-                className="group relative card-soft p-6 flex flex-col gap-4"
+                whileHover={isLink ? { y: -6 } : undefined}
+                className={`group relative card-soft p-6 flex flex-col gap-4 ${
+                  isLink ? "" : "cursor-default"
+                }`}
               >
                 <div className="flex items-start justify-between">
                   <div
@@ -98,11 +102,13 @@ export function ProductsPreview() {
                 </div>
                 <div className="mt-auto pt-2 flex items-center justify-between text-sm">
                   <span className="text-[#06243B] font-bold">
-                    {product.price ?? "Buka produk"}
+                    {isLink ? product.price ?? "Buka produk" : "Segera hadir"}
                   </span>
-                  <ArrowUpRight className="h-5 w-5 text-[#3D4F60] group-hover:text-[#06243B] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  {isLink && (
+                    <ArrowUpRight className="h-5 w-5 text-[#3D4F60] group-hover:text-[#06243B] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  )}
                 </div>
-              </motion.a>
+              </Card>
             );
           })}
         </motion.div>

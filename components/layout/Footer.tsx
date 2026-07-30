@@ -96,19 +96,30 @@ export function Footer() {
           <ul className="flex flex-col gap-2.5">
             {PRODUCTS.map((p) => (
               <li key={p.name}>
-                <a
-                  href={p.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/80 hover:text-[#BDF24A] transition-colors text-sm inline-flex items-center gap-2"
-                >
-                  {p.name}
-                  {p.status === "Coming Soon" && (
-                    <span className="text-[9px] uppercase font-bold px-1.5 py-0.5 rounded bg-[#BDF24A] text-[#06243B]">
-                      Soon
-                    </span>
-                  )}
-                </a>
+                {p.url ? (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/80 hover:text-[#BDF24A] transition-colors text-sm inline-flex items-center gap-2"
+                  >
+                    {p.name}
+                    {p.status === "Coming Soon" && (
+                      <span className="text-[9px] uppercase font-bold px-1.5 py-0.5 rounded bg-[#BDF24A] text-[#06243B]">
+                        Soon
+                      </span>
+                    )}
+                  </a>
+                ) : (
+                  <span className="text-white/50 text-sm inline-flex items-center gap-2 cursor-default">
+                    {p.name}
+                    {p.status === "Coming Soon" && (
+                      <span className="text-[9px] uppercase font-bold px-1.5 py-0.5 rounded bg-[#BDF24A] text-[#06243B]">
+                        Soon
+                      </span>
+                    )}
+                  </span>
+                )}
               </li>
             ))}
           </ul>

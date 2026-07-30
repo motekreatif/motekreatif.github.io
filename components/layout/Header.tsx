@@ -124,32 +124,46 @@ export function Header() {
                             Semua Produk →
                           </Link>
                           <div className="h-px bg-black/5 my-1 mx-3" />
-                          {PRODUCTS.map((p) => (
-                            <a
-                              key={p.name}
-                              href={p.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-[#F7F4EE] transition-colors group"
-                            >
-                              <p.icon className="h-5 w-5 mt-0.5 text-[#06243B] shrink-0" />
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-2">
-                                  <span className="font-semibold text-[#06243B]">
-                                    {p.name}
-                                  </span>
-                                  {p.status === "Coming Soon" && (
-                                    <span className="text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-[#BDF24A] text-[#06243B]">
-                                      Soon
+                          {PRODUCTS.map((p) => {
+                            const content = (
+                              <>
+                                <p.icon className="h-5 w-5 mt-0.5 text-[#06243B] shrink-0" />
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center gap-2">
+                                    <span className="font-semibold text-[#06243B]">
+                                      {p.name}
                                     </span>
-                                  )}
+                                    {p.status === "Coming Soon" && (
+                                      <span className="text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-[#BDF24A] text-[#06243B]">
+                                        Soon
+                                      </span>
+                                    )}
+                                  </div>
+                                  <p className="text-xs text-[#3D4F60] line-clamp-1">
+                                    {p.tagline}
+                                  </p>
                                 </div>
-                                <p className="text-xs text-[#3D4F60] line-clamp-1">
-                                  {p.tagline}
-                                </p>
+                              </>
+                            );
+                            return p.url ? (
+                              <a
+                                key={p.name}
+                                href={p.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-[#F7F4EE] transition-colors group"
+                              >
+                                {content}
+                              </a>
+                            ) : (
+                              <div
+                                key={p.name}
+                                className="flex items-start gap-3 px-4 py-3 rounded-xl opacity-60 cursor-default"
+                              >
+                                {content}
                               </div>
-                            </a>
-                          ))}
+                            );
+                          })}
                         </div>
                       </motion.div>
                     )}
@@ -256,25 +270,39 @@ export function Header() {
                             className="overflow-hidden"
                           >
                             <div className="pl-3 py-2 flex flex-col gap-1">
-                              {PRODUCTS.map((p) => (
-                                <a
-                                  key={p.name}
-                                  href={p.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-white/85 hover:bg-white/10"
-                                >
-                                  <p.icon className="h-4 w-4" />
-                                  <span className="text-sm font-medium">
-                                    {p.name}
-                                  </span>
-                                  {p.status === "Coming Soon" && (
-                                    <span className="text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-[#BDF24A] text-[#06243B]">
-                                      Soon
+                              {PRODUCTS.map((p) => {
+                                const content = (
+                                  <>
+                                    <p.icon className="h-4 w-4" />
+                                    <span className="text-sm font-medium">
+                                      {p.name}
                                     </span>
-                                  )}
-                                </a>
-                              ))}
+                                    {p.status === "Coming Soon" && (
+                                      <span className="text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-[#BDF24A] text-[#06243B]">
+                                        Soon
+                                      </span>
+                                    )}
+                                  </>
+                                );
+                                return p.url ? (
+                                  <a
+                                    key={p.name}
+                                    href={p.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-white/85 hover:bg-white/10"
+                                  >
+                                    {content}
+                                  </a>
+                                ) : (
+                                  <div
+                                    key={p.name}
+                                    className="flex items-center gap-3 px-4 py-2.5 rounded-lg text-white/85 opacity-60 cursor-default"
+                                  >
+                                    {content}
+                                  </div>
+                                );
+                              })}
                             </div>
                           </motion.div>
                         )}

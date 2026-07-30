@@ -147,7 +147,7 @@ export type Product = {
   description: string;
   features: string[];
   status: "Live" | "Coming Soon";
-  url: string;
+  url?: string;
   icon: LucideIcon;
   price?: string;
 };
@@ -228,7 +228,6 @@ export const PRODUCTS: Product[] = [
       "Cloud gallery untuk tamu",
     ],
     status: "Coming Soon",
-    url: "https://capture.motekreatif.com",
     icon: Camera,
   },
 ];

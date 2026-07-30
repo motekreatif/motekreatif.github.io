@@ -60,15 +60,24 @@ export default function ProductsPage() {
                         Mulai {product.price}
                       </div>
                     )}
-                    <a
-                      href={product.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-auto self-start btn btn-primary group"
-                    >
-                      Coba {product.name}
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </a>
+                    {product.url ? (
+                      <a
+                        href={product.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-auto self-start btn btn-primary group"
+                      >
+                        Coba {product.name}
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </a>
+                    ) : (
+                      <span
+                        className="mt-auto self-start btn btn-primary opacity-50 cursor-not-allowed pointer-events-none"
+                        aria-disabled="true"
+                      >
+                        Segera hadir
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="lg:col-span-6 lg:py-4">
