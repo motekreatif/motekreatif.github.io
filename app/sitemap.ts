@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/products", priority: 0.8 },
     { path: "/products/clipper", priority: 0.9 },
     { path: "/products/clipper/setup", priority: 0.6 },
+    { path: "/products/clipper/setup/windows", priority: 0.6 },
+    { path: "/products/clipper/setup/mac", priority: 0.6 },
     { path: "/case-studies", priority: 0.8 },
     { path: "/community", priority: 0.8 },
     { path: "/community/kreatif", priority: 0.7 },
