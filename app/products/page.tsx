@@ -8,7 +8,7 @@ import { PRODUCTS } from "@/lib/data";
 export const metadata = buildMeta({
   title: "Produk Digital SaaS — WhatsApp CRM, Akuntansi, Photobooth",
   description:
-    "Tools digital buatan Mote: Mote Blaster (WhatsApp CRM), Modal Tekun (keuangan keluarga), Klir (akuntansi UMKM), Mote Capture (photobooth).",
+    "Tools digital buatan Mote: Mote Blaster (WhatsApp CRM), Satu Kas (keuangan keluarga), Klir (akuntansi UMKM), Mote Capture (photobooth).",
   path: "/products",
 });
 

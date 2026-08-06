@@ -31,7 +31,7 @@ type EcoItem = { name: string; href: string; ext?: boolean; badge: string; soon?
 
 const products: EcoItem[] = [
   { name: "Mote Blaster", href: "https://blaster.motekreatif.com", ext: true, badge: "Live", desc: "WhatsApp CRM buat bisnis yang serius kelola pelanggan." },
-  { name: "Modal Tekun", href: "https://mt.motekreatif.com", ext: true, badge: "Live", desc: "Aplikasi keuangan keluarga yang gampang dipakai siapa aja di rumah." },
+  { name: "Satu Kas", href: "https://satukas.app", ext: true, badge: "Live", desc: "Aplikasi keuangan keluarga yang gampang dipakai siapa aja di rumah." },
   { name: "Klir", href: "https://klir.motekreatif.com", ext: true, badge: "Live", desc: "Akuntansi yang dibikin simpel buat UMKM." },
   { name: "Mote Capture", href: "/products", badge: "Segera", soon: true, desc: "Photobooth digital lewat browser buat event & aktivasi brand." },
 ];

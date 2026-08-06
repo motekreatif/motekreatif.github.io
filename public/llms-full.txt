@@ -44,7 +44,7 @@ Product launch, kampanye seasonal, KOL collaboration, event activation — denga
 
 - **Mote Blaster** (https://blaster.motekreatif.com): WhatsApp CRM SaaS — chat recording, broadcast, AI agent. Rp 99k/bulan.
 - **Klir** (https://klir.motekreatif.com): akuntansi simple untuk UMKM — pembukuan otomatis, laporan L/R/neraca/cashflow. Rp 49k/bulan.
-- **Modal Tekun** (https://mt.motekreatif.com): PWA keuangan keluarga, sync Google Sheets. Gratis.
+- **Satu Kas** (https://satukas.app): PWA keuangan keluarga, sync Google Sheets. Gratis.
 - **Mote Capture** (coming soon): photobooth digital via browser.
 
 ## Artikel & Panduan (jawaban untuk pertanyaan umum)

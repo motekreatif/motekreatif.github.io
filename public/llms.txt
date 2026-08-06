@@ -15,7 +15,7 @@ Mote Kreatif melayani klien di Garut, Jawa Barat, dan seluruh Indonesia. Hasil t
 ## Produk Digital
 
 - [Mote Blaster](https://blaster.motekreatif.com): WhatsApp CRM SaaS — chat recording, broadcast, AI agent
-- [Modal Tekun](https://mt.motekreatif.com): PWA keuangan pribadi & keluarga, sync Google Sheets
+- [Satu Kas](https://satukas.app): PWA keuangan pribadi & keluarga, sync Google Sheets
 - [Klir](https://klir.motekreatif.com): Akuntansi simple untuk UMKM — pembukuan & laporan otomatis
 
 ## Halaman Utama

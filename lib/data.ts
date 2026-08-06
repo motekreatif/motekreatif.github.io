@@ -186,7 +186,7 @@ export const PRODUCTS: Product[] = [
     price: "Rp 90.467 sekali",
   },
   {
-    name: "Modal Tekun",
+    name: "Satu Kas",
     tagline: "PWA keuangan pribadi dan keluarga, dibuat Mengelola keuangan lebih mudah.",
     description:
       "Catat keuangan keluarga dengan cara yang sederhana. Terintegrasi Google Sheets, mobile-first, dan didesain agar siapa pun di rumah bisa pakai.",
@@ -197,7 +197,7 @@ export const PRODUCTS: Product[] = [
       "Kategori otomatis & laporan bulanan",
     ],
     status: "Live",
-    url: "https://mt.motekreatif.com",
+    url: "https://satukas.app",
     icon: Wallet,
   },
   {
