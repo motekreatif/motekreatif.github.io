@@ -55,8 +55,8 @@ export function Header() {
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b",
         scrolled || mobileOpen
-          ? "bg-[#06243B]/92 backdrop-blur-lg shadow-[0_10px_32px_-12px_rgba(0,0,0,0.35)] border-[#BDF24A]/15"
-          : "bg-[#06243B] border-transparent"
+          ? "bg-chrome-bg/92 backdrop-blur-lg shadow-[0_10px_32px_-12px_rgba(0,0,0,0.35)] border-chrome-accent/15"
+          : "bg-chrome-bg border-transparent"
       )}
     >
       <div className="container-mote flex items-center justify-between h-16 md:h-20">
@@ -103,7 +103,7 @@ export function Header() {
                     {isActive(link.href) && (
                       <span
                         aria-hidden
-                        className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-[#BDF24A] rounded-full"
+                        className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-chrome-accent rounded-full"
                       />
                     )}
                   </Link>
@@ -119,7 +119,7 @@ export function Header() {
                         <div className="p-2">
                           <Link
                             href="/products"
-                            className="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-[#F7F4EE] font-semibold text-[#06243B]"
+                            className="flex items-center justify-between px-4 py-3 rounded-xl hover:bg-chrome-panel-hover font-semibold text-chrome-panel-fg"
                           >
                             Semua Produk →
                           </Link>
@@ -127,19 +127,19 @@ export function Header() {
                           {PRODUCTS.map((p) => {
                             const content = (
                               <>
-                                <p.icon className="h-5 w-5 mt-0.5 text-[#06243B] shrink-0" />
+                                <p.icon className="h-5 w-5 mt-0.5 text-chrome-panel-fg shrink-0" />
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center gap-2">
-                                    <span className="font-semibold text-[#06243B]">
+                                    <span className="font-semibold text-chrome-panel-fg">
                                       {p.name}
                                     </span>
                                     {p.status === "Coming Soon" && (
-                                      <span className="text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-[#BDF24A] text-[#06243B]">
+                                      <span className="text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-chrome-accent text-chrome-accent-fg">
                                         Soon
                                       </span>
                                     )}
                                   </div>
-                                  <p className="text-xs text-[#3D4F60] line-clamp-1">
+                                  <p className="text-xs text-chrome-panel-muted line-clamp-1">
                                     {p.tagline}
                                   </p>
                                 </div>
@@ -151,7 +151,7 @@ export function Header() {
                                 href={p.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-[#F7F4EE] transition-colors group"
+                                className="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-chrome-panel-hover transition-colors group"
                               >
                                 {content}
                               </a>
@@ -186,7 +186,7 @@ export function Header() {
                 {isActive(link.href) && (
                   <span
                     aria-hidden
-                    className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-[#BDF24A] rounded-full"
+                    className="absolute left-3 right-3 -bottom-0.5 h-0.5 bg-chrome-accent rounded-full"
                   />
                 )}
               </Link>
@@ -223,7 +223,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden bg-[#06243B] border-t border-white/10 max-h-[calc(100vh-4rem)] overflow-y-auto"
+            className="lg:hidden bg-chrome-bg border-t border-white/10 max-h-[calc(100vh-4rem)] overflow-y-auto"
           >
             <div className="container-mote py-6 flex flex-col gap-1">
               {NAV_LINKS.map((link) => {
@@ -236,7 +236,7 @@ export function Header() {
                           className={cn(
                             "flex-1 px-4 py-3 rounded-l-xl font-semibold border-l-2",
                             isActive(link.href)
-                              ? "border-[#BDF24A] text-white bg-white/[0.04]"
+                              ? "border-chrome-accent text-white bg-white/[0.04]"
                               : "border-transparent text-white hover:bg-white/10"
                           )}
                         >
@@ -278,7 +278,7 @@ export function Header() {
                                       {p.name}
                                     </span>
                                     {p.status === "Coming Soon" && (
-                                      <span className="text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-[#BDF24A] text-[#06243B]">
+                                      <span className="text-[10px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-chrome-accent text-chrome-accent-fg">
                                         Soon
                                       </span>
                                     )}
@@ -317,7 +317,7 @@ export function Header() {
                     className={cn(
                       "px-4 py-3 rounded-xl font-semibold border-l-2",
                       isActive(link.href)
-                        ? "border-[#BDF24A] text-white bg-white/[0.04]"
+                        ? "border-chrome-accent text-white bg-white/[0.04]"
                         : "border-transparent text-white hover:bg-white/10"
                     )}
                   >

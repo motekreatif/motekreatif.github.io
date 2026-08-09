@@ -48,28 +48,28 @@ export function CheckoutForm() {
   }
 
   const inputClass =
-    "w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-[#06243B] " +
-    "placeholder:text-[#3D4F60]/50 focus:border-[#06243B] focus:outline-none focus:ring-2 focus:ring-[#06243B]/15 transition";
+    "w-full rounded-full border border-[rgba(25,25,25,0.12)] bg-white px-5 py-3.5 text-[#191919] " +
+    "placeholder:text-[#5F5F5C]/60 focus:border-[#191919] focus:outline-none focus:ring-2 focus:ring-[#F7C526]/50 transition";
 
   return (
-    <div className="card-soft p-6 sm:p-8 flex flex-col gap-5">
+    <div className="rounded-[32px] bg-white border border-[rgba(25,25,25,0.10)] shadow-[0_30px_80px_-45px_rgba(25,25,25,0.45)] p-6 sm:p-8 flex flex-col gap-5">
       {notice === "success" && (
-        <div className="rounded-xl bg-[#BDF24A]/25 border border-[#06243B]/15 p-4 text-sm text-[#06243B] font-medium">
+        <div className="rounded-2xl bg-[#F7C526]/20 border border-[#F7C526]/60 p-4 text-sm text-[#191919] font-medium">
           Terima kasih! Pembayaran diterima. Cek email kamu — lisensi + panduan
           install dikirim ke sana. Belum masuk dalam 1×24 jam? Chat WhatsApp kami.
         </div>
       )}
       {notice === "cancel" && (
-        <div className="rounded-xl bg-[#FF7E00]/12 border border-[#FF7E00]/30 p-4 text-sm text-[#06243B] font-medium">
+        <div className="rounded-2xl bg-[#F1F1EE] border border-[#F7C526]/50 p-4 text-sm text-[#191919] font-medium">
           Pembayaran dibatalkan. Kamu bisa coba lagi kapan saja di bawah ini.
         </div>
       )}
 
       <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-2">
-        <span className="text-3xl sm:text-4xl font-extrabold text-[#06243B] whitespace-nowrap">
+        <span className="text-3xl sm:text-4xl font-semibold tracking-[-0.02em] text-[#191919] whitespace-nowrap">
           {PRICE_LABEL}
         </span>
-        <span className="text-sm font-semibold text-[#3D4F60]">sekali bayar · punya selamanya</span>
+        <span className="text-sm font-semibold text-[#5F5F5C]">sekali bayar · punya selamanya</span>
       </div>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -104,7 +104,11 @@ export function CheckoutForm() {
 
         {error && <p className="text-sm font-medium text-[#c0392b]">{error}</p>}
 
-        <button type="submit" disabled={loading} className="btn btn-dark group mt-1 disabled:opacity-60">
+        <button
+          type="submit"
+          disabled={loading}
+          className="group mt-1 inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-full bg-[#191919] px-6 py-3.5 text-[15px] font-semibold text-[#F7C526] transition-colors hover:bg-[#191919]/90 disabled:opacity-60"
+        >
           {loading ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" />
@@ -119,8 +123,8 @@ export function CheckoutForm() {
         </button>
       </form>
 
-      <div className="flex items-center gap-2 text-xs text-[#3D4F60]">
-        <ShieldCheck className="h-4 w-4 text-[#06243B]/60 shrink-0" />
+      <div className="flex items-center gap-2 text-xs text-[#5F5F5C]">
+        <ShieldCheck className="h-4 w-4 text-[#191919]/60 shrink-0" />
         Pembayaran aman via iPaymu. Lisensi & panduan dikirim otomatis ke email.
       </div>
     </div>

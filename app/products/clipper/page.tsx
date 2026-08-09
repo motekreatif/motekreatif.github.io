@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   X,
-  Download,
   Lock,
   Infinity as InfinityIcon,
   LayoutTemplate,
@@ -22,17 +22,34 @@ import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { CONTACT } from "@/lib/constants";
 import { CheckoutForm } from "./CheckoutForm";
 import { Stepper } from "./Stepper";
+import { LogoCR } from "./LogoCR";
+import { LogoWatermark } from "./LogoWatermark";
 
 const PRICE = "Rp 90.467";
 
 export const metadata = buildMeta({
-  title: "Clipper by Mote — Bikin Klip Pendek dari YouTube, Sekali Bayar",
+  title: "Clipper Rumahan — Bikin Klip Pendek dari YouTube, Sekali Bayar",
   description:
     "Paste link YouTube, AI pilih momen terbaik, jadi klip vertikal ber-caption — semua jalan di komputer kamu sendiri. 4 paket gaya, 8 gaya caption, 3 mode framing. Bayar sekali " +
     PRICE +
     ", punya selamanya. Tanpa langganan bulanan.",
   path: "/products/clipper",
 });
+
+/* ── Palet lokal Clipper Rumahan (jangan pakai navy/lime MOTE di halaman ini) ──
+   Ink #191919 · Kuning #F7C526 · Netral terang #F1F1EE · Kanvas halaman #EFEFEC ·
+   Putih #FFFFFF · Teks sekunder #5F5F5C · Garis rgba(25,25,25,0.10)          */
+
+const CARD_BORDER = "border border-[rgba(25,25,25,0.10)]";
+const CHIP_LIGHT =
+  "inline-flex items-center rounded-full border border-[rgba(25,25,25,0.14)] bg-white px-4 py-1.5 text-[11px] uppercase tracking-[0.14em] font-semibold text-[#191919]";
+const CHIP_DARK =
+  "inline-flex items-center rounded-full border border-white/20 bg-white/5 px-4 py-1.5 text-[11px] uppercase tracking-[0.14em] font-semibold text-white/70";
+const H2_CLASS =
+  "text-[2rem] sm:text-[2.5rem] font-semibold tracking-[-0.02em] leading-[1.08] text-[#191919]";
+const H2_DARK =
+  "text-[2rem] sm:text-[2.5rem] font-semibold tracking-[-0.02em] leading-[1.08] text-white";
+const BODY_CLASS = "text-[15px] sm:text-base leading-relaxed text-[#5F5F5C]";
 
 const FEATURES = [
   { icon: Lock, title: "100% lokal & privat", body: "Jalan di komputer kamu sendiri. Video gak pernah diupload ke server siapa pun." },
@@ -45,6 +62,9 @@ const FEATURES = [
   { icon: Palette, title: "Brand kamu sendiri", body: "Set nama, logo, dan warna sendiri. Cocok buat agency yang mau tool ber-brand untuk klien." },
   { icon: Server, title: "Sekali install, punya selamanya", body: "docker compose up, isi 2 key, selesai. Gak ada langganan, gak ada yang bisa dimatikan." },
 ];
+
+// Kartu fitur yang di-highlight kuning penuh (pola satu kartu aksen per grid).
+const FEATURE_HIGHLIGHT = "Sekali install, punya selamanya";
 
 /**
  * Style bundles + caption styles.
@@ -115,6 +135,10 @@ const CLIPPER_PROS = [
   "Tetap jalan selamanya, gak bisa dimatikan",
 ];
 
+// Baris kapsul di bawah hero — teks diambil VERBATIM dari CLIPPER_PROS di
+// atas, bukan materi baru. Urutan mengikuti spec reskin.
+const HERO_CAPSULES = [CLIPPER_PROS[1], CLIPPER_PROS[2], CLIPPER_PROS[0]];
+
 type Faq = {
   q: string;
   a: string;
@@ -165,48 +189,94 @@ const faqJsonLd = {
 
 export default function ClipperPage() {
   return (
-    <>
+    // Tanpa padding atas sendiri: <main> di app/layout.tsx sudah memberi
+    // pt-16 md:pt-20 setinggi header MOTE yang fixed. Menambah padding lagi
+    // di sini cuma membuka ruang kosong 160px di atas strip.
+    <div data-skin="clipper" className="bg-[#EFEFEC] text-[#191919]">
       {/* Announcement strip */}
-      <div className="bg-[#06243B] text-white">
+      <div className="bg-[#F7C526] text-[#191919]">
         <div className="container-mote flex items-center justify-center gap-2.5 py-2.5 text-center text-[13px] sm:text-sm">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#BDF24A] shrink-0" />
-          <span className="text-white/85">
-            Sekali bayar <b className="text-[#BDF24A]">{PRICE}</b> — punya selamanya. Tanpa langganan bulanan.
+          <span className="h-1.5 w-1.5 rounded-full bg-[#191919] shrink-0" />
+          <span className="text-[#191919]/85">
+            Sekali bayar <b className="text-[#191919]">{PRICE}</b> — punya selamanya. Tanpa langganan bulanan.
           </span>
         </div>
       </div>
 
-      {/* Hero — centered */}
-      <section className="bg-white pt-14 sm:pt-20 pb-10">
-        <div className="container-mote">
-          <AnimatedSection className="mx-auto max-w-3xl flex flex-col items-center text-center gap-6">
-            <span className="eyebrow">AI Clipper Desktop · Lokal</span>
-            <h1 className="text-[#06243B] text-balance">
-              Bikin klip pendek dari YouTube — <span className="highlight-text">di laptop kamu sendiri.</span>
+      {/* Blok-blok mengambang di atas kanvas cream */}
+      <div className="mx-auto max-w-[1400px] px-3 sm:px-5 py-3 sm:py-5 space-y-3 sm:space-y-5">
+        {/* Hero — kartu ink */}
+        <section className="rounded-[28px] sm:rounded-[40px] bg-[#191919] text-white px-4 pt-4 pb-8 sm:px-8 sm:pt-6 sm:pb-12 lg:px-12">
+          {/* Navbar produk sendiri — Clipper Rumahan, bukan nav MOTE */}
+          <div className="flex items-center justify-between gap-3 rounded-full bg-white/10 backdrop-blur border border-white/15 py-2 pl-5 pr-5 sm:pr-2">
+            <a href="#" className="flex items-center gap-2.5">
+              <LogoCR className="h-8 w-auto shrink-0 text-[#F7C526]" />
+              <span className="whitespace-nowrap text-[15px] font-semibold text-white">Clipper Rumahan</span>
+            </a>
+            <nav className="hidden md:flex items-center gap-7 text-[13px] font-semibold text-white/70">
+              <a href="#cara-kerja" className="hover:text-white transition-colors">Cara kerja</a>
+              <a href="#gaya" className="hover:text-white transition-colors">Gaya</a>
+              <a href="#beli" className="hover:text-white transition-colors">Harga</a>
+              <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+            </nav>
+            <a
+              href="#beli"
+              className="hidden sm:block shrink-0 rounded-full bg-[#F7C526] px-5 py-2.5 text-[13px] font-semibold text-[#191919] transition-colors hover:bg-[#ffd84a] whitespace-nowrap"
+            >
+              Beli — {PRICE}
+            </a>
+          </div>
+
+          <AnimatedSection className="mx-auto max-w-3xl flex flex-col items-center text-center gap-6 pt-12 sm:pt-16">
+            <span className={CHIP_DARK}>AI Clipper Desktop · Lokal</span>
+            <h1 className="text-balance text-[2.75rem] sm:text-[3.5rem] lg:text-[4rem] font-semibold tracking-[-0.02em] leading-[1.08] text-white">
+              Bikin klip pendek dari YouTube —{" "}
+              <span className="rounded-[0.18em] bg-[#F7C526] px-[0.28em] py-[0.04em] leading-[1.35] text-[#191919] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
+                di laptop kamu sendiri.
+              </span>
             </h1>
-            <p className="text-[#3D4F60] text-lg leading-relaxed max-w-2xl">
+            <p className="text-white/70 text-base sm:text-lg leading-relaxed max-w-2xl">
               Paste link, AI pilih momen terbaik, jadi klip vertikal ber-caption. Semua diproses lokal —
               tanpa upload, tanpa watermark, tanpa langganan.
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto pt-1">
-              <a href="#beli" className="btn btn-dark group w-full sm:w-auto">
-                Beli sekarang — {PRICE}
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <a href="#beli" className="group flex items-center gap-2 w-full sm:w-auto justify-center">
+                <span className="rounded-full bg-[#F7C526] px-6 py-3.5 text-[15px] font-semibold text-[#191919] whitespace-nowrap transition-colors group-hover:bg-[#ffd84a]">
+                  Beli sekarang — {PRICE}
+                </span>
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#F7C526] text-[#191919] transition-transform group-hover:rotate-45">
+                  <ArrowUpRight className="h-5 w-5" strokeWidth={2.2} />
+                </span>
               </a>
-              <a href="#gaya" className="btn btn-ghost w-full sm:w-auto">
+              <a
+                href="#gaya"
+                className="w-full sm:w-auto text-center rounded-full border border-white/40 px-6 py-3.5 text-[15px] font-semibold text-white transition-colors hover:bg-white/10"
+              >
                 Lihat contoh hasilnya
               </a>
             </div>
           </AnimatedSection>
 
+          {/* Baris kapsul — teks verbatim dari CLIPPER_PROS */}
+          <AnimatedSection className="flex flex-wrap justify-center gap-2.5 pt-9">
+            {HERO_CAPSULES.map((t) => (
+              <span
+                key={t}
+                className="rounded-full bg-white/5 border border-white/[.12] px-5 py-3 text-[11px] uppercase tracking-[0.14em] font-semibold text-white/70 text-center"
+              >
+                {t}
+              </span>
+            ))}
+          </AnimatedSection>
+
           {/* Product screenshot — the star */}
-          <AnimatedSection className="mx-auto max-w-5xl mt-12 sm:mt-16">
-            <div className="rounded-2xl overflow-hidden border border-black/10 bg-white shadow-[0_40px_100px_-40px_rgba(6,36,59,0.5)]">
-              <div className="flex items-center gap-1.5 px-4 py-3 border-b border-black/5">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#06243B]/15" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#06243B]/15" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#06243B]/15" />
-                <span className="ml-2 font-mono text-[11px] text-[#06243B]/45 truncate">
+          <AnimatedSection className="mx-auto max-w-5xl mt-10 sm:mt-14">
+            <div className="rounded-[24px] overflow-hidden border border-white/10 bg-white shadow-[0_40px_100px_-40px_rgba(0,0,0,0.6)]">
+              <div className="flex items-center gap-1.5 px-4 py-3 border-b border-[rgba(25,25,25,0.06)]">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#5F5F5C]/25" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#5F5F5C]/25" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#5F5F5C]/25" />
+                <span className="ml-2 font-mono text-[11px] text-[#5F5F5C]/70 truncate">
                   localhost:3060 — dashboard kamu, jalan lokal
                 </span>
               </div>
@@ -220,316 +290,357 @@ export default function ClipperPage() {
                 unoptimized
               />
             </div>
-            <p className="text-center text-sm text-[#3D4F60]/70 mt-4">
+            <p className="text-center text-sm text-white/60 mt-4">
               Tampilan asli aplikasinya. Kartu gaya di layar itu preview render beneran, bukan gambar
               contoh. Nama, logo, dan warnanya bisa kamu ganti jadi brand sendiri.
             </p>
           </AnimatedSection>
-        </div>
-      </section>
+        </section>
 
-      {/* How it works — interactive stepper */}
-      <section id="cara-kerja" className="bg-[#F7F8FA] py-20 sm:py-24 border-y border-black/5">
-        <div className="container-mote flex flex-col gap-12">
-          <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
-            <span className="eyebrow">Cara kerja</span>
-            <h2 className="text-[#06243B]">Dari link jadi klip siap posting.</h2>
-            <p className="text-[#3D4F60] leading-relaxed">
-              Empat langkah, dan semuanya jalan di komputer kamu.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection>
-            <Stepper />
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Sample output — real clip */}
-      <section className="bg-white py-20 sm:py-24">
-        <div className="container-mote grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <AnimatedSection className="order-1 lg:order-1 flex justify-center">
-            <div className="w-[240px] sm:w-[280px] shrink-0 overflow-hidden rounded-[1.75rem] border border-black/10 bg-[#06243B]">
-              <video
-                src="/video/clipper-sample.mp4"
-                poster="/video/clipper-sample-poster.jpg"
-                className="block w-full aspect-[9/16] object-cover"
-                playsInline
-                controls
-                preload="metadata"
-              />
-            </div>
-          </AnimatedSection>
-          <AnimatedSection className="order-2 lg:order-2 flex flex-col gap-4">
-            <span className="eyebrow">Contoh hasil</span>
-            <h2 className="text-[#06243B]">Contoh klip yang dihasilkan.</h2>
-            <p className="text-[#3D4F60] leading-relaxed text-lg">
-              Output asli Clipper — vertikal 9:16, caption otomatis, siap posting ke TikTok,
-              Reels, atau Shorts.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/*
-        Style bundles + caption styles.
-
-        Light section on the page's own alternating rhythm, not an inverted
-        navy block: the rest of this page is one continuous light theme and a
-        dark band here reads as a different website mid-scroll.
-
-        The thumbnails carry this section, so they get no card, no pill, and no
-        second headline competing with them. Everything that isn't the image is
-        a label.
-      */}
-      <section
-        id="gaya"
-        className="bg-[#F7F8FA] py-20 sm:py-24 border-y border-black/5 scroll-mt-24"
-      >
-        <div className="container-mote flex flex-col gap-12">
-          <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
-            <span className="eyebrow">Pilihan gaya</span>
-            <h2 className="text-[#06243B] max-sm:text-[1.375rem]">Gayanya kamu yang pilih.</h2>
-            <p className="text-[#3D4F60] leading-relaxed">
-              Empat paket siap pakai. Klik satu, caption sama framing-nya ngikut. Semua gambar di
-              bawah ini frame asli hasil render aplikasinya, bukan ilustrasi.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {STYLE_BUNDLES.map((s) => (
-              <AnimatedSection key={s.id} className="flex h-full flex-col gap-3">
-                {/* shrink-0 is load-bearing: this is a flex column whose other
-                    child grows, and without it the 9:16 box gets compressed to
-                    whatever height is left over. */}
-                <div
-                  className="relative w-full shrink-0 overflow-hidden rounded-xl border border-black/8 bg-[#06243B]"
-                  style={{ aspectRatio: "9 / 16" }}
-                >
-                  <Image
-                    src={`/img/clipper/styles/bundle-${s.id}.webp`}
-                    alt={`Contoh klip gaya ${s.label} hasil render Clipper`}
-                    fill
-                    sizes="(min-width: 1024px) 22vw, 45vw"
-                    className="object-cover"
-                    unoptimized
-                  />
-                </div>
-                {/* flex-1 + mt-auto so the render-time line lands on one
-                    baseline across all four columns despite unequal copy.
-                    Only from sm up: in the 2-column mobile grid the same trick
-                    opens a dead gap under the shorter card instead. */}
-                <div className="flex flex-1 flex-col gap-1">
-                  <h3 className="text-[15px] font-extrabold text-[#06243B]">{s.label}</h3>
-                  <p className="text-[13px] leading-relaxed text-[#3D4F60]">{s.body}</p>
-                  <p className="pt-1 text-[12px] leading-relaxed text-[#3D4F60]/60 sm:mt-auto">
-                    {s.speed}
-                  </p>
-                </div>
-              </AnimatedSection>
-            ))}
+        {/* How it works — interactive stepper */}
+        <section
+          id="cara-kerja"
+          className="relative overflow-hidden rounded-[28px] sm:rounded-[40px] bg-[#F1F1EE] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24"
+        >
+          <LogoWatermark className="-left-16 -bottom-20 w-[220px] text-[#191919]/[0.045] sm:-left-20 sm:w-[320px]" />
+          <div className="relative mx-auto max-w-5xl flex flex-col gap-12">
+            <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
+              <span className={CHIP_LIGHT}>Cara kerja</span>
+              <h2 className={H2_CLASS}>Dari link jadi klip siap posting.</h2>
+              <p className={BODY_CLASS}>
+                Empat langkah, dan semuanya jalan di komputer kamu.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection>
+              <Stepper />
+            </AnimatedSection>
           </div>
+        </section>
 
-          <div className="border-t border-black/8 pt-12 flex flex-col gap-8">
-            <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col gap-2">
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#06243B]">
-                Delapan gaya caption, ganti kapan aja.
-              </h3>
-              <p className="text-[#3D4F60] leading-relaxed">
-                Bisa diganti per klip, jadi gak harus ngunci satu gaya buat semua video. Font-nya
-                Anton sama Montserrat, ikut dibundel di aplikasinya.
+        {/* Sample output — real clip */}
+        <section className="relative overflow-hidden rounded-[28px] sm:rounded-[40px] bg-[#191919] px-4 py-14 sm:px-10 sm:py-20">
+          <LogoWatermark className="-right-14 -top-16 w-[200px] text-white/[0.05] sm:-right-16 sm:w-[300px]" />
+          <div className="relative mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <AnimatedSection className="order-1 lg:order-1 flex justify-center">
+              <div className="w-[240px] sm:w-[280px] shrink-0 overflow-hidden rounded-[28px] border border-white/15 bg-[#242424]">
+                <video
+                  src="/video/clipper-sample.mp4"
+                  poster="/video/clipper-sample-poster.jpg"
+                  className="block w-full aspect-[9/16] object-cover"
+                  playsInline
+                  controls
+                  preload="metadata"
+                />
+              </div>
+            </AnimatedSection>
+            <AnimatedSection className="order-2 lg:order-2 flex flex-col gap-4">
+              <span className={`${CHIP_DARK} self-start`}>Contoh hasil</span>
+              <h2 className={H2_DARK}>Contoh klip yang dihasilkan.</h2>
+              <p className="text-white/70 leading-relaxed text-base sm:text-lg">
+                Output asli Clipper — vertikal 9:16, caption otomatis, siap posting ke TikTok,
+                Reels, atau Shorts.
+              </p>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/*
+          Style bundles + caption styles.
+
+          The thumbnails carry this section, so they get no card, no pill, and
+          no second headline competing with them. Everything that isn't the
+          image is a label. Sub-blok caption dipisah pakai jarak, bukan border.
+        */}
+        <section
+          id="gaya"
+          className="rounded-[28px] sm:rounded-[40px] bg-white px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24"
+        >
+          <div className="mx-auto max-w-5xl flex flex-col gap-12">
+            <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
+              <span className={CHIP_LIGHT}>Pilihan gaya</span>
+              <h2 className={H2_CLASS}>Gayanya kamu yang pilih.</h2>
+              <p className={BODY_CLASS}>
+                Empat paket siap pakai. Klik satu, caption sama framing-nya ngikut. Semua gambar di
+                bawah ini frame asli hasil render aplikasinya, bukan ilustrasi.
               </p>
             </AnimatedSection>
 
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {CAPTION_STYLES.map((c) => (
-                <AnimatedSection key={c.id} className="flex flex-col gap-2">
-                  <Image
-                    src={`/img/clipper/styles/caption-${c.id}.webp`}
-                    alt={`Contoh caption gaya ${c.label} hasil render Clipper`}
-                    width={560}
-                    height={180}
-                    className="w-full h-auto rounded-lg border border-black/8 bg-[#06243B]"
-                    unoptimized
-                  />
-                  <h4 className="text-[14px] font-extrabold text-[#06243B]">{c.label}</h4>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+              {STYLE_BUNDLES.map((s) => (
+                <AnimatedSection key={s.id} className="flex h-full flex-col gap-3">
+                  {/* shrink-0 is load-bearing: this is a flex column whose other
+                      child grows, and without it the 9:16 box gets compressed to
+                      whatever height is left over. */}
+                  <div
+                    className={`relative w-full shrink-0 overflow-hidden rounded-[20px] ${CARD_BORDER} bg-[#191919]`}
+                    style={{ aspectRatio: "9 / 16" }}
+                  >
+                    <Image
+                      src={`/img/clipper/styles/bundle-${s.id}.webp`}
+                      alt={`Contoh klip gaya ${s.label} hasil render Clipper`}
+                      fill
+                      sizes="(min-width: 1024px) 22vw, 45vw"
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </div>
+                  {/* flex-1 + mt-auto so the render-time line lands on one
+                      baseline across all four columns despite unequal copy.
+                      Only from sm up: in the 2-column mobile grid the same trick
+                      opens a dead gap under the shorter card instead. */}
+                  <div className="flex flex-1 flex-col gap-1">
+                    <h3 className="text-[15px] font-semibold text-[#191919]">{s.label}</h3>
+                    <p className="text-[13px] leading-relaxed text-[#5F5F5C]">{s.body}</p>
+                    <p className="pt-1 text-[12px] leading-relaxed text-[#5F5F5C]/70 sm:mt-auto">
+                      {s.speed}
+                    </p>
+                  </div>
                 </AnimatedSection>
               ))}
             </div>
 
-            <AnimatedSection className="mx-auto max-w-2xl text-center">
-              <p className="text-[#3D4F60]/70 text-sm leading-relaxed">
-                Dua gaya lama dari versi sebelumnya juga masih ada, jadi klip yang udah kamu bikin
-                tetap sama look-nya.
-              </p>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
+            <div className="pt-4 flex flex-col gap-8">
+              <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col gap-2">
+                <h3 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-[#191919]">
+                  Delapan gaya caption, ganti kapan aja.
+                </h3>
+                <p className={BODY_CLASS}>
+                  Bisa diganti per klip, jadi gak harus ngunci satu gaya buat semua video. Font-nya
+                  Anton sama Montserrat, ikut dibundel di aplikasinya.
+                </p>
+              </AnimatedSection>
 
-      {/* Comparison */}
-      <section className="bg-white py-20 sm:py-24">
-        <div className="container-mote flex flex-col gap-12">
-          <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
-            <span className="eyebrow">Sekali bayar vs langganan</span>
-            <h2 className="text-[#06243B]">Kenapa punya sendiri lebih menang.</h2>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto w-full">
-            {/* Subscription */}
-            <AnimatedSection className="rounded-2xl border border-black/10 bg-[#F7F8FA] p-8 flex flex-col gap-5">
-              <h3 className="text-lg font-extrabold text-[#06243B]/70">Tool clip langganan bulanan</h3>
-              <ul className="flex flex-col gap-3.5">
-                {SUBSCRIPTION_CONS.map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-[#3D4F60]">
-                    <span className="h-5 w-5 rounded-full bg-black/5 text-[#06243B]/40 flex items-center justify-center shrink-0 mt-0.5">
-                      <X className="h-3 w-3" strokeWidth={3} />
-                    </span>
-                    <span className="text-[15px]">{t}</span>
-                  </li>
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                {CAPTION_STYLES.map((c) => (
+                  <AnimatedSection key={c.id} className="flex flex-col gap-2">
+                    <Image
+                      src={`/img/clipper/styles/caption-${c.id}.webp`}
+                      alt={`Contoh caption gaya ${c.label} hasil render Clipper`}
+                      width={560}
+                      height={180}
+                      className={`w-full h-auto rounded-[20px] ${CARD_BORDER} bg-[#191919]`}
+                      unoptimized
+                    />
+                    <h4 className="text-[14px] font-semibold text-[#191919]">{c.label}</h4>
+                  </AnimatedSection>
                 ))}
-              </ul>
+              </div>
+
+              <AnimatedSection className="mx-auto max-w-2xl text-center">
+                <p className="text-[#5F5F5C]/80 text-sm leading-relaxed">
+                  Dua gaya lama dari versi sebelumnya juga masih ada, jadi klip yang udah kamu bikin
+                  tetap sama look-nya.
+                </p>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison */}
+        <section className="relative overflow-hidden rounded-[28px] sm:rounded-[40px] bg-[#191919] px-4 py-14 sm:px-10 sm:py-20">
+          <LogoWatermark className="-left-20 -bottom-24 w-[240px] text-white/[0.045] sm:-left-24 sm:w-[360px]" />
+          <div className="relative mx-auto max-w-5xl flex flex-col gap-12">
+            <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
+              <span className={CHIP_DARK}>Sekali bayar vs langganan</span>
+              <h2 className={H2_DARK}>Kenapa punya sendiri lebih menang.</h2>
             </AnimatedSection>
-            {/* Clipper */}
-            <AnimatedSection className="relative rounded-2xl border-2 border-[#BDF24A] bg-white p-8 flex flex-col gap-5 shadow-[0_24px_60px_-30px_rgba(6,36,59,0.35)]">
-              <span className="absolute -top-3 left-8 rounded-full bg-[#BDF24A] px-3 py-1 text-[11px] font-extrabold uppercase tracking-wide text-[#06243B]">
-                Clipper by Mote
-              </span>
-              <h3 className="text-lg font-extrabold text-[#06243B]">Punya sendiri, sekali bayar</h3>
-              <ul className="flex flex-col gap-3.5">
-                {CLIPPER_PROS.map((t) => (
-                  <li key={t} className="flex items-start gap-3 text-[#06243B]">
-                    <span className="h-5 w-5 rounded-full bg-[#BDF24A] text-[#06243B] flex items-center justify-center shrink-0 mt-0.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto w-full">
+              {/* Subscription — kartu abu gelap di atas blok ink */}
+              <AnimatedSection className="rounded-[24px] sm:rounded-[28px] bg-[#242424] border border-white/10 p-7 sm:p-8 flex flex-col gap-5">
+                <h3 className="text-lg font-semibold text-white/70">Tool clip langganan bulanan</h3>
+                <ul className="flex flex-col gap-3.5">
+                  {SUBSCRIPTION_CONS.map((t) => (
+                    <li key={t} className="flex items-start gap-3 text-white/60">
+                      <span className="h-5 w-5 rounded-full bg-white/10 text-white/60 flex items-center justify-center shrink-0 mt-0.5">
+                        <X className="h-3 w-3" strokeWidth={3} />
+                      </span>
+                      <span className="text-[15px]">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </AnimatedSection>
+              {/* Clipper — kartu aksen kuning penuh */}
+              <AnimatedSection className="relative rounded-[24px] sm:rounded-[28px] bg-[#F7C526] text-[#191919] p-7 sm:p-8 flex flex-col gap-5">
+                <span className="absolute -top-3 left-8 rounded-full bg-[#191919] border border-[#F7C526]/60 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#F7C526]">
+                  Clipper Rumahan
+                </span>
+                <a
+                  href="#beli"
+                  aria-label="Beli Clipper Rumahan"
+                  className="absolute top-6 right-6 grid h-9 w-9 place-items-center rounded-full border border-[#191919]/15 text-[#191919] transition-transform hover:rotate-45"
+                >
+                  <ArrowUpRight className="h-4 w-4" strokeWidth={2.2} />
+                </a>
+                <h3 className="text-lg font-semibold text-[#191919] pr-10">Punya sendiri, sekali bayar</h3>
+                <ul className="flex flex-col gap-3.5">
+                  {CLIPPER_PROS.map((t) => (
+                    <li key={t} className="flex items-start gap-3 text-[#191919]">
+                      <span className="h-5 w-5 rounded-full bg-[#191919] text-[#F7C526] flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="h-3 w-3" strokeWidth={3.5} />
+                      </span>
+                      <span className="text-[15px] font-semibold">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </AnimatedSection>
+            </div>
+          </div>
+        </section>
+
+        {/* Features */}
+        <section className="rounded-[28px] sm:rounded-[40px] bg-[#F1F1EE] px-4 py-14 sm:px-10 sm:py-20">
+          <div className="mx-auto max-w-5xl flex flex-col gap-12">
+            <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
+              <span className={CHIP_LIGHT}>Yang kamu dapat</span>
+              <h2 className={H2_CLASS}>Semua buat produksi klip, sekali beli.</h2>
+            </AnimatedSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {FEATURES.map((f) => {
+                const Icon = f.icon;
+                const hl = f.title === FEATURE_HIGHLIGHT;
+                return (
+                  <AnimatedSection
+                    key={f.title}
+                    className={`relative overflow-hidden rounded-[24px] p-7 flex flex-col gap-3 h-full ${
+                      hl ? "bg-[#F7C526] border border-transparent" : `bg-white ${CARD_BORDER}`
+                    }`}
+                  >
+                    {/* Cuma kartu aksen yang dapat monogram — kalau semua kartu
+                        dapat, logonya berubah jadi tekstur, bukan tanda. */}
+                    {hl && (
+                      <LogoWatermark className="-right-6 -top-8 w-[120px] text-[#191919]/[0.10]" />
+                    )}
+                    <div
+                      className={`h-11 w-11 rounded-full grid place-items-center ${
+                        hl ? "bg-[#191919] text-[#F7C526]" : "bg-[#F7C526] text-[#191919]"
+                      }`}
+                    >
+                      <Icon className="h-5 w-5" strokeWidth={2.2} />
+                    </div>
+                    <h3 className="text-base font-semibold text-[#191919]">{f.title}</h3>
+                    <p className={`leading-relaxed text-[15px] ${hl ? "text-[#191919]/75" : "text-[#5F5F5C]"}`}>
+                      {f.body}
+                    </p>
+                  </AnimatedSection>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Buy */}
+        <section
+          id="beli"
+          className="relative overflow-hidden rounded-[28px] sm:rounded-[40px] bg-[#F7C526] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24"
+        >
+          <LogoWatermark className="-right-16 -bottom-24 w-[230px] text-[#191919]/[0.07] sm:-right-20 sm:w-[340px]" />
+          <div className="relative mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <AnimatedSection className="flex flex-col gap-5">
+              <span className={`${CHIP_LIGHT} self-start`}>Beli sekali, punya selamanya</span>
+              <h2 className={H2_CLASS}>
+                Satu kali{" "}
+                <span className="rounded-[0.18em] bg-[#191919] px-[0.28em] py-[0.04em] leading-[1.35] text-[#F7C526] [box-decoration-break:clone] [-webkit-box-decoration-break:clone]">
+                  {PRICE}
+                </span>
+                . Tanpa langganan.
+              </h2>
+              <p className="text-[#191919]/75 leading-relaxed text-base sm:text-lg">
+                Setara harga sekali ngopi. Isi data, bayar, dan lisensi + panduan install langsung
+                dikirim ke email kamu.
+              </p>
+              <ul className="flex flex-col gap-2.5 mt-1">
+                {[
+                  "Lisensi seumur hidup — tanpa biaya bulanan",
+                  "Render klip tanpa batas",
+                  "Jalan lokal, video kamu tetap privat",
+                  "4 paket gaya, 8 caption, 3 mode framing",
+                  "Brand sendiri (nama, logo, warna)",
+                ].map((b) => (
+                  <li key={b} className="flex items-center gap-3 text-[#191919] font-medium">
+                    <span className="h-5 w-5 rounded-full bg-[#191919] text-[#F7C526] flex items-center justify-center shrink-0">
                       <Check className="h-3 w-3" strokeWidth={3.5} />
                     </span>
-                    <span className="text-[15px] font-semibold">{t}</span>
+                    {b}
                   </li>
                 ))}
               </ul>
+              <a
+                href="/products/clipper/setup"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#191919]/70 hover:text-[#191919] mt-1 self-start transition-colors underline underline-offset-4 decoration-[#191919]/30 hover:decoration-[#191919]"
+              >
+                Sudah beli? Lihat panduan setup
+                <ChevronRight className="h-4 w-4" />
+              </a>
+            </AnimatedSection>
+            <AnimatedSection>
+              <CheckoutForm />
             </AnimatedSection>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Features */}
-      <section className="bg-[#F7F8FA] py-20 sm:py-24 border-y border-black/5">
-        <div className="container-mote flex flex-col gap-12">
-          <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
-            <span className="eyebrow">Yang kamu dapat</span>
-            <h2 className="text-[#06243B] max-sm:text-[1.375rem]">Semua buat produksi klip, sekali beli.</h2>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {FEATURES.map((f) => {
-              const Icon = f.icon;
-              return (
-                <AnimatedSection
-                  key={f.title}
-                  className="rounded-2xl border border-black/8 bg-white p-7 flex flex-col gap-3 h-full"
-                >
-                  <div className="h-11 w-11 rounded-xl bg-[#BDF24A]/20 flex items-center justify-center text-[#06243B]">
-                    <Icon className="h-5 w-5" strokeWidth={2.2} />
-                  </div>
-                  <h3 className="text-base font-extrabold text-[#06243B]">{f.title}</h3>
-                  <p className="text-[#3D4F60] leading-relaxed text-[15px]">{f.body}</p>
+        {/* FAQ */}
+        <section
+          id="faq"
+          className="rounded-[28px] sm:rounded-[40px] bg-[#E7E7E3] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24"
+        >
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          />
+          <div className="mx-auto max-w-3xl flex flex-col gap-10">
+            <AnimatedSection className="flex flex-col items-start gap-3">
+              <span className={CHIP_LIGHT}>FAQ</span>
+              <h2 className={H2_CLASS}>Pertanyaan yang sering muncul.</h2>
+            </AnimatedSection>
+            <div className="flex flex-col gap-3">
+              {FAQS.map((f, i) => (
+                <AnimatedSection key={f.q} delay={i * 0.04}>
+                  <details className="group rounded-[20px] bg-white overflow-hidden shadow-[0_14px_40px_-30px_rgba(25,25,25,0.35)]">
+                    <summary className="flex items-center justify-between gap-4 cursor-pointer list-none p-5 sm:p-6 [&::-webkit-details-marker]:hidden">
+                      <h3 className="text-base font-semibold text-[#191919]">{f.q}</h3>
+                      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#F7C526]">
+                        <ChevronDown className="h-4 w-4 text-[#191919] transition-transform group-open:rotate-180" />
+                      </span>
+                    </summary>
+                    <div className="px-5 sm:px-6 pb-5 sm:pb-6 flex flex-col items-start gap-3">
+                      <p className="text-[#5F5F5C] leading-relaxed">{f.a}</p>
+                      {f.more && (
+                        <Link
+                          href={f.more.href}
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#191919] underline underline-offset-4 decoration-[#F7C526] decoration-2 hover:decoration-[#191919] transition-colors"
+                        >
+                          {f.more.label}
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      )}
+                    </div>
+                  </details>
                 </AnimatedSection>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Buy */}
-      <section id="beli" className="bg-white py-20 sm:py-24">
-        <div className="container-mote grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <AnimatedSection className="flex flex-col gap-5">
-            <span className="eyebrow">Beli sekali, punya selamanya</span>
-            <h2 className="text-[#06243B] max-sm:text-[1.375rem]">
-              Satu kali <span className="highlight-text">{PRICE}</span>. Tanpa langganan.
-            </h2>
-            <p className="text-[#3D4F60] leading-relaxed text-lg">
-              Setara harga sekali ngopi. Isi data, bayar, dan lisensi + panduan install langsung
-              dikirim ke email kamu.
-            </p>
-            <ul className="flex flex-col gap-2.5 mt-1">
-              {[
-                "Lisensi seumur hidup — tanpa biaya bulanan",
-                "Render klip tanpa batas",
-                "Jalan lokal, video kamu tetap privat",
-                "4 paket gaya, 8 caption, 3 mode framing",
-                "Brand sendiri (nama, logo, warna)",
-              ].map((b) => (
-                <li key={b} className="flex items-center gap-3 text-[#06243B] font-medium">
-                  <span className="h-5 w-5 rounded-full bg-[#BDF24A] text-[#06243B] flex items-center justify-center shrink-0">
-                    <Check className="h-3 w-3" strokeWidth={3.5} />
-                  </span>
-                  {b}
-                </li>
               ))}
-            </ul>
-            <a
-              href="/products/clipper/setup"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#06243B]/60 hover:text-[#06243B] mt-1 self-start"
-            >
-              Sudah beli? Lihat panduan setup
-              <ChevronRight className="h-4 w-4" />
-            </a>
-          </AnimatedSection>
-          <AnimatedSection>
-            <CheckoutForm />
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section id="faq" className="bg-[#F7F8FA] py-20 sm:py-24 border-t border-black/5 scroll-mt-24">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
-        <div className="container-mote max-w-3xl flex flex-col gap-10">
-          <AnimatedSection className="flex flex-col gap-3">
-            <span className="eyebrow">FAQ</span>
-            <h2 className="text-[#06243B]">Pertanyaan yang sering muncul.</h2>
-          </AnimatedSection>
-          <div className="flex flex-col gap-3">
-            {FAQS.map((f, i) => (
-              <AnimatedSection key={f.q} delay={i * 0.04}>
-                <details className="group rounded-2xl border border-black/8 bg-white overflow-hidden">
-                  <summary className="flex items-center justify-between gap-4 cursor-pointer list-none p-5 sm:p-6 [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-base font-extrabold text-[#06243B]">{f.q}</h3>
-                    <ChevronDown className="h-5 w-5 shrink-0 text-[#06243B]/50 transition-transform group-open:rotate-180" />
-                  </summary>
-                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 flex flex-col items-start gap-3">
-                    <p className="text-[#3D4F60] leading-relaxed">{f.a}</p>
-                    {f.more && (
-                      <Link
-                        href={f.more.href}
-                        className="inline-flex items-center gap-1.5 text-sm font-bold text-[#06243B] underline underline-offset-4 decoration-[#BDF24A] decoration-2 hover:decoration-[#06243B] transition-colors"
-                      >
-                        {f.more.label}
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
-                    )}
-                  </div>
-                </details>
-              </AnimatedSection>
-            ))}
-          </div>
-          <AnimatedSection className="flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between rounded-2xl bg-[#06243B] p-7">
-            <div>
-              <p className="text-white font-extrabold text-lg">Masih ragu cocok atau tidak?</p>
-              <p className="text-white/70">Chat dulu — kami jujur bilang cocok atau tidak buat kamu.</p>
             </div>
-            <a
-              href={CONTACT.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary group shrink-0"
-            >
-              Chat via WhatsApp
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </a>
-          </AnimatedSection>
-        </div>
-      </section>
-    </>
+            <AnimatedSection className="relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center gap-5 justify-between rounded-[24px] bg-[#191919] p-7 sm:p-8">
+              <LogoWatermark className="-right-8 -bottom-12 w-[150px] text-white/[0.06]" />
+              <div className="relative">
+                <p className="text-white font-semibold text-lg">Masih ragu cocok atau tidak?</p>
+                <p className="text-white/70">Chat dulu — kami jujur bilang cocok atau tidak buat kamu.</p>
+              </div>
+              <a
+                href={CONTACT.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 shrink-0"
+              >
+                <span className="rounded-full bg-[#F7C526] px-6 py-3.5 text-[15px] font-semibold text-[#191919] whitespace-nowrap transition-colors group-hover:bg-[#ffd84a]">
+                  Chat via WhatsApp
+                </span>
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#F7C526] text-[#191919] transition-transform group-hover:rotate-45">
+                  <ArrowUpRight className="h-5 w-5" strokeWidth={2.2} />
+                </span>
+              </a>
+            </AnimatedSection>
+          </div>
+        </section>
+      </div>
+    </div>
   );
 }

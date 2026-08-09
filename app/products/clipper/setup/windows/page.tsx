@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import { buildMeta } from "@/lib/metadata";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
-import { PageHero } from "@/components/shared/PageHero";
 import { Checklist } from "../_components/Checklist";
 import { NoteCallout } from "../_components/NoteCallout";
 import { CollapsiblePanel, Branch, Divider } from "../_components/CollapsiblePanel";
@@ -30,11 +29,23 @@ import { FreeTierLimitsSection } from "../_components/FreeTierLimitsSection";
 import { UpdateSection } from "../_components/UpdateSection";
 import { FaqAccordion } from "../_components/FaqAccordion";
 import { HelpFooter } from "../_components/HelpFooter";
+import { SetupHero, HeroMark } from "../_components/SetupHero";
+import {
+  BLOCK,
+  BODY_CLASS,
+  BTN_INK,
+  BTN_OUTLINE_ON_DARK,
+  BTN_YELLOW,
+  CARD_BORDER,
+  CHIP_LIGHT,
+  H2_CLASS,
+  INLINE_CODE,
+} from "../_components/skin";
 
 const DOWNLOAD_URL = "/downloads/clipper.zip";
 
 export const metadata = buildMeta({
-  title: "Panduan Setup Clipper by Mote — Windows",
+  title: "Panduan Setup Clipper Rumahan — Windows",
   description:
     "Cara pasang Clipper di Windows 10/11: cek virtualization, install Docker Desktop, jalankan install.bat, dan wizard aktivasi. Lengkap dengan update dan troubleshooting.",
   path: "/products/clipper/setup/windows",
@@ -100,23 +111,23 @@ export default function ClipperSetupWindowsPage() {
       duration: "± 5 menit",
       body: (
         <>
-          <p className="text-[#3D4F60] text-[0.975rem] leading-[1.7]">
-            Download Docker Desktop, lalu jalankan installer-nya <b className="text-[#06243B]">as Administrator</b>{" "}
+          <p className="text-[#5F5F5C] text-[0.975rem] leading-[1.7]">
+            Download Docker Desktop, lalu jalankan installer-nya <b className="text-[#191919]">as Administrator</b>{" "}
             (klik kanan › Run as administrator). Clipper jalan di dalam Docker biar rapi dan gak ngotorin komputer
             kamu.
           </p>
           <div className="flex flex-col gap-[0.55rem]">
-            <p className="block text-[0.95rem] text-[#3D4F60] leading-[1.55]">
-              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#06243B]" />
-              Pilih <b className="text-[#06243B]">All-users installation</b>
+            <p className="block text-[0.95rem] text-[#5F5F5C] leading-[1.55]">
+              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#191919]" />
+              Pilih <b className="text-[#191919]">All-users installation</b>
             </p>
-            <p className="block text-[0.95rem] text-[#3D4F60] leading-[1.55]">
-              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#06243B]" />
-              Centang <b className="text-[#06243B]">&ldquo;Use WSL 2 instead of Hyper-V&rdquo;</b>
+            <p className="block text-[0.95rem] text-[#5F5F5C] leading-[1.55]">
+              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#191919]" />
+              Centang <b className="text-[#191919]">&ldquo;Use WSL 2 instead of Hyper-V&rdquo;</b>
             </p>
-            <p className="block text-[0.95rem] text-[#3D4F60] leading-[1.55]">
-              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#06243B]" />
-              Biarkan <b className="text-[#06243B]">&ldquo;Allow Windows Containers&rdquo;</b> kosong
+            <p className="block text-[0.95rem] text-[#5F5F5C] leading-[1.55]">
+              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#191919]" />
+              Biarkan <b className="text-[#191919]">&ldquo;Allow Windows Containers&rdquo;</b> kosong
             </p>
           </div>
           <ShotFigure
@@ -127,14 +138,14 @@ export default function ClipperSetupWindowsPage() {
             height={787}
           />
           <NoteCallout variant="calm" icon={RefreshCw}>
-            Restart komputer <b className="text-[#06243B]">SESUDAH</b> instalasi selesai, bukan sebelumnya.
+            Restart komputer <b className="text-[#191919]">SESUDAH</b> instalasi selesai, bukan sebelumnya.
           </NoteCallout>
           <div className="flex flex-wrap gap-3 pt-1">
             <a
               href="https://www.docker.com/products/docker-desktop/"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-dark group text-sm"
+              className={`${BTN_INK} group text-sm`}
             >
               Download Docker Desktop
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -142,18 +153,18 @@ export default function ClipperSetupWindowsPage() {
           </div>
           <CollapsiblePanel summary="Kalau Docker minta update WSL">
             <Branch>
-              Buka PowerShell <b className="text-[#06243B]">as Administrator</b>, jalankan dua perintah ini satu per
+              Buka PowerShell <b className="text-[#191919]">as Administrator</b>, jalankan dua perintah ini satu per
               satu.
             </Branch>
             <CmdBlock command="wsl --update" />
             <CmdBlock command="wsl --set-default-version 2" />
             <Branch>
-              <b className="text-[#06243B]">Quit Docker Desktop dari system tray</b> (klik kanan ikonnya › Quit),
+              <b className="text-[#191919]">Quit Docker Desktop dari system tray</b> (klik kanan ikonnya › Quit),
               lalu buka lagi.
             </Branch>
             <NoteCallout variant="check" icon={TriangleAlert}>
-              <b className="text-[#06243B]">Kalau perintahnya gagal atau gak dikenal:</b> download manual{" "}
-              <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">wsl_update_x64.msi</code>{" "}
+              <b className="text-[#191919]">Kalau perintahnya gagal atau gak dikenal:</b> download manual{" "}
+              <code className={INLINE_CODE}>wsl_update_x64.msi</code>{" "}
               dari Microsoft, install, lalu ulangi dari atas.
             </NoteCallout>
           </CollapsiblePanel>
@@ -167,13 +178,13 @@ export default function ClipperSetupWindowsPage() {
       duration: "± 5 menit",
       body: (
         <>
-          <p className="text-[#3D4F60] text-[0.975rem] leading-[1.7]">
+          <p className="text-[#5F5F5C] text-[0.975rem] leading-[1.7]">
             Download paket Clipper, extract ZIP-nya, buka foldernya, lalu jalankan{" "}
-            <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">install.bat</code>.
+            <code className={INLINE_CODE}>install.bat</code>.
           </p>
           <NoteCallout variant="calm" icon={CircleHelp}>
             File{" "}
-            <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">install.command</code> itu
+            <code className={INLINE_CODE}>install.command</code> itu
             buat Mac — abaikan.
           </NoteCallout>
           <ShotFigure
@@ -184,12 +195,12 @@ export default function ClipperSetupWindowsPage() {
             height={792}
           />
           <div className="flex flex-wrap items-center gap-3 pt-1">
-            <a href={DOWNLOAD_URL} className="btn btn-primary group" download>
+            <a href={DOWNLOAD_URL} className={`${BTN_YELLOW} group`} download>
               Download clipper.zip
               <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </a>
-            <span className="text-sm text-[#3D4F60]">
-              Butuh <b className="text-[#06243B]">license key</b> dari email pembelian kamu.
+            <span className="text-sm text-[#5F5F5C]">
+              Butuh <b className="text-[#191919]">license key</b> dari email pembelian kamu.
             </span>
           </div>
         </>
@@ -202,8 +213,8 @@ export default function ClipperSetupWindowsPage() {
       duration: "± 20 menit, mostly nunggu",
       body: (
         <>
-          <p className="text-[#3D4F60] text-[0.975rem] leading-[1.7]">
-            Dobel-klik <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">install.bat</code>.
+          <p className="text-[#5F5F5C] text-[0.975rem] leading-[1.7]">
+            Dobel-klik <code className={INLINE_CODE}>install.bat</code>.
             Ini yang bakal kamu lihat, berurutan:
           </p>
           <MiniSteps
@@ -214,7 +225,7 @@ export default function ClipperSetupWindowsPage() {
                 title: "Menit 1-20: layar diam",
                 text: (
                   <>
-                    Ini lagi mengunduh aplikasinya, ±2 GB, <b className="text-[#06243B]">sekali seumur hidup</b>.
+                    Ini lagi mengunduh aplikasinya, ±2 GB, <b className="text-[#191919]">sekali seumur hidup</b>.
                     Alasannya: worker Clipper bawa model AI transkripsi &amp; deteksi wajah sendiri, biar semuanya
                     jalan 100% lokal tanpa API berbayar. Angka nyata: worker 3,8 GB + web 619 MB di disk, sekitar
                     1,5-2 GB terkompresi lewat jaringan.
@@ -226,7 +237,7 @@ export default function ClipperSetupWindowsPage() {
                 title: "Lalu browser terbuka sendiri",
                 text: (
                   <>
-                    Ke <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">localhost:3060</code>,
+                    Ke <code className={INLINE_CODE}>localhost:3060</code>,
                     langsung masuk wizard aktivasi.
                   </>
                 ),
@@ -240,9 +251,9 @@ export default function ClipperSetupWindowsPage() {
               page is worse than no screenshot, so it is out until a fresh one
               is taken from a machine running the corrected install.bat. */}
           <NoteCallout variant="calm" icon={Terminal}>
-            Jendela cmd <b className="text-[#06243B]">menutup sendiri</b> setelah kamu dobel-klik — itu normal,
+            Jendela cmd <b className="text-[#191919]">menutup sendiri</b> setelah kamu dobel-klik — itu normal,
             terjadi baik pas berhasil maupun gagal. Cara mastiin lolos: cek apakah file{" "}
-            <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">.env</code> muncul di
+            <code className={INLINE_CODE}>.env</code> muncul di
             folder yang sama. Kalau ada, berarti sudah lolos cek Docker.
           </NoteCallout>
         </>
@@ -255,17 +266,17 @@ export default function ClipperSetupWindowsPage() {
       duration: "± 2 menit",
       body: (
         <>
-          <p className="text-[#3D4F60] text-[0.975rem] leading-[1.7]">
+          <p className="text-[#5F5F5C] text-[0.975rem] leading-[1.7]">
             Begitu browser kebuka, wizard nuntun kamu. Gak ada bikin akun atau password.
           </p>
           <ol className="flex flex-col gap-3">
             {WIZARD_STEPS.map((s) => (
               <li key={s.t} className="flex gap-3">
-                <span className="shrink-0 mt-0.5 grid place-items-center h-7 w-7 rounded-lg bg-[#BDF24A]">
-                  <s.icon className="h-4 w-4 text-[#06243B]" />
+                <span className="shrink-0 mt-0.5 grid place-items-center h-7 w-7 rounded-full bg-[#F7C526]">
+                  <s.icon className="h-4 w-4 text-[#191919]" />
                 </span>
-                <span className="text-[15px] text-[#3D4F60]">
-                  <b className="text-[#06243B]">{s.t}</b> — {s.d}
+                <span className="text-[15px] text-[#5F5F5C]">
+                  <b className="text-[#191919]">{s.t}</b> — {s.d}
                 </span>
               </li>
             ))}
@@ -276,166 +287,172 @@ export default function ClipperSetupWindowsPage() {
   ];
 
   return (
-    <>
-      <PageHero
-        eyebrow="Clipper · Setup Windows"
-        title="Pasang Clipper di Windows."
-        description="Total waktu jujur: 30-60 menit di percobaan pertama, dan hampir semuanya cuma nunggu unduhan ±2 GB. Buka lagi berikutnya tinggal hitungan detik."
-        actions={
-          <div className="flex flex-col gap-3 w-full">
-            <div className="flex flex-wrap gap-2">
-              <DurationPill>Pertama kali: 30-60 menit</DurationPill>
-              <DurationPill>Buka lagi: hitungan detik</DurationPill>
+    <div data-skin="clipper" className="bg-[#EFEFEC] text-[#191919]">
+      <div className="mx-auto max-w-[1400px] px-3 sm:px-5 py-3 sm:py-5 space-y-3 sm:space-y-5">
+        <SetupHero
+          eyebrow="Clipper · Setup Windows"
+          title={
+            <>
+              Pasang Clipper <HeroMark>di Windows.</HeroMark>
+            </>
+          }
+          description="Total waktu jujur: 30-60 menit di percobaan pertama, dan hampir semuanya cuma nunggu unduhan ±2 GB. Buka lagi berikutnya tinggal hitungan detik."
+          actions={
+            <div className="flex flex-col gap-3 w-full">
+              <div className="flex flex-wrap gap-2">
+                <DurationPill tone="dark">Pertama kali: 30-60 menit</DurationPill>
+                <DurationPill tone="dark">Buka lagi: hitungan detik</DurationPill>
+              </div>
+              <div className="flex flex-wrap gap-3 pt-1">
+                <a href="#preflight" className={`${BTN_YELLOW} group`}>
+                  Cek kesiapan dulu
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+                <Link href="/products/clipper/setup" className={BTN_OUTLINE_ON_DARK}>
+                  Kembali pilih OS
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <a href="#preflight" className="btn btn-dark group">
-                Cek kesiapan dulu
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <Link href="/products/clipper/setup" className="btn btn-ghost">
-                Kembali pilih OS
-              </Link>
-            </div>
-          </div>
-        }
-      />
+          }
+        />
 
-      {/* Preflight */}
-      <section id="preflight" className="bg-white py-16 sm:py-24 scroll-mt-24">
-        <div className="container-mote max-w-3xl mx-auto flex flex-col gap-10">
-          <AnimatedSection className="flex flex-col gap-3">
-            <h2 className="text-[#06243B]">Cek dulu 3 hal.</h2>
-            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
-              Tiga menit ngecek ini bisa hindarin kamu install ulang. Kalau semua lolos, langsung lanjut ke Langkah
-              1.
-            </p>
-          </AnimatedSection>
+        {/* Preflight */}
+        <section id="preflight" className={`${BLOCK} bg-white px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24`}>
+          <div className="mx-auto max-w-3xl flex flex-col gap-10">
+            <AnimatedSection className="flex flex-col gap-3">
+              <h2 className={H2_CLASS}>Cek dulu 3 hal.</h2>
+              <p className={BODY_CLASS}>
+                Tiga menit ngecek ini bisa hindarin kamu install ulang. Kalau semua lolos, langsung lanjut ke Langkah
+                1.
+              </p>
+            </AnimatedSection>
 
-          <AnimatedSection>
-            <Checklist items={CHECKLIST} />
-          </AnimatedSection>
+            <AnimatedSection>
+              <Checklist items={CHECKLIST} />
+            </AnimatedSection>
 
-          <AnimatedSection className="flex flex-col gap-3">
-            <NoteCallout variant="calm" icon={CheckCircle2} label="Kalau Enabled">
-              Lanjut langsung ke{" "}
-              <a href="#langkah-1" className="text-[#06243B] font-bold underline underline-offset-2">
-                Langkah 1 ›
-              </a>
-            </NoteCallout>
-            <NoteCallout variant="check" icon={TriangleAlert} label="Kalau Disabled, atau gak nemu barisnya">
-              Buka panel di bawah — salah satu dari tiga penyebab ini yang berlaku buat kamu.
-            </NoteCallout>
-          </AnimatedSection>
-
-          <AnimatedSection>
-            <CollapsiblePanel summary="Virtualization mati atau gak kedeteksi — cek 3 penyebab">
-              <ShotFigure
-                src="/img/clipper/setup/win-virtualization-not-detected.webp"
-                alt="Docker Desktop menampilkan pesan Virtualization support not detected"
-                caption="Docker Desktop kalau CPU virtualization belum aktif — pesannya persis begini."
-                width={1400}
-                height={795}
-              />
-              <Branch title="PC atau laptop biasa">
-                Nyalakan <b className="text-[#06243B]">Intel VT-x / AMD-V (kadang disebut SVM Mode)</b> di BIOS.
-                Tombol masuk BIOS beda-beda tiap merek — cari &ldquo;cara enable virtualization [merek laptop
-                kamu]&rdquo; di Google buat tombolnya.
-              </Branch>
-              <Divider />
-              <Branch title={`PowerShell bilang "wsl" gak dikenal`}>
-                Buka PowerShell <b className="text-[#06243B]">as Administrator</b>, jalankan perintah ini, lalu
-                restart komputer.
-              </Branch>
-              <CmdBlock command="wsl --install" />
-              <Divider />
-              <Branch title="Komputer virtual atau VPS tanpa nested virtualization">
-                Jujur: <b className="text-[#06243B]">ini gak bisa jalan</b>. Hubungi kami dulu sebelum lanjut
-                install.
-              </Branch>
-              <NoteCallout variant="calm" icon={CircleHelp}>
-                <b className="text-[#06243B]">Login akun Docker gak memperbaiki ini.</b> Docker suka nampilin
-                tombol &ldquo;Sign in&rdquo; yang kelihatannya kayak solusi — itu gak ada hubungannya sama
-                virtualization.
+            <AnimatedSection className="flex flex-col gap-3">
+              <NoteCallout variant="calm" icon={CheckCircle2} label="Kalau Enabled">
+                Lanjut langsung ke{" "}
+                <a href="#langkah-1" className="text-[#191919] font-bold underline underline-offset-2">
+                  Langkah 1 ›
+                </a>
               </NoteCallout>
-            </CollapsiblePanel>
-          </AnimatedSection>
-        </div>
-      </section>
+              <NoteCallout variant="check" icon={TriangleAlert} label="Kalau Disabled, atau gak nemu barisnya">
+                Buka panel di bawah — salah satu dari tiga penyebab ini yang berlaku buat kamu.
+              </NoteCallout>
+            </AnimatedSection>
 
-      {/* Langkah demi langkah */}
-      <section className="bg-[#F7F8FA] py-16 sm:py-24 border-y border-black/5">
-        <div className="container-mote max-w-3xl mx-auto flex flex-col gap-10">
-          <AnimatedSection className="flex flex-col gap-3">
-            <h2 className="text-[#06243B]">Dari download sampai klip pertama.</h2>
-            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
-              Empat langkah. Kebanyakan kamu cuma nunggu — jendelanya jangan ditutup.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection>
-            <StepRail steps={steps} />
-          </AnimatedSection>
-        </div>
-      </section>
+            <AnimatedSection>
+              <CollapsiblePanel summary="Virtualization mati atau gak kedeteksi — cek 3 penyebab">
+                <ShotFigure
+                  src="/img/clipper/setup/win-virtualization-not-detected.webp"
+                  alt="Docker Desktop menampilkan pesan Virtualization support not detected"
+                  caption="Docker Desktop kalau CPU virtualization belum aktif — pesannya persis begini."
+                  width={1400}
+                  height={795}
+                />
+                <Branch title="PC atau laptop biasa">
+                  Nyalakan <b className="text-[#191919]">Intel VT-x / AMD-V (kadang disebut SVM Mode)</b> di BIOS.
+                  Tombol masuk BIOS beda-beda tiap merek — cari &ldquo;cara enable virtualization [merek laptop
+                  kamu]&rdquo; di Google buat tombolnya.
+                </Branch>
+                <Divider />
+                <Branch title={`PowerShell bilang "wsl" gak dikenal`}>
+                  Buka PowerShell <b className="text-[#191919]">as Administrator</b>, jalankan perintah ini, lalu
+                  restart komputer.
+                </Branch>
+                <CmdBlock command="wsl --install" />
+                <Divider />
+                <Branch title="Komputer virtual atau VPS tanpa nested virtualization">
+                  Jujur: <b className="text-[#191919]">ini gak bisa jalan</b>. Hubungi kami dulu sebelum lanjut
+                  install.
+                </Branch>
+                <NoteCallout variant="calm" icon={CircleHelp}>
+                  <b className="text-[#191919]">Login akun Docker gak memperbaiki ini.</b> Docker suka nampilin
+                  tombol &ldquo;Sign in&rdquo; yang kelihatannya kayak solusi — itu gak ada hubungannya sama
+                  virtualization.
+                </NoteCallout>
+              </CollapsiblePanel>
+            </AnimatedSection>
+          </div>
+        </section>
 
-      <FreeTierLimitsSection />
+        {/* Langkah demi langkah */}
+        <section className={`${BLOCK} bg-[#F1F1EE] px-4 py-14 sm:px-10 sm:py-20`}>
+          <div className="mx-auto max-w-3xl flex flex-col gap-10">
+            <AnimatedSection className="flex flex-col gap-3">
+              <h2 className={H2_CLASS}>Dari download sampai klip pertama.</h2>
+              <p className={BODY_CLASS}>
+                Empat langkah. Kebanyakan kamu cuma nunggu — jendelanya jangan ditutup.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection>
+              <StepRail steps={steps} />
+            </AnimatedSection>
+          </div>
+        </section>
 
-      {/* Buka lagi */}
-      <section id="buka-lagi" className="bg-white py-16 sm:py-24 scroll-mt-24">
-        <div className="container-mote max-w-3xl mx-auto flex flex-col gap-7">
-          <AnimatedSection className="flex flex-col gap-3">
-            <h2 className="text-[#06243B]">Habis matiin laptop? Buka lagi gampang.</h2>
-            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
-              Kamu <b className="text-[#06243B]">gak perlu install ulang</b>. Cukup tiga langkah ini.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection className="rounded-[20px] border border-black/8 bg-[#F7F8FA] p-[1.65rem]">
-            <MiniSteps
-              items={[
-                { num: "1", title: "Nyalain Docker Desktop", text: `Tunggu sampai statusnya "running". Ini yang paling sering kelupaan.` },
-                { num: "2", title: "Dobel-klik start.bat", text: "Atau dobel-klik install.bat lagi — aman, gak ngulang download." },
-                {
-                  num: "3",
-                  title: "Buka localhost:3060",
-                  text: "Aplikasi kebuka lagi persis seperti terakhir kali — lisensi & pengaturan tetap tersimpan.",
-                },
-              ]}
-            />
-          </AnimatedSection>
-          <AnimatedSection>
-            <NoteCallout variant="calm" icon={Square}>
-              <b className="text-[#06243B]">Mau berhenti sementara?</b> Dobel-klik{" "}
-              <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">stop.bat</code>. Klip
-              yang sudah jadi tetap ada di folder &ldquo;clips&rdquo;.
-            </NoteCallout>
-          </AnimatedSection>
-        </div>
-      </section>
+        <FreeTierLimitsSection />
 
-      <UpdateSection
-        terminalInstruction={
-          <>
-            Nyalain Docker Desktop dulu (tunggu &ldquo;running&rdquo;, pastikan disk kosong minimal 10 GB). Buka
-            folder Clipper, klik address bar, ketik{" "}
-            <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">cmd</code>, Enter. Lalu
-            jalankan:
-          </>
-        }
-      />
+        {/* Buka lagi */}
+        <section id="buka-lagi" className={`${BLOCK} bg-[#F1F1EE] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24`}>
+          <div className="mx-auto max-w-3xl flex flex-col gap-7">
+            <AnimatedSection className="flex flex-col gap-3">
+              <h2 className={H2_CLASS}>Habis matiin laptop? Buka lagi gampang.</h2>
+              <p className={BODY_CLASS}>
+                Kamu <b className="text-[#191919]">gak perlu install ulang</b>. Cukup tiga langkah ini.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection className={`rounded-[24px] ${CARD_BORDER} bg-white p-[1.65rem]`}>
+              <MiniSteps
+                items={[
+                  { num: "1", title: "Nyalain Docker Desktop", text: `Tunggu sampai statusnya "running". Ini yang paling sering kelupaan.` },
+                  { num: "2", title: "Dobel-klik start.bat", text: "Atau dobel-klik install.bat lagi — aman, gak ngulang download." },
+                  {
+                    num: "3",
+                    title: "Buka localhost:3060",
+                    text: "Aplikasi kebuka lagi persis seperti terakhir kali — lisensi & pengaturan tetap tersimpan.",
+                  },
+                ]}
+              />
+            </AnimatedSection>
+            <AnimatedSection>
+              <NoteCallout variant="calm" icon={Square} className="bg-white">
+                <b className="text-[#191919]">Mau berhenti sementara?</b> Dobel-klik{" "}
+                <code className={INLINE_CODE}>stop.bat</code>. Klip
+                yang sudah jadi tetap ada di folder &ldquo;clips&rdquo;.
+              </NoteCallout>
+            </AnimatedSection>
+          </div>
+        </section>
 
-      {/* Troubleshooting */}
-      <section id="troubleshooting" className="bg-[#F7F8FA] py-16 sm:py-24 border-y border-black/5 scroll-mt-24">
-        <div className="container-mote max-w-3xl mx-auto flex flex-col gap-8">
-          <AnimatedSection className="flex flex-col gap-3">
-            <span className="eyebrow">Kalau nyangkut</span>
-            <h2 className="text-[#06243B]">Yang paling sering ditanyain.</h2>
-          </AnimatedSection>
-          <AnimatedSection>
-            <FaqAccordion items={TROUBLESHOOTING} />
-          </AnimatedSection>
-        </div>
-      </section>
+        <UpdateSection
+          terminalInstruction={
+            <>
+              Nyalain Docker Desktop dulu (tunggu &ldquo;running&rdquo;, pastikan disk kosong minimal 10 GB). Buka
+              folder Clipper, klik address bar, ketik{" "}
+              <code className={INLINE_CODE}>cmd</code>, Enter. Lalu
+              jalankan:
+            </>
+          }
+        />
 
-      <HelpFooter />
-    </>
+        {/* Troubleshooting */}
+        <section id="troubleshooting" className={`${BLOCK} bg-[#E7E7E3] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24`}>
+          <div className="mx-auto max-w-3xl flex flex-col gap-8">
+            <AnimatedSection className="flex flex-col gap-3">
+              <span className={`${CHIP_LIGHT} self-start`}>Kalau nyangkut</span>
+              <h2 className={H2_CLASS}>Yang paling sering ditanyain.</h2>
+            </AnimatedSection>
+            <AnimatedSection>
+              <FaqAccordion items={TROUBLESHOOTING} />
+            </AnimatedSection>
+          </div>
+        </section>
+
+        <HelpFooter />
+      </div>
+    </div>
   );
 }

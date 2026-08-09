@@ -1,20 +1,28 @@
+import { ChevronDown } from "lucide-react";
+
 export type FaqItem = { q: string; a: string };
 
 /**
- * Accordion FAQ list, matching the setup preview's `.faq-item` (`<details>` rows inside one card).
- * First item defaults open, same as the preview. Uses `group-open:` so no client JS is needed.
+ * Accordion FAQ list — kartu putih membulat per pertanyaan dengan chevron
+ * dalam lingkaran kuning, sekulit dengan FAQ halaman jual. First item
+ * defaults open. Uses `group-open:` so no client JS is needed.
  */
 export function FaqAccordion({ items }: { items: FaqItem[] }) {
   return (
-    <div className="rounded-[20px] border border-black/8 bg-white px-2 sm:px-3">
+    <div className="flex flex-col gap-3">
       {items.map((item, i) => (
-        <details key={item.q} className="group border-black/8 py-[1.15rem] px-2" open={i === 0} style={i === 0 ? undefined : { borderTopWidth: 1 }}>
-          <summary className="list-none cursor-pointer flex items-center justify-between gap-4 font-bold text-[#06243B] text-[0.975rem] [&::-webkit-details-marker]:hidden">
+        <details
+          key={item.q}
+          className="group rounded-[20px] bg-white overflow-hidden shadow-[0_14px_40px_-30px_rgba(25,25,25,0.35)]"
+          open={i === 0}
+        >
+          <summary className="list-none cursor-pointer flex items-center justify-between gap-4 p-5 sm:p-6 font-semibold text-[#191919] text-[0.975rem] [&::-webkit-details-marker]:hidden">
             {item.q}
-            <span className="shrink-0 text-xl leading-none text-[#06243B]/35 group-open:hidden">+</span>
-            <span className="shrink-0 text-xl leading-none text-[#06243B]/35 hidden group-open:inline">&minus;</span>
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#F7C526]">
+              <ChevronDown className="h-4 w-4 text-[#191919] transition-transform group-open:rotate-180" />
+            </span>
           </summary>
-          <p className="mt-[0.7rem] text-[0.925rem] text-[#3D4F60] leading-relaxed">{item.a}</p>
+          <p className="px-5 sm:px-6 pb-5 sm:pb-6 text-[0.925rem] text-[#5F5F5C] leading-relaxed">{item.a}</p>
         </details>
       ))}
     </div>

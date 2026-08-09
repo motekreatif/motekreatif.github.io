@@ -18,6 +18,9 @@ import { CheckCircle2 } from "lucide-react";
  * Reads `window.location.search` in an effect rather than `useSearchParams`
  * on purpose: this site is a static export, and the hook would force the
  * whole page into a Suspense boundary for one banner.
+ *
+ * Dirender sebagai blok mengambang di dalam kolom blok halaman chooser,
+ * jadi dia bawa rounded + warna sendiri (kuning redup, badge centang kuning).
  */
 export function PaymentNotice() {
   const [paid, setPaid] = useState(false);
@@ -29,18 +32,18 @@ export function PaymentNotice() {
   if (!paid) return null;
 
   return (
-    <section className="bg-white pt-10 sm:pt-12">
-      <div className="container-mote">
-        <div className="mx-auto max-w-3xl rounded-2xl border border-[#06243B]/15 bg-[#BDF24A]/25 p-6 sm:p-7 flex items-start gap-4">
-          <CheckCircle2 className="h-6 w-6 shrink-0 text-[#06243B]" strokeWidth={2.2} />
-          <div className="flex flex-col gap-1.5">
-            <p className="font-extrabold text-[#06243B]">Pembayaran diterima. Terima kasih.</p>
-            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
-              Kunci lisensi dan link download dikirim ke email kamu. Sambil nunggu, kamu bisa
-              langsung mulai dari Langkah 1 di bawah. Kalau emailnya belum masuk dalam 1x24 jam,
-              chat WhatsApp kami dan kami terbitkan ulang.
-            </p>
-          </div>
+    <section className="rounded-[28px] sm:rounded-[40px] bg-[#F1F1EE] border border-[#F7C526]/60 px-4 py-8 sm:px-10 sm:py-10">
+      <div className="mx-auto max-w-3xl flex items-start gap-4">
+        <span className="shrink-0 grid place-items-center h-10 w-10 rounded-full bg-[#F7C526] text-[#191919]">
+          <CheckCircle2 className="h-5 w-5" strokeWidth={2.2} />
+        </span>
+        <div className="flex flex-col gap-1.5">
+          <p className="font-semibold text-[#191919]">Pembayaran diterima. Terima kasih.</p>
+          <p className="text-[15px] text-[#5F5F5C] leading-relaxed">
+            Kunci lisensi dan link download dikirim ke email kamu. Sambil nunggu, kamu bisa
+            langsung mulai dari Langkah 1 di bawah. Kalau emailnya belum masuk dalam 1x24 jam,
+            chat WhatsApp kami dan kami terbitkan ulang.
+          </p>
         </div>
       </div>
     </section>

@@ -46,6 +46,150 @@
   --radius-2xl: 40px;
 }
 
+/*
+ * Chrome tokens — dipakai Header, Footer, dan FloatingWhatsApp.
+ * `inline` supaya utility-nya membaca var(--chrome-*) saat runtime,
+ * sehingga nilainya bisa berubah lewat selector body:has() di bawah.
+ */
+@theme inline {
+  --color-chrome-bg: var(--chrome-bg);
+  --color-chrome-bg-hover: var(--chrome-bg-hover);
+  --color-chrome-fg: var(--chrome-fg);
+  --color-chrome-accent: var(--chrome-accent);
+  --color-chrome-accent-fg: var(--chrome-accent-fg);
+  --color-chrome-footer: var(--chrome-footer-bg);
+  --color-chrome-muted: var(--chrome-muted);
+  --color-chrome-panel-fg: var(--chrome-panel-fg);
+  --color-chrome-panel-muted: var(--chrome-panel-muted);
+  --color-chrome-panel-hover: var(--chrome-panel-hover);
+}
+
+/*
+ * Nilai default = warna MOTE yang berlaku sekarang, persis.
+ * JANGAN ubah nilai di :root — halaman non-clipper bergantung padanya.
+ */
+:root {
+  --chrome-bg: #06243B;
+  --chrome-bg-hover: #0E3450;
+  --chrome-fg: #FFFFFF;
+  --chrome-accent: #BDF24A;
+  --chrome-accent-fg: #06243B;
+  --chrome-footer-bg: #021526;
+  --chrome-muted: rgba(255, 255, 255, 0.7);
+  --chrome-shadow: rgba(6, 36, 59, 0.5);
+  --chrome-panel-fg: #06243B;
+  --chrome-panel-muted: #3D4F60;
+  --chrome-panel-hover: #F7F4EE;
+}
+
+/*
+ * Skin Clipper Rumahan (hitam-kuning) — aktif hanya kalau halaman
+ * menanam elemen ber-atribut data-skin="clipper" di dalam body.
+ */
+body:has([data-skin="clipper"]) {
+  --chrome-bg: #191919;
+  --chrome-bg-hover: #242424;
+  --chrome-fg: #FFFFFF;
+  --chrome-accent: #F7C526;
+  --chrome-accent-fg: #191919;
+  --chrome-footer-bg: #191919;
+  --chrome-muted: rgba(255, 255, 255, 0.7);
+  --chrome-shadow: rgba(0, 0, 0, 0.45);
+  --chrome-panel-fg: #191919;
+  --chrome-panel-muted: #5F5F5C;
+  --chrome-panel-hover: #EFEFEC;
+}
+
+/*
+ * Elemen chrome yang tidak masuk akal di-token-kan, dinetralkan
+ * hanya saat skin clipper aktif. Ditulis di luar @layer supaya
+ * menang dari rule di @layer components/base.
+ */
+body:has([data-skin="clipper"]) .footer-ribbon {
+  display: none;
+}
+
+body:has([data-skin="clipper"]) ::selection {
+  background: #F7C526;
+  color: #191919;
+}
+
+/*
+ * Kelas komponen bersama yang membawa lime/navy/oranye — di rute clipper
+ * warnanya dialihkan ke palet hitam-kuning. Rute lain tidak tersentuh.
+ */
+body:has([data-skin="clipper"]) .btn-primary {
+  background: #F7C526;
+  color: #191919;
+}
+
+body:has([data-skin="clipper"]) .btn-primary:hover {
+  background: #F7C526;
+  box-shadow: 0 10px 26px -6px rgba(247, 197, 38, 0.55);
+}
+
+body:has([data-skin="clipper"]) .btn-dark {
+  background: #191919;
+  color: #fff;
+}
+
+body:has([data-skin="clipper"]) .btn-dark:hover {
+  background: #242424;
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.45);
+}
+
+body:has([data-skin="clipper"]) .btn-ghost {
+  color: #191919;
+  border-color: #191919;
+}
+
+body:has([data-skin="clipper"]) .btn-ghost:hover {
+  background: #191919;
+  color: #fff;
+}
+
+body:has([data-skin="clipper"]) .btn-ghost-light:hover {
+  background: #F7C526;
+  color: #191919;
+  border-color: #F7C526;
+}
+
+body:has([data-skin="clipper"]) .eyebrow {
+  color: #191919;
+  background: rgba(25, 25, 25, 0.07);
+}
+
+body:has([data-skin="clipper"]) .eyebrow-on-dark {
+  color: #191919;
+  background: #F7C526;
+}
+
+body:has([data-skin="clipper"]) .eyebrow-light {
+  color: #F7C526;
+  background: rgba(247, 197, 38, 0.14);
+}
+
+body:has([data-skin="clipper"]) .eyebrow-on-yellow {
+  color: #F7C526;
+  background: #191919;
+}
+
+body:has([data-skin="clipper"]) .card-soft:hover {
+  border-color: rgba(247, 197, 38, 0.5);
+  box-shadow: 0 8px 30px rgba(247, 197, 38, 0.18),
+    0 0 0 1px rgba(247, 197, 38, 0.45);
+}
+
+body:has([data-skin="clipper"]) .card-dark:hover {
+  border-color: rgba(247, 197, 38, 0.45);
+  box-shadow: 0 8px 30px -10px rgba(247, 197, 38, 0.25);
+}
+
+body:has([data-skin="clipper"]) .highlight-text {
+  background: #F7C526;
+  color: #191919;
+}
+
 @layer base {
   :root {
     color-scheme: light;

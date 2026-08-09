@@ -10,8 +10,8 @@ export type RailStep = {
 };
 
 /**
- * Numbered step rail with a connecting vertical line between badges,
- * matching the setup preview's `.rail` / `.step` / `.step-badge`.
+ * Numbered step rail with a connecting vertical line between badges.
+ * Badge nomor = lingkaran kuning dengan angka ink — langkah tetap bernomor jelas.
  */
 export function StepRail({ steps }: { steps: RailStep[] }) {
   return (
@@ -29,15 +29,15 @@ export function StepRail({ steps }: { steps: RailStep[] }) {
             {!isLast && (
               <span
                 aria-hidden
-                className="absolute w-0.5 bg-[#06243B]/[0.14] left-[21px] top-[46px] sm:left-[27px] sm:top-[58px] bottom-0"
+                className="absolute w-0.5 bg-[#191919]/[0.14] left-[21px] top-[46px] sm:left-[27px] sm:top-[58px] bottom-0"
               />
             )}
-            <span className="relative z-[1] w-11 h-11 sm:w-14 sm:h-14 rounded-[14px] sm:rounded-[18px] bg-[#06243B] text-[#BDF24A] grid place-items-center text-[1.05rem] sm:text-[1.375rem] font-extrabold shrink-0">
+            <span className="relative z-[1] w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#F7C526] text-[#191919] grid place-items-center text-[1.05rem] sm:text-[1.375rem] font-bold shrink-0">
               {s.num}
             </span>
             <div className="flex flex-col gap-[0.85rem] pt-1">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="font-extrabold text-[1.2rem] text-[#06243B]">{s.title}</span>
+                <span className="font-semibold text-[1.2rem] text-[#191919]">{s.title}</span>
                 <DurationPill>{s.duration}</DurationPill>
               </div>
               {s.body}

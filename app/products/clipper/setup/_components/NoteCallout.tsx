@@ -4,23 +4,23 @@ import { cn } from "@/lib/cn";
 
 const VARIANT_STYLES = {
   calm: {
-    wrap: "bg-[#F7F8FA] border-black/8 text-[#06243B]",
-    icon: "text-[#06243B]/45",
-    label: "text-[#06243B]/50",
+    wrap: "bg-[#EFEFEC] border-[rgba(25,25,25,0.10)] text-[#191919]",
+    icon: "text-[#191919]/45",
+    label: "text-[#191919]/50",
   },
   check: {
-    wrap: "bg-[#FF7E00]/[0.07] border-[#FF7E00]/35 text-[#06243B]",
-    icon: "text-[#FF7E00]",
-    label: "text-[#FF7E00]",
+    wrap: "bg-[#F1F1EE] border-[#F7C526]/70 text-[#191919]",
+    icon: "text-[#191919]",
+    label: "text-[#191919]/70",
   },
   stop: {
-    wrap: "bg-[#06243B] border-[#06243B] text-white",
-    icon: "text-[#BDF24A]",
-    label: "text-[#BDF24A]",
+    wrap: "bg-[#191919] border-[#191919] text-white",
+    icon: "text-[#F7C526]",
+    label: "text-[#F7C526]",
   },
 } as const;
 
-/** The three callout tiers from the setup preview: calm (info), check (needs attention), stop (destructive warning). */
+/** The three callout tiers: calm (info), check (needs attention), stop (destructive warning). */
 export function NoteCallout({
   variant = "calm",
   icon: Icon,
@@ -46,7 +46,7 @@ export function NoteCallout({
       <Icon className={cn("h-5 w-5 shrink-0 mt-0.5", styles.icon)} strokeWidth={2.2} />
       <div>
         {label && (
-          <span className={cn("block text-[0.7rem] font-extrabold uppercase tracking-wider mb-0.5", styles.label)}>
+          <span className={cn("block text-[0.7rem] font-bold uppercase tracking-wider mb-0.5", styles.label)}>
             {label}
           </span>
         )}

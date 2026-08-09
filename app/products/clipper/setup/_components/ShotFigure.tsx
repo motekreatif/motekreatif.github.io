@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-/** Real product screenshot with caption, matching the setup preview's `.shot` / `.shot-cap`. */
+/** Real product screenshot with caption — bingkai terang membulat, keterbacaan nomor satu. */
 export function ShotFigure({
   src,
   alt,
@@ -16,10 +16,10 @@ export function ShotFigure({
 }) {
   return (
     <figure className="m-0">
-      <div className="rounded-2xl overflow-hidden border border-black/8 shadow-[0_1px_2px_rgba(6,36,59,0.05),0_14px_30px_-24px_rgba(6,36,59,0.18)]">
+      <div className="rounded-[20px] overflow-hidden border border-[rgba(25,25,25,0.10)] bg-white shadow-[0_14px_40px_-30px_rgba(25,25,25,0.35)]">
         <Image src={src} alt={alt} width={width} height={height} className="block w-full h-auto" unoptimized />
       </div>
-      <figcaption className="text-[0.8rem] text-[#3D4F60] mt-[0.55rem]">{caption}</figcaption>
+      <figcaption className="text-[0.8rem] text-[#5F5F5C] mt-[0.55rem]">{caption}</figcaption>
     </figure>
   );
 }

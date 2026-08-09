@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { buildMeta } from "@/lib/metadata";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
-import { PageHero } from "@/components/shared/PageHero";
 import { Checklist } from "../_components/Checklist";
 import { NoteCallout } from "../_components/NoteCallout";
 import { StepRail, type RailStep } from "../_components/StepRail";
@@ -25,11 +24,23 @@ import { FreeTierLimitsSection } from "../_components/FreeTierLimitsSection";
 import { UpdateSection } from "../_components/UpdateSection";
 import { FaqAccordion } from "../_components/FaqAccordion";
 import { HelpFooter } from "../_components/HelpFooter";
+import { SetupHero, HeroMark } from "../_components/SetupHero";
+import {
+  BLOCK,
+  BODY_CLASS,
+  BTN_INK,
+  BTN_OUTLINE_ON_DARK,
+  BTN_YELLOW,
+  CARD_BORDER,
+  CHIP_LIGHT,
+  H2_CLASS,
+  INLINE_CODE,
+} from "../_components/skin";
 
 const DOWNLOAD_URL = "/downloads/clipper.zip";
 
 export const metadata = buildMeta({
-  title: "Panduan Setup Clipper by Mote — Mac",
+  title: "Panduan Setup Clipper Rumahan — Mac",
   description:
     "Cara pasang Clipper di Mac (Apple Silicon atau Intel): install Docker Desktop, izinkan Gatekeeper, jalankan install.command, dan wizard aktivasi. Lengkap dengan update dan troubleshooting.",
   path: "/products/clipper/setup/mac",
@@ -91,22 +102,22 @@ export default function ClipperSetupMacPage() {
       duration: "± 5 menit",
       body: (
         <>
-          <p className="text-[#3D4F60] text-[0.975rem] leading-[1.7]">
+          <p className="text-[#5F5F5C] text-[0.975rem] leading-[1.7]">
             Download Docker Desktop — pastikan pilih build yang cocok sama chip kamu dari Langkah &ldquo;Cek
             dulu&rdquo; di atas (Apple Silicon atau Intel, salah pilih bikin Docker gagal buka). Buka file
             .dmg-nya, lalu drag ikon Docker ke folder Applications.
           </p>
           <div className="flex flex-col gap-[0.55rem]">
-            <p className="block text-[0.95rem] text-[#3D4F60] leading-[1.55]">
-              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#06243B]" />
-              Buka Docker dari folder <b className="text-[#06243B]">Applications</b>, bukan dari .dmg
+            <p className="block text-[0.95rem] text-[#5F5F5C] leading-[1.55]">
+              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#191919]" />
+              Buka Docker dari folder <b className="text-[#191919]">Applications</b>, bukan dari .dmg
             </p>
-            <p className="block text-[0.95rem] text-[#3D4F60] leading-[1.55]">
-              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#06243B]" />
+            <p className="block text-[0.95rem] text-[#5F5F5C] leading-[1.55]">
+              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#191919]" />
               Setujui dialog izin sistem yang muncul saat pertama buka
             </p>
-            <p className="block text-[0.95rem] text-[#3D4F60] leading-[1.55]">
-              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#06243B]" />
+            <p className="block text-[0.95rem] text-[#5F5F5C] leading-[1.55]">
+              <CheckCircle2 className="float-left mt-[0.1rem] mr-[0.6rem] h-4 w-4 text-[#191919]" />
               Tunggu ikon paus di menu bar sampai statusnya &ldquo;running&rdquo;
             </p>
           </div>
@@ -115,7 +126,7 @@ export default function ClipperSetupMacPage() {
               href="https://www.docker.com/products/docker-desktop/"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-dark group text-sm"
+              className={`${BTN_INK} group text-sm`}
             >
               Download Docker Desktop
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -131,43 +142,43 @@ export default function ClipperSetupMacPage() {
       duration: "± 5 menit",
       body: (
         <>
-          <p className="text-[#3D4F60] text-[0.975rem] leading-[1.7]">
+          <p className="text-[#5F5F5C] text-[0.975rem] leading-[1.7]">
             Download paket Clipper, extract ZIP-nya, buka foldernya. File yang kamu jalankan adalah{" "}
-            <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">install.command</code>.
+            <code className={INLINE_CODE}>install.command</code>.
           </p>
           <NoteCallout variant="calm" icon={CircleHelp}>
-            File <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">install.bat</code>{" "}
+            File <code className={INLINE_CODE}>install.bat</code>{" "}
             itu buat Windows — abaikan.
           </NoteCallout>
           <div className="flex flex-col gap-[0.55rem]">
-            <p className="block text-[0.95rem] text-[#3D4F60] leading-[1.55]">
-              <span className="float-left mt-[0.1rem] mr-[0.6rem] h-[22px] w-[22px] rounded-full bg-[#06243B]/8 text-[#06243B] text-[0.7rem] font-extrabold grid place-items-center">
+            <p className="block text-[0.95rem] text-[#5F5F5C] leading-[1.55]">
+              <span className="float-left mt-[0.1rem] mr-[0.6rem] h-[22px] w-[22px] rounded-full bg-[#F7C526] text-[#191919] text-[0.7rem] font-bold grid place-items-center">
                 1
               </span>
               Klik kanan{" "}
-              <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">install.command</code> ›
-              pilih <b className="text-[#06243B]">Open</b> (bukan dobel-klik biasa)
+              <code className={INLINE_CODE}>install.command</code> ›
+              pilih <b className="text-[#191919]">Open</b> (bukan dobel-klik biasa)
             </p>
-            <p className="block text-[0.95rem] text-[#3D4F60] leading-[1.55]">
-              <span className="float-left mt-[0.1rem] mr-[0.6rem] h-[22px] w-[22px] rounded-full bg-[#06243B]/8 text-[#06243B] text-[0.7rem] font-extrabold grid place-items-center">
+            <p className="block text-[0.95rem] text-[#5F5F5C] leading-[1.55]">
+              <span className="float-left mt-[0.1rem] mr-[0.6rem] h-[22px] w-[22px] rounded-full bg-[#F7C526] text-[#191919] text-[0.7rem] font-bold grid place-items-center">
                 2
               </span>
-              macOS nampilin peringatan — klik <b className="text-[#06243B]">Open</b> lagi di dialog konfirmasinya
+              macOS nampilin peringatan — klik <b className="text-[#191919]">Open</b> lagi di dialog konfirmasinya
             </p>
           </div>
-          <p className="text-[#3D4F60] text-[0.975rem] leading-[1.7]">
+          <p className="text-[#5F5F5C] text-[0.975rem] leading-[1.7]">
             Ini normal buat aplikasi yang di-download:{" "}
-            <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">install.command</code>{" "}
+            <code className={INLINE_CODE}>install.command</code>{" "}
             belum dinotarisasi ke Apple, jadi Gatekeeper blokir di percobaan pertama. Bukan virus — ini script
             lokal kamu sendiri.
           </p>
           <div className="flex flex-wrap items-center gap-3 pt-1">
-            <a href={DOWNLOAD_URL} className="btn btn-primary group" download>
+            <a href={DOWNLOAD_URL} className={`${BTN_YELLOW} group`} download>
               Download clipper.zip
               <Download className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </a>
-            <span className="text-sm text-[#3D4F60]">
-              Butuh <b className="text-[#06243B]">license key</b> dari email pembelian kamu.
+            <span className="text-sm text-[#5F5F5C]">
+              Butuh <b className="text-[#191919]">license key</b> dari email pembelian kamu.
             </span>
           </div>
         </>
@@ -180,7 +191,7 @@ export default function ClipperSetupMacPage() {
       duration: "± 20 menit, mostly nunggu",
       body: (
         <>
-          <p className="text-[#3D4F60] text-[0.975rem] leading-[1.7]">
+          <p className="text-[#5F5F5C] text-[0.975rem] leading-[1.7]">
             Setelah lolos dialog Gatekeeper di Langkah 2. Ini yang bakal kamu lihat, berurutan:
           </p>
           <MiniSteps
@@ -191,7 +202,7 @@ export default function ClipperSetupMacPage() {
                 title: "Menit 1-20: layar diam",
                 text: (
                   <>
-                    Ini lagi mengunduh aplikasinya, ±2 GB, <b className="text-[#06243B]">sekali seumur hidup</b>.
+                    Ini lagi mengunduh aplikasinya, ±2 GB, <b className="text-[#191919]">sekali seumur hidup</b>.
                     Alasannya: worker Clipper bawa model AI transkripsi &amp; deteksi wajah sendiri, biar semuanya
                     jalan 100% lokal tanpa API berbayar. Angka nyata: worker 3,8 GB + web 619 MB di disk, sekitar
                     1,5-2 GB terkompresi lewat jaringan. Di Apple Silicon, tahap ini terasa sedikit lebih lama
@@ -204,7 +215,7 @@ export default function ClipperSetupMacPage() {
                 title: "Lalu browser terbuka sendiri",
                 text: (
                   <>
-                    Ke <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">localhost:3060</code>,
+                    Ke <code className={INLINE_CODE}>localhost:3060</code>,
                     langsung masuk wizard aktivasi.
                   </>
                 ),
@@ -212,9 +223,9 @@ export default function ClipperSetupMacPage() {
             ]}
           />
           <NoteCallout variant="calm" icon={Terminal}>
-            Jendela Terminal <b className="text-[#06243B]">menutup sendiri</b> setelah kamu buka install.command —
+            Jendela Terminal <b className="text-[#191919]">menutup sendiri</b> setelah kamu buka install.command —
             itu normal, terjadi baik pas berhasil maupun gagal. Cara mastiin lolos: cek apakah file{" "}
-            <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">.env</code> muncul di
+            <code className={INLINE_CODE}>.env</code> muncul di
             folder yang sama. Kalau ada, berarti sudah lolos cek Docker.
           </NoteCallout>
         </>
@@ -227,17 +238,17 @@ export default function ClipperSetupMacPage() {
       duration: "± 2 menit",
       body: (
         <>
-          <p className="text-[#3D4F60] text-[0.975rem] leading-[1.7]">
+          <p className="text-[#5F5F5C] text-[0.975rem] leading-[1.7]">
             Begitu browser kebuka, wizard nuntun kamu. Gak ada bikin akun atau password.
           </p>
           <ol className="flex flex-col gap-3">
             {WIZARD_STEPS.map((s) => (
               <li key={s.t} className="flex gap-3">
-                <span className="shrink-0 mt-0.5 grid place-items-center h-7 w-7 rounded-lg bg-[#BDF24A]">
-                  <s.icon className="h-4 w-4 text-[#06243B]" />
+                <span className="shrink-0 mt-0.5 grid place-items-center h-7 w-7 rounded-full bg-[#F7C526]">
+                  <s.icon className="h-4 w-4 text-[#191919]" />
                 </span>
-                <span className="text-[15px] text-[#3D4F60]">
-                  <b className="text-[#06243B]">{s.t}</b> — {s.d}
+                <span className="text-[15px] text-[#5F5F5C]">
+                  <b className="text-[#191919]">{s.t}</b> — {s.d}
                 </span>
               </li>
             ))}
@@ -248,131 +259,137 @@ export default function ClipperSetupMacPage() {
   ];
 
   return (
-    <>
-      <PageHero
-        eyebrow="Clipper · Setup Mac"
-        title="Pasang Clipper di Mac."
-        description="Total waktu jujur: 30-60 menit di percobaan pertama, dan hampir semuanya cuma nunggu unduhan ±2 GB. Buka lagi berikutnya tinggal hitungan detik."
-        actions={
-          <div className="flex flex-col gap-3 w-full">
-            <div className="flex flex-wrap gap-2">
-              <DurationPill>Pertama kali: 30-60 menit</DurationPill>
-              <DurationPill>Buka lagi: hitungan detik</DurationPill>
+    <div data-skin="clipper" className="bg-[#EFEFEC] text-[#191919]">
+      <div className="mx-auto max-w-[1400px] px-3 sm:px-5 py-3 sm:py-5 space-y-3 sm:space-y-5">
+        <SetupHero
+          eyebrow="Clipper · Setup Mac"
+          title={
+            <>
+              Pasang Clipper <HeroMark>di Mac.</HeroMark>
+            </>
+          }
+          description="Total waktu jujur: 30-60 menit di percobaan pertama, dan hampir semuanya cuma nunggu unduhan ±2 GB. Buka lagi berikutnya tinggal hitungan detik."
+          actions={
+            <div className="flex flex-col gap-3 w-full">
+              <div className="flex flex-wrap gap-2">
+                <DurationPill tone="dark">Pertama kali: 30-60 menit</DurationPill>
+                <DurationPill tone="dark">Buka lagi: hitungan detik</DurationPill>
+              </div>
+              <div className="flex flex-wrap gap-3 pt-1">
+                <a href="#preflight" className={`${BTN_YELLOW} group`}>
+                  Cek kesiapan dulu
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+                <Link href="/products/clipper/setup" className={BTN_OUTLINE_ON_DARK}>
+                  Kembali pilih OS
+                </Link>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <a href="#preflight" className="btn btn-dark group">
-                Cek kesiapan dulu
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <Link href="/products/clipper/setup" className="btn btn-ghost">
-                Kembali pilih OS
-              </Link>
-            </div>
+          }
+        />
+
+        {/* Preflight */}
+        <section id="preflight" className={`${BLOCK} bg-white px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24`}>
+          <div className="mx-auto max-w-3xl flex flex-col gap-10">
+            <AnimatedSection className="flex flex-col gap-3">
+              <h2 className={H2_CLASS}>Cek dulu 3 hal.</h2>
+              <p className={BODY_CLASS}>
+                Gak ada yang bakal blokir instalasi kamu — ini cuma biar kamu tau apa yang bakal kamu lihat.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection>
+              <Checklist items={CHECKLIST} />
+            </AnimatedSection>
+
+            <AnimatedSection>
+              <NoteCallout variant="calm" icon={CircleHelp}>
+                <b className="text-[#191919]">Catatan jujur buat Apple Silicon (M1-M4):</b> image Clipper kami
+                dibangun buat amd64 (Intel), jadi di Mac M-series dia jalan lewat emulasi dan sedikit lebih lambat —
+                itu bukan produk rusak. Di Windows / Mac Intel, image ini jalan native, penuh performa.
+              </NoteCallout>
+            </AnimatedSection>
           </div>
-        }
-      />
+        </section>
 
-      {/* Preflight */}
-      <section id="preflight" className="bg-white py-16 sm:py-24 scroll-mt-24">
-        <div className="container-mote max-w-3xl mx-auto flex flex-col gap-10">
-          <AnimatedSection className="flex flex-col gap-3">
-            <h2 className="text-[#06243B]">Cek dulu 3 hal.</h2>
-            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
-              Gak ada yang bakal blokir instalasi kamu — ini cuma biar kamu tau apa yang bakal kamu lihat.
-            </p>
-          </AnimatedSection>
+        {/* Langkah demi langkah */}
+        <section className={`${BLOCK} bg-[#F1F1EE] px-4 py-14 sm:px-10 sm:py-20`}>
+          <div className="mx-auto max-w-3xl flex flex-col gap-10">
+            <AnimatedSection className="flex flex-col gap-3">
+              <h2 className={H2_CLASS}>Dari download sampai klip pertama.</h2>
+              <p className={BODY_CLASS}>
+                Empat langkah. Kebanyakan kamu cuma nunggu — jendelanya jangan ditutup.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection>
+              <StepRail steps={steps} />
+            </AnimatedSection>
+          </div>
+        </section>
 
-          <AnimatedSection>
-            <Checklist items={CHECKLIST} />
-          </AnimatedSection>
+        <FreeTierLimitsSection />
 
-          <AnimatedSection>
-            <NoteCallout variant="calm" icon={CircleHelp}>
-              <b className="text-[#06243B]">Catatan jujur buat Apple Silicon (M1-M4):</b> image Clipper kami
-              dibangun buat amd64 (Intel), jadi di Mac M-series dia jalan lewat emulasi dan sedikit lebih lambat —
-              itu bukan produk rusak. Di Windows / Mac Intel, image ini jalan native, penuh performa.
-            </NoteCallout>
-          </AnimatedSection>
-        </div>
-      </section>
+        {/* Buka lagi */}
+        <section id="buka-lagi" className={`${BLOCK} bg-[#F1F1EE] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24`}>
+          <div className="mx-auto max-w-3xl flex flex-col gap-7">
+            <AnimatedSection className="flex flex-col gap-3">
+              <h2 className={H2_CLASS}>Habis matiin laptop? Buka lagi gampang.</h2>
+              <p className={BODY_CLASS}>
+                Kamu <b className="text-[#191919]">gak perlu install ulang</b>. Cukup tiga langkah ini.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection className={`rounded-[24px] ${CARD_BORDER} bg-white p-[1.65rem]`}>
+              <MiniSteps
+                items={[
+                  {
+                    num: "1",
+                    title: "Nyalain Docker Desktop",
+                    text: `Buka dari Applications, tunggu sampai ikon paus di menu bar statusnya "running".`,
+                  },
+                  { num: "2", title: "Buka start.command", text: "Atau buka install.command lagi — aman, gak ngulang download." },
+                  {
+                    num: "3",
+                    title: "Buka localhost:3060",
+                    text: "Aplikasi kebuka lagi persis seperti terakhir kali — lisensi & pengaturan tetap tersimpan.",
+                  },
+                ]}
+              />
+            </AnimatedSection>
+            <AnimatedSection>
+              <NoteCallout variant="calm" icon={Square} className="bg-white">
+                <b className="text-[#191919]">Mau berhenti sementara?</b> Buka{" "}
+                <code className={INLINE_CODE}>stop.command</code>.
+                Klip yang sudah jadi tetap ada di folder &ldquo;clips&rdquo;.
+              </NoteCallout>
+            </AnimatedSection>
+          </div>
+        </section>
 
-      {/* Langkah demi langkah */}
-      <section className="bg-[#F7F8FA] py-16 sm:py-24 border-y border-black/5">
-        <div className="container-mote max-w-3xl mx-auto flex flex-col gap-10">
-          <AnimatedSection className="flex flex-col gap-3">
-            <h2 className="text-[#06243B]">Dari download sampai klip pertama.</h2>
-            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
-              Empat langkah. Kebanyakan kamu cuma nunggu — jendelanya jangan ditutup.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection>
-            <StepRail steps={steps} />
-          </AnimatedSection>
-        </div>
-      </section>
+        <UpdateSection
+          terminalInstruction={
+            <>
+              Nyalain Docker Desktop dulu (tunggu &ldquo;running&rdquo;, pastikan disk kosong minimal 10 GB). Buka
+              Terminal, ketik <code className={INLINE_CODE}>cd </code>,
+              seret folder Clipper kamu ke jendela Terminal, Enter. Lalu jalankan:
+            </>
+          }
+        />
 
-      <FreeTierLimitsSection />
+        {/* Troubleshooting */}
+        <section id="troubleshooting" className={`${BLOCK} bg-[#E7E7E3] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24`}>
+          <div className="mx-auto max-w-3xl flex flex-col gap-8">
+            <AnimatedSection className="flex flex-col gap-3">
+              <span className={`${CHIP_LIGHT} self-start`}>Kalau nyangkut</span>
+              <h2 className={H2_CLASS}>Yang paling sering ditanyain.</h2>
+            </AnimatedSection>
+            <AnimatedSection>
+              <FaqAccordion items={TROUBLESHOOTING} />
+            </AnimatedSection>
+          </div>
+        </section>
 
-      {/* Buka lagi */}
-      <section id="buka-lagi" className="bg-white py-16 sm:py-24 scroll-mt-24">
-        <div className="container-mote max-w-3xl mx-auto flex flex-col gap-7">
-          <AnimatedSection className="flex flex-col gap-3">
-            <h2 className="text-[#06243B]">Habis matiin laptop? Buka lagi gampang.</h2>
-            <p className="text-[15px] text-[#3D4F60] leading-relaxed">
-              Kamu <b className="text-[#06243B]">gak perlu install ulang</b>. Cukup tiga langkah ini.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection className="rounded-[20px] border border-black/8 bg-[#F7F8FA] p-[1.65rem]">
-            <MiniSteps
-              items={[
-                {
-                  num: "1",
-                  title: "Nyalain Docker Desktop",
-                  text: `Buka dari Applications, tunggu sampai ikon paus di menu bar statusnya "running".`,
-                },
-                { num: "2", title: "Buka start.command", text: "Atau buka install.command lagi — aman, gak ngulang download." },
-                {
-                  num: "3",
-                  title: "Buka localhost:3060",
-                  text: "Aplikasi kebuka lagi persis seperti terakhir kali — lisensi & pengaturan tetap tersimpan.",
-                },
-              ]}
-            />
-          </AnimatedSection>
-          <AnimatedSection>
-            <NoteCallout variant="calm" icon={Square}>
-              <b className="text-[#06243B]">Mau berhenti sementara?</b> Buka{" "}
-              <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">stop.command</code>.
-              Klip yang sudah jadi tetap ada di folder &ldquo;clips&rdquo;.
-            </NoteCallout>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      <UpdateSection
-        terminalInstruction={
-          <>
-            Nyalain Docker Desktop dulu (tunggu &ldquo;running&rdquo;, pastikan disk kosong minimal 10 GB). Buka
-            Terminal, ketik <code className="px-1.5 py-0.5 rounded bg-[#06243B]/6 font-mono text-[13px]">cd </code>,
-            seret folder Clipper kamu ke jendela Terminal, Enter. Lalu jalankan:
-          </>
-        }
-      />
-
-      {/* Troubleshooting */}
-      <section id="troubleshooting" className="bg-[#F7F8FA] py-16 sm:py-24 border-y border-black/5 scroll-mt-24">
-        <div className="container-mote max-w-3xl mx-auto flex flex-col gap-8">
-          <AnimatedSection className="flex flex-col gap-3">
-            <span className="eyebrow">Kalau nyangkut</span>
-            <h2 className="text-[#06243B]">Yang paling sering ditanyain.</h2>
-          </AnimatedSection>
-          <AnimatedSection>
-            <FaqAccordion items={TROUBLESHOOTING} />
-          </AnimatedSection>
-        </div>
-      </section>
-
-      <HelpFooter />
-    </>
+        <HelpFooter />
+      </div>
+    </div>
   );
 }

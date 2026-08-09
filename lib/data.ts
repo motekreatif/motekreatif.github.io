@@ -170,7 +170,7 @@ export const PRODUCTS: Product[] = [
     price: "Rp 99k/bulan",
   },
   {
-    name: "Clipper",
+    name: "Clipper Rumahan",
     tagline: "Bikin klip pendek dari video YouTube, jalan di komputer sendiri.",
     description:
       "Paste link YouTube, AI pilih momen terbaik, jadi klip vertikal ber-caption. 100% lokal & privat, render tanpa batas, bayar sekali punya selamanya.",
