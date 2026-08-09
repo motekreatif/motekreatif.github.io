@@ -1,3 +1,4 @@
+import type { ComponentType } from "react";
 import {
   Megaphone,
   Share2,
@@ -11,9 +12,9 @@ import {
   Wallet,
   Calculator,
   Camera,
-  Scissors,
   type LucideIcon,
 } from "lucide-react";
+import { LogoCR } from "@/app/products/clipper/LogoCR";
 
 export type Objective = {
   icon: LucideIcon;
@@ -148,7 +149,10 @@ export type Product = {
   features: string[];
   status: "Live" | "Coming Soon";
   url?: string;
-  icon: LucideIcon;
+  // LucideIcon di sini, atau komponen logo produk sendiri (mis. LogoCR).
+  // strokeWidth opsional karena beberapa pemanggil ngirim itu ke LucideIcon;
+  // LogoCR mengabaikannya begitu saja.
+  icon: ComponentType<{ className?: string; strokeWidth?: number }>;
   price?: string;
 };
 
@@ -182,7 +186,7 @@ export const PRODUCTS: Product[] = [
     ],
     status: "Live",
     url: "/products/clipper",
-    icon: Scissors,
+    icon: LogoCR,
     price: "Rp 90.467 sekali",
   },
   {

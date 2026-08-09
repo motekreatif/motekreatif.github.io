@@ -23,7 +23,6 @@ import { CONTACT } from "@/lib/constants";
 import { CheckoutForm } from "./CheckoutForm";
 import { Stepper } from "./Stepper";
 import { LogoCR } from "./LogoCR";
-import { LogoWatermark } from "./LogoWatermark";
 
 const PRICE = "Rp 90.467";
 
@@ -300,10 +299,9 @@ export default function ClipperPage() {
         {/* How it works — interactive stepper */}
         <section
           id="cara-kerja"
-          className="relative overflow-hidden rounded-[28px] sm:rounded-[40px] bg-[#F1F1EE] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24"
+          className="rounded-[28px] sm:rounded-[40px] bg-[#F1F1EE] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24"
         >
-          <LogoWatermark className="-left-16 -bottom-20 w-[220px] text-[#191919]/[0.045] sm:-left-20 sm:w-[320px]" />
-          <div className="relative mx-auto max-w-5xl flex flex-col gap-12">
+          <div className="mx-auto max-w-5xl flex flex-col gap-12">
             <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
               <span className={CHIP_LIGHT}>Cara kerja</span>
               <h2 className={H2_CLASS}>Dari link jadi klip siap posting.</h2>
@@ -318,9 +316,8 @@ export default function ClipperPage() {
         </section>
 
         {/* Sample output — real clip */}
-        <section className="relative overflow-hidden rounded-[28px] sm:rounded-[40px] bg-[#191919] px-4 py-14 sm:px-10 sm:py-20">
-          <LogoWatermark className="-right-14 -top-16 w-[200px] text-white/[0.05] sm:-right-16 sm:w-[300px]" />
-          <div className="relative mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+        <section className="rounded-[28px] sm:rounded-[40px] bg-[#191919] px-4 py-14 sm:px-10 sm:py-20">
+          <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <AnimatedSection className="order-1 lg:order-1 flex justify-center">
               <div className="w-[240px] sm:w-[280px] shrink-0 overflow-hidden rounded-[28px] border border-white/15 bg-[#242424]">
                 <video
@@ -437,9 +434,8 @@ export default function ClipperPage() {
         </section>
 
         {/* Comparison */}
-        <section className="relative overflow-hidden rounded-[28px] sm:rounded-[40px] bg-[#191919] px-4 py-14 sm:px-10 sm:py-20">
-          <LogoWatermark className="-left-20 -bottom-24 w-[240px] text-white/[0.045] sm:-left-24 sm:w-[360px]" />
-          <div className="relative mx-auto max-w-5xl flex flex-col gap-12">
+        <section className="rounded-[28px] sm:rounded-[40px] bg-[#191919] px-4 py-14 sm:px-10 sm:py-20">
+          <div className="mx-auto max-w-5xl flex flex-col gap-12">
             <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-3">
               <span className={CHIP_DARK}>Sekali bayar vs langganan</span>
               <h2 className={H2_DARK}>Kenapa punya sendiri lebih menang.</h2>
@@ -501,15 +497,10 @@ export default function ClipperPage() {
                 return (
                   <AnimatedSection
                     key={f.title}
-                    className={`relative overflow-hidden rounded-[24px] p-7 flex flex-col gap-3 h-full ${
+                    className={`rounded-[24px] p-7 flex flex-col gap-3 h-full ${
                       hl ? "bg-[#F7C526] border border-transparent" : `bg-white ${CARD_BORDER}`
                     }`}
                   >
-                    {/* Cuma kartu aksen yang dapat monogram — kalau semua kartu
-                        dapat, logonya berubah jadi tekstur, bukan tanda. */}
-                    {hl && (
-                      <LogoWatermark className="-right-6 -top-8 w-[120px] text-[#191919]/[0.10]" />
-                    )}
                     <div
                       className={`h-11 w-11 rounded-full grid place-items-center ${
                         hl ? "bg-[#191919] text-[#F7C526]" : "bg-[#F7C526] text-[#191919]"
@@ -531,10 +522,9 @@ export default function ClipperPage() {
         {/* Buy */}
         <section
           id="beli"
-          className="relative overflow-hidden rounded-[28px] sm:rounded-[40px] bg-[#F7C526] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24"
+          className="rounded-[28px] sm:rounded-[40px] bg-[#F7C526] px-4 py-14 sm:px-10 sm:py-20 scroll-mt-24"
         >
-          <LogoWatermark className="-right-16 -bottom-24 w-[230px] text-[#191919]/[0.07] sm:-right-20 sm:w-[340px]" />
-          <div className="relative mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="mx-auto max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <AnimatedSection className="flex flex-col gap-5">
               <span className={`${CHIP_LIGHT} self-start`}>Beli sekali, punya selamanya</span>
               <h2 className={H2_CLASS}>
@@ -618,9 +608,8 @@ export default function ClipperPage() {
                 </AnimatedSection>
               ))}
             </div>
-            <AnimatedSection className="relative overflow-hidden flex flex-col sm:flex-row items-start sm:items-center gap-5 justify-between rounded-[24px] bg-[#191919] p-7 sm:p-8">
-              <LogoWatermark className="-right-8 -bottom-12 w-[150px] text-white/[0.06]" />
-              <div className="relative">
+            <AnimatedSection className="flex flex-col sm:flex-row items-start sm:items-center gap-5 justify-between rounded-[24px] bg-[#191919] p-7 sm:p-8">
+              <div>
                 <p className="text-white font-semibold text-lg">Masih ragu cocok atau tidak?</p>
                 <p className="text-white/70">Chat dulu — kami jujur bilang cocok atau tidak buat kamu.</p>
               </div>

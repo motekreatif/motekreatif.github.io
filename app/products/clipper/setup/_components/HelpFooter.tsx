@@ -1,15 +1,13 @@
 import { ArrowUpRight, FolderOpen } from "lucide-react";
 import { AnimatedSection } from "@/components/shared/AnimatedSection";
 import { CONTACT } from "@/lib/constants";
-import { LogoWatermark } from "../../LogoWatermark";
 import { BLOCK } from "./skin";
 
 /** Closing "still stuck?" CTA — blok ink dengan tombol pill kuning + lingkaran panah. Reused on chooser/windows/mac. */
 export function HelpFooter({ heading = "Masih bingung?" }: { heading?: string }) {
   return (
-    <section className={`${BLOCK} relative overflow-hidden bg-[#191919] px-4 py-14 sm:px-10 sm:py-16`}>
-      <LogoWatermark className="-left-16 -top-20 w-[200px] text-white/[0.05] sm:-left-20 sm:w-[300px]" />
-      <AnimatedSection className="relative mx-auto max-w-2xl text-center flex flex-col items-center gap-4">
+    <section className={`${BLOCK} bg-[#191919] px-4 py-14 sm:px-10 sm:py-16`}>
+      <AnimatedSection className="mx-auto max-w-2xl text-center flex flex-col items-center gap-4">
         <span className="grid place-items-center h-14 w-14 rounded-full bg-[#F7C526]">
           <FolderOpen className="h-7 w-7 text-[#191919]" />
         </span>
