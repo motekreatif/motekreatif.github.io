@@ -28,6 +28,10 @@ export const SAME_AS = [
 
 export const CONTACT = {
   email: "motekreatif@gmail.com",
+  // Nomor telepon terdaftar PT Masyarakat Modal Tekun (sesuai NIB 2805250096029).
+  // Dipakai untuk verifikasi bisnis Meta — harus sama persis dengan dokumen legal.
+  phone: "+62 896 6215 8784",
+  phoneLink: "tel:+6289662158784",
   whatsapp: "+62 851-9655-8646",
   whatsappLink: "https://wa.me/6285196558646",
   instagram: "@motekreatif",

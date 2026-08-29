@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Mail, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
+import { Instagram, Mail, MapPin, MessageCircle, Phone, ShieldCheck } from "lucide-react";
 import { CONTACT, NAV_LINKS, SITE } from "@/lib/constants";
 import { PRODUCTS } from "@/lib/data";
 import { RibbonDecoration } from "@/components/shared/RibbonDecoration";
@@ -141,6 +141,14 @@ export function Footer() {
             </li>
             <li>
               <a
+                href={CONTACT.phoneLink}
+                className="text-white/80 hover:text-[#BDF24A] inline-flex items-center gap-2"
+              >
+                <Phone className="h-4 w-4" /> {CONTACT.phone}
+              </a>
+            </li>
+            <li>
+              <a
                 href={`mailto:${CONTACT.email}`}
                 className="text-white/80 hover:text-chrome-accent inline-flex items-center gap-2"
               >
@@ -182,6 +190,10 @@ export function Footer() {
             <span className="hidden sm:inline"> · Made with ketekunan.</span>
           </p>
           <div className="flex items-center gap-3">
+            <Link href="/privacy-policy" className="hover:text-white/90 hover:underline transition-colors">
+              Kebijakan Privasi
+            </Link>
+            <span className="text-white/25">·</span>
             <Link href="/terms" className="hover:text-white/90 hover:underline transition-colors">
               Syarat &amp; Ketentuan
             </Link>

@@ -58,11 +58,6 @@ export const metadata: Metadata = {
     icon: "/img/logogramsquare.webp",
     apple: "/img/logogramsquare.webp",
   },
-  verification: {
-    other: {
-      "facebook-domain-verification": "kk3yhk4p9djkosft73uongckwzl2es",
-    },
-  },
 };
 
 export const viewport: Viewport = {
