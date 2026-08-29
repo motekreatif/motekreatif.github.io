@@ -9,7 +9,7 @@ export const SITE = {
     "Mote Kreatif adalah digital marketing agency dan consultant berbasis di Garut, Jawa Barat, Indonesia, yang membantu brand lokal scale penjualan lewat Meta Ads, CPAS Shopee, TikTok Shop Ads, marketplace optimization, dan pengembangan tim marketing internal (TDMO).",
   foundingDate: "2024",
   slogan: "Push boundaries · Agile · Humanistic · Playful",
-  metaPixelId: "742593718541945",
+  metaPixelId: "2266345227485158",
   // GA4 Measurement ID — stream "Mote Kreatif" (https://motekreatif.com)
   ga4Id: "G-1S8P6GKH3Z",
 };
