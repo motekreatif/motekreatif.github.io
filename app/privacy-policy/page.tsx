@@ -17,10 +17,10 @@ const sections: LegalSection[] = [
     title: "Pengendali Data",
     body: (
       <>
-        {SITE.url} dioperasikan {SITE.legalName} (PT Masyarakat Modal Tekun),
-        berkedudukan di Jl. Ahmad Yani Timur No.74, Lebakjaya, Karangpawitan,
-        Kabupaten Garut, Jawa Barat 44182. Kontak: email {CONTACT.email},
-        telepon {CONTACT.phone}. Kebijakan ini tunduk pada UU No. 27 Tahun 2022
+        {SITE.url} adalah situs resmi Mote Kreatif, dioperasikan oleh{" "}
+        {SITE.legalName}, badan hukum yang berkedudukan di Jl. Ahmad Yani Timur
+        No.74, Lebakjaya, Karangpawitan, Kabupaten Garut, Jawa Barat 44182.
+        Kontak: email {CONTACT.email}, telepon {CONTACT.phone}. Kebijakan ini tunduk pada UU No. 27 Tahun 2022
         tentang Pelindungan Data Pribadi.
       </>
     ),
