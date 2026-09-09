@@ -34,7 +34,7 @@ export const SERVICES_FAQ: FAQItem[] = [
   {
     question: "Apa bedanya Mote Kreatif dengan agency digital marketing lain?",
     answer:
-      "Tiga hal: (1) hasil terukur yang diverifikasi angka — ROAS 20.8x, omset +77%, leads +300% di case studies kami; (2) TDMO — kami satu-satunya yang menawarkan program membangun tim marketing internal kamu sampai mandiri, bukan bikin kamu tergantung agency; (3) berbasis Garut dengan standar kerja Jakarta — biaya lebih rasional tanpa kompromi kualitas.",
+      "Tiga hal: (1) hasil terukur yang diverifikasi angka — ROAS iklan 12,7x di Hanoon dan occupancy hotel 32,6% ke 50,2% di Rancabango, keduanya periode April–Juni 2026; (2) TDMO — kami satu-satunya yang menawarkan program membangun tim marketing internal kamu sampai mandiri, bukan bikin kamu tergantung agency; (3) berbasis Garut dengan standar kerja Jakarta — biaya lebih rasional tanpa kompromi kualitas.",
   },
 ];
 

@@ -242,6 +242,8 @@ export type CaseStudy = {
   type: string;
   services: string[];
   result: string;
+  /** Rentang waktu angka di `result`. Angka tanpa periode tidak boleh terbit. */
+  period?: string;
   resultDetails?: string[];
   logo?: string;
   featured?: boolean;
@@ -257,16 +259,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "Rancabango Hotel & Resort",
     type: "Hotel & Resort · Garut",
     services: ["Social Media", "Meta Ads", "Google Ads", "KOL", "Campaign"],
-    result: "Omset Increase (+77%)",
+    result: "Occupancy 32,6% → 50,2%",
+    period: "April–Juni 2026",
     resultDetails: [
-      "Omset Increase (+77%)",
-      "Marketing cost ratio 0,44% (-86%)",
-      "Occupancy rate 61% di periode low season",
+      "Occupancy naik 17,6 poin dalam tiga bulan",
+      "695 percakapan WhatsApp dari iklan",
+      "Biaya marketing 2,0–2,7% dari omzet",
     ],
     logo: "/img/partner/rancabangohotel.webp",
     featured: true,
     summary:
-      "Strategi campaign \"A Place To Be Present\" membawa Rancabango Hotel & Resort menang di low season: omset naik 77% dengan marketing cost ratio hanya 0,44%.",
+      "Campaign \"A Place To Be Present\" menaikkan occupancy Rancabango dari 32,6% di April 2026 menjadi 50,2% di Juni 2026, dengan biaya marketing yang bertahan di kisaran 2% dari omzet.",
     challenge:
       "Occupancy baseline 2024 hanya di kisaran 43%, dengan 64% pendapatan bergantung pada list account korporat yang rentan kebijakan efisiensi. Positioning \"Balinese concept in Garut\" berisiko terasa kosmetik, visibilitas Google kalah dari kompetitor yang agresif beriklan, dan CTR TikTok hanya 0,03%.",
     approach: [
@@ -282,15 +285,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "Hanoon Industries",
     type: "Fashion / Apparel Workwear",
     services: ["CPAS Shopee", "Meta Ads"],
-    result: "ROAS 20,8x (+116,89%)",
+    result: "ROAS 12,7x",
+    period: "Rata-rata April–Juni 2026",
     resultDetails: [
-      "ROAS 20,8x (+116,89%)",
-      "Purchase value Increase (+157%)",
+      "ROAS 12,7x dari belanja iklan Rp25,4 juta",
+      "Penjualan dari iklan Rp322,9 juta",
+      "980 transaksi lewat CPAS Shopee",
     ],
     logo: "/img/partner/hanoon.webp",
     featured: true,
     summary:
-      "Kombinasi CPAS Shopee dan Meta Ads membawa brand apparel workwear ini mencapai ROAS 20,8x — naik 116,89% — dengan purchase value tumbuh 157%.",
+      "Sepanjang April sampai Juni 2026, belanja iklan Rp25,4 juta lewat CPAS Shopee dan Meta Ads menghasilkan penjualan Rp322,9 juta dari 980 transaksi — ROAS 12,7x.",
     challenge:
       "Iklan yang berjalan belum terhubung langsung ke katalog marketplace, sehingga budget terbuang di traffic yang tidak terlacak konversinya. Brand butuh sistem iklan yang setiap rupiahnya bisa diukur sampai ke transaksi Shopee.",
     approach: [
@@ -311,7 +316,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Engagement Growth (+100%)",
     ],
     logo: "/img/partner/restorasa.svg",
-    featured: true,
+    featured: false,
     summary:
       "Photography storytelling mengubah konten Restorasa dari sekadar foto menu menjadi pengalaman yang \"punya nyawa\" — awareness dan engagement tumbuh 100%.",
     challenge:
@@ -335,7 +340,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Engagement Growth (+100%)",
     ],
     logo: "/img/partner/popondok.svg",
-    featured: true,
+    featured: false,
     summary:
       "Integrasi Meta Ads dengan CRM management membawa glamping camp ini tumbuh 300% di leads — dengan cost per lead turun Rp10.000.",
     challenge:
@@ -358,7 +363,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Tim marketing internal 100% mandiri",
     ],
     logo: "/img/partner/ben.svg",
-    featured: true,
+    featured: false,
     summary:
       "Bukan cuma awareness yang tumbuh 100% — setelah program selesai, seluruh konten dan aktivasi marketing Home of BEN dihandle tim internal tanpa MOTE.",
     challenge:
@@ -381,7 +386,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Engagement Growth (+100%)",
     ],
     logo: "/img/partner/kkk.webp",
-    featured: true,
+    featured: false,
     summary:
       "Strategi brand growth berbasis komunitas membawa Karya Kultur Kreatif tumbuh 90% sebagai community-driven brand dengan engagement naik 100%.",
     challenge:

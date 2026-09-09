@@ -7,22 +7,22 @@ import { HeroMedia } from "@/components/shared/HeroMedia";
 
 const HERO_PROOF = [
   {
-    value: "20,8x",
-    label: "ROAS Ads CPAS",
+    value: "12,7x",
+    label: "ROAS iklan Hanoon",
     href: "/case-studies/hanoon-industries",
     ariaLabel: "Lihat studi kasus Hanoon Industries",
   },
   {
-    value: "+77%",
-    label: "Revenue dari Digital Aktivasi",
+    value: "50,2%",
+    label: "Occupancy Rancabango, dari 32,6%",
     href: "/case-studies/rancabango-hotel",
     ariaLabel: "Lihat studi kasus Rancabango Hotel & Resort",
   },
   {
-    value: "+300%",
-    label: "leads WhatsApp",
-    href: "/case-studies/popondok",
-    ariaLabel: "Lihat studi kasus Popondok",
+    value: "695",
+    label: "Percakapan WhatsApp dari iklan",
+    href: "/case-studies/rancabango-hotel",
+    ariaLabel: "Lihat studi kasus Rancabango Hotel & Resort",
   },
 ];
 
@@ -63,7 +63,7 @@ export function HeroSection() {
                   href="#case-studies"
                   className="inline-flex items-center gap-2 min-h-[44px] font-semibold text-[#06243B] hover:text-[#FF7E00] transition-colors duration-150"
                 >
-                  Lihat Bukti: ROAS 20,8x &amp; +77% Omset
+                  Lihat Bukti: ROAS 12,7x &amp; Occupancy 50,2%
                   <ArrowDown className="h-4 w-4" />
                 </Link>
               </div>
@@ -86,6 +86,11 @@ export function HeroSection() {
       <div className="bg-[#F7DF75] border-t border-[var(--line-on-yellow)]">
         <div className="container-mote band-padding">
           <ProofRow items={HERO_PROOF} tone="yellow" mobileLayout="stack" />
+          {/* Periode ditulis sekali di bawah baris, bukan diulang di tiap label:
+              tiga label yang membawa tanggalnya sendiri jadi dua baris semua. */}
+          <p className="mt-4 text-sm text-[#06243B]/70">
+            Rata-rata April–Juni 2026, dari akun iklan dan laporan bulanan klien.
+          </p>
         </div>
       </div>
     </section>

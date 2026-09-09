@@ -17,18 +17,21 @@ function serviceBadgeClass(service: string): string {
 }
 
 export function CaseStudiesFeatured() {
-  const featured = CASE_STUDIES.filter((c) => c.featured).slice(0, 3);
+  const featured = CASE_STUDIES.filter((c) => c.featured);
+  // Kolom mengikuti jumlah kartu. Dikunci di tiga, dua kartu menyisakan satu
+  // kolom kosong di kanan dan barisnya terbaca seperti ada yang hilang.
+  const cols = featured.length >= 3 ? "md:grid-cols-3" : "md:grid-cols-2";
 
   return (
     <section id="case-studies" className="bg-[#F7F4EE] section-padding">
       <div className="container-mote">
         <SectionHeading
-          eyebrow="Hasil, bukan janji"
+          eyebrow="Studi Kasus"
           title="Hasil, bukan janji."
-          description="Angka bicara lebih keras dari presentasi. Ini sebagian hasil kerja kami—dengan klien yang setuju di-share."
+          description="Angka di bawah diambil dari akun iklan dan laporan bulanan klien, lengkap dengan periodenya."
         />
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className={`mt-12 grid grid-cols-1 ${cols} gap-5`}>
           {featured.map((cs) => (
             <Link
               key={cs.client}
@@ -59,6 +62,11 @@ export function CaseStudiesFeatured() {
               <div className="stat-num-sm text-[#06243B]">
                 {cs.result}
               </div>
+              {cs.period ? (
+                <div className="text-xs font-semibold text-[#3D4F60] mb-3">
+                  {cs.period}
+                </div>
+              ) : null}
               <div className="flex flex-wrap gap-1.5">
                 {cs.services.map((s) => (
                   <span
