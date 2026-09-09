@@ -260,13 +260,13 @@ export const CASE_STUDIES: CaseStudy[] = [
     result: "Omset Increase (+77%)",
     resultDetails: [
       "Omset Increase (+77%)",
-      "Marketing cost ratio 0.44% (-86%)",
+      "Marketing cost ratio 0,44% (-86%)",
       "Occupancy rate 61% di periode low season",
     ],
     logo: "/img/partner/rancabangohotel.webp",
     featured: true,
     summary:
-      "Strategi campaign \"A Place To Be Present\" membawa Rancabango Hotel & Resort menang di low season: omset naik 77% dengan marketing cost ratio hanya 0.44%.",
+      "Strategi campaign \"A Place To Be Present\" membawa Rancabango Hotel & Resort menang di low season: omset naik 77% dengan marketing cost ratio hanya 0,44%.",
     challenge:
       "Occupancy baseline 2024 hanya di kisaran 43%, dengan 64% pendapatan bergantung pada list account korporat yang rentan kebijakan efisiensi. Positioning \"Balinese concept in Garut\" berisiko terasa kosmetik, visibilitas Google kalah dari kompetitor yang agresif beriklan, dan CTR TikTok hanya 0,03%.",
     approach: [
@@ -282,15 +282,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     client: "Hanoon Industries",
     type: "Fashion / Apparel Workwear",
     services: ["CPAS Shopee", "Meta Ads"],
-    result: "ROAS 20.8x (+116.89%)",
+    result: "ROAS 20,8x (+116,89%)",
     resultDetails: [
-      "ROAS 20.8x (+116.89%)",
+      "ROAS 20,8x (+116,89%)",
       "Purchase value Increase (+157%)",
     ],
     logo: "/img/partner/hanoon.webp",
     featured: true,
     summary:
-      "Kombinasi CPAS Shopee dan Meta Ads membawa brand apparel workwear ini mencapai ROAS 20.8x — naik 116.89% — dengan purchase value tumbuh 157%.",
+      "Kombinasi CPAS Shopee dan Meta Ads membawa brand apparel workwear ini mencapai ROAS 20,8x — naik 116,89% — dengan purchase value tumbuh 157%.",
     challenge:
       "Iklan yang berjalan belum terhubung langsung ke katalog marketplace, sehingga budget terbuang di traffic yang tidak terlacak konversinya. Brand butuh sistem iklan yang setiap rupiahnya bisa diukur sampai ke transaksi Shopee.",
     approach: [
