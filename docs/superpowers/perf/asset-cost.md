@@ -56,9 +56,11 @@ matematis di kedua ujung, jadi crossfade langkah 2 spec dilewati.
 | test 2 | 480p | 4 s | $0,0558 | prompt kunci kamera diperketat; ayunan masih besar |
 | take A | 720p | 4 s | $0,1230 | dipakai |
 
-Video: $0,2346. Gambar A1 (5 kandidat Gemini 3 Pro Image): ±$0,70.
+| Gemini A1 | 2K 3:4 | 5 kandidat | $0,6975 | v4 dipakai |
+| Gemini A2–A5 | 2K 3:2 | 12 kandidat | $1,6720 | v2 dipakai semua |
 
-Tarif terukur: 480p $0,01395/detik, 720p $0,03075/detik.
+Total $2,604. Tarif terukur video: 480p $0,01395/detik, 720p $0,03075/detik.
+Tarif Gemini 3 Pro Image konsisten ±$0,139 per gambar 2K.
 
 ## Berkas produksi A1
 
@@ -71,6 +73,26 @@ Tarif terukur: 480p $0,01395/detik, 720p $0,03075/detik.
 
 Durasi akhir 8,08 detik, 720×960, 24 fps, tanpa trek audio (diverifikasi
 `ffprobe -select_streams a`).
+
+## Berkas produksi A2–A5
+
+Kandidat v2 terpilih untuk keempatnya. Alasan yang sama di tiap aset: subjek
+paling dekat ke sumbu tengah, jadi strip mobile 3:1 memotong paling sedikit.
+
+| Berkas | Ukuran | Batas spec |
+|---|---|---|
+| `public/img/page-services.webp` | 80.874 B | 92.160 B |
+| `public/img/page-services-m.webp` | 28.322 B | 40.960 B |
+| `public/img/page-case-studies.webp` | 47.746 B | 92.160 B |
+| `public/img/page-case-studies-m.webp` | 18.240 B | 40.960 B |
+| `public/img/page-about.webp` | 81.400 B | 92.160 B |
+| `public/img/page-about-m.webp` | 36.164 B | 40.960 B |
+| `public/img/page-contact.webp` | 41.396 B | 92.160 B |
+| `public/img/page-contact-m.webp` | 16.640 B | 40.960 B |
+
+Kandidat yang tidak dipakai tetap ada di `assets-src/` untuk pembanding di
+gerbang aset. A5 v2 kehilangan sedikit puncak lingkaran di strip mobile; dua
+kandidat lain memotong lebih banyak.
 
 ## Catatan alat
 
