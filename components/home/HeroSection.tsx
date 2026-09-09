@@ -27,51 +27,36 @@ const HERO_PROOF = [
 ];
 
 const HERO_IMG = "/img/hero-threads.webp";
-const HERO_IMG_M = "/img/hero-threads-m.webp";
 const HERO_ALT =
   "Puluhan benang navy, hijau, dan oranye terurai lalu terpilin jadi satu tali di atas kertas cream";
 
 export function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#F9F2E2] text-[#06243B] border-b border-[var(--line-on-cream)]">
-      {/* Desktop: foto memenuhi tinggi hero di kolom kanan, warna aslinya utuh.
-          Teks duduk di kertas cream di kiri — tanpa scrim, tanpa satu pun huruf
-          yang berdiri di atas benang. `object-position` 62% menahan titik
-          pilinnya tetap masuk frame waktu kolomnya menyempit. */}
-      <div className="hidden lg:block absolute inset-y-0 right-0 w-[46%]">
-        <Image
-          src={HERO_IMG}
-          alt={HERO_ALT}
-          fill
-          priority
-          sizes="46vw"
-          className="object-cover object-[62%_center]"
-        />
-      </div>
+    <section className="relative isolate overflow-hidden bg-[#06243B] text-white grain-overlay">
+      {/* Foto jadi latar penuh, dicerminkan supaya benang yang terurai jatuh di
+          kanan dan kolom teks di kiri kebagian bidang paling sepi. Scrim navy
+          rata — bukan gradient — karena di atas kertas cream ini teks terang
+          tidak akan terbaca tanpa itu, dan di mobile fotonya memenuhi seluruh
+          layar sehingga tiap barisnya berdiri di atas benang. */}
+      <Image
+        src={HERO_IMG}
+        alt={HERO_ALT}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-[22%_center] lg:object-[38%_center] -scale-x-100"
+      />
+      <div className="absolute inset-0 bg-[#06243B]/80 lg:bg-[#06243B]/75" />
 
-      {/* Mobile: foto tampil utuh di atas teks. Dipakai sebagai latar di layar
-          390px, benangnya memenuhi seluruh bidang dan judulnya tidak kebaca. */}
-      <div className="lg:hidden">
-        <Image
-          src={HERO_IMG_M}
-          alt={HERO_ALT}
-          width={900}
-          height={604}
-          priority
-          sizes="100vw"
-          className="w-full h-auto"
-        />
-      </div>
-
-      <div className="container-mote relative pt-10 pb-12 lg:pt-24 lg:pb-24">
+      <div className="container-mote relative pt-12 pb-14 lg:pt-24 lg:pb-24">
         <div className="lg:max-w-[560px] flex flex-col gap-6">
-          <Eyebrow tone="cream">Digital Marketing Consultant</Eyebrow>
-          <h1 className="font-semibold text-balance max-w-[16ch] leading-[1.06]">
+          <Eyebrow tone="navy">Digital Marketing Consultant</Eyebrow>
+          <h1 className="font-semibold text-white text-balance max-w-[16ch] leading-[1.06]">
             Bikin iklan &amp; toko online kamu{" "}
             <strong className="font-bold">balik modal</strong> — bukan cuma rame
             dilihat.
           </h1>
-          <p className="lead text-[#3D4F60] max-w-[38ch]">
+          <p className="lead text-[#EFEBDD]/85 max-w-[38ch]">
             Khusus brand F&amp;B, hotel, dan seller Shopee/TikTok Shop yang serius mau
             scale. Satu tim urus iklan, konten, sampai marketplace — semua diukur dari
             penjualan, bukan sekadar angka view.
@@ -82,7 +67,7 @@ export function HeroSection() {
                 href={waLink(WA_INTRO.hero)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-dark group w-full sm:w-auto"
+                className="btn btn-primary group w-full sm:w-auto"
               >
                 <MessageCircle className="h-4 w-4" />
                 Konsultasi Gratis via WhatsApp
@@ -90,22 +75,22 @@ export function HeroSection() {
               </a>
               <Link
                 href="#case-studies"
-                className="inline-flex items-center gap-2 min-h-[44px] font-semibold text-[#06243B] hover:text-[#FF7E00] transition-colors duration-150"
+                className="inline-flex items-center gap-2 min-h-[44px] font-semibold text-white hover:text-[#BDF24A] transition-colors duration-150"
               >
                 Lihat Bukti: ROAS 12,7x &amp; Occupancy 50,2%
                 <ArrowDown className="h-4 w-4" />
               </Link>
             </div>
-            <p className="text-sm font-medium text-[#06243B]/70">
+            <p className="text-sm font-medium text-[#EFEBDD]/75">
               Gratis &amp; tanpa komitmen — kalau nggak cocok, kami jujur bilang.
             </p>
           </div>
 
           <div className="mt-4">
-            <ProofRow items={HERO_PROOF} tone="cream" numSize="sm" mobileLayout="stack" />
+            <ProofRow items={HERO_PROOF} tone="navy" numSize="sm" mobileLayout="stack" />
             {/* Periode ditulis sekali di bawah baris, bukan diulang di tiap label:
                 tiga label yang membawa tanggalnya sendiri jadi dua baris semua. */}
-            <p className="mt-4 text-sm text-[#3D4F60]">
+            <p className="mt-4 text-sm text-[#EFEBDD]/75">
               Rata-rata April–Juni 2026, dari akun iklan dan laporan bulanan klien.
             </p>
           </div>
