@@ -1,4 +1,5 @@
 "use client";
+// deprecated: jangan dipakai di komponen baru (spec 2026-09-08 §4.6)
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/cn";
