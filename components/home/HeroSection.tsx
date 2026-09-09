@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowDown, ArrowRight, MessageCircle } from "lucide-react";
-import { CONTACT } from "@/lib/constants";
+import { WA_INTRO, waLink } from "@/lib/constants";
 import { Eyebrow } from "@/components/shared/Eyebrow";
 import { ProofRow } from "@/components/shared/ProofRow";
 import { HeroMedia } from "@/components/shared/HeroMedia";
@@ -50,7 +50,7 @@ export function HeroSection() {
             <div className="flex flex-col gap-2">
               <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2 sm:gap-6">
                 <a
-                  href={CONTACT.whatsappLink}
+                  href={waLink(WA_INTRO.hero)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-dark group w-full sm:w-auto"

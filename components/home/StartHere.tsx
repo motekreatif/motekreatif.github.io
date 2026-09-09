@@ -1,6 +1,6 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { CONTACT } from "@/lib/constants";
+import { WA_INTRO, waLink } from "@/lib/constants";
 
 const steps = [
   {
@@ -34,14 +34,7 @@ export function StartHere() {
                 key={s.title}
                 className="relative card-soft p-7 flex flex-col gap-4"
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-3xl font-extrabold text-[#06243B]/15 leading-none">
-                    0{i + 1}
-                  </span>
-                  <span className="stat-num-sm text-[#06243B]">
-                    0{i + 1}
-                  </span>
-                </div>
+                <span className="stat-num-sm text-[#06243B]">0{i + 1}</span>
                 <h3 className="text-xl font-extrabold text-[#06243B]">
                   {s.title}
                 </h3>
@@ -64,7 +57,7 @@ export function StartHere() {
             </p>
           </div>
           <a
-            href={CONTACT.whatsappLink}
+            href={waLink(WA_INTRO.start)}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary group shrink-0"

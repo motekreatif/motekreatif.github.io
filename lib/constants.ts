@@ -34,6 +34,8 @@ export const CONTACT = {
   phoneLink: "tel:+6289662158784",
   whatsapp: "+62 851-9655-8646",
   whatsappLink: "https://wa.me/6285196558646",
+  // Basis nomor tanpa pesan. ContactForm dan halaman TDMO menempelkan ?text=
+  // sendiri, jadi whatsappLink harus tetap polos.
   instagram: "@motekreatif",
   instagramLink: "https://instagram.com/motekreatif",
   offices: [
@@ -81,3 +83,23 @@ export const NAV_LINKS: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
+
+/**
+ * Membuka WhatsApp dengan pesan pembuka sudah terisi.
+ *
+ * Tautan polos `wa.me/<nomor>` mendaratkan orang di kolom chat kosong dan
+ * menyerahkan beban membuka percakapan kepada mereka. Itu titik jatuh terakhir
+ * sebelum sebuah prospek berubah jadi percakapan, jadi setiap tombol WhatsApp
+ * membawa kalimat pembukanya sendiri sesuai tempat tombol itu berada.
+ */
+export function waLink(text: string) {
+  return `${CONTACT.whatsappLink}?text=${encodeURIComponent(text)}`;
+}
+
+export const WA_INTRO = {
+  hero: "Halo Mote, saya mau konsultasi soal marketing bisnis saya.",
+  start:
+    "Halo Mote, saya mau mulai dari sesi diskusi gratis. Boleh dijadwalkan?",
+  cta: "Halo Mote, saya mau tanya-tanya dulu soal penanganan marketing untuk bisnis saya.",
+  floating: "Halo Mote, saya sedang lihat website-nya dan mau bertanya.",
+} as const;

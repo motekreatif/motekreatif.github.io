@@ -111,8 +111,12 @@ function PillarNode({
 }) {
   const Icon = pillar.icon;
   return (
+    // Latar solid, bukan white/[0.07]: garis segitiga digambar di belakang kartu,
+    // dan lewat kartu tembus pandang ia melintas persis di atas nama pilarnya.
     <article
-      className={`w-64 bg-white/[0.07] border border-white/15 rounded-[12px] p-5 transition-colors hover:border-[#BDF24A]/45 ${
+      // z-10 saja, tanpa `relative`: posisi tiap node datang dari className
+      // (`absolute left-0 bottom-0` dst), dan `relative` akan menimpanya.
+      className={`z-10 w-64 bg-[#0E2C44] border border-white/15 rounded-[12px] p-5 transition-colors hover:border-[#BDF24A]/45 ${
         className ?? ""
       }`}
     >
@@ -150,7 +154,7 @@ function PillarCard({
 }) {
   const Icon = pillar.icon;
   return (
-    <article className="bg-white/[0.07] border border-white/15 rounded-[12px] p-5">
+    <article className="bg-[#0E2C44] border border-white/15 rounded-[12px] p-5">
       <div className="flex items-center gap-3 mb-3">
         <span className="h-10 w-10 rounded-[4px] bg-[#BDF24A] text-[#06243B] flex items-center justify-center">
           <Icon className="h-5 w-5" />

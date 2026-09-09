@@ -1,5 +1,5 @@
 import { ArrowRight, Mail, MessageCircle } from "lucide-react";
-import { CONTACT } from "@/lib/constants";
+import { CONTACT, WA_INTRO, waLink } from "@/lib/constants";
 import { Eyebrow } from "@/components/shared/Eyebrow";
 
 export function CTASection() {
@@ -16,7 +16,7 @@ export function CTASection() {
           </p>
           <div className="flex flex-wrap gap-3 justify-center mt-2">
             <a
-              href={CONTACT.whatsappLink}
+              href={waLink(WA_INTRO.cta)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-dark group"

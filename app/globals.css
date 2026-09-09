@@ -201,6 +201,12 @@ body:has([data-skin="clipper"]) .highlight-text {
     color-scheme: light;
   }
 
+  /* Header fixed setinggi 4rem. Tanpa ini, lompatan anchor seperti
+     #case-studies dari hero mendarat dengan judulnya tertutup header. */
+  html {
+    scroll-padding-top: 5.5rem;
+  }
+
   html,
   body {
     background: var(--color-bg-warm);

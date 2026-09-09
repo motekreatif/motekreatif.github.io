@@ -1,5 +1,5 @@
 import { MessageCircle } from "lucide-react";
-import { CONTACT } from "@/lib/constants";
+import { WA_INTRO, waLink } from "@/lib/constants";
 
 /**
  * Tombol WhatsApp mengambang — selalu terlihat di semua scroll position.
@@ -9,7 +9,7 @@ import { CONTACT } from "@/lib/constants";
 export function FloatingWhatsApp() {
   return (
     <a
-      href={CONTACT.whatsappLink}
+      href={waLink(WA_INTRO.floating)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Konsultasi gratis via WhatsApp"
