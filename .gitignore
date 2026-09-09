@@ -26,3 +26,6 @@ yarn-error.log*
 # rebuilds on every commit. Tooling, not site content, and Cloudflare Pages
 # would ship it to the public origin if it were tracked.
 /graphify-out/
+
+# aset mentah generatif (PNG Gemini, MP4 Seedance)
+/assets-src/
