@@ -403,6 +403,10 @@ export const STATS = [
 
 export const PARTNER_LOGOS = [
   { src: "/img/partner/rancabangohotel.webp", alt: "Rancabango Hotel" },
+  { src: "/img/partner/kampungsumberalam.svg", alt: "Kampung Sumber Alam Resort" },
+  { src: "/img/partner/sibentang.webp", alt: "Private Villa Sibentang" },
+  { src: "/img/partner/sinarberkah.webp", alt: "Kedai Nasi Sinar Berkah" },
+  { src: "/img/partner/kasmaran.webp", alt: "Bakso Kasmaran" },
   { src: "/img/partner/balong.svg", alt: "Balong" },
   { src: "/img/partner/restorasa.svg", alt: "Restorasa" },
   { src: "/img/partner/pleasurenoise.webp", alt: "Pleasure Noise" },
