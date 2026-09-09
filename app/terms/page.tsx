@@ -125,6 +125,7 @@ export default function TermsPage() {
   return (
     <>
       <PageHero
+        variant="compact"
         eyebrow="Legal"
         title="Syarat & Ketentuan"
         description="Aturan main pemakaian situs dan produk digital Mote Kreatif — dibuat singkat supaya benar-benar kebaca."

@@ -1,26 +1,8 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { CASE_STUDIES } from "@/lib/data";
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.96 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
 
 // Map service keyword to badge color class
 function serviceBadgeClass(service: string): string {
@@ -46,19 +28,12 @@ export function CaseStudiesFeatured() {
           description="Angka bicara lebih keras dari presentasi. Ini sebagian hasil kerja kami—dengan klien yang setuju di-share."
         />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5"
-        >
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-5">
           {featured.map((cs) => (
-            <motion.article
+            <Link
               key={cs.client}
-              variants={cardVariants}
-              whileHover={{ y: -6 }}
-              className="card-soft p-7 flex flex-col gap-4"
+              href={`/case-studies/${cs.slug}`}
+              className="group block md:border-l md:border-[var(--line-on-cream)] md:pl-6 first:md:border-l-0 first:md:pl-0 py-4 md:py-0 border-t border-[var(--line-on-cream)] md:border-t-0 min-h-[64px]"
             >
               {cs.logo ? (
                 <div className="h-10 flex items-center">
@@ -81,14 +56,14 @@ export function CaseStudiesFeatured() {
                 </h3>
                 <p className="text-sm text-[#3D4F60] mt-1">{cs.type}</p>
               </div>
-              <div className="text-2xl md:text-3xl font-extrabold leading-tight bg-gradient-to-br from-[#06243B] to-[#144668] bg-clip-text text-transparent">
+              <div className="stat-num-sm text-[#06243B]">
                 {cs.result}
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {cs.services.map((s) => (
                   <span
                     key={s}
-                    className={`text-[10px] uppercase font-bold tracking-wider px-2 py-1 rounded ${serviceBadgeClass(
+                    className={`text-xs font-semibold rounded-[4px] px-2 py-1 ${serviceBadgeClass(
                       s
                     )}`}
                   >
@@ -96,9 +71,9 @@ export function CaseStudiesFeatured() {
                   </span>
                 ))}
               </div>
-            </motion.article>
+            </Link>
           ))}
-        </motion.div>
+        </div>
 
         <div className="mt-10 text-center">
           <Link

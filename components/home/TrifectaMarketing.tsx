@@ -1,9 +1,5 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Megaphone, Building2, MessageSquareQuote } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { RibbonDecoration } from "@/components/shared/RibbonDecoration";
 
 const pillars = [
   {
@@ -28,45 +24,7 @@ const pillars = [
 
 export function TrifectaMarketing() {
   return (
-    <section
-      className="relative text-white section-padding overflow-hidden grain-overlay"
-      style={{
-        background:
-          "linear-gradient(160deg, #06243B 0%, #0E3450 60%, #06243B 100%)",
-      }}
-    >
-      <div
-        aria-hidden
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#BDF24A]/5 blur-3xl pointer-events-none z-0"
-      />
-
-      {/* Decorative ribbons */}
-      <div
-        className="absolute inset-x-0 top-[8%] h-[260px] z-0 hidden md:block"
-        aria-hidden
-      >
-        <RibbonDecoration
-          variant="b"
-          color="#FF7E00"
-          opacity={0.1}
-          strokeWidth={44}
-          className="absolute inset-0 w-full h-full"
-        />
-      </div>
-      <div
-        className="absolute inset-x-0 bottom-[5%] h-[260px] z-0 hidden md:block"
-        aria-hidden
-      >
-        <RibbonDecoration
-          variant="d"
-          color="#BDF24A"
-          opacity={0.09}
-          strokeWidth={42}
-          delay={0.3}
-          className="absolute inset-0 w-full h-full"
-        />
-      </div>
-
+    <section className="relative text-white section-padding overflow-hidden grain-overlay bg-[#06243B]">
       <div className="container-mote relative z-10">
         <SectionHeading
           eyebrow="Pendekatan Trifecta"
@@ -92,62 +50,41 @@ function DesktopTriangle() {
         className="absolute inset-0 w-full h-full pointer-events-none"
         aria-hidden
       >
-        <motion.path
+        <path
           d="M 300 70 L 90 420"
-          stroke="#BDF24A"
-          strokeWidth="2.5"
-          strokeDasharray="8 6"
-          style={{ filter: "drop-shadow(0 0 6px rgba(189, 242, 74,0.45))" }}
+          stroke="#EFEBDD"
+          strokeOpacity="0.3"
+          strokeWidth="1"
           fill="none"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.8 }}
         />
-        <motion.path
+        <path
           d="M 300 70 L 510 420"
-          stroke="#BDF24A"
-          strokeWidth="2.5"
-          strokeDasharray="8 6"
-          style={{ filter: "drop-shadow(0 0 6px rgba(189, 242, 74,0.45))" }}
+          stroke="#EFEBDD"
+          strokeOpacity="0.3"
+          strokeWidth="1"
           fill="none"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
         />
-        <motion.path
+        <path
           d="M 90 420 L 510 420"
-          stroke="#BDF24A"
-          strokeWidth="2.5"
-          strokeDasharray="8 6"
-          style={{ filter: "drop-shadow(0 0 6px rgba(189, 242, 74,0.45))" }}
+          stroke="#EFEBDD"
+          strokeOpacity="0.3"
+          strokeWidth="1"
           fill="none"
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
         />
       </svg>
 
-      <PillarNode pillar={pillars[0]} delay={0.5} className="absolute left-1/2 -translate-x-1/2 top-0" />
-      <PillarNode pillar={pillars[1]} delay={0.65} className="absolute left-0 bottom-0" />
-      <PillarNode pillar={pillars[2]} delay={0.8} className="absolute right-0 bottom-0" />
+      <PillarNode pillar={pillars[0]} className="absolute left-1/2 -translate-x-1/2 top-0" />
+      <PillarNode pillar={pillars[1]} className="absolute left-0 bottom-0" />
+      <PillarNode pillar={pillars[2]} className="absolute right-0 bottom-0" />
 
-      <motion.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.55, delay: 1.05, type: "spring", stiffness: 200 }}
-        className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 z-10"
-      >
-        <div className="rounded-2xl bg-gradient-to-br from-[#BDF24A] to-[#A6D636] text-[#06243B] px-5 py-3 text-center shadow-[0_18px_50px_-15px_rgba(189,242,74,0.6)]">
-          <div className="text-[10px] font-bold uppercase tracking-widest">
+      <div className="absolute left-1/2 top-[55%] -translate-x-1/2 -translate-y-1/2 z-10">
+        <div className="rounded-[4px] bg-[#BDF24A] text-[#06243B] px-3 py-2 font-bold text-center">
+          <div className="label">
             Mote handles
           </div>
           <div className="font-extrabold text-lg leading-tight">All three</div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -155,17 +92,11 @@ function DesktopTriangle() {
 function MobileStack() {
   return (
     <div className="lg:hidden flex flex-col gap-5 max-w-md mx-auto">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true, amount: 0.1 }}
-        transition={{ duration: 0.4 }}
-        className="rounded-2xl bg-gradient-to-br from-[#BDF24A] to-[#A6D636] text-[#06243B] px-5 py-3 text-center font-extrabold shadow-md"
-      >
+      <div className="rounded-[12px] bg-[#BDF24A] text-[#06243B] px-5 py-3 text-center font-extrabold">
         Mote mengelola ketiga sisi
-      </motion.div>
-      {pillars.map((p, i) => (
-        <PillarCard pillar={p} key={p.name} delay={i * 0.12} />
+      </div>
+      {pillars.map((p) => (
+        <PillarCard pillar={p} key={p.name} />
       ))}
     </div>
   );
@@ -173,31 +104,24 @@ function MobileStack() {
 
 function PillarNode({
   pillar,
-  delay,
   className,
 }: {
   pillar: (typeof pillars)[number];
-  delay: number;
   className?: string;
 }) {
   const Icon = pillar.icon;
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -4 }}
-      className={`w-64 bg-white/[0.07] border border-white/15 rounded-2xl p-5 backdrop-blur-sm transition-colors hover:border-[#BDF24A]/45 ${
+    <article
+      className={`w-64 bg-white/[0.07] border border-white/15 rounded-[12px] p-5 transition-colors hover:border-[#BDF24A]/45 ${
         className ?? ""
       }`}
     >
       <div className="flex items-center gap-3 mb-3">
-        <span className="h-10 w-10 rounded-xl bg-[#BDF24A] text-[#06243B] flex items-center justify-center">
+        <span className="h-10 w-10 rounded-[4px] bg-[#BDF24A] text-[#06243B] flex items-center justify-center">
           <Icon className="h-5 w-5" />
         </span>
         <div>
-          <div className="text-[10px] uppercase tracking-widest font-bold text-[#BDF24A]">
+          <div className="label text-[#BDF24A]">
             {pillar.tagline}
           </div>
           <h3 className="text-lg font-extrabold text-white leading-tight">
@@ -209,38 +133,30 @@ function PillarNode({
         {pillar.tactics.map((t) => (
           <li
             key={t}
-            className="text-[11px] font-semibold px-2 py-1 rounded-md bg-white/10 text-white/90"
+            className="text-[11px] font-semibold px-2 py-1 rounded-[4px] bg-white/10 text-white/90"
           >
             {t}
           </li>
         ))}
       </ul>
-    </motion.article>
+    </article>
   );
 }
 
 function PillarCard({
   pillar,
-  delay,
 }: {
   pillar: (typeof pillars)[number];
-  delay: number;
 }) {
   const Icon = pillar.icon;
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.5, delay }}
-      className="bg-white/[0.07] border border-white/15 rounded-2xl p-5"
-    >
+    <article className="bg-white/[0.07] border border-white/15 rounded-[12px] p-5">
       <div className="flex items-center gap-3 mb-3">
-        <span className="h-12 w-12 rounded-xl bg-[#BDF24A] text-[#06243B] flex items-center justify-center">
-          <Icon className="h-6 w-6" />
+        <span className="h-10 w-10 rounded-[4px] bg-[#BDF24A] text-[#06243B] flex items-center justify-center">
+          <Icon className="h-5 w-5" />
         </span>
         <div>
-          <div className="text-[10px] uppercase tracking-widest font-bold text-[#BDF24A]">
+          <div className="label text-[#BDF24A]">
             {pillar.tagline}
           </div>
           <h3 className="text-lg font-extrabold text-white">{pillar.name}</h3>
@@ -250,12 +166,12 @@ function PillarCard({
         {pillar.tactics.map((t) => (
           <li
             key={t}
-            className="text-[11px] font-semibold px-2 py-1 rounded-md bg-white/10 text-white/90"
+            className="text-[11px] font-semibold px-2 py-1 rounded-[4px] bg-white/10 text-white/90"
           >
             {t}
           </li>
         ))}
       </ul>
-    </motion.article>
+    </article>
   );
 }

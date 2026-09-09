@@ -116,6 +116,7 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <PageHero
+        variant="compact"
         eyebrow="Legal"
         title="Kebijakan Privasi"
         description="Cara kami mengumpulkan, memakai, menyimpan, dan menghapus data pribadi kamu. Dibuat singkat supaya benar-benar kebaca."

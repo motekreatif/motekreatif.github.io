@@ -35,6 +35,7 @@ export default function ServicesPage() {
         title="Lima layanan inti untuk lima fase pertumbuhan brand."
         highlight="pertumbuhan"
         description="Setiap layanan didesain untuk konteks yang berbeda. Pilih satu, kombinasikan, atau diskusikan dulu—kami bantu cari yang pas."
+        media={{ src: "/img/page-services.webp", srcMobile: "/img/page-services-m.webp", alt: "Tiga utas tali berwarna lime, oranye, dan navy berjajar sejajar di atas kertas cream, belum saling bertemu" }}
       />
 
       <section className="bg-[#F7F4EE] py-20 sm:py-24">

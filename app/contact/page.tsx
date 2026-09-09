@@ -20,6 +20,7 @@ export default function ContactPage() {
         title="Mari mulai dari obrolan santai."
         highlight="obrolan santai"
         description="Isi form di bawah atau langsung chat WhatsApp. Kami balas dalam 1×24 jam—dan kalau bisa lebih cepat."
+        media={{ src: "/img/page-contact.webp", srcMobile: "/img/page-contact-m.webp", alt: "Ujung tali navy yang terbuka membentuk satu lingkaran yang belum diikat di atas kertas cream" }}
       />
 
       <section className="bg-[#F7F4EE] py-20 sm:py-24">

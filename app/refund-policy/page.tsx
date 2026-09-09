@@ -115,6 +115,7 @@ export default function RefundPolicyPage() {
   return (
     <>
       <PageHero
+        variant="compact"
         eyebrow="Legal"
         title="Kebijakan Refund"
         description="Kondisi pengembalian dana untuk produk digital Mote Kreatif — ditulis apa adanya, tanpa pasal tersembunyi."

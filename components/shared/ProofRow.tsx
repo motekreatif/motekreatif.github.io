@@ -24,9 +24,14 @@ export function ProofRow({
   mobileLayout?: "stack" | "grid2";
 }) {
   const numClass = numSize === "lg" ? "stat-num" : "stat-num-sm";
-  const wrapper = mobileLayout === "grid2" ? "grid grid-cols-2 md:grid" : "flex flex-col md:grid";
+  // Kolom desktop lewat --n, bukan gridTemplateColumns inline: style inline berlaku
+  // di semua lebar layar dan akan menimpa grid-cols-2 di mobile.
+  const wrapper =
+    mobileLayout === "grid2"
+      ? "grid grid-cols-2 md:[grid-template-columns:repeat(var(--n),1fr)]"
+      : "flex flex-col md:grid md:[grid-template-columns:repeat(var(--n),1fr)]";
   return (
-    <div className={wrapper} style={{ gridTemplateColumns: `repeat(${items.length}, 1fr)` }}>
+    <div className={wrapper} style={{ ["--n" as string]: items.length }}>
       {items.map((it, i) => {
         const inner = (
           <>

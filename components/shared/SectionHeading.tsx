@@ -1,4 +1,5 @@
 import { cn } from "@/lib/cn";
+import { Eyebrow } from "@/components/shared/Eyebrow";
 
 export function SectionHeading({
   eyebrow,
@@ -24,11 +25,11 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <span className={cn("eyebrow", light && "eyebrow-light")}>{eyebrow}</span>
+        <Eyebrow tone={light ? "navy" : "cream"}>{eyebrow}</Eyebrow>
       )}
       <h2
         className={cn(
-          "text-3xl sm:text-4xl md:text-5xl font-extrabold text-balance",
+          "font-extrabold text-balance",
           light ? "text-white" : "text-[#06243B]"
         )}
       >
@@ -37,7 +38,7 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            "max-w-2xl text-base sm:text-lg leading-relaxed",
+            "max-w-2xl text-[length:clamp(1rem,0.95rem+0.25vw,1.125rem)] leading-[1.55]",
             light ? "text-white/75" : "text-[#3D4F60]"
           )}
         >

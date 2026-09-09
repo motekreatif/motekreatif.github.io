@@ -25,6 +25,7 @@ export default function CaseStudiesPage() {
         title="Bukan dek presentasi. Ini hasil nyata dari kerja nyata."
         highlight="hasil nyata"
         description="Beberapa brand yang sudah tumbuh bareng kami—dengan angka yang bisa diverifikasi, bukan testimoni saja."
+        media={{ src: "/img/page-case-studies.webp", srcMobile: "/img/page-case-studies-m.webp", alt: "Satu simpul navy ditarik kencang di tengah tali, seratnya tegang, di atas kertas cream" }}
       />
 
       <section className="bg-[#F7F4EE] py-20 sm:py-24">

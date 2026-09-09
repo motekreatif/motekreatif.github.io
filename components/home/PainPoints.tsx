@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
   CircleDollarSign,
   Store,
@@ -13,50 +10,26 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 type Pain = {
   icon: LucideIcon;
   text: string;
-  iconBg: string;
-  iconColor: string;
 };
 
 const pains: Pain[] = [
   {
     icon: TrendingDown,
     text: "Sudah ngiklan tapi ROAS di bawah 3x—budget habis, hasil belum kelihatan.",
-    iconBg: "bg-[#FF7E00]/15",
-    iconColor: "text-[#FF7E00]",
   },
   {
     icon: Store,
     text: "Toko Shopee/TikTok Shop sudah ada tapi traffic dan konversi stagnan.",
-    iconBg: "bg-[#FF7E00]/15",
-    iconColor: "text-[#FF7E00]",
   },
   {
     icon: Users,
     text: "Tim marketing ada tapi belum bisa baca data dan optimize campaign.",
-    iconBg: "bg-[#BDF24A]/45",
-    iconColor: "text-[#FF7E00]",
   },
   {
     icon: CircleDollarSign,
     text: "Budget marketing habis tapi nggak tau mana channel yang menghasilkan.",
-    iconBg: "bg-[#06243B]/15",
-    iconColor: "text-[#FF7E00]",
   },
 ];
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
-  },
-};
 
 export function PainPoints() {
   return (
@@ -68,38 +41,22 @@ export function PainPoints() {
           description="Kalau salah satu kedengeran familiar, kamu tidak sendirian. Empat keluhan ini muncul di hampir setiap discovery call yang kami lakukan."
         />
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl"
-        >
+        <div className="mt-10 lg:mt-16 grid grid-cols-1 md:grid-cols-2 gap-x-10">
           {pains.map((p) => {
             const Icon = p.icon;
             return (
-              <motion.div
+              <div
                 key={p.text}
-                variants={cardVariants}
-                whileHover={{ y: -4 }}
-                className="card-soft p-5 sm:p-6 flex items-start gap-4 group"
+                className="flex items-start gap-4 py-4 border-t border-[var(--line-on-cream)]"
               >
-                <motion.span
-                  className={`h-12 w-12 shrink-0 rounded-full ${p.iconBg} ${p.iconColor} flex items-center justify-center`}
-                  whileHover={{
-                    rotate: [0, -10, 10, -10, 0],
-                    transition: { duration: 0.5 },
-                  }}
-                >
-                  <Icon className="h-6 w-6" strokeWidth={2.2} />
-                </motion.span>
+                <Icon className="h-5 w-5 mt-0.5 shrink-0 text-[#06243B]" />
                 <p className="text-[#06243B] font-semibold leading-snug">
                   {p.text}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

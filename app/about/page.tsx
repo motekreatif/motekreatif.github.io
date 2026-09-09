@@ -74,6 +74,7 @@ export default function AboutPage() {
         title="Anak muda punya energi berlebih. Yang kurang cuma salurannya."
         highlight="salurannya"
         description="MOTE lahir buat mantik energi itu — lalu ngasih saluran, biar dia jadi karya, keahlian, bisnis, dan dampak buat kotanya. Orang kenal kami sebagai agency. Itu baru saluran yang paling keliatan."
+        media={{ src: "/img/page-about.webp", srcMobile: "/img/page-about-m.webp", alt: "Banyak benang halus navy dengan sedikit lime dan oranye terpilin menjadi satu tali di atas kertas cream" }}
       />
 
       {/* KENAPA KAMI ADA — PEMANTIK */}
