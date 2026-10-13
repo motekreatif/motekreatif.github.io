@@ -9,6 +9,13 @@ type BuildMetaInput = {
   image?: string;
 };
 
+// Web baru MOTE (Okt 2026) tayang dari public/. Halaman lama di bawah ini dimatikan dari
+// menu & Google (noindex) tapi isinya tetap bisa dibuka, untuk didesain ulang nanti.
+// Clipper TIDAK termasuk: pembayaran iPaymu jalan di sana.
+const DIARSIPKAN = ["/about", "/blog", "/case-studies", "/community", "/contact"];
+const diarsipkan = (path: string) =>
+  path === "/products" || DIARSIPKAN.some((p) => path === p || path.startsWith(p + "/"));
+
 export function buildMeta({
   title,
   description,
@@ -20,6 +27,7 @@ export function buildMeta({
   return {
     title,
     description,
+    ...(diarsipkan(path) ? { robots: { index: false, follow: false } } : {}),
     alternates: { canonical: url },
     openGraph: {
       title,
