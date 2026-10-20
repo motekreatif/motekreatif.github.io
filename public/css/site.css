@@ -1260,3 +1260,142 @@ button.btn{border:0;cursor:pointer;font-family:inherit}
 /* footer: daftar kanal, label kecil di kiri */
 .kaki li.kanal{display:grid;grid-template-columns:5.6em 1fr;align-items:baseline;gap:8px}
 .kaki li.kanal span{font-size:.78em;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+
+/* Kelas MOTE: asal-usul (kartu bertumpuk) + format (kipas) + cara (pita & tiga kolom) */
+.apa-tutup{max-width:30em;margin:clamp(30px,4vw,60px) auto 0;text-align:center;font-size:clamp(18px,1.5vw,23px);position:relative;z-index:3}
+.kp.fmt{width:min(23vw,290px);min-height:clamp(260px,22vw,330px)}
+.kp.fmt .d{font-size:clamp(28px,2.8vw,42px)}
+.kp.fmt img{width:58%;margin:auto auto 0;display:block}
+#cara .tiga-kol{margin-top:clamp(24px,3vw,44px)}
+@media (max-width:760px){#cara .kipas{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:12px}#cara .kp.fmt{width:calc(50% - 6px);margin:0;min-height:210px;padding:16px}#cara .kp.fmt .d{font-size:26px}#cara .kp.fmt p{font-size:14px}}
+
+/* ===== Kelas MOTE dijelaskan lewat pembaca PDF ala Mac (susunan Acrobat baru: quick tools mengambang, rail kanan) ===== */
+.pdf-sec{padding-left:var(--gut);padding-right:var(--gut)}
+.pdf-kepala{max-width:1180px;margin:0 auto 22px;display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+.pdf-ajak{font-size:15px;opacity:.65;margin:0}
+.pdf{--abu:#f3f3f3;--garis:#e1e1e1;--teks:#2c2c2c;max-width:1180px;margin:0 auto;border-radius:12px;overflow:hidden;background:#fff;color:var(--teks);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",DMS,sans-serif;font-size:13px;box-shadow:0 0 0 .5px rgba(0,0,0,.28),0 30px 70px -20px rgba(35,34,38,.45),0 10px 24px -12px rgba(35,34,38,.25)}
+.pdf button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.pdf-judul{height:38px;display:flex;align-items:center;gap:14px;padding:0 12px;background:#ececec;border-bottom:1px solid var(--garis)}
+.lampu{display:flex;gap:8px}.lampu i{width:12px;height:12px;border-radius:50%;background:#ff5f57;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.18)}.lampu i:nth-child(2){background:#febc2e}.lampu i:nth-child(3){background:#28c840}
+.pdf-tab{display:flex;align-items:flex-end;height:100%;gap:2px}
+.pdf-tab>span{display:flex;align-items:center;gap:8px;height:30px;padding:0 14px;border-radius:8px 8px 0 0;color:#666}
+.pdf-tab>span.on{background:#fff;color:var(--teks);font-weight:500;box-shadow:0 0 0 .5px var(--garis)}
+.pdf-tab em{font-style:normal;font-size:9px;font-weight:700;color:#fff;background:#d7373f;border-radius:3px;padding:2px 3px;letter-spacing:.02em}
+.pdf-tab i{font-style:normal;opacity:.45;margin-left:4px}
+.pdf-alat{height:46px;display:flex;align-items:center;gap:6px;padding:0 10px;border-bottom:1px solid var(--garis);background:#fff}
+.pa-teks{display:flex;gap:2px}.pa-teks>*{padding:6px 10px;border-radius:6px;font-weight:500}.pa-teks b{background:#f0f0f0;font-weight:600}
+.pa-cari{margin:0 auto;display:flex;align-items:center;gap:8px;width:min(320px,30%);height:30px;padding:0 10px;border-radius:15px;background:#f3f3f3;color:#8a8a8a}
+.pa-cari svg{width:15px;height:15px}
+.pa-kanan{display:flex;align-items:center;gap:6px}
+.pa-bagi{display:flex;align-items:center;gap:6px;height:30px;padding:0 14px;border-radius:15px;background:#1473e6;color:#fff;font-weight:600}.pa-bagi svg{width:15px;height:15px}
+.pa-ik{width:32px;height:32px;display:grid;place-items:center;border-radius:7px;color:#4b4b4b;transition:background .15s ease,transform .12s ease-out}
+.pa-ik svg{width:18px;height:18px}
+.pa-ik:active{transform:scale(.94)}
+.pa-ik.on{background:#e8f0fd;color:#1473e6}
+@media (hover:hover) and (pointer:fine){.pa-ik:hover{background:#f0f0f0}}
+.pdf-badan{position:relative;display:flex;height:min(76svh,720px);background:var(--abu)}
+.pdf-isi{flex:1;overflow:auto;padding:28px 72px 40px;display:flex;flex-direction:column;align-items:center;gap:22px;outline:none;overscroll-behavior:auto;scroll-behavior:auto}
+.hal{--z:1;width:calc(min(100%,880px) * var(--z));flex:none;aspect-ratio:16/9;background:var(--c);color:var(--ct);box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.08);container-type:inline-size;position:relative;overflow:hidden}
+.pdf-quick{position:absolute;left:12px;top:16px;display:flex;flex-direction:column;gap:2px;padding:4px;border-radius:10px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.14);z-index:2}
+.pdf-thumbs{width:0;overflow:auto;background:#fafafa;border-left:1px solid var(--garis);transition:width .22s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column;align-items:center;gap:14px}
+.pdf.thumb-buka .pdf-thumbs{width:168px;padding:16px 0}
+.pdf-thumbs button{width:118px;display:grid;gap:6px;justify-items:center;color:#666;font-size:11px}
+.pdf-thumbs .tb{width:118px;aspect-ratio:16/9;overflow:hidden;box-shadow:0 0 0 1px var(--garis);border-radius:2px;position:relative}
+.pdf-thumbs .tb .hal{position:absolute;left:0;top:0;width:880px;transform:scale(calc(118 / 880));transform-origin:0 0;box-shadow:none}
+.pdf-thumbs button.on .tb{box-shadow:0 0 0 2px #1473e6}
+.pdf-rail{width:48px;flex:none;background:#fff;border-left:1px solid var(--garis);display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:10px 0}
+.pr-atas,.pr-bawah{display:flex;flex-direction:column;align-items:center;gap:4px}
+.pn-hal{display:grid;justify-items:center;gap:2px;margin-bottom:4px;font-variant-numeric:tabular-nums}
+.pn-hal b{min-width:30px;text-align:center;padding:4px 0;border:1px solid var(--garis);border-radius:5px;font-weight:600}
+.pn-hal span{font-size:11px;color:#8a8a8a}
+.pn-garis{width:20px;height:1px;background:var(--garis);margin:4px 0}
+/* isi slide: semua ukuran dalam cqi supaya sama di thumbnail, zoom, dan HP */
+.slide{position:absolute;inset:0;padding:6.5cqi 7cqi;font-family:DMS;display:flex;flex-direction:column;justify-content:center}
+.slide h3{font-family:DMD;font-weight:700;font-size:6.6cqi;line-height:1;letter-spacing:-.045em;margin:0 0 2.4cqi;max-width:11em}
+.slide p{font-size:2.2cqi;line-height:1.45;margin:0;max-width:26em}
+.slide .s-kecil{font-size:1.6cqi;opacity:.8;margin-top:2cqi;max-width:30em}
+.s-no{font-family:DMD;font-weight:300;font-style:italic;font-size:3.4cqi;letter-spacing:-.04em;margin-bottom:2cqi}
+.s-stk{position:absolute;height:auto;transform:rotate(var(--rt,0deg))}
+.s-kaki{position:absolute;left:7cqi;bottom:4.5cqi;font-size:1.4cqi;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+.s-sampul h3{font-size:9cqi}
+.s-sampul p{font-size:2.8cqi}
+.s-bw{display:block;width:9cqi;margin-bottom:3cqi}.s-bw svg{width:100%;height:auto;display:block}
+.s-format{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6cqi;margin-top:1cqi}
+.s-format>div{background:var(--c);color:var(--ct);border-radius:1.6cqi;padding:2.2cqi;min-height:17cqi;display:flex;flex-direction:column;gap:1.2cqi}
+.s-format b{font-family:DMD;font-size:3cqi;letter-spacing:-.04em;line-height:1}
+.s-format span{font-size:1.65cqi;line-height:1.4}
+.s-langkah{list-style:none;margin:0;padding:0;display:grid;gap:1.6cqi;max-width:44cqi;counter-reset:l}
+.s-langkah li{font-size:2cqi;line-height:1.4;padding-left:5cqi;position:relative;counter-increment:l}
+.s-langkah li::before{content:counter(l);position:absolute;left:0;top:-.2cqi;width:3.4cqi;height:3.4cqi;border-radius:50%;background:var(--kun);color:var(--ink);font-weight:700;font-size:1.8cqi;display:grid;place-items:center}
+.s-langkah b{display:block;font-size:2.4cqi}
+.s-aksi{display:flex;gap:1.6cqi;margin-top:3cqi}
+.s-btn{display:inline-flex;align-items:center;height:5.6cqi;padding:0 3cqi;border-radius:99px;background:var(--kun);color:var(--ink);font-weight:700;font-size:1.9cqi}
+.s-btn2{background:transparent;color:#fff;box-shadow:inset 0 0 0 .25cqi rgba(255,255,255,.5)}
+@media (max-width:760px){
+  .pdf{border-radius:10px;font-size:12px}
+  .pdf-tab>span:first-child,.pa-teks,.pa-kanan .pa-ik,.pdf-quick,.pdf-rail .pr-atas{display:none}
+  .pa-cari{width:auto;flex:1;margin:0 8px 0 0}.pa-bagi{padding:0 10px}
+  .pdf-badan{height:min(62svh,560px)}
+  .pdf-isi{padding:14px 10px 24px;gap:12px}
+  .pdf-rail{width:40px}
+  .pdf.thumb-buka .pdf-thumbs{width:120px}
+}
+/* HP: halaman PDF jadi tegak 4:5 dan hurufnya membesar supaya terbaca */
+@media (max-width:760px){.pdf-isi .hal{aspect-ratio:4/5}}
+@container (max-width:560px){
+  .slide{padding:9cqi 8cqi;justify-content:flex-start;padding-top:14cqi}
+  .slide h3{font-size:11cqi}.s-sampul h3{font-size:14cqi}
+  .slide p{font-size:4.6cqi}.s-sampul p{font-size:5.2cqi}.slide .s-kecil{font-size:3.6cqi}
+  .s-no{font-size:6cqi}.s-kaki{font-size:2.8cqi;bottom:7cqi;left:8cqi}.s-bw{width:16cqi}
+  .s-stk{width:30%!important;right:6%!important;bottom:8%!important;top:auto!important}
+  .s-format{grid-template-columns:1fr 1fr;gap:3cqi}.s-format>div{min-height:24cqi;padding:4cqi;border-radius:3cqi}.s-format b{font-size:5.6cqi}.s-format span{font-size:3.4cqi}
+  .s-langkah{max-width:none;gap:4cqi}.s-langkah li{font-size:3.8cqi;padding-left:9cqi}.s-langkah b{font-size:4.6cqi}.s-langkah li::before{width:6.4cqi;height:6.4cqi;font-size:3.4cqi}
+  .s-aksi{flex-direction:column;align-items:flex-start;gap:3cqi}.s-btn{height:11cqi;padding:0 6cqi;font-size:4cqi}
+}
+@container (max-width:560px){.s-sampul .s-stk:nth-of-type(2){display:none}.s-langkah~.s-stk,.s-langkah+.s-stk{top:9%!important;bottom:auto!important;width:18%!important}}
+.lencana{transition:opacity .2s ease}
+html.pdf-tampak .lencana{opacity:0;pointer-events:none}
+/* slide bercerita: foto penuh, dua kolom, polaroid, wajah tim */
+.s-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s-gelap{position:absolute;inset:0;background:linear-gradient(100deg,rgba(20,19,22,.86) 0%,rgba(20,19,22,.55) 50%,rgba(20,19,22,.15) 100%)}
+.s-atas-foto{position:relative;color:#fff}
+.s-atas-foto h3{max-width:12em}
+.s-terang{color:#fff}
+.s-kaki.s-terang{opacity:.75}
+.slide .s-besar{font-size:7.6cqi;max-width:13em}
+.s-dua{display:grid;grid-template-columns:1.05fr 1fr;gap:5cqi;align-items:center;height:100%}
+.s-dua h3{font-size:5.4cqi}
+.s-dua p+p{margin-top:1.6cqi}
+.s-orang3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6cqi;align-self:end;margin-bottom:-6.5cqi}
+.s-org{margin:0;display:grid;justify-items:center;gap:.4cqi;text-align:center}
+.s-org span{width:100%;aspect-ratio:3/4;display:flex;align-items:flex-end;justify-content:center;background:var(--kun);border-radius:2cqi 2cqi 0 0;overflow:hidden}
+.s-org img{width:118%;height:auto;display:block}
+.s-org b{font-size:2cqi;margin-top:1cqi}.s-org small{font-size:1.4cqi;opacity:.7;margin-bottom:7cqi}
+.s-polar{margin:0;background:#fff;padding:1.4cqi 1.4cqi 5cqi;transform:rotate(var(--rt));box-shadow:0 2cqi 4cqi -1.5cqi rgba(0,0,0,.4);position:relative}
+.s-polar img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.s-polar figcaption{position:absolute;left:1.8cqi;bottom:1.5cqi;font-family:DMS;font-weight:700;font-size:1.7cqi;color:var(--ink)}
+.s-jarak,.s-cek{list-style:none;margin:2cqi 0 0;padding:0;display:grid;gap:1.3cqi;max-width:34em}
+.s-jarak li,.s-cek li{font-size:2.3cqi;line-height:1.35;padding-left:3.4cqi;position:relative}
+.s-jarak li::before{content:"×";position:absolute;left:0;color:var(--merah);font-weight:700}
+.s-cek li::before{content:"✓";position:absolute;left:0;color:var(--kun);font-weight:700}
+@container (max-width:560px){
+  .s-dua{grid-template-columns:1fr;gap:5cqi;align-content:start;height:auto}
+  .s-dua h3{font-size:9cqi}
+  .s-orang3{margin-bottom:0;gap:3cqi}.s-org b{font-size:3.6cqi}.s-org small{font-size:2.8cqi;margin-bottom:0}
+  .s-polar{width:78%;justify-self:center;padding:3cqi 3cqi 10cqi}.s-polar figcaption{font-size:3.6cqi;left:4cqi;bottom:3cqi}
+  .slide .s-besar{font-size:11.5cqi}
+  .s-jarak li,.s-cek li{font-size:4.4cqi;padding-left:6.5cqi}
+  .s-gelap{background:linear-gradient(180deg,rgba(20,19,22,.85) 0%,rgba(20,19,22,.55) 60%,rgba(20,19,22,.3) 100%)}
+}
+/* HP: tinggi slide ikut isi supaya foto & wajah tidak terpotong */
+@media (max-width:760px){.pdf-isi .hal{aspect-ratio:auto;min-height:calc((100vw - 70px) * 1.25)}.pdf-isi .hal .slide{position:relative;min-height:inherit}}
+@container (max-width:560px){.slide>.s-stk{display:none}}
+.s-stk3{display:flex;align-items:flex-end;justify-content:center;gap:1cqi}
+.s-stk3 img{width:30%;height:auto;transform:rotate(var(--rt))}
+.s-stk2 img:first-child{width:46%}.s-stk2 img+img{width:30%}
+.s-polar2{position:relative;height:100%;display:grid;place-items:center}
+.s-polar2 .s-polar{width:72%;grid-area:1/1}
+.s-polar2 .s-polar:first-child{translate:-16% -14%}.s-polar2 .s-polar+.s-polar{translate:16% 16%}
+@container (max-width:560px){.s-stk3 img{width:28%}.s-polar2{height:auto;padding:4cqi 0 8cqi}.s-polar2 .s-polar{width:70%!important}}
+.s-polar2 .s-polar{width:60%}.s-polar2 .s-polar:first-child{translate:-28% -22%}.s-polar2 .s-polar+.s-polar{translate:26% 22%}
+@container (max-width:560px){.s-polar2{padding:2cqi 0 14cqi}.s-polar2 .s-polar:first-child{translate:-16% 0}.s-polar2 .s-polar+.s-polar{translate:16% 30%}}
