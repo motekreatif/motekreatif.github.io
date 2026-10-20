@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     { path: "/creativeagency/corporate-training", priority: 0.6 },
     { path: "/creativeagency/", priority: 0.8 },
+    { path: "/tentang/", priority: 0.7 },
     { path: "/creativeagency/kasus-balong", priority: 0.6 },
     { path: "/creativeagency/layanan", priority: 0.6 },
     { path: "/", priority: 1 },
