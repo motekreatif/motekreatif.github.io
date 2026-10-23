@@ -6,3 +6,19 @@
 # Okt 2026: web baru MOTE. Halaman agensi lama → /creativeagency
 /services   /creativeagency/layanan               301
 /tdmo       /creativeagency/corporate-training    301
+
+# 23 Okt 2026: katalog Kelas MOTE tinggal satu kelas gratis
+/kelasmote/brand-warung   /kelasmote/skill-tersembunyi   301
+/kelasmote/brief-satu-halaman   /kelasmote/skill-tersembunyi   301
+/kelasmote/deskripsi-produk   /kelasmote/skill-tersembunyi   301
+/kelasmote/foto-produk-hp   /kelasmote/skill-tersembunyi   301
+/kelasmote/ig-30-hari   /kelasmote/skill-tersembunyi   301
+/kelasmote/iklan-meta-50rb   /kelasmote/skill-tersembunyi   301
+/kelasmote/laporan-iklan   /kelasmote/skill-tersembunyi   301
+/kelasmote/paket-freelancer   /kelasmote/skill-tersembunyi   301
+/kelasmote/paket-iklan-pertama   /kelasmote/skill-tersembunyi   301
+/kelasmote/portofolio   /kelasmote/skill-tersembunyi   301
+/kelasmote/rate-card   /kelasmote/skill-tersembunyi   301
+/kelasmote/rebranding   /kelasmote/skill-tersembunyi   301
+/kelasmote/tim-kreatif-pertama   /kelasmote/skill-tersembunyi   301
+/kelasmote/toko-shopee   /kelasmote/skill-tersembunyi   301

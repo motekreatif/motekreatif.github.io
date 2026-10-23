@@ -8,3 +8,7 @@
 
 /blog/blogimg/*
   Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# PDF Kelas MOTE: tombol "Unduh PDF" langsung mengunduh, tidak membuka berkas di tab browser
+/aset/kelas/*.pdf
+  Content-Disposition: attachment
