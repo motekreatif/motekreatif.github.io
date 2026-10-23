@@ -2102,3 +2102,12 @@ html.hero-tampak .lencana{opacity:0;pointer-events:none}
 .rg-kual-menu button.on{background:var(--kun);color:var(--ink)}
 @media (hover:hover){.rg-kual-menu button:not(.on):hover{background:rgba(255,255,255,.1)}}
 @media (max-width:760px){.rg-kual .rg-laju{display:inline-block}}
+/* bonus unduhan (ebook, template) di ruang belajar */
+.rg-ekstra{border-top:1px solid var(--rg-garis);padding:12px 12px 14px;display:grid;gap:6px}
+.rg-ekstra>b{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff;padding:2px 4px 6px}
+.rg-ekstra a{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;padding:9px 10px;border-radius:10px;background:rgba(255,255,255,.04);color:#fff;font-size:13px;font-weight:600;line-height:1.35;transition:background .15s}
+.rg-ekstra a svg{width:30px;height:30px;padding:7px;border-radius:50%;background:var(--kun);color:var(--ink)}
+.rg-ekstra i{display:block;font-style:normal;font-weight:400;font-size:12px;color:var(--rg-redup)}
+@media (hover:hover){.rg-ekstra a:hover{background:rgba(255,255,255,.09)}}
+.ks-ft em{left:auto;right:10px;background:#fff;color:var(--ink);box-shadow:0 2px 8px rgba(0,0,0,.15)}/* label Gratis pindah ke panel kanan thumbnail: di kiri-atas dia menutup judul sampul deck */
+.ks-sub2 mark{background:var(--kun);color:var(--ink);font-style:normal;font-weight:600;padding:0 .2em;border-radius:.2em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
