@@ -125,7 +125,7 @@ export function CheckoutForm() {
 
       <div className="flex items-center gap-2 text-xs text-[#5F5F5C]">
         <ShieldCheck className="h-4 w-4 text-[#191919]/60 shrink-0" />
-        Pembayaran aman via iPaymu. Lisensi & panduan dikirim otomatis ke email.
+        Pembayaran aman lewat QRIS, transfer bank, atau e-wallet. Lisensi & panduan dikirim otomatis ke email.
       </div>
     </div>
   );

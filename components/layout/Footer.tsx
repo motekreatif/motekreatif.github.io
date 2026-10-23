@@ -180,7 +180,7 @@ export function Footer() {
           <ShieldCheck className="h-4 w-4 text-chrome-accent shrink-0" />
           <span className="text-white/80">
             Pembayaran produk digital aman via{" "}
-            <strong className="font-bold text-white">iPaymu</strong>
+            <strong className="font-bold text-white">payment gateway resmi</strong>
           </span>
         </Link>
 
