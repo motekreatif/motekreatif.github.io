@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/creativeagency/layanan", priority: 0.6 },
     { path: "/", priority: 1 },
     { path: "/kelasmote/", priority: 0.8 },
+    { path: "/masyarakat/", priority: 0.6 },
     { path: "/kelasmote/skill-tersembunyi", priority: 0.7 },
     { path: "/kelasmote/multimedia-career-path", priority: 0.7 },
     { path: "/kelasmote/iklan-boncos-atau-salah-ukur", priority: 0.7 },

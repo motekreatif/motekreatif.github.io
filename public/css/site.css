@@ -2123,3 +2123,112 @@ html.hero-tampak .lencana{opacity:0;pointer-events:none}
 .ku .sukses{display:flex;gap:12px;align-items:center;background:#E9F9EF;border-radius:14px;padding:14px 16px;margin-bottom:18px}
 .ku .sukses{color:var(--ink)}.ku .sukses p{opacity:.75;margin-top:2px}.ku .sukses .bulat-ok{background:var(--hijau);color:#fff}
 @media (max-width:760px){.rg-tab{flex-wrap:wrap}.rg-tab button,.rg-tab span{white-space:nowrap;font-size:12px;padding:0 12px;height:34px}}
+
+/* ===== Kartu anggota Kelas MOTE (js/akun.js) — turunan ID card tim MOTE: tali, logogram, foto, nomor ===== */
+.km-kartu{--c:var(--kun);--ct:var(--ink);width:min(300px,100%);margin:34px auto 0;rotate:-2.5deg;transition:rotate .5s var(--ease)}
+.km-kartu.kecil{width:190px;margin:26px 0 0;rotate:-2deg}
+@media (hover:hover){.km-kartu:hover{rotate:0deg}}
+.km-in{position:relative;background:var(--c);color:var(--ct);border-radius:calc(var(--r) * 1.1);padding:10px 10px 16px;box-shadow:0 30px 50px -28px rgba(35,34,38,.55)}
+.km-tali{position:absolute;left:50%;top:-34px;width:34px;height:44px;transform:translateX(-50%);border-radius:0 0 8px 8px;background:var(--ink);z-index:2}
+.km-tali:after{content:"";position:absolute;left:50%;bottom:8px;width:16px;height:5px;border-radius:9px;background:var(--putih);transform:translateX(-50%)}
+.km-h{display:flex;align-items:center;gap:7px;padding:10px 6px;font-size:10.5px;font-weight:700;letter-spacing:.14em}
+.km-h .bw{height:13px;display:flex}.km-h .bw svg{height:100%;width:auto}
+.km-h em{margin-left:auto;font-style:normal;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.km-f{position:relative;aspect-ratio:4/4.3;border-radius:calc(var(--r) * .8);background:rgba(255,255,255,.35);overflow:hidden;display:grid;place-items:center}
+.km-f img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.km-ini{font-family:DMD;font-weight:700;font-size:clamp(48px,6vw,72px);letter-spacing:-.04em;opacity:.85}
+.km-f[data-km-foto]{cursor:pointer}
+.km-ubah{position:absolute;left:50%;bottom:10px;translate:-50% 0;white-space:nowrap;background:var(--ink);color:#fff;font-size:12px;font-weight:700;padding:6px 12px;border-radius:99px;transition:transform .15s}
+.km-f[data-km-foto]:active .km-ubah{transform:scale(.96)}
+.km-k{padding:12px 6px 0}.km-k b{display:block;font-family:DMD;font-size:20px;letter-spacing:-.02em;line-height:1.15;word-break:break-word}
+.km-k span{display:block;font-size:13px;margin-top:2px}.km-k i{display:block;font-style:normal;font-size:11px;opacity:.7;margin-top:6px;letter-spacing:.04em}
+.km-kartu.kecil .km-k b{font-size:15px}.km-kartu.kecil .km-ini{font-size:40px}.km-kartu.kecil .km-tali{top:-26px;width:26px;height:34px}
+
+/* halaman Bikin kartu (masuk.html) */
+.masuk{max-width:1100px;margin:0 auto;padding-top:clamp(96px,9vw,120px)}
+.m-dua{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);align-items:start;text-align:left}
+.m-kiri{position:sticky;top:110px;display:grid;justify-items:center;gap:14px}
+.m-pasang{border:0;background:none;font:inherit;font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer;color:var(--ink)}
+.masuk.mode-masuk .m-pasang{visibility:hidden}
+.m-kelas{font-size:14px;background:#FFF7D1;border-radius:12px;padding:10px 14px;margin-bottom:14px}
+.m-tab{display:inline-flex;gap:4px;padding:4px;border-radius:99px;background:#EDEAE4;margin-bottom:18px}
+.m-tab button{border:0;background:none;font:inherit;font-size:14px;font-weight:700;padding:8px 16px;border-radius:99px;cursor:pointer;color:var(--ink);opacity:.6}
+.m-tab button.on{background:#fff;opacity:1;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.masuk .form-b h1{margin:0 0 6px}.m-sub{font-size:15px;opacity:.75;margin:0 0 18px;max-width:34em}
+.masuk .form-b label{display:grid;gap:6px;font-size:13px;font-weight:700;margin-bottom:12px}
+.masuk .form-b input{font:inherit;font-weight:400;font-size:16px;padding:12px 14px;border:2px solid #E3E0DA;border-radius:12px;background:#fff}
+.masuk .form-b input:focus{outline:none;border-color:var(--ink)}
+.masuk .form-b .btn{margin-top:6px}.btn.sibuk{opacity:.6;pointer-events:none}
+.m-galat,.co-galat{color:#B3261E;font-size:14px;font-weight:600;margin:4px 0 8px}
+.m-kecil{font-size:12.5px;opacity:.65;margin-top:12px}.m-kecil a{text-decoration:underline}
+.masuk.jadi .m-dua{display:none}
+.m-jadi{text-align:center;display:grid;justify-items:center;gap:14px;padding:10px 0 30px}
+.m-jadi .km-kartu{animation:km-muncul .9s cubic-bezier(0.23,1,0.32,1) both}
+.m-jadi h1 span{background:var(--kun);padding:0 .15em;border-radius:.15em}
+@keyframes km-muncul{from{opacity:0;transform:translateY(40px) scale(.94) rotate(-8deg)}to{opacity:1;transform:none}}
+@media (max-width:760px){.m-dua{grid-template-columns:1fr}.m-kiri{position:static}.masuk .km-kartu{width:240px}}
+@media (prefers-reduced-motion:reduce){.m-jadi .km-kartu{animation:none}}
+
+/* checkout & Kelasku dengan kartu */
+.co-akun{display:grid;justify-items:start;gap:4px}.co-akun>small{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+.co-nama{font-size:14px;margin-top:10px}.co-nama a{text-decoration:underline;opacity:.7}
+.ku-atas{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,56px);align-items:center;margin-bottom:clamp(24px,3vw,40px)}
+.ku-kartu-w .km-kartu{width:230px;margin-top:30px}
+.ku-keluar{border:0;background:none;font:inherit;font-size:13px;text-decoration:underline;opacity:.65;cursor:pointer;padding:0;margin-top:10px}
+@media (max-width:760px){.ku-atas{grid-template-columns:1fr;justify-items:center;text-align:center}}
+/* halaman keanggotaan & pilihan profil */
+.form-b select{font:inherit;font-weight:400;font-size:16px;padding:12px 14px;border:2px solid #E3E0DA;border-radius:12px;background:#fff;color:var(--ink);width:100%}
+.form-b select:focus{outline:none;border-color:var(--ink)}
+.m-dua-kol{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.m-dua-kol label{display:grid;gap:6px;font-size:13px;font-weight:700;margin-bottom:12px}
+@media (max-width:520px){.m-dua-kol{grid-template-columns:1fr}}
+.ku-atas{align-items:start}
+.ku-profil{text-align:left;max-width:640px}
+.ku-dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:2px 20px;margin:18px 0 18px;padding:0}
+.ku-dl div{padding:10px 0;border-bottom:1px solid #E8E8E5}.ku-dl dt{font-size:12px;opacity:.6}.ku-dl dd{margin:2px 0 0;font-weight:600;word-break:break-word}
+.ku-tombol{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.ku-tombol .ku-keluar{margin-top:0}
+.ku-form{margin-top:16px}.ku-form label{display:grid;gap:6px;font-size:13px;font-weight:700;margin-bottom:12px}
+.ku-form input{font:inherit;font-weight:400;font-size:16px;padding:12px 14px;border:2px solid #E3E0DA;border-radius:12px;background:#fff}
+.ku-bag{margin-top:clamp(36px,4vw,56px);text-align:left}.ku-bag h2{margin:0 0 14px}
+.ku-kosong{padding:28px 0;justify-items:start;text-align:left}
+.ku-eko-sub{opacity:.7;margin:-6px 0 14px}
+.ku-eko-g{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ku-eko-g a{position:relative;display:grid;gap:4px;background:#fff;border:2px solid var(--ink);border-radius:var(--r);padding:16px 44px 16px 16px;transition:transform .2s var(--ease)}
+.ku-eko-g b{font-family:DMD;font-size:18px}.ku-eko-g span{font-size:14px;opacity:.75}.ku-eko-g i{position:absolute;right:16px;top:16px;font-style:normal;font-weight:700}
+@media (hover:hover){.ku-eko-g a:hover{transform:translateY(-3px)}}
+@media (max-width:760px){.ku-eko-g{grid-template-columns:1fr}.ku-profil{text-align:center;margin:0 auto}.ku-tombol{justify-content:center}.ku-dl{text-align:left}}
+.form-b select{-webkit-appearance:none;appearance:none;padding-right:38px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23232226' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center}
+.form-b select:invalid{color:#9A968E}
+.km-h .km-kom{font-size:9.5px;line-height:1.15;letter-spacing:.12em}
+.km-kartu.kecil .km-h .km-kom{font-size:8px}
+.m-kom{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin:0 0 6px}
+.m-jadi-sub{max-width:34em;opacity:.75;margin:-4px 0 0}
+@media (max-width:760px){.masuk .m-kiri .km-kartu{width:200px}.masuk .km-ini{font-size:44px}}
+.m-poin{list-style:none;padding:0;margin:4px 0 20px;display:grid;gap:8px}
+.m-poin li{position:relative;padding-left:28px;font-size:15px;font-weight:600}
+.m-poin li:before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border-radius:50%;background:var(--kun) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23232226' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.masuk .m-sub+.m-sub{margin-top:-8px}
+.m-lead{font-size:clamp(18px,1.6vw,22px);font-weight:600;margin:-2px 0 14px;max-width:30em}
+.m-grup{font-size:13px;font-weight:700;margin:6px 0 8px;opacity:.6;text-transform:uppercase;letter-spacing:.08em}
+.logo .wm-km{display:flex;height:15px}.logo .wm-km svg{height:100%;width:auto;display:block}/* logo Kelas MOTE mendatar: tinggi huruf MOTE sama dengan wordmark MOTE di brand lain */
+/* ---------- tombol Masyarakat MOTE (header, sebelah Chat admin) ---------- */
+.nav-kanan{display:flex;align-items:center;gap:8px}
+.km-tombol{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px 0 5px;border-radius:99px;background:#fff;color:var(--ink);font-size:14px;font-weight:700;transition:transform .3s var(--ease)}
+.km-tombol:hover{transform:rotate(-2deg)}
+.km-av{width:34px;height:34px;border-radius:50%;background:var(--kun);display:grid;place-items:center;overflow:hidden;flex:none}
+.km-av svg{width:18px;height:18px}
+.km-av img{width:100%;height:100%;object-fit:cover}
+.km-av b{font-family:DMD;font-size:13px;letter-spacing:-.02em}
+.km-tl{max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:1280px){.km-tombol{padding:0 5px}.km-tl{display:none}}
+/* Kelasku untuk tamu & halaman anggota */
+.ku-tamu{display:grid;justify-items:start;gap:14px}
+.ku-tamu-sub{max-width:520px;opacity:.75;line-height:1.55}
+.ag-ringkas{margin:10px 0 18px;line-height:1.55;opacity:.8}
+.kontak{white-space:nowrap}
+.ku-tamu .ku-tamu-sub{text-align:left;padding:0;margin:0}
+@media (max-width:1280px){.logo .tg-mt{display:none}}
+.logo .wm-mk{height:14.4px;display:flex}.logo .wm-mk svg{height:100%;width:auto;display:block}/* MOTE KREATIF: tinggi huruf sama dengan wordmark MOTE (15px wordmark = 14,4px tinta) */
+.logo .wm-mt{height:14.4px;display:flex}.logo .wm-mt svg{height:100%;width:auto;display:block}/* MTGOODS: tinggi huruf sama dengan MOTE */
+.pintu .lgm{display:flex;filter:none;color:#fff}.pintu .lgm svg{height:100%;width:auto}
