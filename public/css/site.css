@@ -2333,3 +2333,307 @@ html{scroll-padding-top:90px}
 .dampak-kanan p{font-size:clamp(16px,1.25vw,19px);line-height:1.7;opacity:.88;max-width:32em}
 .dampak-kanan p+p{margin-top:16px}
 @media (max-width:860px){.dampak-g{grid-template-columns:1fr;align-items:start}}
+/* 25 Okt: tangan hero disembunyikan sampai posisinya dihitung (tadinya nongol sekilas saat reload) */
+.ht .tg{opacity:0;transition:opacity .25s ease}
+.ht.tg-siap .tg{opacity:1}
+/* tombol garis yang punya bulatan ikon: teks kembali seimbang dan terlihat bisa diklik */
+.btn.garis .ar{background:var(--ink);color:#fff}
+.ku-tombol .btn{box-shadow:0 3px 0 var(--ink)}
+.ku-tombol .btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
+/* bagikan kartu ke IG Story */
+.km-bagi{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+.km-bagi-l{width:100%;text-align:center;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.km-bagi .btn{box-shadow:0 3px 0 var(--ink);touch-action:manipulation;-webkit-user-select:none;user-select:none}
+.km-bagi .btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
+.km-ig{--bt:var(--ungu);--btt:#fff}
+.km-ig .ar{background:#fff;color:var(--ungu)}
+.km-bagi .btn:disabled{opacity:.6;cursor:progress}
+.km-bagi-ket{width:100%;max-width:26em;margin:4px auto 0;text-align:center;font-size:14px;line-height:1.5;opacity:.8}
+.m-jadi .km-bagi{margin:26px 0 24px}
+@media (max-width:520px){.km-bagi .btn{width:100%;justify-content:space-between}}
+/* logo Masyarakat MOTE: simpul jahit + "Masyarakat" + wordmark MOTE; tinggi huruf "Masyarakat" = tinggi wordmark MOTE */
+.lg-jahit{display:flex;align-items:center;gap:7px}
+.lg-jahit .jahit{display:block;width:36px;height:19px;background:currentColor;-webkit-mask:url(../aset/img/simpul-jahit.png) center/contain no-repeat;mask:url(../aset/img/simpul-jahit.png) center/contain no-repeat;margin-right:3px}
+.lg-jahit b{font-family:DMD;font-weight:600;font-size:20.5px;line-height:1;letter-spacing:-.025em}
+.lg-jahit .wm{height:14.4px;display:flex}.lg-jahit .wm svg{height:100%;width:auto}
+.lg-jahit b{font-size:19.6px}
+.lg-jahit .jahit{width:38px;height:20px}
+@media (max-width:600px){.lg-jahit .wm{height:12px}.lg-jahit b{font-size:16.3px}.lg-jahit .jahit{width:31px;height:17px}.lg-jahit{gap:6px}}
+.lg-jahit>*{flex:none}
+/* HP, halaman Masyarakat MOTE: logo lebih panjang, jadi tombol chat admin tampil sebagai ikon bulat */
+@media (max-width:600px){
+  .lg-jahit .wm{height:11px}.lg-jahit b{font-size:15px}.lg-jahit .jahit{width:28px;height:15px;margin-right:1px}.lg-jahit{gap:5px}
+  .nav-in:has(.lg-jahit) .kontak{font-size:0;gap:0;width:44px;padding:0;justify-content:center}
+  .nav-in:has(.lg-jahit) .kontak:before{width:20px;height:20px;border-radius:0;background:var(--kun);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 5h16v11H9l-5 4z' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 5h16v11H9l-5 4z' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+}
+/* ---------- 25 Okt: aturan RAG (lihat memory feedback-tipografi-rag-measure) ----------
+   judul & teks pendek: baris diseimbangkan; paragraf: tidak boleh ada kata yatim di baris akhir */
+h1,h2,h3,h4,.d,.lead,figcaption,summary,dt,blockquote,small,.ket b,.ket i,.untuk,.pil-tag,.m-sub,.p{text-wrap:balance}
+p,li,dd{text-wrap:pretty}
+/* marquee = running text: satu baris, tidak ikut aturan rag */
+.mq,.mq *{text-wrap:nowrap;white-space:nowrap}
+/* "otak kanan dan otak kiri": warna sorot ikut kartu Creative (oranye) & Performance (ungu) */
+.d mark.mk-kanan{background:var(--oranye);color:#fff}
+.d mark.mk-kiri{background:var(--ungu);color:#fff}
+/* pemindah brand di header terlihat bisa diklik: garis tepi, bayangan bawah ala tombol, caret kuning */
+/* tombol putih di header, halaman berlatar putih (Lobby, Tentang, Masyarakat MOTE, Kelas MOTE, MTGOODS):
+   tetap datar seperti stiker MOTE, cuma diberi bayangan tipis yang tegas di bawahnya supaya terbaca sebagai tombol.
+   Latar berwarna (MOTE Kreatif kuning) tidak perlu: tombol putih sudah kontras. (keputusan Ryan 25 Okt 2026) */
+.b-lobi .nav-in .logo,.b-lobi .nav-in .menu,.b-lobi .nav-in .km-tombol,
+.b-kelas .nav-in .logo,.b-kelas .nav-in .menu,.b-kelas .nav-in .km-tombol,
+.b-mtgoods .nav-in .logo,.b-mtgoods .nav-in .menu,.b-mtgoods .nav-in .km-tombol{box-shadow:0 0 0 1px rgba(35,34,38,.06),0 3px 0 rgba(35,34,38,.13)}
+/* sorotan kursor di menu: kuning MOTE, teks tetap tinta (keputusan Ryan 25 Okt 2026) */
+@media (hover:hover) and (pointer:fine){.menu a:hover{background:var(--kun);color:var(--ink)}.menu a.ke-mp:hover{background:var(--kun)}}
+/* sorotan kursor semua tombol header & daftar pemindah brand: warna dari --hv (lihat js/site.js) */
+@media (hover:hover) and (pointer:fine){
+  .hv{transition:background .2s ease,color .2s ease,transform .3s var(--ease)}
+  .nav-in .hv:hover,.merek-menu a.hv:hover{background:var(--hv)!important;color:var(--hvt)!important}
+  .hv:hover .km-tl,.hv:hover b,.hv:hover span:not(.car){color:inherit}
+  .km-tombol.hv:hover .km-av{background:#fff}
+  .merek-menu a.hv:hover span{opacity:.8}
+  .kontak.hv:hover:before{background:var(--hvt)}
+}
+/* tombol chat ke WhatsApp: titik kuning diganti logo WhatsApp hijau (semiotika: tujuannya WhatsApp) */
+.kontak[href*="wa.me"]:before,.kontak[href*="whatsapp"]:before{width:18px;height:18px;border-radius:0;background:#25D366;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M17.47%2014.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94%201.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2%200-.52.07-.79.37-.27.3-1.04%201.02-1.04%202.48%200%201.46%201.07%202.88%201.21%203.07.15.2%202.1%203.2%205.08%204.49.71.31%201.26.49%201.69.63.71.22%201.36.19%201.87.12.57-.09%201.76-.72%202.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05%2021.5h-.01a9.43%209.43%200%200%201-4.8-1.32l-.35-.2-3.57.94.95-3.48-.22-.36a9.4%209.4%200%200%201-1.44-5.02c0-5.2%204.24-9.43%209.45-9.43a9.38%209.38%200%200%201%209.43%209.44c0%205.2-4.24%209.43-9.44%209.43zm8.03-17.46A11.27%2011.27%200%200%200%2012.05.72C5.8.72.7%205.8.7%2012.06c0%202%20.52%203.95%201.52%205.67L.6%2023.28l5.68-1.49a11.34%2011.34%200%200%200%205.77%201.47h.01c6.25%200%2011.34-5.09%2011.34-11.34%200-3.03-1.18-5.88-3.32-8.02z%27/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M17.47%2014.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94%201.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2%200-.52.07-.79.37-.27.3-1.04%201.02-1.04%202.48%200%201.46%201.07%202.88%201.21%203.07.15.2%202.1%203.2%205.08%204.49.71.31%201.26.49%201.69.63.71.22%201.36.19%201.87.12.57-.09%201.76-.72%202.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05%2021.5h-.01a9.43%209.43%200%200%201-4.8-1.32l-.35-.2-3.57.94.95-3.48-.22-.36a9.4%209.4%200%200%201-1.44-5.02c0-5.2%204.24-9.43%209.45-9.43a9.38%209.38%200%200%201%209.43%209.44c0%205.2-4.24%209.43-9.44%209.43zm8.03-17.46A11.27%2011.27%200%200%200%2012.05.72C5.8.72.7%205.8.7%2012.06c0%202%20.52%203.95%201.52%205.67L.6%2023.28l5.68-1.49a11.34%2011.34%200%200%200%205.77%201.47h.01c6.25%200%2011.34-5.09%2011.34-11.34%200-3.03-1.18-5.88-3.32-8.02z%27/%3E%3C/svg%3E") center/contain no-repeat}
+@media (max-width:600px){.nav-in:has(.lg-jahit) .kontak[href*="wa.me"]:before{width:21px;height:21px;background:#25D366;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M17.47%2014.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94%201.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2%200-.52.07-.79.37-.27.3-1.04%201.02-1.04%202.48%200%201.46%201.07%202.88%201.21%203.07.15.2%202.1%203.2%205.08%204.49.71.31%201.26.49%201.69.63.71.22%201.36.19%201.87.12.57-.09%201.76-.72%202.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05%2021.5h-.01a9.43%209.43%200%200%201-4.8-1.32l-.35-.2-3.57.94.95-3.48-.22-.36a9.4%209.4%200%200%201-1.44-5.02c0-5.2%204.24-9.43%209.45-9.43a9.38%209.38%200%200%201%209.43%209.44c0%205.2-4.24%209.43-9.44%209.43zm8.03-17.46A11.27%2011.27%200%200%200%2012.05.72C5.8.72.7%205.8.7%2012.06c0%202%20.52%203.95%201.52%205.67L.6%2023.28l5.68-1.49a11.34%2011.34%200%200%200%205.77%201.47h.01c6.25%200%2011.34-5.09%2011.34-11.34%200-3.03-1.18-5.88-3.32-8.02z%27/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M17.47%2014.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94%201.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2%200-.52.07-.79.37-.27.3-1.04%201.02-1.04%202.48%200%201.46%201.07%202.88%201.21%203.07.15.2%202.1%203.2%205.08%204.49.71.31%201.26.49%201.69.63.71.22%201.36.19%201.87.12.57-.09%201.76-.72%202.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05%2021.5h-.01a9.43%209.43%200%200%201-4.8-1.32l-.35-.2-3.57.94.95-3.48-.22-.36a9.4%209.4%200%200%201-1.44-5.02c0-5.2%204.24-9.43%209.45-9.43a9.38%209.38%200%200%201%209.43%209.44c0%205.2-4.24%209.43-9.44%209.43zm8.03-17.46A11.27%2011.27%200%200%200%2012.05.72C5.8.72.7%205.8.7%2012.06c0%202%20.52%203.95%201.52%205.67L.6%2023.28l5.68-1.49a11.34%2011.34%200%200%200%205.77%201.47h.01c6.25%200%2011.34-5.09%2011.34-11.34%200-3.03-1.18-5.88-3.32-8.02z%27/%3E%3C/svg%3E") center/contain no-repeat}}
+/* daftar Pindah ke: saat disorot, titik warna tetap ada, warnanya ikut warna teks supaya tidak hilang di latar sewarna */
+@media (hover:hover) and (pointer:fine){.merek-menu a.hv:hover i{background:var(--hvt)}}
+/* logogram per brand di header (lihat logogram.py): ukuran disamakan dengan simpul MOTE biasa */
+.logo .bw-sk{height:19px;display:flex}.logo .bw-sk svg{height:100%;width:auto}
+.logo .bw-ed{height:23px;display:flex;margin:-3px 0}.logo .bw-ed svg{height:100%;width:auto}
+.b-kelas .logo{gap:8px}
+/* profil singkat PT MOTE di bawah logogram Lobby */
+.sambut-profil{margin-top:14px;font-size:12.5px;line-height:1.55;opacity:.72;max-width:30em}
+.sambut-profil b{font-weight:700;opacity:1}
+.logo .bw-hg{height:27px;display:flex;margin:-4px 0}.logo .bw-hg svg{height:100%;width:auto}
+.logo .bw-hg{height:31px;margin:-6px 0 -6px -2px}
+.logo .bw-sk{height:24px;margin:-3px -2px -3px -4px}.logo .bw-sk img{height:100%;width:auto;display:block}
+/* header: simpul setinggi 17px di semua brand */
+.logo .bw-ed{height:21px;margin:-2px 0}
+.logo .bw-sk{height:22.6px;margin:-3px 0 -3px -3px}
+.logo .bw-hg{height:24px;margin:-4px 0 -4px -1px}
+/* ---------- 25 Okt: hero MOTE Kreatif — "Creative" sedang di-free transform (Illustrator), "Performance" diiringi data statistik.
+   Muncul setelah simpul selesai mengikat (±3 dtk), lalu diam di tempat dengan gerak kecil yang terus berjalan. ---------- */
+.ht-ft,.ht-st{position:relative;display:inline-block}
+.ht-ft .ft{position:absolute;inset:-.14em -.2em -.08em -.2em;border:1.5px solid #1F8BFF;pointer-events:none;
+  opacity:0;clip-path:inset(0 100% 100% 0)}
+.ht.satu .ht-ft .ft{animation:ft-masuk .7s cubic-bezier(.23,1,.32,1) .05s forwards,ft-gerak 5s ease-in-out .9s infinite}
+.ht-ft .ft b{position:absolute;width:8px;height:8px;background:#fff;border:1.5px solid #1F8BFF;transform:translate(-50%,-50%)}
+.ht-ft .ft .h0{left:0;top:0}.ht-ft .ft .h1{left:50%;top:0}.ht-ft .ft .h2{left:100%;top:0}.ht-ft .ft .h3{left:100%;top:50%}
+.ht-ft .ft .h4{left:100%;top:100%}.ht-ft .ft .h5{left:50%;top:100%}.ht-ft .ft .h6{left:0;top:100%}.ht-ft .ft .h7{left:0;top:50%}
+.ht.satu .ht-ft .ft .h4{animation:ft-pegang 5s ease-in-out .9s infinite}
+@keyframes ft-masuk{to{opacity:1;clip-path:inset(-20px -20px -20px -20px)}}
+@keyframes ft-gerak{0%,100%{transform:none}50%{transform:scale(1.012,1.03) rotate(-.4deg)}}
+@keyframes ft-pegang{0%,100%{background:#fff}50%{background:#1F8BFF}}
+/* "Performance": tooltip data ala dashboard di pojok kanan atas kata (pilihan Ryan 25 Okt 2026, opsi B) */
+.ht-st .st{position:absolute;left:100%;bottom:86%;pointer-events:none;font-style:normal}
+.ht-st .st-titik{position:absolute;left:-.1em;bottom:-.1em;width:.16em;height:.16em;min-width:7px;min-height:7px;border-radius:50%;background:var(--ink);opacity:0}
+.ht-st .st-pil{position:absolute;left:.18em;bottom:.18em;display:flex;align-items:center;gap:7px;background:var(--ink);color:#fff;border-radius:99px;padding:7px 12px 7px 10px;
+  font-family:DMD;font-weight:700;font-size:13px;letter-spacing:0;white-space:nowrap;transform-origin:0 100%;opacity:0;transform:scale(.85)}
+.ht-st .st-pil svg{width:40px;height:14px;overflow:visible;display:block}
+.ht-st .st-pil path{fill:none;stroke:var(--kun);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.ht-st .st-pil circle{fill:var(--kun);opacity:0}
+.ht-st .st-pil b{font-weight:700}
+@media (max-width:760px){.ht-ft .ft b{width:6px;height:6px}.ht-st .st-bar{gap:2px}.ht-st .st{height:.32em}}
+@media (prefers-reduced-motion:reduce){.ht-ft .ft{animation:none;opacity:1;clip-path:none}.ht-ft .ft b{animation:none}
+  .ht-st .st-bar b{animation:none;transform:none}.ht-st .st-garis path{animation:none;stroke-dashoffset:0}.ht-st .st-garis circle{animation:none;opacity:1}}
+.ht.satu .ht-st .st-titik{animation:st-muncul .25s ease .05s forwards,st-denyut 1.8s ease-in-out 1.2s infinite}
+.ht.satu .ht-st .st-pil{animation:st-pop .5s cubic-bezier(.23,1,.32,1) .15s forwards,st-apung 4s ease-in-out 1s infinite}
+.ht.satu .ht-st .st-pil path{animation:st-garis .8s cubic-bezier(.23,1,.32,1) .45s forwards}
+.ht.satu .ht-st .st-pil circle{animation:st-muncul .2s ease 1.2s forwards,st-denyut 1.8s ease-in-out 1.5s infinite}
+@keyframes st-pop{to{opacity:1;transform:scale(1)}}
+@keyframes st-apung{0%,100%{translate:0 0}50%{translate:0 -3px}}
+@keyframes st-muncul{to{opacity:1}}
+@media (max-width:760px){.ht-st .st-pil{font-size:10px;padding:4px 8px 4px 7px;gap:5px}.ht-st .st-pil svg{width:28px;height:10px}}
+@media (prefers-reduced-motion:reduce){.ht-st .st-titik,.ht-st .st-pil,.ht-st .st-pil circle{animation:none!important;opacity:1;transform:none}.ht-st .st-pil path{animation:none!important;stroke-dashoffset:0}
+  .ht-ft .ft{animation:none!important;opacity:1;clip-path:none}}
+@keyframes st-garis{to{stroke-dashoffset:0}}
+@keyframes st-denyut{50%{opacity:.35}}
+.ht-st .st,.ht-st .st *{font-style:normal}
+.ht-st .st-pil b{display:inline;position:static;width:auto;height:auto;background:none;border:0;transform:none;line-height:1}
+.ht-st .st-pil{width:max-content}
+@media (max-width:760px){.ht-st .st{left:auto;right:0;bottom:100%;margin-bottom:6px}.ht-st .st-titik{left:auto;right:0;bottom:-6px}.ht-st .st-pil{left:auto;right:0;bottom:0;transform-origin:100% 100%}}
+/* tooltip Performance tanpa kata: cuma garis tren, duduk di atas ujung kanan kata dengan ekor penunjuk ke bawah */
+.ht-st .st{left:auto;right:0;bottom:100%;margin-bottom:.16em}
+.ht-st .st-titik{display:none}
+.ht-st .st-pil{left:auto;right:0;bottom:0;padding:8px 12px;transform-origin:85% 100%}
+.ht-st .st-pil svg{width:56px;height:16px}
+.ht-st .st-pil::after{content:"";position:absolute;right:16px;top:100%;border:6px solid transparent;border-top-color:var(--ink);border-bottom:0}
+@media (max-width:760px){.ht-st .st{margin-bottom:8px}.ht-st .st-pil{padding:5px 9px}.ht-st .st-pil svg{width:40px;height:12px}.ht-st .st-pil::after{right:12px;border-width:5px}}
+/* kartu tim: fakta unik turun ke dada/badan supaya tidak menutup wajah; sudut foto dipotong rapi (Safari kadang
+   gagal memotong sudut membulat pada elemen yang dimiringkan, jadi pakai clip-path) */
+.idc-pop{top:60%}
+.idc-f{clip-path:inset(0 round calc(var(--r) * .8))}
+/* HP: kartu tim sempit, jadi fakta unik pindah ke BAWAH kartu (di bawah nama), tidak menimpa wajah maupun nama */
+@media (max-width:760px){
+  .idc-pop{top:auto;bottom:-6px;translate:-50% 100%;width:min(260px,112%)}
+  .idc-pop:after{top:-8px}
+  .idc-pop p{font-size:14px}
+  .idc{margin-bottom:0}
+}
+.idc-stw{position:absolute;z-index:7;pointer-events:none}
+.idc-stw .st{position:absolute;right:6%;bottom:6%;width:34%;transform:rotate(10deg) scale(0);transform-origin:50% 100%;transition:transform .5s cubic-bezier(.3,1.6,.5,1)}
+.logo .bw-sk{height:20px;margin:-2px 0 -2px -1px}
+.logo .bw-sk{height:22px;margin:-3px 0 -3px -4px}/* simpul kuas tinta cina (_qa/tinta.py) */
+/* profil PT di pojok kiri bawah Lobby, di atas meja */
+.sambut-profil{position:absolute;left:var(--gut);bottom:clamp(18px,2.4vw,34px);margin:0;z-index:4;pointer-events:none}
+.sambut-profil{z-index:5;background:rgba(255,255,255,.92);padding:12px 16px;border-radius:14px;box-shadow:0 6px 18px -10px rgba(35,34,38,.35);opacity:1;color:rgba(35,34,38,.75)}.sambut-profil b{color:var(--ink)}
+@media (max-width:600px){.sambut-profil{font-size:11px;padding:10px 12px;right:var(--gut)}}
+/* profil PT di belakang barang-barang meja: barang yang jatuh boleh menutupinya (keputusan Ryan 25 Okt) */
+.sambut-profil{z-index:1;background:none;padding:0;box-shadow:none}
+.sambut-profil .sp-logo{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin:5px 0 6px;color:var(--ink)}
+.sambut-profil .sp-logo i{display:flex;height:11px}.sambut-profil .sp-logo svg{height:100%;width:auto;display:block}
+.sambut-profil .sp-logo{color:inherit;gap:6px 10px}.sambut-profil .sp-logo i{color:var(--ink)}
+@media (max-width:600px){.sambut-profil .sp-logo{gap:5px 7px;flex-wrap:nowrap}.sambut-profil .sp-logo i{height:8.5px}}
+/* ---------- 25 Okt: Lobby — pil di KANAN berisi logogram tiap brand; disorot = berubah jadi nama brand ----------
+   Gerak: cuma LEBAR tombol yang dianimasikan (lebar logogram -> lebar nama, diukur js/site.js), logogram & nama
+   bertukar lewat fade di tengah tombol. Pil rata kanan, jadi tepi kanannya diam dan pil memanjang ke kiri.
+   Ukuran: SIMPUL di semua versi setinggi --s; tinggi kotak tiap versi = --s x (kotak / simpul) dari logogram.py */
+.logo-diam{cursor:default}
+.menu-lg{position:static;transform:none;margin-left:auto;margin-right:10px;--s:22px}
+.menu-lg a{position:relative;display:block;height:40px;width:var(--wi,62px);padding:0;overflow:hidden;transition:width .38s cubic-bezier(.23,1,.32,1),background .2s ease,color .2s ease}
+.menu-lg .ik,.menu-lg .tx{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);transition:opacity .22s ease,transform .38s cubic-bezier(.23,1,.32,1)}
+.menu-lg .ik{display:flex;align-items:center}
+.menu-lg .ik svg,.menu-lg .ik img{height:100%;width:auto;display:block}
+.menu-lg .ik-bw{height:var(--s)}.menu-lg .ik-ed{height:calc(var(--s) * 1.235)}.menu-lg .ik-sk{height:calc(var(--s) * 1.29)}.menu-lg .ik-hg{height:calc(var(--s) * 1.41);margin-left:4px}
+.menu-lg .tx{white-space:nowrap;opacity:0;transform:translate(-50%,-50%) scale(.92)}
+@media (hover:hover) and (pointer:fine){
+  .menu-lg a:hover,.menu-lg a:focus-visible{width:var(--wt,140px)}
+  .menu-lg a:hover .ik,.menu-lg a:focus-visible .ik{opacity:0;transform:translate(-50%,-50%) scale(.8)}
+  .menu-lg a:hover .tx,.menu-lg a:focus-visible .tx{opacity:1;transform:translate(-50%,-50%)}
+}
+@media (max-width:760px){.menu-lg{display:flex!important;margin-right:0;--s:17px}.menu-lg a{width:var(--wi,50px)}}
+@media (prefers-reduced-motion:reduce){.menu-lg a,.menu-lg .ik,.menu-lg .tx{transition:none}}
+
+/* ---------- logogram hidup v2 (25 Okt 2026): tiap logogram TERBENTUK sesuai karakternya, diam bergerak, lalu terurai,
+   siklus 6 dtk (jeda kosong ±0,25 dtk). Bentuk dibuka lewat mask garis tengah simpul (logogram.py: TENGAH),
+   urutannya = urutan tangan: lingkar kiri -> lingkar kanan -> batang miring -> batang tegak.
+   simpul MOTE   : tali ditarik membentuk simpul -> mengencang bernapas -> tali ditarik lepas (urutan terbalik)
+   MOTE Kreatif  : kotak seleksi tergambar -> titik jangkar muncul satu-satu -> path ditarik -> bidang terisi -> seleksi lepas
+   Kelas MOTE    : dilukis kuas mengikuti arah sapuan -> tinta "bernapas" -> dihapus
+   MTGOODS       : simpul diikat -> tali label tergambar -> label datang terbawa angin, terus berkibar -> terbang pergi
+   Masyarakat    : dijahit kolom demi kolom ---------- */
+.lgh{--d:.15s;overflow:visible}
+.lgh .tg{stroke-dasharray:1;stroke-dashoffset:1;animation:6s linear var(--d) infinite both}
+.lgh .napas{transform-box:fill-box;transform-origin:50% 50%}
+@keyframes ik-1{0%{stroke-dashoffset:1}10%,91%{stroke-dashoffset:0}96%,100%{stroke-dashoffset:1}}
+@keyframes ik-2{0%,6%{stroke-dashoffset:1}16%,89%{stroke-dashoffset:0}94%,100%{stroke-dashoffset:1}}
+@keyframes ik-3{0%,14%{stroke-dashoffset:1}22%,87%{stroke-dashoffset:0}91%,100%{stroke-dashoffset:1}}
+@keyframes ik-4{0%,20%{stroke-dashoffset:1}25%,86%{stroke-dashoffset:0}88%,100%{stroke-dashoffset:1}}
+.lg-harga .tg1{animation-name:ik-1}.lg-harga .tg2{animation-name:ik-2}.lg-harga .tg3{animation-name:ik-3}.lg-harga .tg4{animation-name:ik-4}
+@keyframes ik-napas{0%,100%{transform:none}50%{transform:scale(.965,1.035)}}
+.lg-harga .napas{animation:ik-napas 2.4s ease-in-out var(--d) infinite}
+/* simpul pita (Lobby, PT MOTE): ikatan tengah -> dua sayap ditarik keluar bersamaan -> ekor -> disentak kencang; keluar = ditarik balik ke simpul.
+   Yang dianimasikan cuma garis mask & elemen svg-nya sendiri (transform pada grup di dalam SVG tidak andal di Safari). */
+@keyframes pk-tengah{0%{stroke-dashoffset:1}6%,88%{stroke-dashoffset:0}93%,100%{stroke-dashoffset:1}}
+@keyframes pk-sayap{0%,4%{stroke-dashoffset:1}17%,86%{stroke-dashoffset:0}92%,100%{stroke-dashoffset:1}}
+@keyframes pk-ekor{0%,15%{stroke-dashoffset:1}22%,84%{stroke-dashoffset:0}90%,100%{stroke-dashoffset:1}}
+.lg-ikat .tg1,.lg-ikat .tg2{animation-name:pk-tengah;animation-timing-function:ease-out}
+.lg-ikat .tg3,.lg-ikat .tg4{animation-name:pk-sayap;animation-timing-function:cubic-bezier(.4,0,.2,1)}
+.lg-ikat .tg5,.lg-ikat .tg6{animation-name:pk-ekor;animation-timing-function:cubic-bezier(.23,1,.32,1)}
+.lg-ikat{animation:pk-sentak 6s ease var(--d) infinite both}
+@keyframes pk-sentak{0%,22%{transform:none}26%{transform:scale(1.14,.86)}30%{transform:scale(.95,1.06)}34%,40%{transform:none}52%{transform:scale(1.03,.97)}64%{transform:none}76%{transform:scale(1.03,.97)}84%,100%{transform:none}}
+
+/* kuas tinta: tiap sapuan berjalan dengan percepatan kuas (pelan di tekanan, cepat di tengah, pelan di ujung) */
+@keyframes tn-1{0%{stroke-dashoffset:1}15%,90%{stroke-dashoffset:0}95%,100%{stroke-dashoffset:1}}
+@keyframes tn-2{0%,13%{stroke-dashoffset:1}28%,90%{stroke-dashoffset:0}95%,100%{stroke-dashoffset:1}}
+@keyframes tn-3{0%,28%{stroke-dashoffset:1}36%,90%{stroke-dashoffset:0}95%,100%{stroke-dashoffset:1}}
+@keyframes tn-4{0%,36%{stroke-dashoffset:1}41%,90%{stroke-dashoffset:0}95%,100%{stroke-dashoffset:1}}
+.lg-tinta .tg{animation-timing-function:cubic-bezier(.65,0,.35,1)}
+.lg-tinta .tg1{animation-name:tn-1}.lg-tinta .tg2{animation-name:tn-2}.lg-tinta .tg3{animation-name:tn-3}.lg-tinta .tg4{animation-name:tn-4}
+@keyframes tn-napas{0%,100%{transform:none}35%{transform:rotate(-1.2deg) scale(1.015)}70%{transform:rotate(.8deg) scale(.995)}}
+.lg-tinta .napas{animation:tn-napas 3.2s ease-in-out var(--d) infinite}
+
+/* MOTE Kreatif: proses mengedit di Illustrator */
+.lg-edit .sl{stroke-dasharray:1;stroke-dashoffset:1;animation:ed-sl 6s ease var(--d) infinite both}
+.lg-edit .hd,.lg-edit .jk{transform-box:fill-box;transform-origin:50% 50%}
+.lg-edit .hd{animation:ed-hd 6s ease var(--d) infinite both}
+.lg-edit .jk{animation:ed-jk 6s cubic-bezier(.3,1.6,.5,1) calc(var(--d) + var(--i) * .9s) infinite both}
+.lg-edit .tk{animation:ed-tk 6s ease var(--d) infinite both}
+.lg-edit .ol{stroke-dasharray:1;stroke-dashoffset:1;animation:ed-ol 6s ease-in-out var(--d) infinite both}
+.lg-edit .isi{animation:ed-isi 6s ease var(--d) infinite both}
+.lg-edit .geser{transform-box:fill-box;transform-origin:0 0;animation:ed-geser 2.8s ease-in-out var(--d) infinite}
+@keyframes ed-sl{0%{stroke-dashoffset:1;opacity:1}8%,80%{stroke-dashoffset:0;opacity:1}86%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes ed-hd{0%,6%{transform:scale(0)}9%{transform:scale(1.4)}11%,80%{transform:none;opacity:1}86%,100%{transform:scale(0)}}
+@keyframes ed-jk{0%{transform:scale(0)}3%{transform:scale(1.5)}5%,62%{transform:none;opacity:1}68%,100%{transform:scale(0);opacity:0}}
+@keyframes ed-tk{0%,16%{opacity:0}22%,60%{opacity:1}66%,100%{opacity:0}}
+@keyframes ed-ol{0%,10%{stroke-dashoffset:1;opacity:1}30%,72%{stroke-dashoffset:0;opacity:1}78%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes ed-isi{0%,30%{opacity:0;transform:none}36%{opacity:1}90%{opacity:1}95%,100%{opacity:0}}
+@keyframes ed-geser{0%,100%{transform:none}50%{transform:scale(1.025,.975)}}
+
+/* MTGOODS: tali label tergambar, label terbawa angin masuk, berkibar, lalu terbang pergi */
+.lg-harga .tali{stroke-dasharray:1;stroke-dashoffset:1;animation:hg-tali 6s ease var(--d) infinite both}
+.lg-harga .angin{transform-box:fill-box;transform-origin:0 0;animation:hg-angin 6s cubic-bezier(.23,1,.32,1) var(--d) infinite both}
+.lg-harga .tag{transform-box:fill-box;transform-origin:12% 25%;animation:hg-kibar 1.9s ease-in-out var(--d) infinite}
+@keyframes hg-tali{0%,22%{stroke-dashoffset:1}30%,84%{stroke-dashoffset:0}88%,100%{stroke-dashoffset:1}}
+@keyframes hg-angin{0%,26%{opacity:0;transform:translate(9px,-6px) rotate(35deg)}36%{opacity:1;transform:translate(-1px,1px) rotate(-6deg)}42%,82%{opacity:1;transform:none}88%,100%{opacity:0;transform:translate(10px,-5px) rotate(40deg)}}
+@keyframes hg-kibar{0%{transform:rotate(-8deg) skewY(0)}18%{transform:rotate(14deg) skewY(-6deg)}33%{transform:rotate(4deg) skewY(3deg)}52%{transform:rotate(18deg) skewY(-8deg)}70%{transform:rotate(-4deg) skewY(2deg)}86%{transform:rotate(10deg) skewY(-4deg)}100%{transform:rotate(-8deg) skewY(0)}}
+
+/* Masyarakat MOTE: dijahit kolom demi kolom */
+.lg-jahit .jahit{animation:jh 6s steps(1,end) .15s infinite both}
+@keyframes jh{0%{clip-path:inset(0 100% 0 0)}2%{clip-path:inset(0 88% 0 0)}4%{clip-path:inset(0 76% 0 0)}6%{clip-path:inset(0 64% 0 0)}8%{clip-path:inset(0 52% 0 0)}10%{clip-path:inset(0 40% 0 0)}12%{clip-path:inset(0 28% 0 0)}14%{clip-path:inset(0 16% 0 0)}16%{clip-path:inset(0 4% 0 0)}18%,88%{clip-path:inset(0 0 0 0)}90%{clip-path:inset(0 0 0 25%)}92%{clip-path:inset(0 0 0 50%)}94%{clip-path:inset(0 0 0 75%)}96%,100%{clip-path:inset(0 0 0 100%)}}
+
+/* Lobby: empat logogram mulai bergantian */
+.menu-lg a:nth-child(2) .lgh{--d:.45s}.menu-lg a:nth-child(3) .lgh{--d:.75s}.menu-lg a:nth-child(4) .lgh{--d:1.05s}
+@media (prefers-reduced-motion:reduce){.lgh *,.lg-jahit .jahit{animation:none!important;stroke-dashoffset:0!important;opacity:1!important;clip-path:none!important;transform:none!important}}
+.menu-lg .ik{width:max-content}.menu-lg .ik svg,.menu-lg .ik img{max-width:none}
+@media (max-width:760px){.b-lobi .merek{flex:none}.menu-lg{--s:15px;margin-left:8px}.menu-lg a{height:36px}}
+.menu-lg .tx{display:flex;align-items:center;gap:5px;height:14.4px}.menu-lg .tx svg{height:100%;width:auto;display:block}.menu-lg .tx .tx-pt{font-family:DMD;font-weight:600;font-size:15px;line-height:1}
+.menu-lg .tx{width:max-content}.menu-lg .tx svg{max-width:none;flex:none}
+.menu-lg .tx .tx-pt{font-size:19.6px;letter-spacing:-.02em}
+/* tautan Shopee/Tokopedia: saat disorot latar jadi warna platform, logo jadi putih supaya tidak hilang */
+@media (hover:hover) and (pointer:fine){.menu a.ke-mp:hover img{filter:brightness(0) invert(1)}}
+/* ---------- 25 Okt: pil logogram = navigasi utama di SEMUA halaman (di dalam .nav-kanan), pil kiri = home ke Lobby ---------- */
+.nav-kanan .menu-lg{display:flex!important;position:static;transform:none;margin:0}
+.menu-lg a[aria-current]::after{content:"";position:absolute;left:50%;bottom:3px;width:5px;height:5px;border-radius:50%;background:var(--hv,var(--kun));transform:translateX(-50%)}
+.logo-home{cursor:pointer}
+@media (hover:hover) and (pointer:fine){.logo-home:hover{transform:rotate(-2deg)}}
+/* Tokopedia/Shopee: sorotan simetris, logo tepat di tengah */
+.menu a.ke-mp,.menu a.ke-mp+a.ke-mp{padding-left:14px;padding-right:14px}
+/* ruang header: makin sempit, bagian yang kurang penting diringkas dulu */
+@media (max-width:1280px){.menu-lg{--s:18px}}
+@media (max-width:1180px){.nav-kanan .kontak{font-size:0;gap:0;width:44px;padding:0;justify-content:center}.nav-kanan .kontak:before{width:20px;height:20px}}
+@media (max-width:600px){.logo-home .wm,.logo-home .wm-km,.logo-home .wm-mk,.logo-home .wm-mt,.logo-home .tg-mt,.logo-home .lg-jahit b,.logo-home .lg-jahit .wm{display:none}.menu-lg{--s:13px}.menu-lg a{height:34px}.nav-kanan{gap:5px}}
+/* menu halaman (Beranda/Layanan/…) tidak lagi di tengah absolut: duduk setelah pil kiri, supaya tidak menabrak navigasi kanan */
+.nav-in{align-items:center;gap:10px}
+.nav-in>.menu{position:static;transform:none;margin-right:auto}
+.nav-in>.merek{flex:none}
+@media (max-width:1600px){.km-tombol{padding:0 5px}.km-tl{display:none}}
+@media (max-width:1440px){.logo .tg-mt{display:none}}
+@media (max-width:1280px){.nav-kanan .kontak{font-size:0;gap:0;width:44px;padding:0;justify-content:center}.nav-kanan .kontak:before{width:20px;height:20px}}
+@media (max-width:1100px){.nav-in>.menu{display:none}.nav-kanan{margin-left:auto}}
+@media (max-width:600px){.nav-in{gap:6px}.nav-kanan{gap:4px}.menu-lg{--s:12px}.logo{padding:0 12px}}
+
+@media (max-width:380px){.menu-lg{--s:11px}.menu-lg a{width:calc(var(--wi,40px) - 4px)}.nav-kanan .km-tombol,.nav-kanan .kontak{width:40px;height:40px}}
+/* ---------- 25 Okt: pil kiri kembali jadi navigasi; pilihannya menggeser KE SAMPING kanan pil ---------- */
+.merek{position:relative;display:flex;align-items:center}
+.merek .lg-geser{position:absolute;left:calc(100% + 8px);top:0;height:44px;display:flex!important;align-items:center;margin:0;z-index:5;
+  clip-path:inset(0 100% 0 0 round 99px);opacity:0;transform:translateX(-18px);pointer-events:none;
+  transition:clip-path .45s cubic-bezier(.23,1,.32,1),opacity .2s ease,transform .45s cubic-bezier(.23,1,.32,1)}
+.merek.buka .lg-geser{clip-path:inset(-20px -20px -20px -20px round 99px);opacity:1;transform:none;pointer-events:auto}
+.merek .lg-geser a{opacity:0;transform:translateX(-10px);transition:opacity .25s ease,transform .35s cubic-bezier(.23,1,.32,1),width .38s cubic-bezier(.23,1,.32,1),background .2s ease,color .2s ease}
+.merek.buka .lg-geser a{opacity:1;transform:none}
+.merek.buka .lg-geser a:nth-child(2){transition-delay:.05s,.05s,0s,0s,0s}.merek.buka .lg-geser a:nth-child(3){transition-delay:.1s,.1s,0s,0s,0s}.merek.buka .lg-geser a:nth-child(4){transition-delay:.15s,.15s,0s,0s,0s}
+.merek .logo .car{transform:rotate(-90deg)}
+.merek.buka .logo .car{transform:rotate(90deg)}
+.merek .merek-menu{display:none}
+@media (max-width:760px){.merek .lg-geser{left:0;top:calc(100% + 8px)}}
+@media (prefers-reduced-motion:reduce){.merek .lg-geser,.merek .lg-geser a{transition:opacity .15s ease}}
+.nav-in>.menu{transition:opacity .2s ease}.merek.buka~.menu{opacity:0;pointer-events:none}
+/* pilihan brand muncul saat kursor diarahkan ke pil kiri (perangkat ber-mouse); di layar sentuh tetap lewat ketuk */
+@media (hover:hover) and (pointer:fine){
+  .merek:hover .lg-geser,.merek:focus-within .lg-geser{clip-path:inset(-20px -20px -20px -20px round 99px);opacity:1;transform:none;pointer-events:auto}
+  .merek:hover .lg-geser a,.merek:focus-within .lg-geser a{opacity:1;transform:none}
+  .merek:hover .lg-geser a:nth-child(2){transition-delay:.05s,.05s,0s,0s,0s}.merek:hover .lg-geser a:nth-child(3){transition-delay:.1s,.1s,0s,0s,0s}.merek:hover .lg-geser a:nth-child(4){transition-delay:.15s,.15s,0s,0s,0s}
+  .merek:hover .logo .car{transform:rotate(90deg)}
+  .merek:hover~.menu{opacity:0;pointer-events:none}
+  .merek .lg-geser::before{content:"";position:absolute;right:100%;top:0;bottom:0;width:12px}  /* jembatan celah supaya kursor tidak "jatuh" */
+  .merek .lg-geser{transition-delay:.12s}.merek:hover .lg-geser{transition-delay:0s}
+}
+/* menu halaman kembali di tengah (pil logogram kanan sudah dihapus, jadi ruangnya cukup) */
+.nav-in>.menu{position:absolute;left:50%;transform:translateX(-50%);margin:0}
+@media (max-width:1100px){.nav-in>.menu{display:flex}}
+@media (max-width:860px){.nav-in>.menu{display:none}}
+@media (max-width:1000px){.b-lobi .nav-in>.menu{display:none}}
+/* tombol Masyarakat MOTE disorot: ikon orang tetap tinta di dalam bulatan putih (tadinya ikut putih, jadi kosong) */
+@media (hover:hover) and (pointer:fine){.km-tombol.hv:hover .km-av{background:#fff!important;color:var(--ink)!important}.km-tombol.hv:hover .km-av svg{stroke:var(--ink)}}

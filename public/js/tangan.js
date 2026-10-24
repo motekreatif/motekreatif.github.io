@@ -116,7 +116,8 @@
   }
   function tick() { if (!jalan) { jalan = true; requestAnimationFrame(langkah); } }
   function siap(img) { return img.complete ? Promise.resolve() : new Promise(function (r) { img.onload = img.onerror = r; }); }
-  Promise.all([siap(T.biru.el), siap(T.oranye.el), document.fonts ? document.fonts.ready : 0]).then(function () { atur(); tick(); });
+  // tangan baru ditampilkan setelah posisinya dihitung, supaya tidak nongol sekilas di posisi bawaan saat halaman dimuat
+Promise.all([siap(T.biru.el), siap(T.oranye.el), document.fonts ? document.fonts.ready : 0]).then(function () { atur(); tick(); requestAnimationFrame(function () { requestAnimationFrame(function () { ht.classList.add('tg-siap'); }); }); });
   addEventListener('resize', function () { atur(); tick(); });
   if (!reduce && matchMedia('(hover: hover) and (pointer: fine)').matches) {
     ht.addEventListener('pointermove', function (e) { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
