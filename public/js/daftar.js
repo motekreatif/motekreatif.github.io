@@ -1,26 +1,23 @@
-/* Kelas gratis Kelas MOTE: preview bebas, kelas lengkap kebuka setelah daftar. Dua jenis halaman:
-   kelas video (KELAS_ST.yt: YouTube + PDF) dan kelas PDF (KELAS_ST.pdf: slide dibaca/diunduh, bab = halaman slide).
-   Akun disimpan sekali untuk semua kelas, jadi daftar di satu kelas membuka kelas lainnya.
-   Data pendaftar disimpan di browser ini (localStorage) dan, kalau KELAS_ST.url diisi, dikirim ke alamat itu. */
+/* Halaman kelas Kelas MOTE: preview bebas; kelas lengkap (ruang belajar) kebuka setelah kelasnya DIAMBIL lewat checkout.
+   Semua kelas, gratis maupun berbayar, lewat checkout.html?kelas=<slug> (kelas gratis: total Rp 0), lalu masuk Kelasku.
+   Data (akun + daftar kelas milik) disimpan di browser ini (localStorage 'kelas-akun' & 'kelas-punya'). */
 (function () {
   var C = window.KELAS_ST || {}, KUNCI = 'kelas-akun';
   function $(s) { return document.querySelector(s); }
   function $$(s) { return [].slice.call(document.querySelectorAll(s)); }
   function baca() { try { return JSON.parse(localStorage.getItem(KUNCI)); } catch (e) { return null; } }
-  function simpan(v) { try { localStorage.setItem(KUNCI, JSON.stringify(v)); } catch (e) {} }
 
-  var modal = $('[data-modal]'), form = $('[data-form]'), layar = $('[data-yt]'), pv = $('[data-pv]');
-  var akun = baca();
-
-  function buka() { modal.hidden = false; requestAnimationFrame(function () { modal.classList.add('on'); }); var f = form.querySelector('input'); if (f) f.focus(); }
-  function tutup() { modal.classList.remove('on'); setTimeout(function () { modal.hidden = true; }, 180); }
+  var layar = $('[data-yt]'), pv = $('[data-pv]');
+  var akun = baca(), SLUG = C.slug || 'skill-tersembunyi';
+  function punya() { try { return JSON.parse(localStorage.getItem('kelas-punya')) || []; } catch (e) { return []; } }
+  // pindahan dari sistem lama (daftar sekali membuka semua kelas): kelas yang dulu dipakai daftar tetap dianggap milik
+  try { if (akun && localStorage.getItem('kelas-punya') === null) localStorage.setItem('kelas-punya', JSON.stringify(akun.kelas ? [{ slug: akun.kelas, harga: 0, waktu: akun.waktu }] : [])); } catch (e) {}
+  var milik = punya().some(function (k) { return k.slug === SLUG; });
+  function buka() { location.href = 'checkout.html?kelas=' + encodeURIComponent(SLUG); }
   $$('[data-buka-daftar]').forEach(function (b) { b.addEventListener('click', buka); });
-  $$('[data-tutup]').forEach(function (b) { b.addEventListener('click', tutup); });
-  modal.addEventListener('click', function (e) { if (e.target === modal) tutup(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !modal.hidden) tutup(); });
 
   function putar(dtk) {
-    if (window.Ruang) return Ruang.buka(C.pdf ? 'slide' : 'video', dtk);   // pemutar & slideshow sendiri di ruang belajar
+    if (window.Ruang) return Ruang.buka(C.pdf && !C.video ? 'slide' : 'video', dtk);   // pemutar & slideshow sendiri di ruang belajar
     if (!C.yt) return;
     if (pv) { pv.pause(); pv.hidden = true; }
     var g = document.querySelector('[data-gbr]'); if (g) g.hidden = true;
@@ -34,26 +31,18 @@
   function terbuka() {
     document.documentElement.classList.add('ks-terbuka');
     $('[data-belum]').hidden = true; $('[data-sudah]').hidden = false;
-    var h = $('[data-halo]'); h.hidden = false; h.textContent = 'Halo ' + akun.nama.split(' ')[0] + ', kelasnya sudah kebuka. Selamat belajar.';
+    var h = $('[data-halo]'); h.hidden = false; h.textContent = 'Halo ' + ((akun && akun.nama) || 'kamu').split(' ')[0] + ', kelas ini udah ada di Kelasku. Selamat belajar.';
     if (window.Ruang) Ruang.tampil();
   }
-  $$('[data-tonton]').forEach(function (b) { b.addEventListener('click', function () { if (window.Ruang) Ruang.buka(C.pdf ? 'slide' : 'video', C.pdf ? 1 : null); else putar(0); }); });
+  $$('[data-tonton]').forEach(function (b) { b.addEventListener('click', function () { if (window.Ruang) Ruang.buka(C.pdf && !C.video ? 'slide' : 'video', C.pdf && !C.video ? 1 : null); else putar(0); }); });
   $$('.ks-bab button').forEach(function (b) {   // daftar isi di halaman kelas (sebelum masuk ruang belajar)
     b.addEventListener('click', function () {
-      if (!akun) return buka();
+      if (!milik) return buka();
       if (window.Ruang) Ruang.buka(b.dataset.hal ? 'slide' : 'video', +(b.dataset.hal || b.dataset.t));
       else putar(+b.dataset.t);
     });
   });
 
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var d = {}; new FormData(form).forEach(function (v, k) { d[k] = String(v).trim(); });
-    d.waktu = new Date().toISOString(); d.kelas = C.slug || 'skill-tersembunyi';
-    akun = d; simpan(d);
-    if (C.url) { try { fetch(C.url, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(d) }); } catch (er) {} }
-    tutup(); terbuka(); if (window.Ruang) Ruang.buka(C.pdf ? 'slide' : 'video', C.pdf ? 1 : null); else putar(0);
-  });
   // galeri: thumbnail ganti tampilan utama (preview kelas / klip pendek / cuplikan slide)
   var gbr = $('[data-gbr]'), klip = $('[data-klip]');
   $$('[data-th]').forEach(function (b) {
@@ -68,8 +57,8 @@
         if (awal && pv && !yt) { pv.hidden = false; klip.hidden = true; }
         else { if (pv) pv.hidden = true; klip.src = b.dataset.th; klip.play().catch(function () {}); }
       }
-      $('[data-cap]').textContent = b.dataset.cap ? b.dataset.cap : j === 'klip' ? 'Potongan dari kelasnya: ' + b.getAttribute('aria-label').replace('Klip: ', '') + '. Kelas lengkapnya kebuka setelah kamu daftar gratis.' : 'Cuplikan slide dari kelasnya.';
+      $('[data-cap]').textContent = b.dataset.cap ? b.dataset.cap : j === 'klip' ? 'Potongan dari kelasnya: ' + b.getAttribute('aria-label').replace('Klip: ', '') + '. Kelas lengkapnya kebuka setelah kamu ambil kelasnya.' : 'Cuplikan slide dari kelasnya.';
     });
   });
-  if (akun) terbuka();
+  if (milik) terbuka();
 })();
