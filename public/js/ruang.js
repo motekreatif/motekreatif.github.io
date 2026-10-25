@@ -102,6 +102,14 @@
       pemain.addEventListener('play', function () { status('main'); });
       pemain.addEventListener('pause', function () { status('jeda'); });
       pemain.addEventListener('ended', function () { status('selesai'); });
+      // jejak tontonan untuk admin: mulai, lalu tiap seperempat durasi (25/50/75/100%)
+      var tanda = {};
+      pemain.addEventListener('play', function () { if (!tanda.mulai && window.Jejak) { tanda.mulai = 1; Jejak.catat('video-mulai', 0); } });
+      pemain.addEventListener('timeupdate', function () {
+        if (!pemain.duration || !window.Jejak) return;
+        var p = Math.floor(pemain.currentTime / pemain.duration * 4) * 25;
+        if (p >= 25 && !tanda[p]) { tanda[p] = 1; Jejak.catat('video-' + p, Math.round(pemain.currentTime)); }
+      });
       if (!D.hls) { pemain.src = D.mp4; return cb(); }
       muatHls(function () {
         if (window.Hls && Hls.isSupported()) {
