@@ -20,7 +20,7 @@
     function tampil() {
       var d = A.data(); if (!d) return;
       var ak = d.akun, tgl = new Date(ak.dibuat).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
-      $('[data-ku-halo]', akar).textContent = 'Halo ' + (ak.panggilan || ak.nama.split(' ')[0]) + ', kamu anggota ke-' + ak.ke + ' Masyarakat Modal Tekun.';
+      $('[data-ku-halo]', akar).textContent = 'Halo ' + (ak.panggilan || ak.nama.split(' ')[0]) + ', kamu anggota ke\u2011' + ak.ke + '\u00a0Masyarakat Modal Tekun.';
       $('[data-ku-kartu]', akar).innerHTML = A.kartu(ak, { ubahFoto: true });
       $('[data-ku-dl]', akar).innerHTML = [['No. anggota', ak.no], ['Anggota sejak', tgl], ['Nama lengkap', ak.nama], ['Nama panggilan', ak.panggilan || '–'], ['Email', ak.email], ['WhatsApp', ak.wa], ['Kota', ak.kota],
         ['Pekerjaan', ak.pekerjaan || '–'], ['Bidang', ak.industri || '–']]
@@ -164,7 +164,7 @@
       rak.innerHTML = ada.map(function (m) {
         var k = K[m.kelas];
         return '<a class="ks-kartu ku-kartu" href="' + m.kelas + '.html"><span class="ks-ft"><img src="' + R + 'aset/kelas/' + m.kelas + '.jpg" alt="" loading="lazy"></span>' +
-          '<small>' + esc(k.label) + ' · ' + esc(k.isi) + '</small><b>' + esc(k.judul) + '</b><span class="ks-oleh">' + esc(k.oleh) + '</span>' +
+          '<span class="ks-tag">' + esc(k.label) + '</span><b>' + esc(k.judul) + '</b><span class="ks-oleh">' + esc(k.oleh) + '</span>' +
           '<span class="ku-masuk">Masuk ruang belajar <i>→</i></span></a>';
       }).join('');
     };

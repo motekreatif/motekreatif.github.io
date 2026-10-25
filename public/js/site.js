@@ -167,6 +167,9 @@
     var cs = getComputedStyle(el);
     if (cs.display === 'none' || cs.display.indexOf('flex') > -1 || cs.display.indexOf('grid') > -1 || cs.display === 'inline') return;
     if (cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || parseFloat(cs.borderTopWidth) || parseFloat(cs.borderBottomWidth)) return;
+    // teks rata kiri (paragraf, jawaban FAQ, daftar) TIDAK dipersempit: lebar kolomnya harus seragam antar-blok
+    // (koreksi Ryan 25 Okt). Untuk teks itu cukup text-wrap:pretty dari CSS (tanpa kata yatim). Yang diseimbangkan = teks rata tengah.
+    if (!/center/.test(cs.textAlign) && !/^H[1-4]$/.test(el.tagName)) return;
     var lh = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.4, n = baris(el, lh);
     if (n < 2 || n > 6) return;
     var hi = el.offsetWidth, lo = hi * .45; if (hi < 60) { el.style.maxWidth = ''; return; }
@@ -236,4 +239,27 @@
     });
   }
   (document.fonts ? document.fonts.ready : Promise.resolve()).then(ukur); addEventListener('load', ukur); addEventListener('resize', ukur);
+})();
+
+/* Lencana pojok = penanda baca: stiker simpul MOTE selalu tampil; alas putihnya terisi "air" warna brand halaman
+   dari bawah sesuai posisi gulir (atas = kosong, bawah halaman = penuh). Posisi dihaluskan per frame. */
+(function () {
+  var L = document.querySelector('.lencana'), sv = L && L.querySelector('.lg-progres'), air = sv && sv.querySelector('.air');
+  if (!air) return;
+  var y0 = +sv.dataset.y0, h = +sv.dataset.h, kini = 0, target = 0, jalan = false;
+  function tujuan() { var maks = document.documentElement.scrollHeight - innerHeight; return maks > 0 ? Math.min(1, Math.max(0, scrollY / maks)) : 1; }
+  function gambar(t) {
+    // kosong = permukaan di bawah stiker; penuh = permukaan sedikit di atas stiker (gelombang tidak tampak)
+    air.setAttribute('transform', 'translate(0 ' + (y0 + h + .6 - t * (h + 1.6)).toFixed(3) + ')');
+    L.classList.toggle('lc-penuh', t > .995);
+  }
+  function langkah() {
+    kini += (target - kini) * .14;
+    if (Math.abs(target - kini) < .0008) kini = target;
+    gambar(kini);
+    if (kini !== target) requestAnimationFrame(langkah); else jalan = false;
+  }
+  function picu() { target = tujuan(); if (!jalan) { jalan = true; requestAnimationFrame(langkah); } }
+  addEventListener('scroll', picu, { passive: true }); addEventListener('resize', picu); addEventListener('load', picu);
+  kini = target = tujuan(); gambar(kini);
 })();

@@ -2637,3 +2637,82 @@ p,li,dd{text-wrap:pretty}
 @media (max-width:1000px){.b-lobi .nav-in>.menu{display:none}}
 /* tombol Masyarakat MOTE disorot: ikon orang tetap tinta di dalam bulatan putih (tadinya ikut putih, jadi kosong) */
 @media (hover:hover) and (pointer:fine){.km-tombol.hv:hover .km-av{background:#fff!important;color:var(--ink)!important}.km-tombol.hv:hover .km-av svg{stroke:var(--ink)}}
+/* ---------- 25 Okt: revisi mobile (dari IG in-app browser) ---------- */
+/* fakta unik kartu tim tidak terpotong section berikutnya */
+#tim{overflow:clip visible;z-index:3}
+/* stiker di pita penutup tidak menimpa tombol di HP */
+@media (max-width:760px){.kepala+.pb{margin-top:96px}}
+/* remah (breadcrumb) rata satu garis */
+.remah{align-items:center}
+@media (max-width:760px){.remah b,.remah span{display:inline-block;padding:10px 0}}
+/* katalog kelas: jarak thumbnail ke judul lebih lega */
+.ks-kartu .ks-ft{margin-bottom:8px}
+.ks-kartu small{margin-top:12px}
+@media (max-width:760px){.ks-kartu .ks-ft{margin-bottom:14px}.ks-kartu b{margin-top:6px}}
+/* tombol bulat header (Masyarakat MOTE, chat) di HP: lingkaran tepat di tengah */
+@media (max-width:1600px){.km-tombol{padding:0;width:44px;justify-content:center}}
+@media (max-width:380px){.nav-kanan .km-tombol,.nav-kanan .kontak{width:40px;height:40px}.km-av{width:32px;height:32px}}
+/* kartu anggota di halaman: rasio ID card, foto potret 4:5 (sama dengan kartu IG Story) */
+.km-f{aspect-ratio:4/5}
+/* sapaan anggota di atas kartu */
+.ag-sapa{text-align:center;margin-bottom:clamp(8px,2vw,20px)}.ag-sapa .d{margin-top:6px}
+/* HP: pilihan brand di bawah pil kiri berupa daftar TEKS (logotype), bukan logogram */
+@media (max-width:760px){
+  .merek .lg-geser{flex-direction:column;align-items:stretch;height:auto;padding:6px;border-radius:20px;min-width:220px}
+  .merek.buka .lg-geser{clip-path:inset(-20px -20px -20px -20px round 20px)}
+  .merek .lg-geser{clip-path:inset(0 0 100% 0 round 20px);transform:translateY(-8px)}
+  .merek .lg-geser a{width:auto!important;height:44px;border-radius:14px;display:flex;align-items:center;padding:0 14px}
+  .merek .lg-geser .ik{display:none}
+  .merek .lg-geser .tx{position:static;transform:none!important;opacity:1!important;height:13px}
+}
+/* katalog: jenis kelas jadi tag (detail jumlah halaman dibaca di halaman kelasnya); kepala "Semua kelas" sejajar grid */
+.ks-tag{justify-self:start;display:inline-block;margin-top:14px;font-size:12px;font-weight:700;letter-spacing:.02em;padding:5px 11px;border-radius:99px;background:var(--oranye);color:#fff;line-height:1}
+.ks-tag-ss{background:var(--ungu)}
+.ks-kartu .ks-tag+b{margin-top:8px}
+.toko-kepala#katalog,.ks-toko-satu .toko-kepala{max-width:var(--lebar);margin-left:auto;margin-right:auto;width:100%}
+/* lencana pojok = bola benang wol 3D tanpa teks: lilitan berputar di dalam bola, kilap & bayangan diam (kesan bola berputar) */
+.lencana{background:none!important;border-radius:0;overflow:visible}
+.lencana .kelos{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.lencana .kelos .kl-lap ellipse{fill:none;stroke:#B98C05;stroke-width:1.5;opacity:.85}
+.lencana .kelos .kl-l1 ellipse,.lencana .kelos .kl-l3 ellipse{stroke:#E0AE10}
+.lencana .kelos .kl-putar{transform-origin:60px 60px;animation:putar 9s linear infinite}
+.lencana .kelos .kl-alas{fill:#232226;opacity:.18}
+.lencana .kelos .kl-ekor{fill:none;stroke:#232226;stroke-width:2.2;stroke-linecap:round;transform-box:fill-box;transform-origin:0 0;animation:kl-ekor 2.4s ease-in-out infinite}
+@keyframes kl-ekor{50%{transform:rotate(7deg)}}
+@media (prefers-reduced-motion:reduce){.lencana .kelos *{animation:none!important}}
+/* ---------- 25 Okt: lencana pojok = logogram MOTE sebagai penanda posisi gulir (selalu ada di tiap halaman) ---------- */
+.lencana{background:#fff!important;border-radius:50%;box-shadow:0 6px 18px -8px rgba(35,34,38,.35);color:var(--ink);display:grid!important;place-items:center;opacity:0;scale:.85;transition:opacity .3s ease,scale .3s cubic-bezier(.23,1,.32,1)}
+.lencana.lc-ada{opacity:1;scale:1}
+.lencana .lg-progres{width:62%;height:auto;overflow:visible}
+.lencana .pg{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .12s linear}
+.lencana.lc-utuh{animation:lc-utuh .5s cubic-bezier(.3,1.5,.5,1)}
+@keyframes lc-utuh{40%{scale:1.12}}
+html.hero-tampak .lencana.lc-ada,html.pdf-tampak .lencana.lc-ada{opacity:1;pointer-events:none}
+@media (max-width:600px){.lencana{display:grid!important;width:48px!important;height:48px!important}}
+@media (prefers-reduced-motion:reduce){.lencana .pg{transition:none}.lencana.lc-utuh{animation:none}}
+/* lencana: wadah ikut bentuk logogram (pil mendatar, sama dengan pil header), logogram mengisi ±75% lebar */
+.lencana{aspect-ratio:auto!important;width:clamp(96px,7.4vw,118px)!important;height:clamp(54px,4.1vw,64px)!important;border-radius:99px!important}
+.lencana .lg-progres{width:74%}
+@media (max-width:600px){.lencana{width:80px!important;height:46px!important}}
+.lencana .lg-progres{width:84%}
+/* lencana tanpa wadah: logogram bergaya stiker (alas putih mengikuti bentuk + bayangan), seperti stiker MOTE lain */
+.lencana{background:none!important;box-shadow:none!important;width:clamp(92px,7vw,112px)!important;height:auto!important;aspect-ratio:auto!important}
+.lencana .lg-progres{width:100%;filter:drop-shadow(0 4px 6px rgba(35,34,38,.28))}
+@media (max-width:600px){.lencana{width:76px!important;height:auto!important}}
+/* lencana stiker v2: alas putih utuh (muncul+membesar di awal gulir), tinta digambar; 100% = tinta utuh tanpa mask */
+.lencana{scale:1!important;opacity:1!important}
+.lencana .pg{transition:none}
+.lencana .alas{opacity:var(--alas,0);transform-box:fill-box;transform-origin:50% 50%;transform:scale(calc(.6 + .4 * var(--alas,0)))}
+.lencana .utuh{opacity:0;transition:opacity .2s ease}
+.lencana.lc-utuh .utuh{opacity:1}.lencana.lc-utuh .tinta{opacity:0}
+.lencana:not(.lc-ada) .lg-progres{filter:none}
+/* lencana v3: stiker simpul selalu tampil; alas putih terisi air warna brand halaman sesuai gulir */
+.lencana{--lc:var(--kun)}
+.b-kelas .lencana{--lc:var(--oranye)}.b-mtgoods .lencana{--lc:var(--ungu)}.b-kreatif .lencana{--lc:var(--kun)}.b-lobi .lencana{--lc:var(--kun)}
+.lencana .ombak{fill:var(--lc);animation:lc-ombak 2.2s linear infinite}
+@keyframes lc-ombak{to{transform:translateX(6px)}}
+.lencana .alas{opacity:1!important;transform:none!important}
+.lencana .utuh{opacity:1!important}
+.lencana.lc-penuh{animation:lc-utuh .5s cubic-bezier(.3,1.5,.5,1)}
+html.hero-tampak .lencana,html.pdf-tampak .lencana{opacity:1}
+@media (prefers-reduced-motion:reduce){.lencana .ombak{animation:none}}

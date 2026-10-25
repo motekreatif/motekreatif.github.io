@@ -59,21 +59,21 @@
       // kepala: simpul + nama komunitas, rata tengah
       c.font = '600 26px DMD'; if ('letterSpacing' in c) c.letterSpacing = '5px';
       var lbl = 'MASYARAKAT MODAL TEKUN', lw = c.measureText(lbl).width;
-      bow(c, X - lw / 2 - 74, 252, 58, '#fff');
-      c.fillStyle = '#fff'; c.textBaseline = 'middle'; c.fillText(lbl, X + 18, 268);
+      bow(c, X - lw / 2 - 74, 216, 58, '#fff');
+      c.fillStyle = '#fff'; c.textBaseline = 'middle'; c.fillText(lbl, X + 18, 232);
       if ('letterSpacing' in c) c.letterSpacing = '0px';
       c.textBaseline = 'alphabetic';
       // ucapan + visi singkat
-      c.fillStyle = KUN; c.font = '300 italic 54px DMD'; c.fillText('Selamat, ' + panggil + '!', X, 400);
+      c.fillStyle = KUN; c.font = '300 italic 54px DMD'; c.fillText('Selamat, ' + panggil + '!', X, 356);
       c.fillStyle = '#fff'; c.font = '700 66px DMD';
       var judul = ['Kamu resmi jadi anggota', 'Masyarakat Modal Tekun.'];
-      judul.forEach(function (b, i) { c.fillText(b, X, 484 + i * 72); });
+      judul.forEach(function (b, i) { c.fillText(b, X, 438 + i * 72); });
       c.font = '400 33px DMS'; c.fillStyle = 'rgba(255,255,255,.9)';
-      var sub = seimbang(c, 'Anggota ke-' + ak.ke + '. Mulai hari ini kamu tumbuh bareng anak muda lain, tanpa harus pindah ke kota besar.', 760);
-      sub.forEach(function (b, i) { c.fillText(b, X, 618 + i * 46); });
-      var y0 = 618 + (sub.length - 1) * 46;
+      var sub = seimbang(c, 'Anggota ke-' + ak.ke + '. Mulai hari ini kamu bagian dari komunitas yang siap tumbuh dengan growth mindset.', 760);
+      sub.forEach(function (b, i) { c.fillText(b, X, 568 + i * 46); });
+      var y0 = 568 + (sub.length - 1) * 46;
       // kartu anggota
-      var kw = 560, kh = 740, ky = y0 + 70 + kh / 2;
+      var kw = 500, kh = 843, ky = y0 + 64 + kh / 2;   // rasio ID card (±0,6), sama dengan kartu di halaman
       c.textAlign = 'left';
       c.save(); c.translate(X, ky); c.rotate(-3 * Math.PI / 180);
       c.shadowColor = 'rgba(35,34,38,.4)'; c.shadowBlur = 50; c.shadowOffsetY = 26;
@@ -87,7 +87,7 @@
       if ('letterSpacing' in c) c.letterSpacing = '0px';
       c.font = '700 25px DMD'; c.textAlign = 'right'; c.fillText('No. ' + (ak.no || ''), kw / 2 - 36, -kh / 2 + 86); c.textAlign = 'left';
       // foto potret 4:5, potongan dari atas supaya kepala utuh
-      var fx = -kw / 2 + 32, fy = -kh / 2 + 128, fw = kw - 64, fh = 400;
+      var fx = -kw / 2 + 32, fy = -kh / 2 + 118, fw = kw - 64, fh = 545;   // foto potret 4:5
       c.save(); kotak(c, fx, fy, fw, fh, 28); c.clip();
       c.fillStyle = 'rgba(255,255,255,.5)'; c.fillRect(fx, fy, fw, fh);
       if (img) {
@@ -104,7 +104,7 @@
       if (st1) c.drawImage(st1, 22, ky + 40, 190, 190 * (st1.height / st1.width || 1));
       if (st2) c.drawImage(st2, W - 236, ky - kh / 2 - 30, 210, 210 * (st2.height / st2.width || 1));
       // ajakan gabung
-      var yb = ky + kh / 2 + 110; c.textAlign = 'center';
+      var yb = ky + kh / 2 + 96; c.textAlign = 'center';
       c.fillStyle = '#fff'; c.font = '400 30px DMS'; c.fillText('Gabung gratis, sekali daftar berlaku selamanya', X, yb);
       c.font = '700 44px DMD'; var u = 'motekreatif.com/masyarakat', uw = c.measureText(u).width;
       c.fillStyle = INK; kotak(c, X - uw / 2 - 30, yb + 24, uw + 60, 72, 36); c.fill();
