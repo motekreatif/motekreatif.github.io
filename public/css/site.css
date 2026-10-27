@@ -2716,3 +2716,46 @@ html.hero-tampak .lencana.lc-ada,html.pdf-tampak .lencana.lc-ada{opacity:1;point
 .lencana.lc-penuh{animation:lc-utuh .5s cubic-bezier(.3,1.5,.5,1)}
 html.hero-tampak .lencana,html.pdf-tampak .lencana{opacity:1}
 @media (prefers-reduced-motion:reduce){.lencana .ombak{animation:none}}
+
+/* Kartu anggota: tiga desain pilihan anggota (26 Okt 2026). Warna dari --c (latar), --ct (teks), --c2 (aksen) yang diisi akun.js.
+   a Klasik = kartu lama berganti warna · b Blok + pita supergraphic di belakang foto · c Kristik = anyaman aida + jahitan tepi */
+.km-pita{position:absolute;inset:0;width:100%;height:100%;clip-path:inset(0 round calc(var(--r) * 1.1));pointer-events:none;z-index:0}
+.km-pita path{fill:none;stroke:var(--c2);stroke-width:46;stroke-linecap:round}
+.km-d-b .km-h,.km-d-b .km-f,.km-d-b .km-k{position:relative;z-index:1}
+.km-d-b .km-f{margin:0 14px;background:color-mix(in srgb,var(--c) 70%,#fff);box-shadow:0 0 0 4px var(--c)}
+.km-d-b .km-pita path{stroke-width:40}
+.km-d-c .km-in{background-color:var(--c);background-image:repeating-linear-gradient(45deg,color-mix(in srgb,var(--ct) 16%,transparent) 0 1.2px,transparent 1.2px 7px),repeating-linear-gradient(-45deg,color-mix(in srgb,var(--ct) 16%,transparent) 0 1.2px,transparent 1.2px 7px)}
+.km-d-c .km-in:before{content:"";position:absolute;inset:6px;border:2px dashed color-mix(in srgb,var(--c2) 85%,var(--ct));border-radius:calc(var(--r) * .85);pointer-events:none}
+.km-d-c .km-f{background:color-mix(in srgb,var(--c) 75%,#fff)}
+/* pilihan tampilan kartu di formulir daftar & ubah profil */
+.kk{display:grid;gap:12px;margin-bottom:14px}
+.kk-d{display:flex;flex-wrap:wrap;gap:8px}
+.kk input{position:absolute;opacity:0;width:1px;height:1px}
+.kk-d span{display:inline-flex;align-items:center;height:42px;padding:0 16px;border-radius:99px;border:1.5px solid rgba(35,34,38,.2);background:#fff;font-size:15px;font-weight:700;cursor:pointer;transition:transform .16s cubic-bezier(.23,1,.32,1),background .15s,border-color .15s;user-select:none;-webkit-user-select:none}
+.kk-d input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.kk-w{display:flex;flex-wrap:wrap;gap:8px}
+.kk-w span{display:block;width:32px;height:32px;border-radius:50%;cursor:pointer;box-shadow:inset 0 0 0 1.5px rgba(35,34,38,.15);transition:transform .16s cubic-bezier(.23,1,.32,1),box-shadow .15s}
+.kk-w input:checked+span{box-shadow:0 0 0 3px var(--putih),0 0 0 5.5px var(--ink)}
+.kk label{position:relative;display:block;margin:0}
+.kk span:active{transform:scale(.94)}
+.kk input:focus-visible+span{outline:2px solid var(--ink);outline-offset:3px}
+.ku-gaya{margin-top:18px}.ku-gaya-f .kk{margin-bottom:10px}.ku-gaya-t{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.kk{position:relative;z-index:3}
+/* Kelas MOTE: catatan tahap development di kanan judul "Semua kelas", tinggi kira-kira sama dengan judul + subjudul.
+   Sengaja kalem: garis tipis di kiri, teks kecil, tanpa blok warna. Di HP turun ke bawah judul. */
+.ks-notes{max-width:620px;padding:1px 0 1px 14px;border-left:2px solid rgba(35,34,38,.18)}
+.ks-notes b{font-weight:700}
+.toko-kepala .ks-notes p{font-size:12px;line-height:1.5;text-wrap:pretty;opacity:.72}
+.ks-notes a{font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+@media (max-width:760px){.ks-notes{max-width:none}}
+/* kepala katalog ikut grid kartu di bawahnya: judul di kolom 1–2, catatan tepat di kolom 3–4 (sama lebar & tepi dengan kartu) */
+.toko-kepala#katalog{margin-bottom:clamp(24px,2.4vw,34px)}
+@media (min-width:761px){   /* kolomnya dihitung persis seperti .ks-grid, jadi jumlah & lebar kolom selalu sama dengan kartu */
+  .toko-kepala#katalog{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));column-gap:clamp(20px,2vw,32px);row-gap:18px;align-items:end}
+  .toko-kepala#katalog>div{grid-column:1/-3}
+  .toko-kepala#katalog .ks-notes{grid-column:-3/-1;max-width:none}
+}
+/* kartu katalog: di samping tag jenis, isi yang didapat peserta (Video, Slide PDF, Ebook…), maks 2 + "+n" */
+.ks-tags{justify-self:start;display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:14px}
+.ks-tags .ks-tag{margin-top:0}
+.ks-isi{font-size:12px;font-weight:700;line-height:1;padding:4px 10px;border-radius:99px;border:1.5px solid rgba(35,34,38,.22);color:var(--ink)}

@@ -3,6 +3,8 @@
    Server: Worker kelas-mote (window.KM_API) + Cloudflare D1. Sesi = token Bearer di localStorage 'kelas-sesi' {token, data}.
    data = {akun: {nama, email, wa, kota, ke, no, dibuat, foto}, milik: [{kelas, harga, waktu}]}. */
 (function () {
+  // dibuka dari komputer sendiri (localhost) -> pakai worker lokal :8788, supaya akun uji tidak pernah masuk database live
+  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) window.KM_API = 'http://localhost:8788';
   var API = window.KM_API || 'https://kelas-mote.motekreatif.workers.dev', KUNCI = 'kelas-sesi';
   function baca() { try { return JSON.parse(localStorage.getItem(KUNCI)) || null; } catch (e) { return null; } }
   function tulis(v) { try { v ? localStorage.setItem(KUNCI, JSON.stringify(v)) : localStorage.removeItem(KUNCI); } catch (e) {} }
@@ -31,10 +33,19 @@
   function esc(t) { var d = document.createElement('div'); d.textContent = t == null ? '' : t; return d.innerHTML; }
   function inisial(n) { return (n || '?').trim().split(/\s+/).slice(0, 2).map(function (x) { return x[0]; }).join('').toUpperCase() || '?'; }
   function bulan(t) { var d = t ? new Date(t) : new Date(); return d.toLocaleDateString('id-ID', { month: 'long', year: 'numeric' }); }
+  /* tampilan kartu pilihan anggota: "desain-warna", mis. "b-ungu". Desain a Klasik, b Blok + pita, c Kristik. Kosong = a-kuning (kartu lama) */
+  var WARNA = { kuning: ['#FCD12D', '#232226', '#232226'], oranye: ['#FE7B00', '#232226', '#FCD12D'], merah: ['#FD0D32', '#fff', '#FF9ED8'], pink: ['#FF9ED8', '#232226', '#FD0D32'],
+    ungu: ['#7558FE', '#fff', '#FCD12D'], biru: ['#0280EC', '#fff', '#FCD12D'], hijau: ['#019642', '#fff', '#CFF933'], tinta: ['#232226', '#fff', '#FCD12D'] };
+  function gaya(k) {
+    var m = /^([abc])-([a-z]+)$/.exec(k || ''), d = m ? m[1] : 'a', w = WARNA[m && WARNA[m[2]] ? m[2] : 'kuning'];
+    return { d: d, w: m && WARNA[m[2]] ? m[2] : 'kuning', c: w[0], ct: w[1], c2: w[2] };
+  }
   function kartu(a, opsi) {
     a = a || {}; opsi = opsi || {};
     var foto = a.fotoLokal || (a.foto ? API + a.foto : '');
-    return '<div class="km-kartu' + (opsi.kecil ? ' kecil' : '') + '"><div class="km-in"><div class="km-tali"></div>' +
+    var g = gaya(a.kartu);
+    return '<div class="km-kartu km-d-' + g.d + (opsi.kecil ? ' kecil' : '') + '" style="--c:' + g.c + ';--ct:' + g.ct + ';--c2:' + g.c2 + '"><div class="km-in"><div class="km-tali"></div>' +
+      (g.d === 'b' ? '<svg class="km-pita" viewBox="0 0 300 420" preserveAspectRatio="none" aria-hidden="true"><path d="M-30 30 C 70 50, 40 170, 150 190 S 300 250, 268 300 S 280 360, 340 340" /></svg>' : '') +
       '<div class="km-h"><span class="bw">' + (window.KM_BOW || '') + '</span><span class="km-kom">MASYARAKAT<br>MODAL TEKUN</span><em>No. ' + esc(a.no || '····') + '</em></div>' +
       '<div class="km-f"' + (opsi.ubahFoto ? ' data-km-foto role="button" tabindex="0" aria-label="Pasang foto"' : '') + '>' +
       (foto ? '<img src="' + esc(foto) + '" alt="">' : '<span class="km-ini">' + esc(inisial(a.nama)) + '</span>') +
@@ -69,7 +80,7 @@
     ambil: function (slug, harga) { return api('ambil', { kelas: slug, harga: harga || 0 }).then(simpan); },
     foto: function (file) { return kecilkan(file).then(function (b) { return api('foto', b, true); }).then(simpan); },
     keluar: function () { var t = api('keluar', {}).catch(function () {}); sesi = null; tulis(null); return t; },
-    kartu: kartu, kecilkan: kecilkan,
+    kartu: kartu, kecilkan: kecilkan, gaya: gaya, WARNA: WARNA,
     // lanjut = jalur dari akar situs, mis. 'kelasmote/checkout.html?kelas=x'
     keMasuk: function (lanjut) { location.href = (window.R_KELAS || '../') + 'masyarakat/index.html?lanjut=' + encodeURIComponent(lanjut || ''); },
     // tombol Masyarakat MOTE di header: foto/inisial + nama panggilan kalau sudah masuk

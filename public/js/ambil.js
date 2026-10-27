@@ -14,6 +14,8 @@
   var lanjut = (q.get('lanjut') || '').replace(/^\/+/, '');
   if (!/^(kelasmote|mtgoods)\/[a-z0-9-]+\.html(\?[a-z0-9=&%-]*)?$/i.test(lanjut)) lanjut = '';
 
+  function kartuDari(d) { return (d.kartu_d || 'a') + '-' + (d.kartu_w || 'kuning'); }   // pilihan tampilan kartu di formulir
+
   /* ---------- profil anggota (dipakai di Masyarakat MOTE) ---------- */
   function profil(akar) {
     var file = $('[data-ku-file]', akar), fp = $('[data-ku-form]', akar);
@@ -35,11 +37,28 @@
       ubah(true); fp.elements.nama.focus();
     });
     $('[data-ku-batal]', akar).addEventListener('click', function () { ubah(false); });
-    fp.addEventListener('submit', function (e) {
-      e.preventDefault(); var d = {}; new FormData(fp).forEach(function (v, k) { d[k] = String(v).trim(); });
-      var b = $('button[type=submit]', fp), g = $('[data-m-galat]', fp); b.disabled = true; g.hidden = true;
-      A.profil(d).then(function () { b.disabled = false; ubah(false); tampil(); A.tombol(); }).catch(function (er) { b.disabled = false; g.textContent = er.message; g.hidden = false; });
-    });
+    // ganti desain kartu kapan saja setelah gabung: pilih -> kartu berubah langsung -> simpan (data profil lain dikirim apa adanya)
+    var fg = $('[data-ku-gaya]', akar), bg = $('[data-ku-gaya-buka]', akar);
+    if (fg && bg) {   // tombol ganti desain cuma ada kalau KARTU_VARIASI di build.py dinyalakan
+      function gayaBuka(ya) { fg.hidden = !ya; bg.hidden = ya; if (!ya) tampil(); }
+      bg.addEventListener('click', function () { var g = A.gaya(A.data().akun.kartu); fg.elements.kartu_d.value = g.d; fg.elements.kartu_w.value = g.w; gayaBuka(true); });
+      $('[data-ku-gaya-batal]', akar).addEventListener('click', function () { gayaBuka(false); });
+      fg.addEventListener('change', function () {
+        var d = {}; new FormData(fg).forEach(function (v, k) { d[k] = String(v); });
+        $('[data-ku-kartu]', akar).innerHTML = A.kartu(Object.assign({}, A.data().akun, { kartu: kartuDari(d) }), { ubahFoto: true });
+      });
+      fg.addEventListener('submit', function (e) {
+        e.preventDefault(); var d = {}; new FormData(fg).forEach(function (v, k) { d[k] = String(v); });
+        var ak = A.data().akun, b = $('button[type=submit]', fg), gl = $('[data-m-galat]', fg); b.disabled = true; gl.hidden = true;
+        A.profil({ nama: ak.nama, panggilan: ak.panggilan || ak.nama.split(' ')[0], wa: ak.wa, kota: ak.kota, pekerjaan: ak.pekerjaan, industri: ak.industri, kartu: kartuDari(d) })
+          .then(function () { b.disabled = false; gayaBuka(false); A.tombol(); }).catch(function (er) { b.disabled = false; gl.textContent = er.message; gl.hidden = false; });
+      });
+      fp.addEventListener('submit', function (e) {
+        e.preventDefault(); var d = {}; new FormData(fp).forEach(function (v, k) { d[k] = String(v).trim(); });
+        var b = $('button[type=submit]', fp), g = $('[data-m-galat]', fp); b.disabled = true; g.hidden = true;
+        A.profil(d).then(function () { b.disabled = false; ubah(false); tampil(); A.tombol(); }).catch(function (er) { b.disabled = false; g.textContent = er.message; g.hidden = false; });
+      });
+    }
     $('[data-ku-kartu]', akar).addEventListener('click', function (e) { if (e.target.closest('[data-km-foto]')) file.click(); });
     file.addEventListener('change', function () {
       var f = file.files[0]; if (!f) return;
@@ -65,7 +84,7 @@
     var pratinjau = $('[data-m-kartu]'), fD = $('[data-m-daftar]'), fM = $('[data-m-masuk]'), fileFoto = null, urlFoto = '';
     var gambar = function () {
       var d = {}; new FormData(fD).forEach(function (v, k) { d[k] = String(v); });
-      pratinjau.innerHTML = A.kartu({ nama: d.nama, kota: d.kota, pekerjaan: d.pekerjaan, fotoLokal: urlFoto }, { ubahFoto: true });
+      pratinjau.innerHTML = A.kartu({ nama: d.nama, kota: d.kota, pekerjaan: d.pekerjaan, fotoLokal: urlFoto, kartu: kartuDari(d) }, { ubahFoto: true });
     };
     gambar();
     fD.addEventListener('input', gambar); fD.addEventListener('change', gambar);
@@ -102,6 +121,7 @@
     fD.addEventListener('submit', function (e) {
       e.preventDefault(); salah(fD, '');
       var d = {}; new FormData(fD).forEach(function (v, k) { d[k] = String(v).trim(); });
+      d.kartu = kartuDari(d);
       sibuk(fD, true);
       A.daftar(d).then(function (data) {
         if (!fileFoto) return data;

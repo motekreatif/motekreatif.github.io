@@ -50,8 +50,10 @@
       fetch(R + 'aset/pita-asli.json').then(function (r) { return r.json(); }).catch(function () { return null; })
     ]).then(function (h) {
       var img = h[1], st1 = h[2], st2 = h[3], P = h[4], X = W / 2, panggil = ak.panggilan || (ak.nama || '').split(' ')[0];
-      // latar ungu MOTE + pita kuning sebagai supergraphic
-      c.fillStyle = UNGU; c.fillRect(0, 0, W, H);
+      // tampilan kartu pilihan anggota (desain a/b/c + warna), lihat js/akun.js
+      var g = window.Akun && Akun.gaya ? Akun.gaya(ak.kartu) : { d: 'a', w: 'kuning', c: KUN, ct: INK, c2: INK };
+      // latar ungu MOTE + pita kuning sebagai supergraphic (kartu ungu: latar tinta supaya kartunya tidak tenggelam)
+      c.fillStyle = g.w === 'ungu' ? INK : UNGU; c.fillRect(0, 0, W, H);
       pita(c, P, 'ombak', X, 1150, 1500, -8, KUN);
       pita(c, P, 'simpul-pita', 1010, 40, 440, 12, KUN);   // pojok kanan atas, di luar area teks
       pita(c, P, 'lembah', 120, 1760, 560, 168, KUN);
@@ -77,25 +79,37 @@
       c.textAlign = 'left';
       c.save(); c.translate(X, ky); c.rotate(-3 * Math.PI / 180);
       c.shadowColor = 'rgba(35,34,38,.4)'; c.shadowBlur = 50; c.shadowOffsetY = 26;
-      c.fillStyle = KUN; kotak(c, -kw / 2, -kh / 2, kw, kh, 42); c.fill();
-      c.shadowColor = 'transparent'; c.lineWidth = 5; c.strokeStyle = INK; c.stroke();
+      c.fillStyle = g.c; kotak(c, -kw / 2, -kh / 2, kw, kh, 42); c.fill();
+      c.shadowColor = 'transparent';
+      c.save(); kotak(c, -kw / 2, -kh / 2, kw, kh, 42); c.clip();
+      if (g.d === 'b') {   // pita supergraphic di belakang foto (jalur sama dengan kartu di halaman, kanvas 300x420)
+        c.save(); c.translate(-kw / 2, -kh / 2); c.scale(kw / 300, kh / 420);
+        c.strokeStyle = g.c2; c.lineWidth = 40; c.lineCap = 'round'; c.stroke(new Path2D('M-30 30 C 70 50, 40 170, 150 190 S 300 250, 268 300 S 280 360, 340 340')); c.restore();
+      }
+      if (g.d === 'c') {   // kristik: anyaman aida silang + jahitan putus-putus di tepi
+        c.strokeStyle = g.ct; c.globalAlpha = .16; c.lineWidth = 2;
+        for (var t = -kh; t < kw + kh; t += 16) { c.beginPath(); c.moveTo(-kw / 2 + t, -kh / 2); c.lineTo(-kw / 2 + t - kh, kh / 2); c.stroke(); c.beginPath(); c.moveTo(-kw / 2 + t - kh, -kh / 2); c.lineTo(-kw / 2 + t, kh / 2); c.stroke(); }
+        c.globalAlpha = 1; c.setLineDash([16, 10]); c.lineWidth = 4; c.strokeStyle = g.c2 === g.ct ? g.ct : g.c2; kotak(c, -kw / 2 + 14, -kh / 2 + 14, kw - 28, kh - 28, 32); c.stroke(); c.setLineDash([]);
+      }
+      c.restore();
+      kotak(c, -kw / 2, -kh / 2, kw, kh, 42); c.lineWidth = 5; c.strokeStyle = INK; c.stroke();
       c.fillStyle = INK; kotak(c, -36, -kh / 2 - 44, 72, 92, 14); c.fill();
       c.fillStyle = KUN; kotak(c, -17, -kh / 2 + 22, 34, 10, 5); c.fill();
-      bow(c, -kw / 2 + 36, -kh / 2 + 58, 44, INK);
-      c.fillStyle = INK; c.font = '700 20px DMD'; if ('letterSpacing' in c) c.letterSpacing = '3px';
+      bow(c, -kw / 2 + 36, -kh / 2 + 58, 44, g.ct);
+      c.fillStyle = g.ct; c.font = '700 20px DMD'; if ('letterSpacing' in c) c.letterSpacing = '3px';
       c.fillText('MASYARAKAT', -kw / 2 + 92, -kh / 2 + 70); c.fillText('MODAL TEKUN', -kw / 2 + 92, -kh / 2 + 95);
       if ('letterSpacing' in c) c.letterSpacing = '0px';
       c.font = '700 25px DMD'; c.textAlign = 'right'; c.fillText('No. ' + (ak.no || ''), kw / 2 - 36, -kh / 2 + 86); c.textAlign = 'left';
       // foto potret 4:5, potongan dari atas supaya kepala utuh
       var fx = -kw / 2 + 32, fy = -kh / 2 + 118, fw = kw - 64, fh = 545;   // foto potret 4:5
       c.save(); kotak(c, fx, fy, fw, fh, 28); c.clip();
-      c.fillStyle = 'rgba(255,255,255,.5)'; c.fillRect(fx, fy, fw, fh);
+      c.fillStyle = g.d === 'b' ? g.c : 'rgba(255,255,255,.35)'; c.fillRect(fx, fy, fw, fh); if (g.d === 'b') { c.fillStyle = 'rgba(255,255,255,.3)'; c.fillRect(fx, fy, fw, fh); }
       if (img) {
         var s = Math.max(fw / img.width, fh / img.height), iw = img.width * s, ih = img.height * s;
         c.drawImage(img, fx + (fw - iw) / 2, fy + Math.max(fh - ih, (fh - ih) * .08), iw, ih);
-      } else { c.fillStyle = INK; c.font = '700 140px DMD'; c.textAlign = 'center'; c.fillText(inisial(ak.nama), 0, fy + fh / 2 + 48); c.textAlign = 'left'; }
+      } else { c.fillStyle = g.ct; c.font = '700 140px DMD'; c.textAlign = 'center'; c.fillText(inisial(ak.nama), 0, fy + fh / 2 + 48); c.textAlign = 'left'; }
       c.restore();
-      c.fillStyle = INK; c.font = '700 44px DMD';
+      c.fillStyle = g.ct; c.font = '700 44px DMD';
       c.fillText(bungkus(c, ak.nama || '', fw)[0] || '', fx, fy + fh + 66);
       c.font = '400 27px DMS'; c.fillText([ak.pekerjaan, ak.kota].filter(Boolean).join(' · '), fx, fy + fh + 112);
       c.globalAlpha = .7; c.font = '600 21px DMD'; c.fillText('Anggota sejak ' + bulan(ak.dibuat), fx, fy + fh + 152); c.globalAlpha = 1;
